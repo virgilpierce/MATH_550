@@ -1,0 +1,129 @@
+---
+title: "Applied Probability and Statistics"
+subtitle: "Summer 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Class and Instructor Details
+
+MATH 550-901 (3 credits)
+
+Virgil U. Pierce <br>
+Email: virgil.pierce@unco.edu <br>
+Cell: 956-249-0566
+
+Office: Ross Hall 2239
+
+Class Meetings:  
+
+* 6/14 - 6/17: MTWR 1:00p - 4:00p
+* 6/21 - 7/25: MW 1:00p - 4:00p
+
+## No Textbook Purchase Required
+
+Extensive notes for class will be distributed along with links to websites and other sources of information for the class.
+
+## Course Description and Prerequisites
+
+From the catalog: Methods related to descriptive and inferential statistics and the concept of probability are investigated in depth. 
+
+Questions you will explore this summer:
+
+* What is statistics and what are data?
+* What is randomness and how do we describe long-run behavior?
+* How do we describe our data?
+* How do we make decisions from data?
+* How do we use more data to update our decisions?
+* Can we use these ideas to do computations in other areas of mathematics?
+
+## Programing
+
+Statistics is best experienced through doing the work rather than concentrating on theory and as such we need to use software for the course to do the necessary computations. This course will serve as an introduction to the statistics software R, which is widely used for statistical computations. It is freely available, open source, and has an extensive collection of help online for it.
+
+If you are new to programming, R is a great place to learn because most of the tasks we do will involve just a few lines of commands. No priror knowledge of programming is assumed.
+
+The course materials are being written in R and are available in Github for you at this link: https://github.com/virgilpierce/MATH_550
+
+From there you can download individual files from the class or the entire course as a Zip file. Updates will be pushed to that site as they are prepared.
+
+To access R and the editing software I recommend for using R, RStudio, you have options:
+
+1. You can download Rstudio including R for your Windows or Mac computer by going here: https://www.rstudio.com/products/rstudio/download/ <br>
+Be sure to choose the free option - you will not need the paid versions.
+
+2. If you do not want to or cannot install Rstudio on your computer (for example if you are using a Tablet or Chromebook) you can use cocalc to run R commands: https://cocalc.com
+
+3. You can log in to the Apporto Virtual Server https://unco.apporto.com/ with your UNC credentials and run Rstudio there.
+
+## Course Pre-requisites
+
+Students are expected to have experience with Calculus 1 and 2.
+
+## Course Goals
+
+1. To support students in developing ways of thinking about data that will guide them as critical consumers of statistics in 2021 and beyond.
+2. To support students in developing coherent meanings for specific statistical concepts (and mathematical concepts) so that the use of the statistics becomes useful in their academic, professional, and personal lives.
+3. To support students in improving their problem-solving abilities.
+4. To support students in learning how to make logical and verbal arguments.
+
+## Course Structure
+
+Class will be a mixture of class discussion and group work. If you have been in my classes before it will be a familiar format. We will use Google Docs to collaborate during class, but you may be asked to share your screen to show the computation in R that you are doing.
+
+You will need to be current on the homework for class in order to participate effectively in class. Collected work will be based on the discussion from class.
+
+## Our compact with each other
+
+Our agreement is:
+
+1. Speak with Meaning - reference the attributes and using names for quantities and qualities (and people).
+
+2. Exhibit Intellectual Integrity - base your conjecture on a logical foundation; do not pretend to an understanding. We are all still learning, and admiting that is an important step forward.
+
+3. Strive to Make Sense - persist in making sense of your peer's thinking. Almost every problem we do in class has a variety of approaches and a variety of answers.
+
+4. Respect the Learning Process of All - allow others time to think, reflect, and construct. Pose questions of others.
+
+## Assignments
+
+1. Projects: There will be two take home projects and a final project. You will have at least five days to complete these. They will be partly computational, and partly reflective. They will also have components that are unique to each individual. They are open notes, and in particular any resource online about using R is available provided it is not in the format of a Q&A. If at all in doubt about a resource you have found, please ask. All resources used should be cited. 
+
+2. Homework:  The homework is posed with the intent that you will collaborate with others on it, and you are encouraged to do so. Your instructor is available during the week to consult with as well.
+
+3. Questions: You will occasionally be asked to compose a question for others in the class. These assignments will be collected during class. You will provide your question with a description of how it should be solved (from your point of view) and how it address the goal or concept.
+
+4. Evidence of Learning: The final assignment type is open ended. Your grade in the class is going to be based on your progress towards answering the questions posed in the Course Description. Evidence will naturally come from your submissions for the three types of assignments above, however you are encouraged to consider other evidence that could be provided.
+
+## Grades
+
+
+
+
+
+
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
