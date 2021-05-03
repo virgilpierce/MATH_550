@@ -65,10 +65,10 @@ Students are expected to have experience with Calculus 1 and 2.
 
 ## Course Goals
 
-1. To support students in developing ways of thinking about data that will guide them as critical consumers of statistics in 2021 and beyond.
-2. To support students in developing coherent meanings for specific statistical concepts (and mathematical concepts) so that the use of the statistics becomes useful in their academic, professional, and personal lives.
-3. To support students in improving their problem-solving abilities.
-4. To support students in learning how to make logical and verbal arguments.
+1. Students will develop ways of thinking about data that will guide them as critical consumers of statistics in 2021 and beyond.
+2. Students will develop coherent meanings for specific statistical concepts (and mathematical concepts) so that the use of the statistics becomes useful in their academic, professional, and personal lives.
+3. Students will improve their problem-solving abilities.
+4. Students will make logical and verbal arguments in support of their conclusions.
 
 ## Course Structure
 
@@ -100,30 +100,27 @@ Our agreement is:
 
 ## Grades
 
+Your grade will be based upon the 4 assignment types above and the extent to which they contain evidence that the course goals have been met. Exceding expectations on all four course goals will result in a grade of A; a grade of B will mean that all of the course goals were met and on at least one the expectation was exceeded; a grade of C will mean that all of the course goals were met; a grade of D will mean that some of the course goals were met but not all of them; and a grade of F will mean that none of the course goals were met.
 
+## UNCO Policy Statements
 
+### Disability Resources
 
+It is the policy and practice of the University of Nothern Colorado to create inclusive learning environments - including this class. If there are aspects of the instruction or design of this course that present barriers to your inclusion or to an accurate assessment of your achievement [learning] such as time-limited exams, inaccessible web content, or use of videos without captions, please communicate this with your professor and contact Disability Support Services (DSS) at (970) 351-2289, Michener Library L-80 to request accommodations. Students can learn more about the accomodation process at https://www.unco.edu/disability-resource-center/accomodations/
 
+### Food Insecurity and Basic Needs
 
+Research shows that college students experience food insecurity at higher rates than the American household rate, and that food insecurity can negatively impact academic performance and persistence. In recognition of this problem, UNC offers assistance to students facing food insecurity through an on-campus food pantry. *The Bear Pantry*  
+is located in University Center 2166A, and is open for regular hours throughout the semester. 
 
+Please visit http://www.unco.edu/bear-pantry for more information.
 
+Any student who faces challenges securing their food or housing and believes this may affect their performance in the course is also urged to contact Student Outreach and Support (SOS) for assistance. SOS can assist students during difficult circumstances which may include medical, mental health, personal or family crisis, illness or injury. SOS can be reached at sos@unco.edu or via phone at 970-351-2796.
 
-## R Markdown
+### Honor Code
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+All members of the Univeristy of Northern Colorado community are entrustred with the responsibility to uphold and promote five fundamental values: Honesty, Trust, Respect, Fairness, and Responsibility. These core elements foster an atmosphere, insite and outside the classroom, which serves as a foundation and guides the UNC community's academic, professional, and personal growth. Endorsement of these core elements by students, faculty, staff, administration, and trustees strengthens the integrity and value of our academic climate. 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+### UNC's Policies
 
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+There are more university policies not printed here, but published in the course catalog, university regulations, and the UNC Board of Trustees Policy Manual. In particular we will follow UNC's polices and recomendations for academic misconduct. For additional information, please see the Student Code of Conduct at the Dean of Student's website: http://wwww.unco.edu/dos/Conduct/codeofconduct.html. In the case of academic appeals, university procedures will be followed. For information on academic appeals see: https://www.unco.edu/trustees/pdf/board-policy-manual.pdf.
