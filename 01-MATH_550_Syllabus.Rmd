@@ -1,12 +1,4 @@
----
-title: "Applied Probability and Statistics"
-subtitle: "Summer 2021"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Course Syllabus {}
 
 ## Class and Instructor Details
 

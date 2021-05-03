@@ -1,0 +1,15 @@
+---
+title: "MATH 550 - Applied Probability and Statistics"
+author: "Virgil U Pierce"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+github-repo: virgilpierce/MATH_550
+description: "Textbook for MATH 550 Applied Probability and Statistics"
+---
+
+```{r eval=FALSE}
+install.packages("bookdown")
+```
+
