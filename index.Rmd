@@ -13,3 +13,6 @@ description: "Textbook for MATH 550 Applied Probability and Statistics"
 install.packages("bookdown")
 ```
 
+# Introduction {}
+
+Welcome to MATH 550 - Applied Probability and Statistics.

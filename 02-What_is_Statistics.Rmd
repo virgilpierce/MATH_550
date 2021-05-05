@@ -1,0 +1,145 @@
+# What is Statistics? {}
+
+Our first unit will cover:
+- How and why we will be using R in this course.
+- A discussion of *What is Statistics*?
+- A discussion of the differences between Exploratory versus Confirmatory analysis
+- An overview of some of the problems we will develop tools to answer in this course
+
+
+## Introduction and R
+
+This course is going to use R for the computations. Much of what we do could be computed using Excell or Google Sheets however R has ceertain advantages over these tools:
+
+- R is a purpose built statistics software. It is designed to do that really well.
+- R arguably is the best tool for producing good looking figures suitable for publications. The figures are easy to manipulate and adjust. Most importantly it is really easy to have your figures be consistently formatted, something that is much harder with spreadsheets. 
+- R includes a markdown language for creating nice looking notebooks: It can be used as an all in one publication tool to produce a report or paper with statistical analysis. 
+- R is an industry standard tool for doing statistics. 
+
+and most importantly 
+
+- R is open and free. You can download it, and the tools we will use to interact with it **Rstudio** for free. It is also possible to use R in online environments like Cocalc. 
+- If you are teaching a statistics class for your high school or college, I highly recommend using R as part of your class. 
+
+### What do you need
+
+To get started:
+
+1. **If you are using a Mac or PC** you should download a copy of RStudio from https://www.rstudio.com/products/rstudio/  the free version is all you will need. This includes a copy of R itself - Rstudio is a tool for interacting with R to make some of our tasks easier.
+
+2. **If you are using a Chromebook or want to use R on a tablet** I have two options for you:
+  a. Cocalc provides an online interface that lets you issue R commands. It also includes a markdown language so you will be able to use it to prepare the documents for class. You can reach it here: https://cocalc.com/ you will need to create an account.
+  b. The university Apporto virtual machine:  https://unco.apporto.com has R studio installed. You can log in to it from any browser.
+  
+If at all possible I would recomend 1. as with the software installed locally you will not need to be using your internet connection. However students using 2. in my classes have reported that it works well for them.
+
+### Open Rstudio
+
+To actually start using R, go ahead and open R studio. You can use R directly in the console (lower-left quadrant) however I recommend interacting with it in a Notebook as this provides you with:
+
+- an easy way to modify inputs and execute them again.
+- an easy way to save your work to return to it later or to copy and paste it to a new notebook.
+- the ability to add markdown explaining what you are doing. 
+
+The button on the top-left of the tool bar is for openning new documents, click the triangle next to it and choose "New Notebook" form the menu. RStudio helpfully inserts some information setting up your new notebook. You can adjust it as you wish. You can save the document from the file menu or using the toolbar buttons. RStudio has provided an example of how to put in Markdown language, and how to put in R commands. You execute a section of R commands but putting the cursor inside of it and pressing "Control+Enter".  Try it now on the *plot(cars)* command. 
+
+```{r}
+plot(cars)
+```
+### A few words about programming languages
+
+Before we continue with the *Probability and Statistics* I want to just add that learning programming languages is a powerful tool to help your students advance in their thinking about mathematics, one that I worry we do not spend enough time working with students on. At UNC one of my main goals for my tenure as School Director is to incorporate Python and R into the undergraduate mathematics curriculum wherever we can. A key part of learning a programming language, or more accurately, the only thing that has ever worked for me is having a problem I am interested in that needs solving. Statistics for myself, I hope for you by the end of this course, and for your students could be that problem that motivates learning some programing.
+
+Independently of all of that R is a great language to start with for the following reasons:
+
+1. Because R is so fundamentally focused on statistics and visualizations of data, it is simpler and more compact than a general language.
+2. R is human readable - you can usually read a statement outloud and you will no exactly what it is doing.
+3. R is free.
+
+If you are interested in more about how to introduce students to R in a statistics class, or Python in an algebra, trigonometry, or calculus class, please let me know. It is a topic I am very interested in advancing further to students elsewhere.
+
+### A first example
+
+**How many students were in each of your classes this Spring?**
+While I am collecting this data you can reflect on this funny musing. I grew up in rural Vermont and one thing I remember learning as a child was that asking a farmer how many cows they had was very rude, equivalent to asking how much money they had. I've always felt a bit strange asking other teachers how many students they have because of this.
+
+
+```{r}
+# for testing use this
+students <- round(rnorm(20, 25, 5))
+
+# for class use this
+# students <- {} 
+```
+
+*R Notes*:  lists in R are enclosed in *curly braces* and each member of the list is separated by a *semi-colon* or a space; note I think leaving the space is bad practice and recommend not using that feature. In this case our list is a collection of integers. Lists can more generally be numbers or strings or even lists of lists. 
+
+Comments in commands start with *hash symbols*.
+
+Another syntax note:  R uses both = and <- for assignment. They both work as you would expect, however <- has some nice positives in the detailed differences and it is worth getting into the habit of using it.
+
+*RStudio Note*: You might notice that the variable we have just created has appeared in the upper-right quadrant of RStudio.
+
+#### Summary Statistics
+
+To get started we can use *summary* to get an overview of what our list of student enrollments look like. Review the meaning of each of these.
+
+```{r}
+summary(students)
+```
+
+Mean and Median are *measures of center*, while the quartiles are *measures of spread*. One measure of spread missing is the variance or its square root standard deviation:
+
+```{r}
+var(students); sqrt(var(students))
+```
+
+These variance is computing by taking the sum of the square differences between the data and the mean and then dividing that by number of items minus one; we will explain why this is what we divide by later in class.
+
+```{r}
+ybar <- mean(students)
+(students - ybar)^2
+```
+
+```{r}
+sum( (students - ybar)^2 ) / ( length(students) - 1 )
+```
+
+Note why we compute variance in this way. We are trying to understand how far the data moves from the mean $\bar{y}$. However we can't just sum over the differences as that will just add up to zero:
+
+```{r}
+sum(students - ybar )
+```
+
+We have choices though, we could sum over the absolute value and indeed that does give us a notion of spread. However the advantage of summing over the squares is that it brings in tools from Calculus that work with quadratic expressions but not with absolute value expressions. We then intend to take an average. For reasons we will justify later, it turns out the correct average to do is to divde by the size of our sample minus 1:  $n-1$ is called the degrees of freedom (roughly computeing $\bar{y}$ from the sample has used up one degree of freedom).
+
+Note the units on these two statistics:  the variance is the average of the sum of the squares (by the number of degrees of freedom) so its units are the square of the units of our sample data (*students squared* in this case); and then the standard deviation is the square root of the variance and so has units of the original data (*students* in this case).
+
+
+## Plots
+
+That's all fine and good, but a picture (or two) is worth a thousand words and probably tens of thousands of computations. Let's introduce ourselves to two types of plots:
+
+### Histograms
+
+Histograms are made by binning the data and then drawing bars whose height is the number of data points in each bin. They give us a visualization of the distribution of our data:  Taller bars mean more of the data was near those values.
+
+```{r} 
+hist(students, 10)
+```
+
+Note you can adjust the number of bins to use. R tries to guess the labels from the names of the data. You can output the image to a file by right clicking on it, by using the export command in the plot tab in the lower-right quadrant of RStudio or by using a command in the console in the lower-left quadrant. Of course if you are using Markdown to compose you text you don't need to export the figure, you have it right here.
+
+Note the connection to the numerical summaries we have:  The mean gives the center of mass of the histogram, while the variance (or standard deviation describes how much it spreads out from there).
+
+### BoxPlot
+
+Boxplots are a visual representation of the quadrant and median statistics for our data:
+
+```{r}
+boxplot(students, horizontal = TRUE)
+# Note the use of = for a parameter instead of <-
+```
+
+To interpret boxplots you should think in terms of quadrants:  Half of the data is in the box. Half of the data is to either side of the median.
+
