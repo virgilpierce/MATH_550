@@ -19,9 +19,10 @@ what-is-statistics
 introduction-and-r
 what-do-you-need
 open-rstudio
+a-few-words-about-programming-languages
 a-first-example
 summary-statistics
 plots
 histograms
 boxplot
-a-few-words-about-programming-languages
+numerical-versus-categorical-data

@@ -156,3 +156,27 @@ boxplot(students, horizontal=TRUE)
 
 To interpret boxplots you should think in terms of quartiles:  Half of the data is in the box. Half of the data is to either side of the median.
 
+## Numerical versus Categorical Data
+
+The class sizes data is an example of *numerical data*. Another type of data used frequently is *categorical cata*: 
+
+Note if you are running this code, you will need to download the "Supermarket Transactions.xlsx" file from Github or here. We will also need to use the tidy package. You may need to install this package using *install.packages("tidyverse").
+
+Then you will need to load the libraries:
+
+```{r}
+library(readxl) # for reading Excel files
+library(ggplot2) # for making nice plots - part of the tidyverse
+```
+
+
+```{r}
+supermarket <- read_excel("Supermarket Transactions.xlsx", sheet = 2)
+supermarket
+```
+
+A couple of notes are in order here before we continue: Note that this data set is made up of samples (rows) each of which has 10 features (columns). Some of the features are numerical - *Units Sold* and *Revenue*, some could be converted into numerical units if we are careful *Annual Income*, while others are purely categorical giving us just a description of the value. Also note there is a factor that looks numerical but for which it would probably be misleading to treat it as such.
+
+
+
+
