@@ -261,4 +261,31 @@ A big change in the field in the last two decades is that large datasets are bec
 
 ## Correlations and Predictions
 
-One of our common goals 
+One of our frequent tasks is to use data to make predictions. The process usually involves exploratory analysis of a data set looking for potential relationships between factors in the sample, and then building models to reproduce features of those relationships. Let's explore this with the mpg data set, a sample of features for 234 cars. 
+
+```{r}
+mpg
+```
+
+*displ* for *displacement* is the total liters the car's engine has in its cylinders, while *hwy* is the *highway miles-per-gallon* efficiency of the vehicle. A basic question is what is the relationship between displacement of the engine and the fuel efficiency. Let's plot for each engine its fuel efficiency versus the engine displacement. Note that the pattern for producing the graph is similar to the one we used above. 
+
+```{r}
+ggplot(data = mpg) + geom_point(mapping = aes( x = displ, y = hwy ))
+```
+
+Not surprisingly, larger engines are less effecient *generally*. However the relationship is not exact - why not?  
+
+Our model for this is going to be that the *displacement* is known exactly and then the fuel efficiency is given by:  $$ y - y_0 = k (x - x_0) + \mbox{Error} $$ 
+Where the Error is a random variable encapsulating all of the other features (variables) in the car - its *mass*, *aerodynmaic features*, *turbo chargers*, *cargo capacity*, *transmission*, and on and on. It is likely we may never even know all of the variables that have an effect on the fuel efficiency and cause two cars with the same displacement to have different efficiencies. 
+
+Another possibility is that the relationship is not in fact linear. 
+
+Finally. There may be a subclass of the data that does not fit with the rest. Note the set of six cars with significant displacements (greater than 5 liters) but with fuel efficiencies well 
+above the linear trend. To explore this, we can add more variables to a scatter plot by using *color*, *shape*, and *size* attributes. Lets use color with the *class* variable in our data:
+
+```{r}
+ggplot(data = mpg) + geom_point(mapping = aes( x = displ, y = hwy, color = class ))
+```
+
+
+

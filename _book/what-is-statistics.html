@@ -268,7 +268,7 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 <span id="cb3-5"><a href="what-is-statistics.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># students &lt;- {} </span></span>
 <span id="cb3-6"><a href="what-is-statistics.html#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-7"><a href="what-is-statistics.html#cb3-7" aria-hidden="true" tabindex="-1"></a>students</span></code></pre></div>
-<pre><code>##  [1] 32 20 22 25 18 20 23 25 25 30 31 20 21 28 29 19 23 23 22 30</code></pre>
+<pre><code>##  [1] 32 21 23 25 28 16 29 20 21 27 33 25 19 24 20 25 20 25 24 20</code></pre>
 <p><em>R Notes</em>: lists in R are enclosed in <em>curly braces</em> and each member of the list is separated by a <em>semi-colon</em> or a space; note I think leaving the space is bad practice and recommend not using that feature. In this case our list is a collection of integers. Lists can more generally be numbers or strings or even lists of lists.</p>
 <p>Comments in commands start with <em>hash symbols</em>.</p>
 <p>Another syntax note: R uses both = and &lt;- for assignment though they have slightly different meanings. They both work as you would expect, however &lt;- has some nice positives in the detailed differences and it is worth getting into the habit of using it.</p>
@@ -278,11 +278,11 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 <p>To get started we can use <em>summary</em> to get an overview of what our list of student enrollments look like. Review the meaning of each of these.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="what-is-statistics.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(students)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   18.00   20.75   23.00   24.30   28.25   32.00</code></pre>
+##   16.00   20.00   24.00   23.85   25.50   33.00</code></pre>
 <p>Mean and Median are <em>measures of center</em>, while the quartiles are <em>measures of spread</em>. One measure of spread missing is the variance or its square root standard deviation:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="what-is-statistics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(students); <span class="fu">sqrt</span>(<span class="fu">var</span>(students))</span></code></pre></div>
-<pre><code>## [1] 18.74737</code></pre>
-<pre><code>## [1] 4.329823</code></pre>
+<pre><code>## [1] 19.50263</code></pre>
+<pre><code>## [1] 4.416178</code></pre>
 <p>The variance is computed by taking the sum of the square differences between the data and the mean and then dividing that by number of items minus one; we will explain why this is what we divide by later in class:
 <span class="math display">\[ S = \frac{1}{n-1} \sum_{j=1}^n (y_j - \bar{y} )^2 \]</span> where <span class="math inline">\(\bar{y}\)</span> is the mean of the sample made up of the <span class="math inline">\(\{ y_1, y_2, \dots, y_n \}\)</span>.</p>
 <p>In the code blocks below I will add some comments about what we are doing:</p>
@@ -292,16 +292,17 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 <span id="cb10-4"><a href="what-is-statistics.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-5"><a href="what-is-statistics.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># R can then do the arithmetic and when we combine a list of numbers with a single number and square it, it knows what we mean.</span></span>
 <span id="cb10-6"><a href="what-is-statistics.html#cb10-6" aria-hidden="true" tabindex="-1"></a>(students <span class="sc">-</span> ybar)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>##  [1] 59.29 18.49  5.29  0.49 39.69 18.49  1.69  0.49  0.49 32.49 44.89 18.49
-## [13] 10.89 13.69 22.09 28.09  1.69  1.69  5.29 32.49</code></pre>
+<pre><code>##  [1] 66.4225  8.1225  0.7225  1.3225 17.2225 61.6225 26.5225 14.8225  8.1225
+## [10]  9.9225 83.7225  1.3225 23.5225  0.0225 14.8225  1.3225 14.8225  1.3225
+## [19]  0.0225 14.8225</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="what-is-statistics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Then as we said, we sum over all of these and then divide by the number of them</span></span>
 <span id="cb12-2"><a href="what-is-statistics.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># minus 1</span></span>
 <span id="cb12-3"><a href="what-is-statistics.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="what-is-statistics.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( (students <span class="sc">-</span> ybar)<span class="sc">^</span><span class="dv">2</span> ) <span class="sc">/</span> ( <span class="fu">length</span>(students) <span class="sc">-</span> <span class="dv">1</span> )</span></code></pre></div>
-<pre><code>## [1] 18.74737</code></pre>
+<pre><code>## [1] 19.50263</code></pre>
 <p>Note why we compute variance in this way. We are trying to understand how far the data moves from the mean <span class="math inline">\(\bar{y}\)</span>. However we can’t just sum over the differences as that will just add up to zero:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="what-is-statistics.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(students <span class="sc">-</span> ybar )</span></code></pre></div>
-<pre><code>## [1] -1.421085e-14</code></pre>
+<pre><code>## [1] -2.842171e-14</code></pre>
 <p>We have choices though, we could sum over the absolute value and indeed that does give us a notion of spread. However the advantage of summing over the squares is that it brings in tools from Calculus that work with quadratic expressions but not with absolute value expressions. We then intend to take an average. For reasons we will justify later, it turns out the correct average to do is to divide by the size of our sample minus 1: <span class="math inline">\(n-1\)</span> is called the degrees of freedom (roughly computing <span class="math inline">\(\bar{y}\)</span> from the sample has used up one degree of freedom).</p>
 <p>Note the units on these two statistics: the variance is the average of the sum of the squares (by the number of degrees of freedom) so its units are the square of the units of our sample data (<em>students squared</em> in this case); and then the standard deviation is the square root of the variance and so has units of the original data (<em>students</em> in this case).</p>
 </div>
@@ -479,7 +480,33 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 </div>
 <div id="correlations-and-predictions" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Correlations and Predictions</h2>
-<p>One of our common goals</p>
+<p>One of our frequent tasks is to use data to make predictions. The process usually involves exploratory analysis of a data set looking for potential relationships between factors in the sample, and then building models to reproduce features of those relationships. Let’s explore this with the mpg data set, a sample of features for 234 cars.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="what-is-statistics.html#cb35-1" aria-hidden="true" tabindex="-1"></a>mpg</span></code></pre></div>
+<pre><code>## # A tibble: 234 x 11
+##    manufacturer model    displ  year   cyl trans   drv     cty   hwy fl    class
+##    &lt;chr&gt;        &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+##  1 audi         a4         1.8  1999     4 auto(l… f        18    29 p     comp…
+##  2 audi         a4         1.8  1999     4 manual… f        21    29 p     comp…
+##  3 audi         a4         2    2008     4 manual… f        20    31 p     comp…
+##  4 audi         a4         2    2008     4 auto(a… f        21    30 p     comp…
+##  5 audi         a4         2.8  1999     6 auto(l… f        16    26 p     comp…
+##  6 audi         a4         2.8  1999     6 manual… f        18    26 p     comp…
+##  7 audi         a4         3.1  2008     6 auto(a… f        18    27 p     comp…
+##  8 audi         a4 quat…   1.8  1999     4 manual… 4        18    26 p     comp…
+##  9 audi         a4 quat…   1.8  1999     4 auto(l… 4        16    25 p     comp…
+## 10 audi         a4 quat…   2    2008     4 manual… 4        20    28 p     comp…
+## # … with 224 more rows</code></pre>
+<p><em>displ</em> for <em>displacement</em> is the total liters the car’s engine has in its cylinders, while <em>hwy</em> is the <em>highway miles-per-gallon</em> efficiency of the vehicle. A basic question is what is the relationship between displacement of the engine and the fuel efficiency. Let’s plot for each engine its fuel efficiency versus the engine displacement. Note that the pattern for producing the graph is similar to the one we used above.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="what-is-statistics.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> displ, <span class="at">y =</span> hwy ))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Not surprisingly, larger engines are less effecient <em>generally</em>. However the relationship is not exact - why not?</p>
+<p>Our model for this is going to be that the <em>displacement</em> is known exactly and then the fuel efficiency is given by: <span class="math display">\[ y - y_0 = k (x - x_0) + \mbox{Error} \]</span>
+Where the Error is a random variable encapsulating all of the other features (variables) in the car - its <em>mass</em>, <em>aerodynmaic features</em>, <em>turbo chargers</em>, <em>cargo capacity</em>, <em>transmission</em>, and on and on. It is likely we may never even know all of the variables that have an effect on the fuel efficiency and cause two cars with the same displacement to have different efficiencies.</p>
+<p>Another possibility is that the relationship is not in fact linear.</p>
+<p>Finally. There may be a subclass of the data that does not fit with the rest. Note the set of six cars with significant displacements (greater than 5 liters) but with fuel efficiencies well
+above the linear trend. To explore this, we can add more variables to a scatter plot by using <em>color</em>, <em>shape</em>, and <em>size</em> attributes. Lets use color with the <em>class</em> variable in our data:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="what-is-statistics.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>( <span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class ))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 
 </div>
 </div>
