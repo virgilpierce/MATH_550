@@ -24,7 +24,7 @@
 <meta name="author" content="Virgil U Pierce" />
 
 
-<meta name="date" content="2021-05-07" />
+<meta name="date" content="2021-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#histograms"><i class="fa fa-check"></i><b>3.2.1</b> Histograms</a></li>
 <li class="chapter" data-level="3.2.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#boxplot"><i class="fa fa-check"></i><b>3.2.2</b> BoxPlot</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#numerical-versus-categorical-data"><i class="fa fa-check"></i><b>3.3</b> Numerical versus Categorical Data</a></li>
+<li class="chapter" data-level="3.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#numerical-versus-categorical-data"><i class="fa fa-check"></i><b>3.3</b> Numerical versus Categorical Data</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#list-of-features"><i class="fa fa-check"></i><b>3.3.1</b> List of features</a></li>
+<li class="chapter" data-level="3.3.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#frequencies"><i class="fa fa-check"></i><b>3.3.2</b> Frequencies</a></li>
+<li class="chapter" data-level="3.3.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#proportions"><i class="fa fa-check"></i><b>3.3.3</b> Proportions</a></li>
+<li class="chapter" data-level="3.3.4" data-path="what-is-statistics.html"><a href="what-is-statistics.html#charts"><i class="fa fa-check"></i><b>3.3.4</b> Charts</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -203,6 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>R is a purpose built statistics software. It is designed to do that really well.</li>
 <li>R arguably is the best tool for producing good looking figures suitable for publications. The figures are easy to manipulate and adjust. Most importantly it is really easy to have your figures be consistently formatted, something that is much harder with spreadsheets.</li>
 <li>R includes a markdown language for creating nice looking notebooks: It can be used as an all in one publication tool to produce a report or paper with statistical analysis.</li>
+<li>The markdown language includes LaTex for typsetting mathematics: <span class="math display">\[ \int_a^b f(x) dx \]</span></li>
 <li>R is an industry standard tool for doing statistics.</li>
 </ul>
 <p>and most importantly</p>
@@ -215,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To get started:</p>
 <ol style="list-style-type: decimal">
 <li><p><strong>If you are using a Mac or PC</strong> you should download a copy of RStudio from <a href="https://www.rstudio.com/products/rstudio/" class="uri">https://www.rstudio.com/products/rstudio/</a> the free version is all you will need. This includes a copy of R itself - Rstudio is a tool for interacting with R to make some of our tasks easier.</p></li>
-<li><p><strong>If you are using a Chromebook or want to use R on a tablet</strong> I have two options for you:</p></li>
+<li><p><strong>If you are using a Chromebook, want to use R on a tablet, or just don’t want to install it</strong> I have two options for you:</p></li>
 </ol>
 <ol style="list-style-type: lower-alpha">
 <li>Cocalc provides an online interface that lets you issue R commands. It also includes a markdown language so you will be able to use it to prepare the documents for class. You can reach it here: <a href="https://cocalc.com/" class="uri">https://cocalc.com/</a> you will need to create an account.</li>
@@ -231,13 +238,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>an easy way to save your work to return to it later or to copy and paste it to a new notebook.</li>
 <li>the ability to add markdown explaining what you are doing.</li>
 </ul>
-<p>The button on the top-left of the tool bar is for openning new documents, click the triangle next to it and choose “New Notebook” form the menu. RStudio helpfully inserts some information setting up your new notebook. You can adjust it as you wish. You can save the document from the file menu or using the toolbar buttons. RStudio has provided an example of how to put in Markdown language, and how to put in R commands. You execute a section of R commands but putting the cursor inside of it and pressing “Control+Enter”. Try it now on the <em>plot(cars)</em> command.</p>
+<p>The button on the top-left of the tool bar is for openning new documents, click the triangle next to it and choose “New Notebook” form the menu. RStudio helpfully inserts some information setting up your new notebook. You can adjust it as you wish. You can save the document from the file menu or using the toolbar buttons. RStudio has provided an example of how to put in Markdown language, and how to put in R commands. You execute a section of R commands but putting the cursor inside of it and pressing “Control+Enter” (or on a mac “Command+Enter”, if using Cocalc you will need to press “Shift+Enter”). Try it now on the <em>plot(cars)</em> command.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="what-is-statistics.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="a-few-words-about-programming-languages" class="section level3" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> A few words about programming languages</h3>
-<p>Before we continue with the <em>Probability and Statistics</em> I want to just add that learning programming languages is a powerful tool to help your students advance in their thinking about mathematics, one that I worry we do not spend enough time working with students on. At UNC one of my main goals for my tenure as School Director is to incorporate Python and R into the undergraduate mathematics curriculum wherever we can. A key part of learning a programming language, or more accurately, the only thing that has ever worked for me is having a problem I am interested in that needs solving. Statistics for myself, I hope for you by the end of this course, and for your students could be that problem that motivates learning some programing.</p>
+<p>Before we continue with the <em>Probability and Statistics</em> I want to just add that learning programming languages is a powerful tool to help your students advance in their thinking about mathematics, one that I worry we do not spend enough time working with students on. At UNC one of my main goals for my tenure as School Director is to incorporate Python and R into the undergraduate mathematics curriculum wherever we can. A key part of learning a programming language, or more accurately, the only thing that has ever worked for me is having a problem I am interested in that needs solving. Statistics for myself, I hope for you by the end of this course, and for your students could be that problem that motivates learning some programming.</p>
 <p>Independently of all of that R is a great language to start with for the following reasons:</p>
 <ol style="list-style-type: decimal">
 <li>Because R is so fundamentally focused on statistics and visualizations of data, it is simpler and more compact than a general language.</li>
@@ -257,22 +264,23 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 <span id="cb3-5"><a href="what-is-statistics.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># students &lt;- {} </span></span>
 <span id="cb3-6"><a href="what-is-statistics.html#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-7"><a href="what-is-statistics.html#cb3-7" aria-hidden="true" tabindex="-1"></a>students</span></code></pre></div>
-<pre><code>##  [1] 25 25 30 19 23 31 29 27 20 26 26 25 25 23 30 35 28 25 22 27</code></pre>
+<pre><code>##  [1] 31 26 19 21 34 14 30 19 26 33 25 21 36 27 14 31 26 23 29 24</code></pre>
 <p><em>R Notes</em>: lists in R are enclosed in <em>curly braces</em> and each member of the list is separated by a <em>semi-colon</em> or a space; note I think leaving the space is bad practice and recommend not using that feature. In this case our list is a collection of integers. Lists can more generally be numbers or strings or even lists of lists.</p>
 <p>Comments in commands start with <em>hash symbols</em>.</p>
-<p>Another syntax note: R uses both = and &lt;- for assignment. They both work as you would expect, however &lt;- has some nice positives in the detailed differences and it is worth getting into the habit of using it.</p>
+<p>Another syntax note: R uses both = and &lt;- for assignment though they have slightly different meanings. They both work as you would expect, however &lt;- has some nice positives in the detailed differences and it is worth getting into the habit of using it.</p>
 <p><em>RStudio Note</em>: You might notice that the variable we have just created has appeared in the upper-right quadrant of RStudio.</p>
 <div id="summary-statistics" class="section level4" number="3.1.4.1">
 <h4><span class="header-section-number">3.1.4.1</span> Summary Statistics</h4>
 <p>To get started we can use <em>summary</em> to get an overview of what our list of student enrollments look like. Review the meaning of each of these.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="what-is-statistics.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(students)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   19.00   24.50   25.50   26.05   28.25   35.00</code></pre>
+##   14.00   21.00   26.00   25.45   30.25   36.00</code></pre>
 <p>Mean and Median are <em>measures of center</em>, while the quartiles are <em>measures of spread</em>. One measure of spread missing is the variance or its square root standard deviation:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="what-is-statistics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(students); <span class="fu">sqrt</span>(<span class="fu">var</span>(students))</span></code></pre></div>
-<pre><code>## [1] 14.57632</code></pre>
-<pre><code>## [1] 3.817894</code></pre>
-<p>The variance is computed by taking the sum of the square differences between the data and the mean and then dividing that by number of items minus one; we will explain why this is what we divide by later in class.</p>
+<pre><code>## [1] 38.57632</code></pre>
+<pre><code>## [1] 6.210983</code></pre>
+<p>The variance is computed by taking the sum of the square differences between the data and the mean and then dividing that by number of items minus one; we will explain why this is what we divide by later in class:
+<span class="math display">\[ S = \frac{1}{n-1} \sum_{j=1}^n (y_j - \bar{y} )^2 \]</span> where <span class="math inline">\(\bar{y}\)</span> is the mean of the sample made up of the <span class="math inline">\(\{ y_1, y_2, \dots, y_n \}\)</span>.</p>
 <p>In the code blocks below I will add some comments about what we are doing:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="what-is-statistics.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a variable for the mean we will consistently use bar for sample mean</span></span>
 <span id="cb10-2"><a href="what-is-statistics.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># again note I use the &lt;- assignment rather than =</span></span>
@@ -280,15 +288,17 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 <span id="cb10-4"><a href="what-is-statistics.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-5"><a href="what-is-statistics.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># R can then do the arithmetic and when we combine a list of numbers with a single number and square it, it knows what we mean.</span></span>
 <span id="cb10-6"><a href="what-is-statistics.html#cb10-6" aria-hidden="true" tabindex="-1"></a>(students <span class="sc">-</span> ybar)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>##  [1]  1.1025  1.1025 15.6025 49.7025  9.3025 24.5025  8.7025  0.9025 36.6025  0.0025  0.0025  1.1025  1.1025  9.3025 15.6025 80.1025  3.8025  1.1025 16.4025  0.9025</code></pre>
+<pre><code>##  [1]  30.8025   0.3025  41.6025  19.8025  73.1025 131.1025  20.7025  41.6025
+##  [9]   0.3025  57.0025   0.2025  19.8025 111.3025   2.4025 131.1025  30.8025
+## [17]   0.3025   6.0025  12.6025   2.1025</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="what-is-statistics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Then as we said, we sum over all of these and then divide by the number of them</span></span>
 <span id="cb12-2"><a href="what-is-statistics.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># minus 1</span></span>
 <span id="cb12-3"><a href="what-is-statistics.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="what-is-statistics.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( (students <span class="sc">-</span> ybar)<span class="sc">^</span><span class="dv">2</span> ) <span class="sc">/</span> ( <span class="fu">length</span>(students) <span class="sc">-</span> <span class="dv">1</span> )</span></code></pre></div>
-<pre><code>## [1] 14.57632</code></pre>
+<pre><code>## [1] 38.57632</code></pre>
 <p>Note why we compute variance in this way. We are trying to understand how far the data moves from the mean <span class="math inline">\(\bar{y}\)</span>. However we can’t just sum over the differences as that will just add up to zero:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="what-is-statistics.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(students <span class="sc">-</span> ybar )</span></code></pre></div>
-<pre><code>## [1] -1.421085e-14</code></pre>
+<pre><code>## [1] 1.421085e-14</code></pre>
 <p>We have choices though, we could sum over the absolute value and indeed that does give us a notion of spread. However the advantage of summing over the squares is that it brings in tools from Calculus that work with quadratic expressions but not with absolute value expressions. We then intend to take an average. For reasons we will justify later, it turns out the correct average to do is to divide by the size of our sample minus 1: <span class="math inline">\(n-1\)</span> is called the degrees of freedom (roughly computing <span class="math inline">\(\bar{y}\)</span> from the sample has used up one degree of freedom).</p>
 <p>Note the units on these two statistics: the variance is the average of the sum of the squares (by the number of degrees of freedom) so its units are the square of the units of our sample data (<em>students squared</em> in this case); and then the standard deviation is the square root of the variance and so has units of the original data (<em>students</em> in this case).</p>
 </div>
@@ -317,29 +327,140 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 <div id="numerical-versus-categorical-data" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Numerical versus Categorical Data</h2>
 <p>The class sizes data is an example of <em>numerical data</em>. Another type of data used frequently is <em>categorical cata</em>:</p>
-<p>Note if you are running this code, you will need to download the “Supermarket Transactions.xlsx” file from Github or here. We will also need to use the tidy package. You may need to install this package using</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="what-is-statistics.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>);</span></code></pre></div>
-<pre><code>## Error in install.packages : Updating loaded packages</code></pre>
-<p>Then you will need to load the package:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="what-is-statistics.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb21-2"><a href="what-is-statistics.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="what-is-statistics.html#cb22-1" aria-hidden="true" tabindex="-1"></a>supermarket <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;Supermarket Transactions.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span>
-<span id="cb22-2"><a href="what-is-statistics.html#cb22-2" aria-hidden="true" tabindex="-1"></a>supermarket</span></code></pre></div>
+<p>Note if you are running this code, you will need to download the “Supermarket Transactions.xlsx” file from Github or here. We will also need to use the tidy package. You may need to install this package using <em>install.packages(“tidyverse”)</em>. Credit to UC Business Analytics R Programming Guide for this section, you can find the source here <a href="https://uc-r.github.io/descriptives_categorical" class="uri">https://uc-r.github.io/descriptives_categorical</a></p>
+<p>Then you will need to load the libraries:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="what-is-statistics.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl) <span class="co"># for reading Excel files</span></span>
+<span id="cb19-2"><a href="what-is-statistics.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># for making nice plots - part of the tidyverse</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="what-is-statistics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>supermarket <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;Supermarket Transactions.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="dv">2</span>)</span>
+<span id="cb20-2"><a href="what-is-statistics.html#cb20-2" aria-hidden="true" tabindex="-1"></a>supermarket</span></code></pre></div>
 <pre><code>## # A tibble: 14,059 x 16
-##    Transaction `Purchase Date`     `Customer ID` Gender `Marital Status` Homeowner Children `Annual Income` City    `State or Provin… Country `Product Family` `Product Depart… `Product Catego…
-##          &lt;dbl&gt; &lt;dttm&gt;                      &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;           
-##  1           1 2011-12-18 00:00:00          7223 F      S                Y                2 $30K - $50K     Los An… CA                USA     Food             Snack Foods      Snack Foods     
-##  2           2 2011-12-20 00:00:00          7841 M      M                Y                5 $70K - $90K     Los An… CA                USA     Food             Produce          Vegetables      
-##  3           3 2011-12-21 00:00:00          8374 F      M                N                2 $50K - $70K     Bremer… WA                USA     Food             Snack Foods      Snack Foods     
-##  4           4 2011-12-21 00:00:00          9619 M      M                Y                3 $30K - $50K     Portla… OR                USA     Food             Snacks           Candy           
-##  5           5 2011-12-22 00:00:00          1900 F      S                Y                3 $130K - $150K   Beverl… CA                USA     Drink            Beverages        Carbonated Beve…
-##  6           6 2011-12-22 00:00:00          6696 F      M                Y                3 $10K - $30K     Beverl… CA                USA     Food             Deli             Side Dishes     
-##  7           7 2011-12-23 00:00:00          9673 M      S                Y                2 $30K - $50K     Salem   OR                USA     Food             Frozen Foods     Breakfast Foods 
-##  8           8 2011-12-25 00:00:00           354 F      M                Y                2 $150K +         Yakima  WA                USA     Food             Canned Foods     Canned Soup     
-##  9           9 2011-12-25 00:00:00          1293 M      M                Y                3 $10K - $30K     Bellin… WA                USA     Non-Consumable   Household        Cleaning Suppli…
-## 10          10 2011-12-25 00:00:00          7938 M      S                N                1 $50K - $70K     San Di… CA                USA     Non-Consumable   Health and Hygi… Pain Relievers  
-## # … with 14,049 more rows, and 2 more variables: Units Sold &lt;dbl&gt;, Revenue &lt;dbl&gt;</code></pre>
+##    Transaction `Purchase Date`     `Customer ID` Gender `Marital Status`
+##          &lt;dbl&gt; &lt;dttm&gt;                      &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;           
+##  1           1 2011-12-18 00:00:00          7223 F      S               
+##  2           2 2011-12-20 00:00:00          7841 M      M               
+##  3           3 2011-12-21 00:00:00          8374 F      M               
+##  4           4 2011-12-21 00:00:00          9619 M      M               
+##  5           5 2011-12-22 00:00:00          1900 F      S               
+##  6           6 2011-12-22 00:00:00          6696 F      M               
+##  7           7 2011-12-23 00:00:00          9673 M      S               
+##  8           8 2011-12-25 00:00:00           354 F      M               
+##  9           9 2011-12-25 00:00:00          1293 M      M               
+## 10          10 2011-12-25 00:00:00          7938 M      S               
+## # … with 14,049 more rows, and 11 more variables: Homeowner &lt;chr&gt;,
+## #   Children &lt;dbl&gt;, Annual Income &lt;chr&gt;, City &lt;chr&gt;, State or Province &lt;chr&gt;,
+## #   Country &lt;chr&gt;, Product Family &lt;chr&gt;, Product Department &lt;chr&gt;,
+## #   Product Category &lt;chr&gt;, Units Sold &lt;dbl&gt;, Revenue &lt;dbl&gt;</code></pre>
+<p>A couple of notes are in order here before we continue: Note that this data set is made up of samples (rows) each of which has 10 features (columns). Some of the features are numerical - <em>Units Sold</em> and <em>Revenue</em>, some could be converted into numerical units if we are careful <em>Annual Income</em>, while others are purely categorical giving us just a description of the value. Also note there is a factor that looks numerical but for which it would probably be misleading to treat it as such.</p>
+<p>You will notice the note that the data set has ~14,049 rows: We can only deal with such datasets using a computer program. Without too much work we could find datasets that are too big for Excell and need to be analyzed using a software like R or Python.</p>
+<div id="list-of-features" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> List of features</h3>
+<p>With a large data set it is helpful to list the the features we have:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="what-is-statistics.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(supermarket)</span></code></pre></div>
+<pre><code>##  [1] &quot;Transaction&quot;        &quot;Purchase Date&quot;      &quot;Customer ID&quot;       
+##  [4] &quot;Gender&quot;             &quot;Marital Status&quot;     &quot;Homeowner&quot;         
+##  [7] &quot;Children&quot;           &quot;Annual Income&quot;      &quot;City&quot;              
+## [10] &quot;State or Province&quot;  &quot;Country&quot;            &quot;Product Family&quot;    
+## [13] &quot;Product Department&quot; &quot;Product Category&quot;   &quot;Units Sold&quot;        
+## [16] &quot;Revenue&quot;</code></pre>
+<p>We can use <em>sapply</em> to get information about the datatypes R has guessed for each column.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="what-is-statistics.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(supermarket, class)</span></code></pre></div>
+<pre><code>## $Transaction
+## [1] &quot;numeric&quot;
+## 
+## $`Purchase Date`
+## [1] &quot;POSIXct&quot; &quot;POSIXt&quot; 
+## 
+## $`Customer ID`
+## [1] &quot;numeric&quot;
+## 
+## $Gender
+## [1] &quot;character&quot;
+## 
+## $`Marital Status`
+## [1] &quot;character&quot;
+## 
+## $Homeowner
+## [1] &quot;character&quot;
+## 
+## $Children
+## [1] &quot;numeric&quot;
+## 
+## $`Annual Income`
+## [1] &quot;character&quot;
+## 
+## $City
+## [1] &quot;character&quot;
+## 
+## $`State or Province`
+## [1] &quot;character&quot;
+## 
+## $Country
+## [1] &quot;character&quot;
+## 
+## $`Product Family`
+## [1] &quot;character&quot;
+## 
+## $`Product Department`
+## [1] &quot;character&quot;
+## 
+## $`Product Category`
+## [1] &quot;character&quot;
+## 
+## $`Units Sold`
+## [1] &quot;numeric&quot;
+## 
+## $Revenue
+## [1] &quot;numeric&quot;</code></pre>
+<p>Note I say that these are guesses. Depending on the spreadsheet the data came from these may or may not be correct. In particular it is not uncommon for numerical data to be incorrectly types as <em>character</em> data. R is effecient at cleaning data, however it is a step further than we want to go in this class, just be aware if you or your students start using data sets from the web you will often come upon this issue.</p>
+</div>
+<div id="frequencies" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Frequencies</h3>
+<p>We are going to make a contingency table for some of the features of this data. We can count how many members of the sample are in each category of a feature:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="what-is-statistics.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(supermarket<span class="sc">$</span>Gender)</span></code></pre></div>
+<pre><code>## 
+##    F    M 
+## 7170 6889</code></pre>
+<p>Maybe we want to understand the relationship between the gender of a shopper and their marital status, for this we use a cross classification count:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="what-is-statistics.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that because the feature Marital Status has a space in it, we have to use quotes to refer to it:</span></span>
+<span id="cb28-2"><a href="what-is-statistics.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>( supermarket<span class="sc">$</span><span class="st">`</span><span class="at">Marital Status</span><span class="st">`</span>, supermarket<span class="sc">$</span>Gender) </span></code></pre></div>
+<pre><code>##    
+##        F    M
+##   M 3602 3264
+##   S 3568 3625</code></pre>
+<p>We can even do multi dimensional tables, though there is a limit to what makes sense:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="what-is-statistics.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Here to make this easier to read we are going to do the operation in two separate commands; </span></span>
+<span id="cb30-2"><a href="what-is-statistics.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note the semi-colon indicating the end of the first command</span></span>
+<span id="cb30-3"><a href="what-is-statistics.html#cb30-3" aria-hidden="true" tabindex="-1"></a>table1 <span class="ot">&lt;-</span> <span class="fu">table</span>(supermarket<span class="sc">$</span><span class="st">`</span><span class="at">Marital Status</span><span class="st">`</span>, supermarket<span class="sc">$</span>Gender, supermarket<span class="sc">$</span><span class="st">`</span><span class="at">State or Province</span><span class="st">`</span>);</span>
+<span id="cb30-4"><a href="what-is-statistics.html#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="what-is-statistics.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ftable</span>(table1)</span></code></pre></div>
+<pre><code>##        BC   CA   DF Guerrero Jalisco   OR Veracruz   WA Yucatan Zacatecas
+##                                                                          
+## M F   190  638  188       77      15  510      142 1166     200       476
+##   M   197  692  210       94       5  514      108 1160     129       155
+## S F   183  686  175      107      30  607      125 1134     164       357
+##   M   239  717  242      105      25  631       89 1107     161       309</code></pre>
+</div>
+<div id="proportions" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Proportions</h3>
+<p>Of course it is useful to think in terms of proportions of the data rather than the raw counts. We can do this by sending the result of a table command through the prop.table. Try it with one of the tables above:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="what-is-statistics.html#cb32-1" aria-hidden="true" tabindex="-1"></a>table2 <span class="ot">&lt;-</span> <span class="fu">table</span>(supermarket<span class="sc">$</span><span class="st">`</span><span class="at">Marital Status</span><span class="st">`</span>, supermarket<span class="sc">$</span>Gender);</span>
+<span id="cb32-2"><a href="what-is-statistics.html#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="what-is-statistics.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(table2)</span></code></pre></div>
+<pre><code>##    
+##             F         M
+##   M 0.2562060 0.2321644
+##   S 0.2537876 0.2578420</code></pre>
+</div>
+<div id="charts" class="section level3" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Charts</h3>
+<p>Visualizations are straightforward, a typical one would be a bar chart indicating visually the frequency counts:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="what-is-statistics.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note in this one the direction of the quotes matter</span></span>
+<span id="cb34-2"><a href="what-is-statistics.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(supermarket) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">State or Province</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb34-3"><a href="what-is-statistics.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>Note that the labels, colors, and positions can all be set via commands.</p>
 
+</div>
 </div>
 </div>
             </section>

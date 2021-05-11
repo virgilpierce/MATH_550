@@ -26,3 +26,7 @@ plots
 histograms
 boxplot
 numerical-versus-categorical-data
+list-of-features
+frequencies
+proportions
+charts

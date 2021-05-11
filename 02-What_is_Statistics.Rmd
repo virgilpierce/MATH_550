@@ -15,6 +15,7 @@ This course is going to use R for the computations. Much of what we do could be 
 - R is a purpose built statistics software. It is designed to do that really well.
 - R arguably is the best tool for producing good looking figures suitable for publications. The figures are easy to manipulate and adjust. Most importantly it is really easy to have your figures be consistently formatted, something that is much harder with spreadsheets. 
 - R includes a markdown language for creating nice looking notebooks: It can be used as an all in one publication tool to produce a report or paper with statistical analysis. 
+- The markdown language includes LaTex for typsetting mathematics: $$ \int_a^b f(x) dx $$
 - R is an industry standard tool for doing statistics. 
 
 and most importantly 
@@ -28,7 +29,7 @@ To get started:
 
 1. **If you are using a Mac or PC** you should download a copy of RStudio from https://www.rstudio.com/products/rstudio/  the free version is all you will need. This includes a copy of R itself - Rstudio is a tool for interacting with R to make some of our tasks easier.
 
-2. **If you are using a Chromebook or want to use R on a tablet** I have two options for you:
+2. **If you are using a Chromebook, want to use R on a tablet, or just don't want to install it** I have two options for you:
   a. Cocalc provides an online interface that lets you issue R commands. It also includes a markdown language so you will be able to use it to prepare the documents for class. You can reach it here: https://cocalc.com/ you will need to create an account.
   b. The university Apporto virtual machine:  https://unco.apporto.com has R studio installed. You can log in to it from any browser.
   
@@ -42,7 +43,7 @@ To actually start using R, go ahead and open R studio. You can use R directly in
 - an easy way to save your work to return to it later or to copy and paste it to a new notebook.
 - the ability to add markdown explaining what you are doing. 
 
-The button on the top-left of the tool bar is for openning new documents, click the triangle next to it and choose "New Notebook" form the menu. RStudio helpfully inserts some information setting up your new notebook. You can adjust it as you wish. You can save the document from the file menu or using the toolbar buttons. RStudio has provided an example of how to put in Markdown language, and how to put in R commands. You execute a section of R commands but putting the cursor inside of it and pressing "Control+Enter".  Try it now on the *plot(cars)* command. 
+The button on the top-left of the tool bar is for openning new documents, click the triangle next to it and choose "New Notebook" form the menu. RStudio helpfully inserts some information setting up your new notebook. You can adjust it as you wish. You can save the document from the file menu or using the toolbar buttons. RStudio has provided an example of how to put in Markdown language, and how to put in R commands. You execute a section of R commands but putting the cursor inside of it and pressing "Control+Enter" (or on a mac "Command+Enter", if using Cocalc you will need to press "Shift+Enter").  Try it now on the *plot(cars)* command. 
 
 ```{r}
 plot(cars)
@@ -50,7 +51,7 @@ plot(cars)
 
 ### A few words about programming languages
 
-Before we continue with the *Probability and Statistics* I want to just add that learning programming languages is a powerful tool to help your students advance in their thinking about mathematics, one that I worry we do not spend enough time working with students on. At UNC one of my main goals for my tenure as School Director is to incorporate Python and R into the undergraduate mathematics curriculum wherever we can. A key part of learning a programming language, or more accurately, the only thing that has ever worked for me is having a problem I am interested in that needs solving. Statistics for myself, I hope for you by the end of this course, and for your students could be that problem that motivates learning some programing.
+Before we continue with the *Probability and Statistics* I want to just add that learning programming languages is a powerful tool to help your students advance in their thinking about mathematics, one that I worry we do not spend enough time working with students on. At UNC one of my main goals for my tenure as School Director is to incorporate Python and R into the undergraduate mathematics curriculum wherever we can. A key part of learning a programming language, or more accurately, the only thing that has ever worked for me is having a problem I am interested in that needs solving. Statistics for myself, I hope for you by the end of this course, and for your students could be that problem that motivates learning some programming.
 
 Independently of all of that R is a great language to start with for the following reasons:
 
@@ -80,7 +81,7 @@ students
 
 Comments in commands start with *hash symbols*.
 
-Another syntax note:  R uses both = and <- for assignment. They both work as you would expect, however <- has some nice positives in the detailed differences and it is worth getting into the habit of using it.
+Another syntax note:  R uses both = and <- for assignment though they have slightly different meanings. They both work as you would expect, however <- has some nice positives in the detailed differences and it is worth getting into the habit of using it.
 
 *RStudio Note*: You might notice that the variable we have just created has appeared in the upper-right quadrant of RStudio.
 
@@ -98,7 +99,8 @@ Mean and Median are *measures of center*, while the quartiles are *measures of s
 var(students); sqrt(var(students))
 ```
 
-The variance is computed by taking the sum of the square differences between the data and the mean and then dividing that by number of items minus one; we will explain why this is what we divide by later in class.
+The variance is computed by taking the sum of the square differences between the data and the mean and then dividing that by number of items minus one; we will explain why this is what we divide by later in class: 
+$$ S = \frac{1}{n-1} \sum_{j=1}^n (y_j - \bar{y} )^2 $$ where $\bar{y}$ is the mean of the sample made up of the $\{ y_1, y_2, \dots, y_n \}$.
 
 In the code blocks below I will add some comments about what we are doing:
 
@@ -160,7 +162,7 @@ To interpret boxplots you should think in terms of quartiles:  Half of the data 
 
 The class sizes data is an example of *numerical data*. Another type of data used frequently is *categorical cata*: 
 
-Note if you are running this code, you will need to download the "Supermarket Transactions.xlsx" file from Github or here. We will also need to use the tidy package. You may need to install this package using *install.packages("tidyverse").
+Note if you are running this code, you will need to download the "Supermarket Transactions.xlsx" file from Github or here. We will also need to use the tidy package. You may need to install this package using *install.packages("tidyverse")*. Credit to UC Business Analytics R Programming Guide for this section, you can find the source here https://uc-r.github.io/descriptives_categorical
 
 Then you will need to load the libraries:
 
@@ -177,6 +179,69 @@ supermarket
 
 A couple of notes are in order here before we continue: Note that this data set is made up of samples (rows) each of which has 10 features (columns). Some of the features are numerical - *Units Sold* and *Revenue*, some could be converted into numerical units if we are careful *Annual Income*, while others are purely categorical giving us just a description of the value. Also note there is a factor that looks numerical but for which it would probably be misleading to treat it as such.
 
+You will notice the note that the data set has ~14,049 rows: We can only deal with such datasets using a computer program. Without too much work we could find datasets that are too big for Excell and need to be analyzed using a software like R or Python. 
 
+### List of features
+
+With a large data set it is helpful to list the the features we have:
+
+```{r}
+colnames(supermarket)
+```
+
+We can use *sapply* to get information about the datatypes R has guessed for each column.
+
+```{r}
+sapply(supermarket, class)
+```
+
+Note I say that these are guesses. Depending on the spreadsheet the data came from these may or may not be correct. In particular it is not uncommon for numerical data to be incorrectly types as *character* data. R is effecient at cleaning data, however it is a step further than we want to go in this class, just be aware if you or your students start using data sets from the web you will often come upon this issue.
+
+### Frequencies
+
+We are going to make a contingency table for some of the features of this data. We can count how many members of the sample are in each category of a feature:
+
+```{r}
+table(supermarket$Gender)
+```
+
+Maybe we want to understand the relationship between the gender of a shopper and their marital status, for this we use a cross classification count:
+
+```{r}
+# Note that because the feature Marital Status has a space in it, we have to use quotes to refer to it:
+table( supermarket$`Marital Status`, supermarket$Gender) 
+```
+
+We can even do multi dimensional tables, though there is a limit to what makes sense:
+
+```{r}
+# Here to make this easier to read we are going to do the operation in two separate commands; 
+# note the semi-colon indicating the end of the first command
+table1 <- table(supermarket$`Marital Status`, supermarket$Gender, supermarket$`State or Province`);
+
+ftable(table1)
+```
+
+### Proportions
+
+Of course it is useful to think in terms of proportions of the data rather than the raw counts. We can do this by sending the result of a table command through the prop.table. Try it with one of the tables above:
+
+```{r}
+table2 <- table(supermarket$`Marital Status`, supermarket$Gender);
+
+prop.table(table2)
+```
+
+### Charts
+
+Visualizations are straightforward, a typical one would be a bar chart indicating visually the frequency counts:
+
+```{r}
+# Note in this one the direction of the quotes matter
+ggplot(supermarket) + geom_bar(mapping = aes(x=`State or Province`)) + 
+  theme(axis.text.x=element_text(angle=45, hjust=1))
+```
+
+Note that the labels, colors, and positions can all be set via commands.
 
 
