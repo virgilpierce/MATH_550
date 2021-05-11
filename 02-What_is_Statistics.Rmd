@@ -158,9 +158,17 @@ boxplot(students, horizontal=TRUE)
 
 To interpret boxplots you should think in terms of quartiles:  Half of the data is in the box. Half of the data is to either side of the median.
 
-## Numerical versus Categorical Data
+## Categorical Data Example
 
-The class sizes data is an example of *numerical data*. Another type of data used frequently is *categorical cata*: 
+The class sizes data is an example of *quantitative data* where the information is a numerical quantity that is a feature of the subject. Another type of data used frequently is *categorical data*, data that gives a description of a feature of the subject. We may sometimes represent categorical data with numbers - for example *Male* and *Female* in a data set might be represented with a 0 and a 1; however it would still be categorical describing a feature. 
+
+There are different types of categorical data depending on the feature:  the categories may have an ordering or not; if they have an ordering there may even be a notion of distance between them. It is important to think about what the descriptions for our category mean - If the categories do not have a natural order, or if there is no notion of distance between them, it might be misleading to represent them as numbers and then do computations with the numbers.
+
+### Grades
+
+The example as teachers you should ponder are grades. What does A, B, C, D, F in a Math, English, History, and Physical Educaiton class mean?  Is it valid to replace them with numbers for all of a students classes and compute Grade Point Averages from them? Is it ethical to report that number on a transcript and use it in hiring and admissions decisions?
+
+### Example of Categorical Data
 
 Note if you are running this code, you will need to download the "Supermarket Transactions.xlsx" file from Github or here. We will also need to use the tidy package. You may need to install this package using *install.packages("tidyverse")*. Credit to UC Business Analytics R Programming Guide for this section, you can find the source here https://uc-r.github.io/descriptives_categorical
 
@@ -245,3 +253,12 @@ ggplot(supermarket) + geom_bar(mapping = aes(x=`State or Province`)) +
 Note that the labels, colors, and positions can all be set via commands.
 
 
+## Exploratory versus Confirmatory Analysis
+
+We will spend time in this class doing two types of activity with data. *Exploratory Analysis* involves looking at a dataset trying to find patterns and relationships through the different features and combinations of those features. The goal in exploration is to develop hypothesis about the population the data is a sample of. *Confirmatory Analysis* seeks to use data to either confirm or deny a hypothesis - the primary question being asked is *Do we have sufficient evidence to support or reject this hypothesis?* The major difference is that confirmatory analysis rests upon mathematical models of the situation and then tests the sample against that model. The key difference is how frequently you use a member of the sample. You can use it once to test a hypothesis; but if you return to it again you are now doing an exploration. 
+
+A big change in the field in the last two decades is that large datasets are becoming very common. With a large data set exploratory analysis can be very fruitful and provided you keep a portion of your data sequestered could even be combined with a confirmatory analysis.
+
+## Correlations and Predictions
+
+One of our common goals 

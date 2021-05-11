@@ -30,3 +30,8 @@ list-of-features
 frequencies
 proportions
 charts
+categorical-data-example
+grades-1
+example-of-categorical-data
+exploratory-versus-confirmatory-analysis
+correlations-and-predictions
