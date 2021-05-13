@@ -24,7 +24,7 @@
 <meta name="author" content="Virgil U Pierce" />
 
 
-<meta name="date" content="2021-05-11" />
+<meta name="date" content="2021-05-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#histograms"><i class="fa fa-check"></i><b>3.2.1</b> Histograms</a></li>
 <li class="chapter" data-level="3.2.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#boxplot"><i class="fa fa-check"></i><b>3.2.2</b> BoxPlot</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#numerical-versus-categorical-data"><i class="fa fa-check"></i><b>3.3</b> Numerical versus Categorical Data</a></li>
+<li class="chapter" data-level="3.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#categorical-data-example"><i class="fa fa-check"></i><b>3.3</b> Categorical Data Example</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#grades-1"><i class="fa fa-check"></i><b>3.3.1</b> Grades</a></li>
+<li class="chapter" data-level="3.3.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#example-of-categorical-data"><i class="fa fa-check"></i><b>3.3.2</b> Example of Categorical Data</a></li>
+<li class="chapter" data-level="3.3.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#list-of-features"><i class="fa fa-check"></i><b>3.3.3</b> List of features</a></li>
+<li class="chapter" data-level="3.3.4" data-path="what-is-statistics.html"><a href="what-is-statistics.html#frequencies"><i class="fa fa-check"></i><b>3.3.4</b> Frequencies</a></li>
+<li class="chapter" data-level="3.3.5" data-path="what-is-statistics.html"><a href="what-is-statistics.html#proportions"><i class="fa fa-check"></i><b>3.3.5</b> Proportions</a></li>
+<li class="chapter" data-level="3.3.6" data-path="what-is-statistics.html"><a href="what-is-statistics.html#charts"><i class="fa fa-check"></i><b>3.3.6</b> Charts</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="what-is-statistics.html"><a href="what-is-statistics.html#exploratory-versus-confirmatory-analysis"><i class="fa fa-check"></i><b>3.4</b> Exploratory versus Confirmatory Analysis</a></li>
+<li class="chapter" data-level="3.5" data-path="what-is-statistics.html"><a href="what-is-statistics.html#correlations-and-predictions"><i class="fa fa-check"></i><b>3.5</b> Correlations and Predictions</a></li>
 </ul></li>
 </ul>
 
@@ -222,10 +232,10 @@ Cell: 956-249-0566</p>
 <div id="programing" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Programing</h2>
 <p>Statistics is best experienced through doing the work rather than concentrating on theory and as such we need to use software for the course to do the necessary computations. This course will serve as an introduction to the statistics software R, which is widely used for statistical computations. It is freely available, open source, and has an extensive collection of help online for it.</p>
-<p>If you are new to programming, R is a great place to learn because most of the tasks we do will involve just a few lines of commands. No priror knowledge of programming is assumed.</p>
+<p>If you are new to programming, R is a great place to learn because most of the tasks we do will involve just a few lines of commands. No prior knowledge of programming is assumed.</p>
 <p>The course materials are being written in R and are available in Github for you at this link: <a href="https://github.com/virgilpierce/MATH_550" class="uri">https://github.com/virgilpierce/MATH_550</a></p>
 <p>From there you can download individual files from the class or the entire course as a Zip file. Updates will be pushed to that site as they are prepared.</p>
-<p>To access R and the editing software I recommend for using R, RStudio, you have options:</p>
+<p>To access R and the editing software I recommend for using R and RStudio, you have options:</p>
 <ol style="list-style-type: decimal">
 <li><p>You can download Rstudio including R for your Windows or Mac computer by going here: <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a> <br>
 Be sure to choose the free option - you will not need the paid versions.</p></li>
@@ -235,7 +245,7 @@ Be sure to choose the free option - you will not need the paid versions.</p></li
 </div>
 <div id="course-pre-requisites" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Course Pre-requisites</h2>
-<p>Students are expected to have experience with Calculus 1 and 2.</p>
+<p>Students are expected to have experience with Calculus 1 and 2, however we will use Wolfram Alpha for any and all calculus computations so it is more the concepts of Derivative - as slope or rate of change; Integral - as area or volume; and the Fundamental Theorem of Calculus that connects these two ideas.</p>
 </div>
 <div id="course-goals" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Course Goals</h2>
@@ -256,7 +266,7 @@ Be sure to choose the free option - you will not need the paid versions.</p></li
 <p>Our agreement is:</p>
 <ol style="list-style-type: decimal">
 <li><p>Speak with Meaning - reference the attributes and using names for quantities and qualities (and people).</p></li>
-<li><p>Exhibit Intellectual Integrity - base your conjecture on a logical foundation; do not pretend to an understanding. We are all still learning, and admiting that is an important step forward.</p></li>
+<li><p>Exhibit Intellectual Integrity - base your conjecture on a logical foundation; do not pretend to an understanding. We are all still learning, and admitting that is an important step forward.</p></li>
 <li><p>Strive to Make Sense - persist in making sense of your peer’s thinking. Almost every problem we do in class has a variety of approaches and a variety of answers.</p></li>
 <li><p>Respect the Learning Process of All - allow others time to think, reflect, and construct. Pose questions of others.</p></li>
 </ol>
@@ -266,13 +276,13 @@ Be sure to choose the free option - you will not need the paid versions.</p></li
 <ol style="list-style-type: decimal">
 <li><p>Projects: There will be two take home projects and a final project. You will have at least five days to complete these. They will be partly computational, and partly reflective. They will also have components that are unique to each individual. They are open notes, and in particular any resource online about using R is available provided it is not in the format of a Q&amp;A. If at all in doubt about a resource you have found, please ask. All resources used should be cited.</p></li>
 <li><p>Homework: The homework is posed with the intent that you will collaborate with others on it, and you are encouraged to do so. Your instructor is available during the week to consult with as well.</p></li>
-<li><p>Questions: You will occasionally be asked to compose a question for others in the class. These assignments will be collected during class. You will provide your question with a description of how it should be solved (from your point of view) and how it address the goal or concept.</p></li>
+<li><p>Questions: You will occasionally be asked to compose a question for others in the class. These assignments will be collected during class. You will provide your question with a description of how it should be solved (from your point of view) and how it addresses the goal or concept.</p></li>
 <li><p>Evidence of Learning: Your grade in the class is going to be based on your progress towards answering the questions posed in the Course Description. Evidence will naturally come from your submissions for the three types of assignments above, however you are encouraged to consider other evidence that could be provided.</p></li>
 </ol>
 </div>
 <div id="grades" class="section level2" number="2.10">
 <h2><span class="header-section-number">2.10</span> Grades</h2>
-<p>Your grade will be based upon the 4 assignment types above and the extent to which they contain evidence that the course goals have been met. Exceding expectations on all four course goals will result in a grade of A; a grade of B will mean that all of the course goals were met and on at least one the expectation was exceeded; a grade of C will mean that all of the course goals were met; a grade of D will mean that some of the course goals were met but not all of them; and a grade of F will mean that none of the course goals were met.</p>
+<p>Your grade will be based upon the 4 assignment types above and the extent to which they contain evidence that the course goals have been met. Exceeding expectations on all four course goals will result in a grade of A; a grade of B will mean that all of the course goals were met and on at least one the expectation was exceeded; a grade of C will mean that all of the course goals were met; a grade of D will mean that some of the course goals were met but not all of them; and a grade of F will mean that none of the course goals were met.</p>
 </div>
 <div id="unco-policy-statements" class="section level2" number="2.11">
 <h2><span class="header-section-number">2.11</span> UNCO Policy Statements</h2>
@@ -355,20 +365,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

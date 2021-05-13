@@ -36,13 +36,13 @@ Questions you will explore this summer:
 
 Statistics is best experienced through doing the work rather than concentrating on theory and as such we need to use software for the course to do the necessary computations. This course will serve as an introduction to the statistics software R, which is widely used for statistical computations. It is freely available, open source, and has an extensive collection of help online for it.
 
-If you are new to programming, R is a great place to learn because most of the tasks we do will involve just a few lines of commands. No priror knowledge of programming is assumed.
+If you are new to programming, R is a great place to learn because most of the tasks we do will involve just a few lines of commands. No prior knowledge of programming is assumed.
 
 The course materials are being written in R and are available in Github for you at this link: https://github.com/virgilpierce/MATH_550
 
 From there you can download individual files from the class or the entire course as a Zip file. Updates will be pushed to that site as they are prepared.
 
-To access R and the editing software I recommend for using R, RStudio, you have options:
+To access R and the editing software I recommend for using R and RStudio, you have options:
 
 1. You can download Rstudio including R for your Windows or Mac computer by going here: https://www.rstudio.com/products/rstudio/download/ <br>
 Be sure to choose the free option - you will not need the paid versions.
@@ -53,7 +53,7 @@ Be sure to choose the free option - you will not need the paid versions.
 
 ## Course Pre-requisites
 
-Students are expected to have experience with Calculus 1 and 2.
+Students are expected to have experience with Calculus 1 and 2, however we will use Wolfram Alpha for any and all calculus computations so it is more the concepts of Derivative - as slope or rate of change; Integral - as area or volume; and the Fundamental Theorem of Calculus that connects these two ideas.
 
 ## Course Goals
 
@@ -74,7 +74,7 @@ Our agreement is:
 
 1. Speak with Meaning - reference the attributes and using names for quantities and qualities (and people).
 
-2. Exhibit Intellectual Integrity - base your conjecture on a logical foundation; do not pretend to an understanding. We are all still learning, and admiting that is an important step forward.
+2. Exhibit Intellectual Integrity - base your conjecture on a logical foundation; do not pretend to an understanding. We are all still learning, and admitting that is an important step forward.
 
 3. Strive to Make Sense - persist in making sense of your peer's thinking. Almost every problem we do in class has a variety of approaches and a variety of answers.
 
@@ -86,13 +86,13 @@ Our agreement is:
 
 2. Homework:  The homework is posed with the intent that you will collaborate with others on it, and you are encouraged to do so. Your instructor is available during the week to consult with as well.
 
-3. Questions: You will occasionally be asked to compose a question for others in the class. These assignments will be collected during class. You will provide your question with a description of how it should be solved (from your point of view) and how it address the goal or concept.
+3. Questions: You will occasionally be asked to compose a question for others in the class. These assignments will be collected during class. You will provide your question with a description of how it should be solved (from your point of view) and how it addresses the goal or concept.
 
 4. Evidence of Learning: Your grade in the class is going to be based on your progress towards answering the questions posed in the Course Description. Evidence will naturally come from your submissions for the three types of assignments above, however you are encouraged to consider other evidence that could be provided.
 
 ## Grades
 
-Your grade will be based upon the 4 assignment types above and the extent to which they contain evidence that the course goals have been met. Exceding expectations on all four course goals will result in a grade of A; a grade of B will mean that all of the course goals were met and on at least one the expectation was exceeded; a grade of C will mean that all of the course goals were met; a grade of D will mean that some of the course goals were met but not all of them; and a grade of F will mean that none of the course goals were met.
+Your grade will be based upon the 4 assignment types above and the extent to which they contain evidence that the course goals have been met. Exceeding expectations on all four course goals will result in a grade of A; a grade of B will mean that all of the course goals were met and on at least one the expectation was exceeded; a grade of C will mean that all of the course goals were met; a grade of D will mean that some of the course goals were met but not all of them; and a grade of F will mean that none of the course goals were met.
 
 ## UNCO Policy Statements
 
