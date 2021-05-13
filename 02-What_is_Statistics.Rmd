@@ -333,6 +333,8 @@ The Cherry Trees in Washington DC are a famous gift from the mayor Tokyo in 1914
 
 ### Detecting Fraud in THC Labs
 
+This problem comes from the article: https://jcannabisresearch.biomedcentral.com/articles/10.1186/s42238-021-00064-2 about cannabis testing labs in Washington state. There have been some high profile cases of labs in CA, NV, and CO as well as Canada being fine or suspended for falsifying data or for retailers or producers shopping for labs.
+
 Something suspicious is happening at some labs in Washington state that test for THC concentrations in consumer sold marajuana. The distribution of concentrations appear to be normal except that there is a discontinuity in the distribution at 20% with a higher density of results just above 20% than just below 20%. Here is the histogram that was found: 
 
 <img src="Labs.png" alt="Histogram of THC Concentrations in suspended Washington Labs" width="300"/>
