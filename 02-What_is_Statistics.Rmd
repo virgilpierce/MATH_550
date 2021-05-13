@@ -33,17 +33,15 @@ To get started:
   a. Cocalc provides an online interface that lets you issue R commands. It also includes a markdown language so you will be able to use it to prepare the documents for class. You can reach it here: https://cocalc.com/ you will need to create an account.
   b. The university Apporto virtual machine:  https://unco.apporto.com has R studio installed. You can log in to it from any browser.
   
-If at all possible I would recomend 1. as with the software installed locally you will not need to be using your internet connection. However students using 2. in my classes have reported that it works well for them.
+If at all possible I would recommend 1. as with the software installed locally you will not need to be using your internet connection. However students using 2. in my classes have reported that it works well for them.
 
 ### Open Rstudio
 
-To actually start using R, go ahead and open R studio. You can use R directly in the console (lower-left quadrant) however I recommend interacting with it in a Notebook as this provides you with:
+To actually start using R, go ahead and open R studio. You can use R directly in the console (lower-left quadrant). Or you can open a notebook. Notebooks allow you to include markdown explanations around blocks of R code. I will show you an example in class. I typically use a notebook for my work, but the console is easier particularly if you are in a exploratory phase. The frame in the upper-right contains an overview of the variables that have been assigned values; and then the frame in the lower-right gives you an view of the files in your working directory, and if you issue plot commands in the console they will display here.
 
-- an easy way to modify inputs and execute them again.
-- an easy way to save your work to return to it later or to copy and paste it to a new notebook.
-- the ability to add markdown explaining what you are doing. 
+The button on the top-left of the tool bar is for opening new documents, click the triangle next to it and choose "New Notebook" form the menu. RStudio helpfully inserts some information setting up your new notebook. You can adjust it as you wish. You can save the document from the file menu or using the toolbar buttons. RStudio has provided an example of how to put in Markdown language, and how to put in R commands. You execute a section of R commands but putting the cursor inside of it and pressing "Control+Enter" (or on a mac "Command+Enter", if using Cocalc you will need to press "Shift+Enter").  Try it now on the *plot(cars)* command. 
 
-The button on the top-left of the tool bar is for openning new documents, click the triangle next to it and choose "New Notebook" form the menu. RStudio helpfully inserts some information setting up your new notebook. You can adjust it as you wish. You can save the document from the file menu or using the toolbar buttons. RStudio has provided an example of how to put in Markdown language, and how to put in R commands. You execute a section of R commands but putting the cursor inside of it and pressing "Control+Enter" (or on a mac "Command+Enter", if using Cocalc you will need to press "Shift+Enter").  Try it now on the *plot(cars)* command. 
+Note that from our textbook you can copy commands to your computers clipboard which you can then paste and run in the console or paste into a notebook to run - you will have to inclose them in the code enviroment to run.
 
 ```{r}
 plot(cars)
@@ -53,9 +51,9 @@ plot(cars)
 
 Before we continue with the *Probability and Statistics* I want to just add that learning programming languages is a powerful tool to help your students advance in their thinking about mathematics, one that I worry we do not spend enough time working with students on. At UNC one of my main goals for my tenure as School Director is to incorporate Python and R into the undergraduate mathematics curriculum wherever we can. A key part of learning a programming language, or more accurately, the only thing that has ever worked for me is having a problem I am interested in that needs solving. Statistics for myself, I hope for you by the end of this course, and for your students could be that problem that motivates learning some programming.
 
-Independently of all of that R is a great language to start with for the following reasons:
+Independent of all of that R is a great language to start with for the following reasons:
 
-1. Because R is so fundamentally focused on statistics and visualizations of data, it is simpler and more compact than a general language.
+1. Because R is so focused on statistics and visualizations of data, it is simpler and more compact than a general language.
 2. R is human readable - you can usually read a statement outloud and you will know exactly what it is doing.
 3. R is free.
 
@@ -185,13 +183,13 @@ supermarket <- read_excel("Supermarket Transactions.xlsx", sheet = 2)
 supermarket
 ```
 
-A couple of notes are in order here before we continue: Note that this data set is made up of samples (rows) each of which has 10 features (columns). Some of the features are numerical - *Units Sold* and *Revenue*, some could be converted into numerical units if we are careful *Annual Income*, while others are purely categorical giving us just a description of the value. Also note there is a factor that looks numerical but for which it would probably be misleading to treat it as such.
+A couple of notes are in order here before we continue: Note that this data set is made up of samples (rows) each of which has 10 features (columns). Some of the features are numerical - *Units Sold* and *Revenue*, while others are purely categorical giving us just a description of the value. Also note there is a factor that looks numerical but for which it would probably be misleading to treat it as such. Note that some of the categorical variables have a natural order in the categories like *Annual Income* while others will not such as *State or Province*.
 
-You will notice the note that the data set has ~14,049 rows: We can only deal with such datasets using a computer program. Without too much work we could find datasets that are too big for Excell and need to be analyzed using a software like R or Python. 
+You will notice the note that the data set has ~14,049 rows: We can only deal with such datasets using a computer program. Without too much work we could find datasets that are too big for Excell and need to be analyzed using a software like R or Python - one reason we teach our students how to use them in their undergraduate courses.
 
 ### List of features
 
-With a large data set it is helpful to list the the features we have:
+With a large data set it is helpful to list the features we have:
 
 ```{r}
 colnames(supermarket)
@@ -203,7 +201,7 @@ We can use *sapply* to get information about the datatypes R has guessed for eac
 sapply(supermarket, class)
 ```
 
-Note I say that these are guesses. Depending on the spreadsheet the data came from these may or may not be correct. In particular it is not uncommon for numerical data to be incorrectly types as *character* data. R is effecient at cleaning data, however it is a step further than we want to go in this class, just be aware if you or your students start using data sets from the web you will often come upon this issue.
+Note I say that these are guesses. Depending on the spreadsheet the data came from these may or may not be correct. In particular it is not uncommon for numerical data to be incorrectly typed as *character* data. R is efficient at cleaning data, however it is a step further than we want to go in this class, just be aware if you or your students start using data sets from the web you will often come upon this issue.
 
 ### Frequencies
 
@@ -220,7 +218,7 @@ Maybe we want to understand the relationship between the gender of a shopper and
 table( supermarket$`Marital Status`, supermarket$Gender) 
 ```
 
-We can even do multi dimensional tables, though there is a limit to what makes sense:
+We can even do multi dimensional tables, though there is a limit to what makes sense. Can you interpret what the 190 in the upper left of this table means?
 
 ```{r}
 # Here to make this easier to read we are going to do the operation in two separate commands; 
@@ -240,17 +238,20 @@ table2 <- table(supermarket$`Marital Status`, supermarket$Gender);
 prop.table(table2)
 ```
 
+Note that we break the procedure into two steps - one making the table and then one producing the proportions with the prop.table() function. The syntax item is in a notebook we need the semicolon. In the console you would just do the first line and then the second line as two separate commands.
+
 ### Charts
 
 Visualizations are straightforward, a typical one would be a bar chart indicating visually the frequency counts:
 
 ```{r}
 # Note in this one the direction of the quotes matter
-ggplot(supermarket) + geom_bar(mapping = aes(x=`State or Province`)) + 
+ggplot(supermarket) + 
+  geom_bar(mapping = aes(x=`State or Province`)) + 
   theme(axis.text.x=element_text(angle=45, hjust=1))
 ```
 
-Note that the labels, colors, and positions can all be set via commands.
+Note that the labels, colors, and positions can all be set via commands. *ggplot** commands always have this structure, one command setting the dataframe to use, one command identifying what to draw, and then commands to change the theme. Using the same theme command for all of your plots in a project means they will all have identical formatting. R is built to make these figures look very nice and there are more options than we will go over - you can explore them with google if you like.
 
 
 ## Exploratory versus Confirmatory Analysis
@@ -276,7 +277,7 @@ ggplot(data = mpg) + geom_point(mapping = aes( x = displ, y = hwy ))
 Not surprisingly, larger engines are less effecient *generally*. However the relationship is not exact - why not?  
 
 Our model for this is going to be that the *displacement* is known exactly and then the fuel efficiency is given by:  $$ y - y_0 = k (x - x_0) + \mbox{Error} $$ 
-Where the Error is a random variable encapsulating all of the other features (variables) in the car - its *mass*, *aerodynmaic features*, *turbo chargers*, *cargo capacity*, *transmission*, and on and on. It is likely we may never even know all of the variables that have an effect on the fuel efficiency and cause two cars with the same displacement to have different efficiencies. 
+Where the Error is a random variable encapsulating all of the other features (variables) in the car - its *mass*, *aerodynmaic features*, *turbo chargers*, *cargo capacity*, *transmission*, and on and on. It is likely we may never even know all of the variables that have an effect on the fuel efficiency and cause two cars with the same displacement to have different efficiencies and hence the reasonableness of thinking of this as some kind of randomness. 
 
 Another possibility is that the relationship is not in fact linear. 
 
@@ -286,6 +287,87 @@ above the linear trend. To explore this, we can add more variables to a scatter 
 ```{r}
 ggplot(data = mpg) + geom_point(mapping = aes( x = displ, y = hwy, color = class ))
 ```
+
+And indeed we can now make a hypothesis about what is happening with five of those six vehicles. If we remove them from the problems set we would expect our linear model to do even better (by which we mean the Error terms should be smaller and more controllable). 
+
+## Motivating Questions
+
+I want to end this first lesson with some motivating questions we will be spending our time on this semester. These are questions for which we do not yet have tools to answer but trying to answer them is going to lead us in the technology and tools we build. 
+
+### Engine Failure
+
+An aircraft engine has a 0.1% chance of failing in any given flight-hour of operation. How many flight hours do we expect it to run before its first failure?
+
+### Engine Failure 2
+
+We are testing a new aircraft engine so we run four of them continuously until they fail. They last 220, 300, 320, and 350 hours. How many flight-hours do we expect one of these engines to run?
+
+### Many Engines Failure
+
+An airline is running 655 aircraft in an hour with the engine used above. How many engine failures do we expect to happen in that hour?
+
+### Duplicate Birthdays
+
+You enter your classroom on the first day of the fall to a group of 25 students. How likely is it that two of them share the same birthday (day / month)?
+
+### Birthday Tickets
+
+You stand at the door to an auditorium and as students enter they hand you a ticket with their birthday (day/month). How many students do you expect to have entered before you have your first duplicate?
+
+### Accidents
+
+An intersection in Greeley, near my house, has on average 1.2 traffic accidents a month. The city, in an attempt to improve on the situation makes a change to the timing of the light. In the month following there are 3 accidents. Do we have evidence that the intersection is now less safe?
+
+### Budgets
+
+The School of Mathematical Sciences spends on average $5,800 a year on copies. How much should we budget for copies for next year?
+
+### Radioactive Decay
+
+The number of atoms of a radioactive isotope in a sample that are likely to decay in a small interval of time is proportional to the number of atoms in the sample. Cesium 137, a by product of some nuclear fission reactors, has a half life of 30 years. It decays, emitting a beta particle, into Barium 137 which has a half-life of just 2.6 minutes and decays emitting a gamma particle - this decay path is what makes Cesium 137 such a dangerous contaminant. What proportion of a sample of Cesium 137 released in an accident do we expect to still be present after 50 years?
+
+
+### Cherry Blossoms
+
+The Cherry Trees in Washington DC are a famous gift from the mayor Tokyo in 1914 aimed at improving the cooperation between the US and Japan. Recently they have become possibly evidence of a change in climate around DC. The last few peak blooms (the date at which 70% of the trees in DC are at full bloom) have been on:  March 28, March 20, April 1, April 5, March 25, March 25, April 10, April 10, April 9, March 20, March 29, and March 31. Over the entire historical record peak bloom has on average occured on April 3. From the recent blooms, do we have evidence that the average date of peak bloom has changed?
+
+### Detecting Fraud in THC Labs
+
+Something suspicious is happening at some labs in Washington state that test for THC concentrations in consumer sold marajuana. The distribution of concentrations appear to be normal except that there is a discontinuity in the distribution at 20% with a higher density of results just above 20% than just below 20%. Here is the histogram that was found: 
+
+<img src="Labs.png" alt="Histogram of THC Concentrations in suspended Washington Labs" width="300"/>
+
+Whereas here is a distribution of test results from the largest lab in the sate:
+
+<img src="goodLab.png" alt="Histogram of THC Concentrations in unsuspended Washington Labs" width="300"/>
+
+Suppose that you have a set of results from a lab for concentrations of some samples. How would you go about deciding if they have manipulated the results?  
+
+(If you would rather not think of this as a THC lab question - Volkswagon was caught doing something very similar with the effeciencies measurments of their TDI vehicles a few years ago).
+
+#### Detecting Fraud
+
+I would consider building an entire course around this question alone. 
+
+### How Many Locomotives
+
+A train company numbers its locomotives sequentially 1, 2, 3, ....  You happen to be standing at a station and you observe train number 65 go by. How many trains does the company own?
+
+#### The German Tank Problem
+
+This is a baby example of the German Tank Problem from World War 2:  The allies were collecting maintenance records and recovering damaged tanks which included serial numbers on engines and transmissions. From this data they attempted to estimate how many tanks were being produced in Germany. 
+
+### Median House Prices
+
+Redfin is reporting that the median price of a house in Denver over the last year is $540,000. To what extent is there evidence that something has changed in the Denver real estate market? What are our predictions about future prices?
+
+### Healthcare Costs
+
+Healthcare costs in the US are made up of three broad categories: Hospitals, Physicians and Clinics, and Prescription Drugs. How are these three costs contributing to the healthcare expenses in the US. What are our predictions about future costs? 
+
+### What Questions Do You Have?
+
+Because this is a course about data, we can look for data related to questions you have. 
 
 
 
