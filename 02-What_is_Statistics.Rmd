@@ -57,7 +57,7 @@ Independent of all of that R is a great language to start with for the following
 2. R is human readable - you can usually read a statement outloud and you will know exactly what it is doing.
 3. R is free.
 
-If you are interested in more about how to introduce students to R in a statistics class, or Python in an algebra, trigonometry, or calculus class, please let me know. It is a topic I am very interested in advancing further to students elsewhere.
+If you are interested in more about how to introduce students to R in a statistics class, or Python in an algebra, trigonometry, or calculus class, please let me know. It is a topic I am very interested in.
 
 ### A first example
 
@@ -141,7 +141,7 @@ Histograms are made by binning the data and then drawing bars whose height is th
 hist(students, 10)
 ```
 
-Note you can adjust the number of bins to use. R tries to guess the labels from the names of the data. You can output the image to a file by right clicking on it, by using the export command in the plot tab in the lower-right quadrant of RStudio or by using a command in the console in the lower-left quadrant. Of course if you are using Markdown to compose you text you don't need to export the figure, you have it right here.
+Note you can adjust the number of bins to use. R tries to guess the labels from the names of the data. You can output the image to a file by right clicking on it, by using the export command in the plot tab in the lower-right quadrant of RStudio or by using a command in the console in the lower-left quadrant. Of course if you are using Markdown to compose your text you don't need to export the figure, you have it right here.
 
 Note the connection to the numerical summaries we have:  The mean gives the center of mass of the histogram, while the variance (or standard deviation describes how much it spreads out from there).
 
@@ -251,12 +251,12 @@ ggplot(supermarket) +
   theme(axis.text.x=element_text(angle=45, hjust=1))
 ```
 
-Note that the labels, colors, and positions can all be set via commands. *ggplot** commands always have this structure, one command setting the dataframe to use, one command identifying what to draw, and then commands to change the theme. Using the same theme command for all of your plots in a project means they will all have identical formatting. R is built to make these figures look very nice and there are more options than we will go over - you can explore them with google if you like.
+Note that the labels, colors, and positions can all be set via commands. **ggplot** commands always have this structure, one command setting the dataframe to use, one command identifying what to draw, and then commands to change the theme. Using the same theme command for all of your plots in a project means they will all have identical formatting. R is built to make these figures look very nice and there are more options than we will go over - you can explore them with google if you like.
 
 
 ## Exploratory versus Confirmatory Analysis
 
-We will spend time in this class doing two types of activity with data. *Exploratory Analysis* involves looking at a dataset trying to find patterns and relationships through the different features and combinations of those features. The goal in exploration is to develop hypothesis about the population the data is a sample of. *Confirmatory Analysis* seeks to use data to either confirm or deny a hypothesis - the primary question being asked is *Do we have sufficient evidence to support or reject this hypothesis?* The major difference is that confirmatory analysis rests upon mathematical models of the situation and then tests the sample against that model. The key difference is how frequently you use a member of the sample. You can use it once to test a hypothesis; but if you return to it again you are now doing an exploration. 
+We will spend time in this class doing two types of activity with data. *Exploratory Analysis* involves looking at a dataset trying to find patterns and relationships through the different features and combinations of those features. The goal in exploration is to develop hypothesis about the population the data is a sample of. *Confirmatory Analysis* seeks to use data to either confirm or deny a hypothesis - the primary question being asked is *Do we have sufficient evidence to support or reject this hypothesis?* The major difference is that confirmatory analysis rests upon mathematical models of the situation and then tests the sample against that model. The key factor is how frequently you use a member of the sample. You can use it once to test a hypothesis; but if you return to it again you are now doing an exploration. 
 
 A big change in the field in the last two decades is that large datasets are becoming very common. With a large data set exploratory analysis can be very fruitful and provided you keep a portion of your data sequestered could even be combined with a confirmatory analysis.
 
@@ -304,7 +304,7 @@ We are testing a new aircraft engine so we run four of them continuously until t
 
 ### Many Engines Failure
 
-An airline is running 655 aircraft in an hour with the engine used above. How many engine failures do we expect to happen in that hour?
+An airline is running 655 single enginer aircraft in an hour with the engine used above. How many engine failures do we expect to happen in that hour?
 
 ### Duplicate Birthdays
 
@@ -318,18 +318,26 @@ You stand at the door to an auditorium and as students enter they hand you a tic
 
 An intersection in Greeley, near my house, has on average 1.2 traffic accidents a month. The city, in an attempt to improve on the situation makes a change to the timing of the light. In the month following there are 3 accidents. Do we have evidence that the intersection is now less safe?
 
+### Monty Hall
+
+You are on a game show and are presented with three doors, behind one door is a car and behind the other two there are goats. You are asked to choose a door. After you have chosen one the host, Monty Hall (ask your grandparents), opens a second door revealing a goat. He then asks you if you would like to change your selection. What should you do?
+
+### Monty-Hilbert Hall
+
+You are confronted with a countably infinite number of doors, i.e. they are numbered 1, 2, ..., and told that behind one of them is a car and behind the others goats. You are asked to choose a door. After you have chosen one the host, Hilbert, opens all of the other doors but one revealing goats (A LOT of goats). He then asks you if you would like to change your selection. What should you do?
+
+### Radioactive Decay
+
+The number of atoms of a radioactive isotope in a sample that are likely to decay in a small interval of time is proportional to the number of atoms in the sample. Cesium 137, a by product of some nuclear fission reactors, has a half life of 30 years. It decays, emitting a beta particle, into Barium 137 which has a half-life of just 2.6 minutes and decays emitting a gamma particle - this decay path leading quickly to the release of a gamma particle is what makes Cesium 137 such a dangerous contaminant. What proportion of a sample of Cesium 137 released in an accident do we expect to still be present after 50 years?
+
 ### Budgets
 
 The School of Mathematical Sciences spends on average $5,800 a year on copies. How much should we budget for copies for next year?
 
-### Radioactive Decay
-
-The number of atoms of a radioactive isotope in a sample that are likely to decay in a small interval of time is proportional to the number of atoms in the sample. Cesium 137, a by product of some nuclear fission reactors, has a half life of 30 years. It decays, emitting a beta particle, into Barium 137 which has a half-life of just 2.6 minutes and decays emitting a gamma particle - this decay path is what makes Cesium 137 such a dangerous contaminant. What proportion of a sample of Cesium 137 released in an accident do we expect to still be present after 50 years?
-
-
 ### Cherry Blossoms
 
 The Cherry Trees in Washington DC are a famous gift from the mayor Tokyo in 1914 aimed at improving the cooperation between the US and Japan. Recently they have become possibly evidence of a change in climate around DC. The last few peak blooms (the date at which 70% of the trees in DC are at full bloom) have been on:  March 28, March 20, April 1, April 5, March 25, March 25, April 10, April 10, April 9, March 20, March 29, and March 31. Over the entire historical record peak bloom has on average occured on April 3. From the recent blooms, do we have evidence that the average date of peak bloom has changed?
+
 
 ### Detecting Fraud in THC Labs
 
@@ -353,7 +361,7 @@ I would consider building an entire course around this question alone.
 
 ### How Many Locomotives
 
-A train company numbers its locomotives sequentially 1, 2, 3, ....  You happen to be standing at a station and you observe train number 65 go by. How many trains does the company own?
+A train company numbers its locomotives sequentially 1, 2, 3, .... N  You happen to be standing at a station and you observe locomotive number 65 go by. How many locomotives does the company own?
 
 #### The German Tank Problem
 
@@ -369,7 +377,16 @@ Healthcare costs in the US are made up of three broad categories: Hospitals, Phy
 
 ### What Questions Do You Have?
 
-Because this is a course about data, we can look for data related to questions you have. 
+Because this is a course about data, we can look for data related to questions you have. Places I look for data:
+
+- kaggle.com
+- [Colorado Data](https://data.colorado.gov/)
+- [USA Data](https://www.data.gov/)
+- [United Nations Data](http://data.un.org/)
+- [Pew Charitable Trust](https://www.pewtrusts.org/en)
+- [The University of California at Irvine Data Science Archives](https://archive.ics.uci.edu/ml/datasets.php)
+
+
 
 
 

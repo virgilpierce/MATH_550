@@ -52,3 +52,5 @@ the-german-tank-problem
 median-house-prices
 healthcare-costs
 what-questions-do-you-have
+monty-hall
+monty-hilbert-hall
