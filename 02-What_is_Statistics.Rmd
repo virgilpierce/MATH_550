@@ -318,6 +318,11 @@ You stand at the door to an auditorium and as students enter they hand you a tic
 
 An intersection in Greeley, near my house, has on average 1.2 traffic accidents a month. The city, in an attempt to improve on the situation makes a change to the timing of the light. In the month following there are 3 accidents. Do we have evidence that the intersection is now less safe?
 
+### Detecting Fraud
+
+A common analysis used in forensic accounting, specifically in an attempt to detect if fraud is being attempting is to analyze the frequency with which each digit 0, 1, 2, ..., 9 appears in the records. In an honest accounting of a companies finances what digits should be the most common?
+
+
 ### Monty Hall
 
 You are on a game show and are presented with three doors, behind one door is a car and behind the other two there are goats. You are asked to choose a door. After you have chosen one the host, Monty Hall (ask your grandparents), opens a second door revealing a goat. He then asks you if you would like to change your selection. What should you do?
@@ -366,6 +371,11 @@ A train company numbers its locomotives sequentially 1, 2, 3, .... N  You happen
 #### The German Tank Problem
 
 This is a baby example of the German Tank Problem from World War 2:  The allies were collecting maintenance records and recovering damaged tanks which included serial numbers on engines and transmissions. From this data they attempted to estimate how many tanks were being produced in Germany. 
+
+### Combining Rare Events with Common Events
+
+At the scene of a crime the two perpetrators left two samples of blood. One was blood type O, occurring in 60% of the population; while the other was blood type AB occurring in only 3% of the population. A suspect, Oliver has his blood tested and it returns as blood type O. Does this indicate evidence in favor of Oliver committing the crime?
+
 
 ### Median House Prices
 

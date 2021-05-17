@@ -32,6 +32,23 @@ Questions you will explore this summer:
 * How do we use more data to update our decisions?
 * Can we use these ideas to do computations in other areas of mathematics?
 
+## Tentative Outline
+
+1. Unit 1: Introduction and using R
+
+2. Unit 2: Discrete Probability
+
+3. Unit 3: Continuous Probability
+
+4. Unit 4: Sampling
+
+5. Unit 5: Hypothesis Testing and Confidence Intervals
+
+6. Unit 6: Bayes Probability and Updating from New Data
+
+7. Unit 7: Correlations and models.
+
+
 ## Programing
 
 Statistics is best experienced through doing the work rather than concentrating on theory and as such we need to use software for the course to do the necessary computations. This course will serve as an introduction to the statistics software R, which is widely used for statistical computations. It is freely available, open source, and has an extensive collection of help online for it.
