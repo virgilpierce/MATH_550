@@ -322,6 +322,12 @@ An intersection in Greeley, near my house, has on average 1.2 traffic accidents 
 
 A common analysis used in forensic accounting, specifically in an attempt to detect if fraud is being attempting is to analyze the frequency with which each digit 0, 1, 2, ..., 9 appears in the records. In an honest accounting of a companies finances what digits should be the most common?
 
+### Combining Rare Events with Common Events
+
+At the scene of a crime the two perpetrators left two samples of blood. One was blood type O, occurring in 60% of the population; while the other was blood type AB occurring in only 3% of the population. A suspect, Oliver has his blood tested and it returns as blood type O. Does this indicate evidence in favor of Oliver committing the crime?
+
+Consider this related problem:
+Your partner draws two cards from a standard 52 card deck and tells you that one is a red face card, and the other is a number card. How likely is it that the 3 of clubs was the number card drawn?
 
 ### Monty Hall
 
@@ -372,12 +378,7 @@ A train company numbers its locomotives sequentially 1, 2, 3, .... N  You happen
 
 This is a baby example of the German Tank Problem from World War 2:  The allies were collecting maintenance records and recovering damaged tanks which included serial numbers on engines and transmissions. From this data they attempted to estimate how many tanks were being produced in Germany. 
 
-### Combining Rare Events with Common Events
 
-At the scene of a crime the two perpetrators left two samples of blood. One was blood type O, occurring in 60% of the population; while the other was blood type AB occurring in only 3% of the population. A suspect, Oliver has his blood tested and it returns as blood type O. Does this indicate evidence in favor of Oliver committing the crime?
-
-Consider this related problem:
-Your partner draws two cards from a standard 52 card deck and tells you that one is a red face card, and the other is a number card. How likely is it that the 3 of clubs was the number card drawn?
 
 
 ### Median House Prices
