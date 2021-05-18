@@ -229,9 +229,7 @@ We can even do multi dimensional tables, though there is a limit to what makes s
 
 ```{r}
 # Here to make this easier to read we are going to do the operation in two separate commands; 
-# note the semi-colon indicating the end of the first command
-table1 <- table(supermarket$`Marital Status`, supermarket$Gender, supermarket$`State or Province`);
-
+table1 <- table(supermarket$`Marital Status`, supermarket$Gender, supermarket$`State or Province`)
 ftable(table1)
 ```
 
@@ -240,8 +238,7 @@ ftable(table1)
 Of course it is useful to think in terms of proportions of the data rather than the raw counts. We can do this by sending the result of a table command through the prop.table. Try it with one of the tables above:
 
 ```{r}
-table2 <- table(supermarket$`Marital Status`, supermarket$Gender);
-
+table2 <- table(supermarket$`Marital Status`, supermarket$Gender)
 prop.table(table2)
 ```
 
