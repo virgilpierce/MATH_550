@@ -57,3 +57,4 @@ monty-hilbert-hall
 tentative-outline
 detecting-fraud-1
 combining-rare-events-with-common-events
+introduction-and-course-syllabus
