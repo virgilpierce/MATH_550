@@ -125,7 +125,13 @@ Note why we compute variance in this way. We are trying to understand how far th
 sum(students - ybar )
 ```
 
-We have choices though, we could sum over the absolute value and indeed that does give us a notion of spread. However the advantage of summing over the squares is that it brings in tools from Calculus that work with quadratic expressions but not with absolute value expressions. We then intend to take an average. For reasons we will justify later, it turns out the correct average to do is to divide by the size of our sample minus 1:  $n-1$ is called the degrees of freedom (roughly computing $\bar{y}$ from the sample has used up one degree of freedom).
+We have choices though, we could sum over the absolute value and indeed that does give us a notion of spread. Here for example is the corresponding average for absolute deviation: 
+
+```{r}
+sum( abs(students - ybar)) / (length(students) - 1 )
+```
+
+However the advantage of summing over the squares is that it brings in tools from Calculus that work with quadratic expressions but not with absolute value expressions. We then intend to take an average. For reasons we will justify later, it turns out the correct average to do is to divide by the size of our sample minus 1:  $n-1$ is called the degrees of freedom (roughly computing $\bar{y}$ from the sample has used up one degree of freedom).
 
 Note the units on these two statistics:  the variance is the average of the sum of the squares (by the number of degrees of freedom) so its units are the square of the units of our sample data (*students squared* in this case); and then the standard deviation is the square root of the variance and so has units of the original data (*students* in this case).
 
@@ -184,7 +190,7 @@ supermarket <- read_excel("Supermarket Transactions.xlsx", sheet = 2)
 supermarket
 ```
 
-A couple of notes are in order here before we continue: Note that this data set is made up of samples (rows) each of which has 10 features (columns). Some of the features are numerical - *Units Sold* and *Revenue*, while others are purely categorical giving us just a description of the value. Also note there is a factor that looks numerical but for which it would probably be misleading to treat it as such. Note that some of the categorical variables have a natural order in the categories like *Annual Income* while others will not such as *State or Province*.
+A couple of notes are in order here before we continue: Note that this data set is made up of samples (rows) each of which has 16 features (columns) (well really 15 plus an identifying number in the first column). Some of the features are numerical - *Units Sold* and *Revenue*, while others are purely categorical giving us just a description of the value. Also note there is a factor that looks numerical but for which it would probably be misleading to treat it as such. Note that some of the categorical variables have a natural order in the categories like *Annual Income* while others will not such as *State or Province*.
 
 You will notice the note that the data set has ~14,049 rows: We can only deal with such datasets using a computer program. Without too much work we could find datasets that are too big for Excell and need to be analyzed using a software like R or Python - one reason we teach our students how to use them in their undergraduate courses.
 
