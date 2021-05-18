@@ -400,7 +400,7 @@ Healthcare costs in the US are made up of three broad categories: Hospitals, Phy
 
 Because this is a course about data, we can look for data related to questions you have. Places I look for data:
 
-- kaggle.com
+- [Kaggle](kaggle.com)
 - [Colorado Data](https://data.colorado.gov/)
 - [USA Data](https://www.data.gov/)
 - [United Nations Data](http://data.un.org/)
