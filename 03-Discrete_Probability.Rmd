@@ -1,0 +1,107 @@
+# Discrete Probability
+
+A motivating problem: Current estimates are that 38% of college and university students report food insecurity (defined as being uncertain they will have enough food for the next month or not knowing when they will next eat). The mathematics major at UNC has 130 students enrolled, how likely is it that 39 or fewer of the students enrolled are food insecure?
+
+## Definitions
+
+To get started we will set up some definitions we will use:
+
+An *experiment* is the process by which an observation is made. In our motivating problem the experiment would be inquiring of the mathematics majors whether they are food insecure or not.
+
+*Experiments on Human Subjects* like this one are subject to additional constraints and reviews in order to protect the subjects (subjects need to be protected from harm, their identities need to be protected, and their rights to consent to be included in a study need to be protected). So in this case the actual experiment we do would involve informing the subject of possible harm, taking steps to see that their response is anonymous, and asking them to verify that they are consenting to participate. 
+
+The *sample space* associated with an experiment is the set of all possible observations. In our motivating example the sample space would be a list of which students are facing food insecurity and which are not.
+
+An *event* is a set of possible observations from the sample space. 
+
+### Test Statistics
+
+For example we are interested, rather than in which students are food insecure, *how many* students are food insecure. This number:  $Y$ the number of mathematics majors at UNC that are food insecure is called a *test statistic*. Specifying a value or range of values for $Y$ corresponds to an *event* and identifies a subset of the sample space. 
+
+## Probability
+
+The *probability* of an event is the likliehood of that observation occuring from the sample space. What do we mean by likliehood though?  We will think of the probability of an even occuring as the proportion of the times it will occur through repetition of the experiment. In some case like rolling dice, flipping coins, or measuring the distance a spring has stretched under a weight it is clear what we mean by repeated observation. However things get a little unclear when we are talking about a situation like our motivating problem. 
+
+What we mean is:  If we were to take groups of 130 students randomly selected from all students throughout the US and ask how many of them are food insecure, how often would we get the particular value of $Y$. 
+
+Some basic Theorems about Probability from these definitions:
+
+- **Total Probability**: The total probability, i.e. the probability of anything from the sample space happening must be 1,
+
+- **Valid Probaiblities**: no probability can have a value bigger than 1 or less than 0.
+
+- **Complement Probability**: If the probability of event A is $P(A)$ then the probability of the complement of event A (all of the members of the sample space that are not in A) is $P( \neg A) = 1 - P(A)$.
+
+- **Mutually Exclusive Events**:  Two events are said to be *mutually exclusive* if their intersection (the cases where both events happen) is impossible i.e. $P(A\cap B) = 0$. Note this does not necessarily mean that the intersection is empty. 
+
+- **Sum of Mutually Exclusive Events**:  The probability of one of two or both mutually exclusive events happening is the sum of the probabilities of the two events:  $P(A \cup B) = P(A) + P(B)$. 
+
+- **Sum of Events**: More generally we have the probability of one of two or both events happening is almost coming from the sum, however we must take into account the possiblity of them both happening is being counted in both $P(A)$ and $P(B)$: $$P(A\cup B) = P(A) + P(B) - P(A\cap B) $$
+
+- **Venn Diagrams**:  These results should look familiar, they mirror statements about the size of sets A and B, and their union and intersection; with the caveat that P(S) = 0 is not exactly the same as S being empty. 
+
+### Two Events Happening at Once
+
+Of course we have studiously avoided a question in the last three bullets above. What is the probability that two events both have happened:  $P(A\cap B)$. We will lead this till another class.
+
+### Permutations and Choices
+
+To continue with our example we need a couple of constructions from combinatorics:  
+
+A permutation of $n$ objects is a specific ordering of the objects. For example { "pie", "bread", "vegetable"} and {"vegetable", "pie", "bread"} are two different permutations of the same 3 objects. 
+
+The total number of permutations of $n$ objects is given by: $$ n! = n (n-1) (n-2) \cdots 3 \cdot 2 \cdot 1 $$
+
+Verify this.
+
+#### Example: Find all 3! permutations of {"pie", "bread", "vegetable"}
+
+#### Example: Find all 4! permutations of {1, 2, 3, 4}
+
+#### Generalization:  Find all the possible permutations of {1, 1, 2, 3} 
+
+I.e. when two of the elements are identical and so can't be distinguished.
+
+#### Choices
+
+However what we often want to do is ask a question like: In how many ways can we choose 3 cookies from a plate of 5 cookies?
+
+In math-ese this is asking: how many subsets of size 3 are there from a set of size 5?
+
+#### Suppose order matters - how many ways with ordering matter can we choose 3 numbers from the set {1, 2, 3, 4, 5}
+
+#### As posed order does not matter: how many ways ignoring order can we choose 3 cookies from a plate of 5 cookies?
+
+The answer we find will be:
+$$ \mbox{n choose r} = \binom{n}{r} = \frac{n!}{r! (n-r)!} $$
+
+#### Example: How many ways can we choose 3 objects from a set of 10?
+
+## Bernouli Trials
+
+In a *Bernouli Trial* there is a simple experiment with a sample space consisting of two outcomes {Success, Failure}. Or any other size two descriptors you prefer (Heads / Tails if we are flipping a coin; Red/Black if we are playing roullete; Win/Lose if we are hockey team; etc. ). The probability of Success is given by p and the probability of failure is given by 1-p. 
+
+Flipping a fair coin we expected to get a HEADS half of all flips. Note This is a statement about long term behavior. For example it means if we flip the coin one thousand times we would expect to have close to 500 HEADS. 
+
+**A common misconception**:  If we flip a coin twice we expect to see two HEADS sometimes. 
+
+**A common misconception**: If we flip a coin two hundred times, we expect to see sequences of just heads. Let's try it!
+
+The *sample* command in R produces a sample from a given column. By defining a column to be {"H", "T"} we can then simmulate flipping a coin (much faster than actually flipping the coin) by using sample. Sample takes a parameter *replace* that identifies whether we are returning members to the set after selecting them. Because we are simmulating flipping a coin repeatedly we want to replace the value after each selection. 
+
+```{r}
+x = c("H", "T")
+result = sample(x, 200, replace=TRUE)
+result
+```
+
+You can also pass the sample command a list of probabilities for each element of x; note that order matters so check it.  For a fair coin the default of each outcome being equally likely works. However note that unfair coins are not unheard of - the 1 Euro Coin is a rather famous example of an unfair coin.
+
+A typical human trying to fake coin flips will distribute them too uniformly and will not have as many long sequences of "H" as we expect to see from an actual experiment.
+
+## Binomial Trials
+
+
+
+
+

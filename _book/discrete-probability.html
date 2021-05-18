@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Discrete Probability | MATH 550 - Applied Probability and Statistics</title>
+  <meta name="description" content="Textbook for MATH 550 Applied Probability and Statistics" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Discrete Probability | MATH 550 - Applied Probability and Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Textbook for MATH 550 Applied Probability and Statistics" />
+  <meta name="github-repo" content="virgilpierce/MATH_550" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Discrete Probability | MATH 550 - Applied Probability and Statistics" />
+  
+  <meta name="twitter:description" content="Textbook for MATH 550 Applied Probability and Statistics" />
+  
+
+<meta name="author" content="Virgil U Pierce" />
+
+
+<meta name="date" content="2021-05-18" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="what-is-statistics.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and Course Syllabus</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#class-and-instructor-details"><i class="fa fa-check"></i><b>1.1</b> Class and Instructor Details</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#no-textbook-purchase-required"><i class="fa fa-check"></i><b>1.2</b> No Textbook Purchase Required</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#course-description-and-prerequisites"><i class="fa fa-check"></i><b>1.3</b> Course Description and Prerequisites</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#tentative-outline"><i class="fa fa-check"></i><b>1.4</b> Tentative Outline</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#programing"><i class="fa fa-check"></i><b>1.5</b> Programing</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#course-pre-requisites"><i class="fa fa-check"></i><b>1.6</b> Course Pre-requisites</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#course-goals"><i class="fa fa-check"></i><b>1.7</b> Course Goals</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#course-structure"><i class="fa fa-check"></i><b>1.8</b> Course Structure</a></li>
+<li class="chapter" data-level="1.9" data-path="index.html"><a href="index.html#our-compact-with-each-other"><i class="fa fa-check"></i><b>1.9</b> Our compact with each other</a></li>
+<li class="chapter" data-level="1.10" data-path="index.html"><a href="index.html#assignments"><i class="fa fa-check"></i><b>1.10</b> Assignments</a></li>
+<li class="chapter" data-level="1.11" data-path="index.html"><a href="index.html#grades"><i class="fa fa-check"></i><b>1.11</b> Grades</a></li>
+<li class="chapter" data-level="1.12" data-path="index.html"><a href="index.html#unco-policy-statements"><i class="fa fa-check"></i><b>1.12</b> UNCO Policy Statements</a>
+<ul>
+<li class="chapter" data-level="1.12.1" data-path="index.html"><a href="index.html#disability-resources"><i class="fa fa-check"></i><b>1.12.1</b> Disability Resources</a></li>
+<li class="chapter" data-level="1.12.2" data-path="index.html"><a href="index.html#food-insecurity-and-basic-needs"><i class="fa fa-check"></i><b>1.12.2</b> Food Insecurity and Basic Needs</a></li>
+<li class="chapter" data-level="1.12.3" data-path="index.html"><a href="index.html#honor-code"><i class="fa fa-check"></i><b>1.12.3</b> Honor Code</a></li>
+<li class="chapter" data-level="1.12.4" data-path="index.html"><a href="index.html#uncs-policies"><i class="fa fa-check"></i><b>1.12.4</b> UNC’s Policies</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="what-is-statistics.html"><a href="what-is-statistics.html"><i class="fa fa-check"></i><b>2</b> What is Statistics?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#introduction-and-r"><i class="fa fa-check"></i><b>2.1</b> Introduction and R</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#what-do-you-need"><i class="fa fa-check"></i><b>2.1.1</b> What do you need</a></li>
+<li class="chapter" data-level="2.1.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#open-rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Open Rstudio</a></li>
+<li class="chapter" data-level="2.1.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#a-few-words-about-programming-languages"><i class="fa fa-check"></i><b>2.1.3</b> A few words about programming languages</a></li>
+<li class="chapter" data-level="2.1.4" data-path="what-is-statistics.html"><a href="what-is-statistics.html#a-first-example"><i class="fa fa-check"></i><b>2.1.4</b> A first example</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#plots"><i class="fa fa-check"></i><b>2.2</b> Plots</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#histograms"><i class="fa fa-check"></i><b>2.2.1</b> Histograms</a></li>
+<li class="chapter" data-level="2.2.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#boxplot"><i class="fa fa-check"></i><b>2.2.2</b> BoxPlot</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#categorical-data-example"><i class="fa fa-check"></i><b>2.3</b> Categorical Data Example</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#grades-1"><i class="fa fa-check"></i><b>2.3.1</b> Grades</a></li>
+<li class="chapter" data-level="2.3.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#example-of-categorical-data"><i class="fa fa-check"></i><b>2.3.2</b> Example of Categorical Data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#list-of-features"><i class="fa fa-check"></i><b>2.3.3</b> List of features</a></li>
+<li class="chapter" data-level="2.3.4" data-path="what-is-statistics.html"><a href="what-is-statistics.html#frequencies"><i class="fa fa-check"></i><b>2.3.4</b> Frequencies</a></li>
+<li class="chapter" data-level="2.3.5" data-path="what-is-statistics.html"><a href="what-is-statistics.html#proportions"><i class="fa fa-check"></i><b>2.3.5</b> Proportions</a></li>
+<li class="chapter" data-level="2.3.6" data-path="what-is-statistics.html"><a href="what-is-statistics.html#charts"><i class="fa fa-check"></i><b>2.3.6</b> Charts</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="what-is-statistics.html"><a href="what-is-statistics.html#exploratory-versus-confirmatory-analysis"><i class="fa fa-check"></i><b>2.4</b> Exploratory versus Confirmatory Analysis</a></li>
+<li class="chapter" data-level="2.5" data-path="what-is-statistics.html"><a href="what-is-statistics.html#correlations-and-predictions"><i class="fa fa-check"></i><b>2.5</b> Correlations and Predictions</a></li>
+<li class="chapter" data-level="2.6" data-path="what-is-statistics.html"><a href="what-is-statistics.html#motivating-questions"><i class="fa fa-check"></i><b>2.6</b> Motivating Questions</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="what-is-statistics.html"><a href="what-is-statistics.html#engine-failure"><i class="fa fa-check"></i><b>2.6.1</b> Engine Failure</a></li>
+<li class="chapter" data-level="2.6.2" data-path="what-is-statistics.html"><a href="what-is-statistics.html#engine-failure-2"><i class="fa fa-check"></i><b>2.6.2</b> Engine Failure 2</a></li>
+<li class="chapter" data-level="2.6.3" data-path="what-is-statistics.html"><a href="what-is-statistics.html#many-engines-failure"><i class="fa fa-check"></i><b>2.6.3</b> Many Engines Failure</a></li>
+<li class="chapter" data-level="2.6.4" data-path="what-is-statistics.html"><a href="what-is-statistics.html#duplicate-birthdays"><i class="fa fa-check"></i><b>2.6.4</b> Duplicate Birthdays</a></li>
+<li class="chapter" data-level="2.6.5" data-path="what-is-statistics.html"><a href="what-is-statistics.html#birthday-tickets"><i class="fa fa-check"></i><b>2.6.5</b> Birthday Tickets</a></li>
+<li class="chapter" data-level="2.6.6" data-path="what-is-statistics.html"><a href="what-is-statistics.html#accidents"><i class="fa fa-check"></i><b>2.6.6</b> Accidents</a></li>
+<li class="chapter" data-level="2.6.7" data-path="what-is-statistics.html"><a href="what-is-statistics.html#detecting-fraud"><i class="fa fa-check"></i><b>2.6.7</b> Detecting Fraud</a></li>
+<li class="chapter" data-level="2.6.8" data-path="what-is-statistics.html"><a href="what-is-statistics.html#combining-rare-events-with-common-events"><i class="fa fa-check"></i><b>2.6.8</b> Combining Rare Events with Common Events</a></li>
+<li class="chapter" data-level="2.6.9" data-path="what-is-statistics.html"><a href="what-is-statistics.html#monty-hall"><i class="fa fa-check"></i><b>2.6.9</b> Monty Hall</a></li>
+<li class="chapter" data-level="2.6.10" data-path="what-is-statistics.html"><a href="what-is-statistics.html#monty-hilbert-hall"><i class="fa fa-check"></i><b>2.6.10</b> Monty-Hilbert Hall</a></li>
+<li class="chapter" data-level="2.6.11" data-path="what-is-statistics.html"><a href="what-is-statistics.html#radioactive-decay"><i class="fa fa-check"></i><b>2.6.11</b> Radioactive Decay</a></li>
+<li class="chapter" data-level="2.6.12" data-path="what-is-statistics.html"><a href="what-is-statistics.html#budgets"><i class="fa fa-check"></i><b>2.6.12</b> Budgets</a></li>
+<li class="chapter" data-level="2.6.13" data-path="what-is-statistics.html"><a href="what-is-statistics.html#cherry-blossoms"><i class="fa fa-check"></i><b>2.6.13</b> Cherry Blossoms</a></li>
+<li class="chapter" data-level="2.6.14" data-path="what-is-statistics.html"><a href="what-is-statistics.html#detecting-fraud-in-thc-labs"><i class="fa fa-check"></i><b>2.6.14</b> Detecting Fraud in THC Labs</a></li>
+<li class="chapter" data-level="2.6.15" data-path="what-is-statistics.html"><a href="what-is-statistics.html#how-many-locomotives"><i class="fa fa-check"></i><b>2.6.15</b> How Many Locomotives</a></li>
+<li class="chapter" data-level="2.6.16" data-path="what-is-statistics.html"><a href="what-is-statistics.html#median-house-prices"><i class="fa fa-check"></i><b>2.6.16</b> Median House Prices</a></li>
+<li class="chapter" data-level="2.6.17" data-path="what-is-statistics.html"><a href="what-is-statistics.html#healthcare-costs"><i class="fa fa-check"></i><b>2.6.17</b> Healthcare Costs</a></li>
+<li class="chapter" data-level="2.6.18" data-path="what-is-statistics.html"><a href="what-is-statistics.html#what-questions-do-you-have"><i class="fa fa-check"></i><b>2.6.18</b> What Questions Do You Have?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="discrete-probability.html"><a href="discrete-probability.html"><i class="fa fa-check"></i><b>3</b> Discrete Probability</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="discrete-probability.html"><a href="discrete-probability.html#definitions"><i class="fa fa-check"></i><b>3.1</b> Definitions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="discrete-probability.html"><a href="discrete-probability.html#test-statistics"><i class="fa fa-check"></i><b>3.1.1</b> Test Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="discrete-probability.html"><a href="discrete-probability.html#probability"><i class="fa fa-check"></i><b>3.2</b> Probability</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="discrete-probability.html"><a href="discrete-probability.html#two-events-happening-at-once"><i class="fa fa-check"></i><b>3.2.1</b> Two Events Happening at Once</a></li>
+<li class="chapter" data-level="3.2.2" data-path="discrete-probability.html"><a href="discrete-probability.html#permutations-and-choices"><i class="fa fa-check"></i><b>3.2.2</b> Permutations and Choices</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="discrete-probability.html"><a href="discrete-probability.html#bernouli-trials"><i class="fa fa-check"></i><b>3.3</b> Bernouli Trials</a></li>
+<li class="chapter" data-level="3.4" data-path="discrete-probability.html"><a href="discrete-probability.html#binomial-trials"><i class="fa fa-check"></i><b>3.4</b> Binomial Trials</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MATH 550 - Applied Probability and Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="discrete-probability" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Discrete Probability</h1>
+<p>A motivating problem: Current estimates are that 38% of college and university students report food insecurity (defined as being uncertain they will have enough food for the next month or not knowing when they will next eat). The mathematics major at UNC has 130 students enrolled, how likely is it that 39 or fewer of the students enrolled are food insecure?</p>
+<div id="definitions" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Definitions</h2>
+<p>To get started we will set up some definitions we will use:</p>
+<p>An <em>experiment</em> is the process by which an observation is made. In our motivating problem the experiment would be inquiring of the mathematics majors whether they are food insecure or not.</p>
+<p><em>Experiments on Human Subjects</em> like this one are subject to additional constraints and reviews in order to protect the subjects (subjects need to be protected from harm, their identities need to be protected, and their rights to consent to be included in a study need to be protected). So in this case the actual experiment we do would involve informing the subject of possible harm, taking steps to see that their response is anonymous, and asking them to verify that they are consenting to participate.</p>
+<p>The <em>sample space</em> associated with an experiment is the set of all possible observations. In our motivating example the sample space would be a list of which students are facing food insecurity and which are not.</p>
+<p>An <em>event</em> is a set of possible observations from the sample space.</p>
+<div id="test-statistics" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Test Statistics</h3>
+<p>For example we are interested, rather than in which students are food insecure, <em>how many</em> students are food insecure. This number: <span class="math inline">\(Y\)</span> the number of mathematics majors at UNC that are food insecure is called a <em>test statistic</em>. Specifying a value or range of values for <span class="math inline">\(Y\)</span> corresponds to an <em>event</em> and identifies a subset of the sample space.</p>
+</div>
+</div>
+<div id="probability" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Probability</h2>
+<p>The <em>probability</em> of an event is the likliehood of that observation occuring from the sample space. What do we mean by likliehood though? We will think of the probability of an even occuring as the proportion of the times it will occur through repetition of the experiment. In some case like rolling dice, flipping coins, or measuring the distance a spring has stretched under a weight it is clear what we mean by repeated observation. However things get a little unclear when we are talking about a situation like our motivating problem.</p>
+<p>What we mean is: If we were to take groups of 130 students randomly selected from all students throughout the US and ask how many of them are food insecure, how often would we get the particular value of <span class="math inline">\(Y\)</span>.</p>
+<p>Some basic Theorems about Probability from these definitions:</p>
+<ul>
+<li><p><strong>Total Probability</strong>: The total probability, i.e. the probability of anything from the sample space happening must be 1,</p></li>
+<li><p><strong>Valid Probaiblities</strong>: no probability can have a value bigger than 1 or less than 0.</p></li>
+<li><p><strong>Complement Probability</strong>: If the probability of event A is <span class="math inline">\(P(A)\)</span> then the probability of the complement of event A (all of the members of the sample space that are not in A) is <span class="math inline">\(P( \neg A) = 1 - P(A)\)</span>.</p></li>
+<li><p><strong>Mutually Exclusive Events</strong>: Two events are said to be <em>mutually exclusive</em> if their intersection (the cases where both events happen) is impossible i.e. <span class="math inline">\(P(A\cap B) = 0\)</span>. Note this does not necessarily mean that the intersection is empty.</p></li>
+<li><p><strong>Sum of Mutually Exclusive Events</strong>: The probability of one of two or both mutually exclusive events happening is the sum of the probabilities of the two events: <span class="math inline">\(P(A \cup B) = P(A) + P(B)\)</span>.</p></li>
+<li><p><strong>Sum of Events</strong>: More generally we have the probability of one of two or both events happening is almost coming from the sum, however we must take into account the possiblity of them both happening is being counted in both <span class="math inline">\(P(A)\)</span> and <span class="math inline">\(P(B)\)</span>: <span class="math display">\[P(A\cup B) = P(A) + P(B) - P(A\cap B) \]</span></p></li>
+<li><p><strong>Venn Diagrams</strong>: These results should look familiar, they mirror statements about the size of sets A and B, and their union and intersection; with the caveat that P(S) = 0 is not exactly the same as S being empty.</p></li>
+</ul>
+<div id="two-events-happening-at-once" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Two Events Happening at Once</h3>
+<p>Of course we have studiously avoided a question in the last three bullets above. What is the probability that two events both have happened: <span class="math inline">\(P(A\cap B)\)</span>. We will lead this till another class.</p>
+</div>
+<div id="permutations-and-choices" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Permutations and Choices</h3>
+<p>To continue with our example we need a couple of constructions from combinatorics:</p>
+<p>A permutation of <span class="math inline">\(n\)</span> objects is a specific ordering of the objects. For example { “pie”, “bread”, “vegetable”} and {“vegetable”, “pie”, “bread”} are two different permutations of the same 3 objects.</p>
+<p>The total number of permutations of <span class="math inline">\(n\)</span> objects is given by: <span class="math display">\[ n! = n (n-1) (n-2) \cdots 3 \cdot 2 \cdot 1 \]</span></p>
+<p>Verify this.</p>
+<div id="example-find-all-3-permutations-of-pie-bread-vegetable" class="section level4" number="3.2.2.1">
+<h4><span class="header-section-number">3.2.2.1</span> Example: Find all 3! permutations of {“pie”, “bread”, “vegetable”}</h4>
+</div>
+<div id="example-find-all-4-permutations-of-1-2-3-4" class="section level4" number="3.2.2.2">
+<h4><span class="header-section-number">3.2.2.2</span> Example: Find all 4! permutations of {1, 2, 3, 4}</h4>
+</div>
+<div id="generalization-find-all-the-possible-permutations-of-1-1-2-3" class="section level4" number="3.2.2.3">
+<h4><span class="header-section-number">3.2.2.3</span> Generalization: Find all the possible permutations of {1, 1, 2, 3}</h4>
+<p>I.e. when two of the elements are identical and so can’t be distinguished.</p>
+</div>
+<div id="choices" class="section level4" number="3.2.2.4">
+<h4><span class="header-section-number">3.2.2.4</span> Choices</h4>
+<p>However what we often want to do is ask a question like: In how many ways can we choose 3 cookies from a plate of 5 cookies?</p>
+<p>In math-ese this is asking: how many subsets of size 3 are there from a set of size 5?</p>
+</div>
+<div id="suppose-order-matters---how-many-ways-with-ordering-matter-can-we-choose-3-numbers-from-the-set-1-2-3-4-5" class="section level4" number="3.2.2.5">
+<h4><span class="header-section-number">3.2.2.5</span> Suppose order matters - how many ways with ordering matter can we choose 3 numbers from the set {1, 2, 3, 4, 5}</h4>
+</div>
+<div id="as-posed-order-does-not-matter-how-many-ways-ignoring-order-can-we-choose-3-cookies-from-a-plate-of-5-cookies" class="section level4" number="3.2.2.6">
+<h4><span class="header-section-number">3.2.2.6</span> As posed order does not matter: how many ways ignoring order can we choose 3 cookies from a plate of 5 cookies?</h4>
+<p>The answer we find will be:
+<span class="math display">\[ \mbox{n choose r} = \binom{n}{r} = \frac{n!}{r! (n-r)!} \]</span></p>
+</div>
+<div id="example-how-many-ways-can-we-choose-3-objects-from-a-set-of-10" class="section level4" number="3.2.2.7">
+<h4><span class="header-section-number">3.2.2.7</span> Example: How many ways can we choose 3 objects from a set of 10?</h4>
+</div>
+</div>
+</div>
+<div id="bernouli-trials" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Bernouli Trials</h2>
+<p>In a <em>Bernouli Trial</em> there is a simple experiment with a sample space consisting of two outcomes {Success, Failure}. Or any other size two descriptors you prefer (Heads / Tails if we are flipping a coin; Red/Black if we are playing roullete; Win/Lose if we are hockey team; etc. ). The probability of Success is given by p and the probability of failure is given by 1-p. </p>
+<p>Flipping a fair coin we expected to get a HEADS half of all flips. Note This is a statement about long term behavior. For example it means if we flip the coin one thousand times we would expect to have close to 500 HEADS.</p>
+<p><strong>A common misconception</strong>: If we flip a coin twice we expect to see two HEADS sometimes.</p>
+<p><strong>A common misconception</strong>: If we flip a coin two hundred times, we expect to see sequences of just heads. Let’s try it!</p>
+<p>The <em>sample</em> command in R produces a sample from a given column. By defining a column to be {“H”, “T”} we can then simmulate flipping a coin (much faster than actually flipping the coin) by using sample. Sample takes a parameter <em>replace</em> that identifies whether we are returning members to the set after selecting them. Because we are simmulating flipping a coin repeatedly we want to replace the value after each selection.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="discrete-probability.html#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>)</span>
+<span id="cb1-2"><a href="discrete-probability.html#cb1-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">=</span> <span class="fu">sample</span>(x, <span class="dv">200</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a href="discrete-probability.html#cb1-3" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
+<pre><code>##   [1] &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
+##  [19] &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
+##  [37] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot;
+##  [55] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
+##  [73] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot;
+##  [91] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot;
+## [109] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot;
+## [127] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
+## [145] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
+## [163] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
+## [181] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
+## [199] &quot;H&quot; &quot;H&quot;</code></pre>
+<p>You can also pass the sample command a list of probabilities for each element of x; note that order matters so check it. For a fair coin the default of each outcome being equally likely works. However note that unfair coins are not unheard of - the 1 Euro Coin is a rather famous example of an unfair coin.</p>
+<p>A typical human trying to fake coin flips will distribute them too uniformly and will not have as many long sequences of “H” as we expect to see from an actual experiment.</p>
+</div>
+<div id="binomial-trials" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Binomial Trials</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="what-is-statistics.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
