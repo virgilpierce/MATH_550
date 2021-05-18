@@ -51,19 +51,19 @@ Questions you will explore this summer:
 
 ## Tentative Outline
 
-1. Unit 1: Introduction and using R
+- Chapter 2: Introduction and using R
 
-2. Unit 2: Discrete Probability
+- Chapter 3: Discrete Probability
 
-3. Unit 3: Continuous Probability
+- Chapter 4: Continuous Probability
 
-4. Unit 4: Sampling
+- Chapter 5: Sampling
 
-5. Unit 5: Hypothesis Testing and Confidence Intervals
+- Chapter 6: Hypothesis Testing and Confidence Intervals
 
-6. Unit 6: Bayes Probability and Updating from New Data
+- Chapter 7: Bayes Probability and Updating from New Data
 
-7. Unit 7: Correlations and models.
+- Chapter 8: Correlations and models.
 
 
 ## Programing
