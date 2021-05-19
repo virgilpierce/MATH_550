@@ -14,9 +14,11 @@ The *sample space* associated with an experiment is the set of all possible obse
 
 An *event* is a set of possible observations from the sample space. 
 
-### Test Statistics
+### Random Variable
 
-For example we are interested, rather than in which students are food insecure, *how many* students are food insecure. This number:  $Y$ the number of mathematics majors at UNC that are food insecure is called a *test statistic*. Specifying a value or range of values for $Y$ corresponds to an *event* and identifies a subset of the sample space. 
+For example we are interested, rather than in which students are food insecure, *how many* students are food insecure. This number:  $Y$ the number of mathematics majors at UNC that are food insecure is called a *random variable* of interest in our problem. Specifying a value or range of values for $Y$ corresponds to an *event* and identifies a subset of the sample space. 
+
+Ther eare actually other random variables associated with the same problem that we might be concerned about, but this one is a sort of basic one.
 
 ## Probability
 
@@ -26,7 +28,7 @@ What we mean is:  If we were to take groups of 130 students randomly selected fr
 
 Some basic Theorems about Probability from these definitions:
 
-- **Total Probability**: The total probability, i.e. the probability of anything from the sample space happening must be 1,
+- **Total Probability**: The total probability, i.e. the probability that something from the sample space happens must be 1,
 
 - **Valid Probaiblities**: no probability can have a value bigger than 1 or less than 0.
 
@@ -42,7 +44,15 @@ Some basic Theorems about Probability from these definitions:
 
 ### Two Events Happening at Once
 
-Of course we have studiously avoided a question in the last three bullets above. What is the probability that two events both have happened:  $P(A\cap B)$. We will lead this till another class.
+In this case we will state that two events are inedpendent if the probability that they both happen is the product of the probabilities of either one of them happening:
+
+$$ P(A \cap B) = P(A) P(B)$$
+
+An example of two independent events would be flipping two coins: getting a heads on one coin flip and getting a heads on the second coin flip. The result of the second flip will not depend upon the result of the first flip (or maybe the right question is, when would the second flip depend on the first one?). 
+
+An example of two dependent events would be getting a head on the first coin flip of two, and then the flipping of two heads in a row in two coin flips. Note that in order to have two heads the first flip needs to be a head and thus the second event depends on whether the first event has happened or not. It is the *dependence* causing the probability of one event to change if we know the other event has occured that we are looking for.
+
+We will return to the case of dependent events later.
 
 ### Permutations and Choices
 
@@ -87,21 +97,218 @@ Flipping a fair coin we expected to get a HEADS half of all flips. Note This is 
 
 **A common misconception**: If we flip a coin two hundred times, we expect to see sequences of just heads. Let's try it!
 
-The *sample* command in R produces a sample from a given column. By defining a column to be {"H", "T"} we can then simmulate flipping a coin (much faster than actually flipping the coin) by using sample. Sample takes a parameter *replace* that identifies whether we are returning members to the set after selecting them. Because we are simmulating flipping a coin repeatedly we want to replace the value after each selection. 
+The *sample* command in R produces a sample from a given column. By defining a column to be {"H", "T"} we can then simulate flipping a coin (much faster than actually flipping the coin) by using sample. Sample takes a parameter *replace* that identifies whether we are returning members to the set after selecting them. Because we are simulating flipping a coin repeatedly we want to replace the value after each selection. 
 
 ```{r}
-x = c("H", "T")
-result = sample(x, 200, replace=TRUE)
+x <- c("H", "T")
+result <- sample(x, 200, replace=TRUE)
 result
 ```
 
-You can also pass the sample command a list of probabilities for each element of x; note that order matters so check it.  For a fair coin the default of each outcome being equally likely works. However note that unfair coins are not unheard of - the 1 Euro Coin is a rather famous example of an unfair coin.
+You can also pass the sample command a list of probabilities for each element of x; note that order matters so check it.  For a fair coin the default of each outcome being equally likely works. However note that unfair coins are not unheard of - you can purchase them at magic and toy shops.
 
 A typical human trying to fake coin flips will distribute them too uniformly and will not have as many long sequences of "H" as we expect to see from an actual experiment.
 
 ## Binomial Trials
 
+We now have all the tools for the question at hand. Let's start with simulating the question using *sample*.  Randomly selecting an individual student from the population of US college students and asking whether they are food insecure or not is a Bernouli trial with a probably of 0.38 that the student is Food Insecure; and a probability of $1-0.38 = 0.62$ that they are not. Specifically the result for each student is independent of the others (the probabilities 0.38 and 0.62 in the trial are not changing). We will use the *prob* parameter and pass it a column of the two probabilities. 
 
+```{r}
+x <- c(1, 0)
+result <- sample(x, 130, replace = TRUE, prob=c(0.38, 0.62) )
+result
+```
+
+You may notice that rather than using strings for the entries in *x* I used 1 and 0. The reason is that what we care about is the number of students that are food insecure, this is our random variable of interest and now we can compute its value by just summing up the numbers in *result* the value of which will be the number of 1s. 
+
+```{r}
+sum(result)
+```
+
+Because the *sample* command uses (pseudo)-random numbers, if we run this again we will get a different result (also note each time I compile this textbook the values change). Do it a few times yourself and see what we get.
+
+```{r}
+sum(sample(x, 130, replace=TRUE, prob=c(0.38, 0.62)))
+```
+
+This is a little bit tedious to run a bunch of times and we also should be keeping track of the results. For example, what is the smallest value you have seen so far? Luckily, one of the things computers are absolutely brilliant at is doing the same thing over and over and keeping track of the results. Let me introduce you to one of the two real programming structures we will use in this class:  a *for loop*.  A for loop tells the computer to complete the same set of commands multiple times.
+
+```{r}
+# We are going to keep track of the results in a variable called trials, so we first initalize this variable as an empty column
+trials <- c()
+
+# Then our for loop - in this case we just want the loop to repeat the command 100 times
+for (k in 1:100) { 
+  # each loop will compute the number of food insecure students in our random sample of 130 students, 
+  # make that a column, and 
+  # then add that to the end of the trials column
+  trials <- c(trials, sum(sample(x, 130, replace=TRUE, prob=c(0.38, 0.62))))
+}
+
+trials
+```
+
+Let's use a historgram to look at the result:
+
+```{r}
+# The paramter breaks is determining how many bins to use
+hist(trials, breaks=10)
+```
+
+```{r}
+summary(trials)
+```
+
+So interestingly the minimum value is not very small. What does this tell us about the number of mathematics majors we might see that are food insecure?  What would our interpretation be if we found only 10 of the mathematics majors were food insecure?
+
+Finally you can probably tell me you are not surprised that the mean is close to 
+
+```{r}
+0.38 * 130
+```
+
+we will make your instinct about this precise!
+
+### Plan
+
+Let me pause here and say that this is our plan for the course. We will take a given problem and experiment with it, using R to simmulate things like flipping coins or rolling dice, or as in this example selecting random college students and asking them whether they are food insecure or not. Then we will ask the theoretical questions where we try and model the situation.
+
+### Binomial Distribution
+
+Now let's develop a model of what is happening. To do this we will ask the following question: For Y, the random variable given by the number of success in a set of 130 Bernouli trials, what is $P(Y = r)$ for a given integer r?  We could think of this as a function of $r$ and as such it is called the *Probability Distribution* of the random variable $Y$. In this case the $Y$ takes discrete values and so we would call $P(Y=r)$ a discrete probability distribution.
+
+Find the following probabilities:
+
+- $P(Y=r)$ for r < 0
+- $P(Y=r)$ for r not an integer
+- $P(Y=r)$ for r > 130
+
+Okay so now lets fix a particular r, and being mathematicians lets start simple with r = 1:
+
+1. $P(Y=1)$ is the probability that one of the 130 students is food insecure. There 130 different students who could be the one that is food insecure; and then the probability of having one success is given by 0.38; while the probability of 129 failures is $0.62^{129}$. Thus the solution is:
+
+$$ P(Y=1) = 130 \cdot 0.38 \cdot 0.62^{129} $$
+
+- Specifically the 130 factor is because mutually exclusive events sum their probabilities; and luckily for us each one is equally likely so we just get the multiple of the number of events. 
+- The $0.38 \cdot 0.62^{129} $ factor is because independent events multiply their probabilities.
+
+Note that this depends on the individual trials being independent. For the food insecurity quesiton, is this reasonable?
+
+We get:
+
+```{r}
+130 * 0.38 * 0.62^129
+```
+
+2. $P(Y=2)$ in the case of two students out of the 130 being food insecure:  There are $\binom{130}{2} $ ways to select those two students. Then the likelihood that those two are success is $0.38^2$; and the likliehood the other 128 are failures is $0.62^{128}$. Putting it all together we have:
+
+$$ P(Y=2) = \binom{130}{2} 0.38^2 \cdot 0.62^{128} $$
+
+We get:
+
+```{r}
+choose(130, 2) * 0.38^2 * 0.62^128
+```
+
+3. More generally we find:
+
+$$ P(Y=r) = \binom{130}{r} 0.38^r \cdot 0.62^{130 - r} $$
+
+Plotting the whole range of values:
+
+```{r}
+r <- c(0:130)
+v <- choose(130, r) * 0.38^r * 0.62^(130 - r)
+plot(r, v)
+```
+
+### Binomial Distribution
+
+More generally:  A Binomial Trial is made up of n identical indepedent Bernouli Trials each with probability p of success and 1-p of failure. The random variable $Y = \mbox{The number of success in the n trials} $ has a probability distribution function given by:
+
+$$ P(Y = r) = \binom{n}{r} p^r (1-p)^{n-r} $$
+
+Vary the p and the n a bit in the plot below and see how the distribution changes:
+
+
+```{r}
+p <- 0.01
+n <- 30
+r <- c(0:n)
+v <- choose(n, r) * p^r * (1-p)^(n - r)
+plot(r, v)
+```
+
+### Checking a few things
+
+1. So a few things to check before we move on. The total probability should be 1. It's not clear it will be:
+
+```{r}
+sum(v)
+```
+
+It is interesting to ask why it works this way. You might recall that you have seen the binomial coefficient before, and in fact it even gets its name from the following problem:
+
+$$ (a + b)^n = \sum_{r=0}^n \binom{n}{r} a^r b^{n-r} $$
+
+Now suppose $a=p$ and $b=1-p$; what do we learn?
+
+2. No probability should have a value less than 0; or greater than 1.
+
+
+## Cummulative Distributions
+
+The motivating problem question was:  How likely is it that out of the 130 mathematics majors 39 or fewer of them are food insecure.  In terms of probability this quesiton is asking:  $P(Y \leq 39)$
+
+And note we can compute that by just taking a sum:
+
+$$ P(Y \leq 39) = \sum_{r=0}^{39} P(Y = r) = \sum_{r=0}^{39} \binom{130}{r} 0.38^r \cdot 0.62^{130-r} $$
+
+We could derive a formula for expressions right this, and if you enjoy algebra it is not a bad exercise. Do you enjoy algebra?  I frankly do not. Using a computer we can just compute it:
+
+```{r}
+r <- c(0:39)
+sum( choose(130, r) * 0.38^r * 0.62^(130 - r) )
+```
+
+This is a good place to introduce some hard coded functions for our first named distribution:  
+
+The Probability Distribution Function for the Binomial Distribution is given by the *dbinom(r, n, p)* command:
+
+```{r}
+dbinom(39, 130, 0.38)
+```
+
+The Cummulative Distribution Function for the Binomial Distribution is given by the *pbinom(r, n, p)* command:
+
+```{r}
+pbinom(39, 130, 0.38)
+```
+
+This us of *d* and *p* together with the name of the distribution will continue through all the distributions we work with.
+
+### Conclusion to the Motivating Question
+
+So at this point we can conclude our motivating question:  What we have learned is that in a randomly selected group of 130 US college students the probability that we would have 39 or fewer of them indicating they are food insecure is less than 5%. We actually have the exact value or can at least get very good approximations of it. However in our class, and particularly in Applied Statistics, we are actually not that concerned with the exact value. We are more interested in bounding the result above and below. In fact in applications in the real world, if your answer depends on the exact value coming from your model it should set off alarm bells.
+
+In this case again we are seeing that the likliehood of 39 or fewer students with food insecurity out of 130 randomly selected US college students is small. If we had observed 39 we would then be inclined to believe that the other possibility is occurring:  Our assumption is false. Meaning in this case Mathematics Majors at UNC are not a random sample of US college students - there are lots of reasons, once we have evidence of it, we might realize are contributing to them not being random (the primary one being that there is in fact a stark difference between the food insecurity of 2-year students and 4-year students). The other possibility is that one of the other assumptions is false - perhaps the students are not well represented as independent trials.
+
+### General Cummulative Distribution Functions
+
+Its worth spending some more time on cummulative distribution functions, lets look at them in general case of a Binomial Trial with n trials with a probability of success of each trial of p.
+
+```{r}
+n <- 130
+p <- 0.38
+r <- c(0:(10*n))/10
+plot(r, pbinom(r, n, p), type="l")
+```
+
+Note:  We only plotted the distribution function at integer values of r because it is zero everywhere else. However the cumulative distribution function gives the probability that $Y \leq r$ and so it has a step like behavior. 
+
+Note:  I generally LOVE using software to draw plots as I am an awful artist - most of my low grades in math classes like trigonometry and geometry in high school were because of my drawings. However one place where software consistently messes us up is in drawing step functions - this picture would be better without the vertical lines connecting the horizontal segments.
+
+Vary p and n to see how the plot changes. In particular for small values of n the steps should become more prominent. You might have to increase the 10 in the code snippet to get the mesh to be finer - if you notice the vertical segments are not looking very vertical this is what should be changed.
 
 
 

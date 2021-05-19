@@ -73,3 +73,11 @@ bernouli-trials
 probability
 two-events-happening-at-once
 binomial-trials
+random-variable
+plan
+binomial-distribution
+binomial-distribution-1
+checking-a-few-things
+cummulative-distributions
+conclusion-to-the-motivating-question
+general-cummulative-distribution-functions
