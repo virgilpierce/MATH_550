@@ -81,3 +81,7 @@ checking-a-few-things
 cummulative-distributions
 conclusion-to-the-motivating-question
 general-cummulative-distribution-functions
+motivating-problem---the-birthday-paradox
+expected-value
+the-expected-number-of-students-experiencing-food-insecurity
+expected-value-of-a-binomial-distribution

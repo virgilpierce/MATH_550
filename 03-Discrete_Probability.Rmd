@@ -310,5 +310,53 @@ Note:  I generally LOVE using software to draw plots as I am an awful artist - m
 
 Vary p and n to see how the plot changes. In particular for small values of n the steps should become more prominent. You might have to increase the 10 in the code snippet to get the mesh to be finer - if you notice the vertical segments are not looking very vertical this is what should be changed.
 
+## Motivating Problem - The Birthday Paradox
+
+In a class of 25 students, how likely is it that two or more of them share the same birthday (day / month)?  This seems like it might be a Binomial Trial; however are the trials identical and independent?
+
+**Question:** write a birthday problem that will be a Binomial Trial. Explain why in that case the trials are identical and independent.
+
+## Expected Value
+
+The *expected value* of a quantitative random variable is defined to be the mean of the values of the variable over a large number of repeated trials of the variable. Given a discrete probability distribution for a random variable $Y$:  $p(r) = P(Y=r)$ we can compute the expected value of $Y$ by taking the weighted average of all possible values of $r$ weighted by the likliehood of that r:
+
+$$ E(Y) = \sum_{r: p(r) \neq 0} r p(r) $$
+
+### The Expected Number of Students Experiencing Food Insecurity
+
+Returning to our problem. If we have a group of 130 randomly selected US college students, the likliehood that any one of them is experiencing food insecurity is 0.38; and assuming that they are independently selected the number of ones in the 130 that are experiencing food insecurity fits the Binomial Distribution. Thus we can compute the expected number by summing over r = 0, 1, 2, ..., 130 with each r weighted by  $$ \binom{130}{r} 0.38^r \cdot 0.62^{130 - r} $$
+
+Using R we get:
+
+```{r}
+r = c(0:130)
+sum( r*dbinom(r, 130, 0.38))
+```
+
+It is probably not shocking that this is the same number we saw above for $130 \cdot 0.38 = 49.4$ and that it is also close to the mean we got in our sampling experiment we ran above. 
+
+#### Expected Value of a Binomial Distribution
+
+We can show that this always happens. Note that in general this is a class that I want to have focus on computations - so while we are going to give the exact proofs of some of our results like this one, we will do them as a class rather than have you work on them as excersises. I do think that this computations could be used to motivate some problems you have students do in an algebra or pre-calculus or calculus class, but they are sort of parallel but not part of the goals for our class. 
+
+Let $Y$ be a binomial distributed random variable for n trials with probability of success in each trial p. Define $q = 1-p$. Then we have
+
+$$ E(Y) = \sum_{r=0}^n r \binom{n}{r} p^r q^{n-r} $$ 
+Note that the first term in this sum is in fact 0 and so we could index the sum from 1; then expand the binomial coefficient:
+
+$$ E(Y) = \sum_{r=1}^n \frac{n!}{(r-1)! (n-r)!} p^r q^{n-r} $$ 
+
+We then notice that the terms in this sum are themselves close to being binomial probabilities for a different number of trials. For example what happens if we factor out $np$ from each term:
+
+$$ E(Y) = np \sum_{r=1}^n \frac{(n-1)!}{ (r-1)! (n-1 - (r-1))! } p^{r-1} q^{n-1 - (r-1) } $$
+
+and finally we note that we could re-base the index of the sum back to 0:
+
+$$ E(Y) = np \sum_{s = 0}^{n-1} \binom{n-1}{s} p^s q^{n-1 -s} $$
+
+and because the sum is now a sum over all of the probabilities of a binomial distribution it gives 1 and so: $E(Y) = np$. 
+
+Which is **EXACTLY** what your instinct already told you we should get!!!!
+
 
 
