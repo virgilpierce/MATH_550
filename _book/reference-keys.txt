@@ -85,3 +85,8 @@ motivating-problem---the-birthday-paradox
 expected-value
 the-expected-number-of-students-experiencing-food-insecurity
 expected-value-of-a-binomial-distribution
+examples
+population-variance
+methods-of-computing-vy
+variance-of-a-binomial-random-variable
+exact-value

@@ -229,6 +229,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7" data-path="discrete-probability.html"><a href="discrete-probability.html#expected-value"><i class="fa fa-check"></i><b>3.7</b> Expected Value</a>
 <ul>
 <li class="chapter" data-level="3.7.1" data-path="discrete-probability.html"><a href="discrete-probability.html#the-expected-number-of-students-experiencing-food-insecurity"><i class="fa fa-check"></i><b>3.7.1</b> The Expected Number of Students Experiencing Food Insecurity</a></li>
+<li class="chapter" data-level="3.7.2" data-path="discrete-probability.html"><a href="discrete-probability.html#examples"><i class="fa fa-check"></i><b>3.7.2</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="discrete-probability.html"><a href="discrete-probability.html#population-variance"><i class="fa fa-check"></i><b>3.8</b> Population Variance</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="discrete-probability.html"><a href="discrete-probability.html#methods-of-computing-vy"><i class="fa fa-check"></i><b>3.8.1</b> Methods of Computing <span class="math inline">\(V(Y)\)</span></a></li>
+<li class="chapter" data-level="3.8.2" data-path="discrete-probability.html"><a href="discrete-probability.html#variance-of-a-binomial-random-variable"><i class="fa fa-check"></i><b>3.8.2</b> Variance of a Binomial Random Variable</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -330,18 +336,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="discrete-probability.html#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>)</span>
 <span id="cb1-2"><a href="discrete-probability.html#cb1-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">200</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb1-3"><a href="discrete-probability.html#cb1-3" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
-<pre><code>##   [1] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
-##  [19] &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
-##  [37] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot;
-##  [55] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
-##  [73] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
-##  [91] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
-## [109] &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot;
-## [127] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot;
-## [145] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
-## [163] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
-## [181] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot;
-## [199] &quot;T&quot; &quot;T&quot;</code></pre>
+<pre><code>##   [1] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
+##  [19] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot;
+##  [37] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot;
+##  [55] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
+##  [73] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot;
+##  [91] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
+## [109] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
+## [127] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
+## [145] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
+## [163] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
+## [181] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
+## [199] &quot;T&quot; &quot;H&quot;</code></pre>
 <p>You can also pass the sample command a list of probabilities for each element of x; note that order matters so check it. For a fair coin the default of each outcome being equally likely works. However note that unfair coins are not unheard of - you can purchase them at magic and toy shops.</p>
 <p>A typical human trying to fake coin flips will distribute them too uniformly and will not have as many long sequences of “H” as we expect to see from an actual experiment.</p>
 </div>
@@ -351,16 +357,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="discrete-probability.html#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb3-2"><a href="discrete-probability.html#cb3-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">130</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.38</span>, <span class="fl">0.62</span>) )</span>
 <span id="cb3-3"><a href="discrete-probability.html#cb3-3" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
-<pre><code>##   [1] 0 0 1 1 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 1 0 1 0 1 0 0 0 1 0 0 0 1 0 0 0 1
-##  [38] 0 0 0 0 1 0 0 1 1 0 1 0 1 0 1 1 0 0 1 1 0 1 0 1 0 0 0 1 0 1 0 0 1 0 0 0 0
-##  [75] 0 1 0 1 1 1 0 1 0 1 1 1 0 0 1 0 1 1 0 0 0 0 0 1 0 1 0 0 1 1 1 0 0 1 0 0 0
-## [112] 0 1 1 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0</code></pre>
+<pre><code>##   [1] 0 0 0 1 0 0 0 1 0 0 1 0 0 1 0 0 0 0 1 0 0 1 1 1 1 0 1 0 0 1 1 1 0 0 0 0 1
+##  [38] 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 1 0 0 1 0 1 0 1 0 0 1 1 0 1 0 0 0 1 0 1 1
+##  [75] 0 0 0 0 1 0 0 1 0 1 1 1 1 0 0 0 1 0 0 0 0 0 1 0 1 0 0 0 1 1 1 1 1 0 1 0 0
+## [112] 0 0 0 0 0 1 0 0 0 1 1 0 0 0 0 1 1 0 1</code></pre>
 <p>You may notice that rather than using strings for the entries in <em>x</em> I used 1 and 0. The reason is that what we care about is the number of students that are food insecure, this is our random variable of interest and now we can compute its value by just summing up the numbers in <em>result</em> the value of which will be the number of 1s.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="discrete-probability.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(result)</span></code></pre></div>
-<pre><code>## [1] 47</code></pre>
+<pre><code>## [1] 48</code></pre>
 <p>Because the <em>sample</em> command uses (pseudo)-random numbers, if we run this again we will get a different result (also note each time I compile this textbook the values change). Do it a few times yourself and see what we get.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="discrete-probability.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sample</span>(x, <span class="dv">130</span>, <span class="at">replace=</span><span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.38</span>, <span class="fl">0.62</span>)))</span></code></pre></div>
-<pre><code>## [1] 35</code></pre>
+<pre><code>## [1] 50</code></pre>
 <p>This is a little bit tedious to run a bunch of times and we also should be keeping track of the results. For example, what is the smallest value you have seen so far? Luckily, one of the things computers are absolutely brilliant at is doing the same thing over and over and keeping track of the results. Let me introduce you to one of the two real programming structures we will use in this class: a <em>for loop</em>. A for loop tells the computer to complete the same set of commands multiple times.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="discrete-probability.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We are going to keep track of the results in a variable called trials, so we first initalize this variable as an empty column</span></span>
 <span id="cb9-2"><a href="discrete-probability.html#cb9-2" aria-hidden="true" tabindex="-1"></a>trials <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
@@ -374,17 +380,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-10"><a href="discrete-probability.html#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb9-11"><a href="discrete-probability.html#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-12"><a href="discrete-probability.html#cb9-12" aria-hidden="true" tabindex="-1"></a>trials</span></code></pre></div>
-<pre><code>##   [1] 42 42 56 44 53 48 43 45 54 49 44 50 45 51 47 47 52 47 54 51 51 48 53 49 56
-##  [26] 58 53 54 52 44 55 57 48 54 59 46 46 49 55 44 45 54 50 47 49 60 49 39 50 62
-##  [51] 45 54 41 43 47 43 44 53 47 59 49 46 58 42 46 64 41 47 49 51 46 48 49 52 49
-##  [76] 51 49 55 46 49 58 51 50 46 42 48 56 50 47 49 51 54 44 40 49 43 59 64 43 44</code></pre>
+<pre><code>##   [1] 51 49 56 56 52 47 55 49 51 53 55 48 51 48 43 63 53 64 48 48 46 48 43 50 45
+##  [26] 52 44 65 51 47 45 58 48 48 44 54 52 47 48 46 60 60 55 51 47 42 50 57 49 61
+##  [51] 47 55 41 55 53 56 53 45 59 56 60 42 51 43 50 37 41 52 46 54 53 48 48 57 34
+##  [76] 49 41 48 54 37 53 55 40 44 53 53 53 42 55 50 52 52 59 50 54 50 43 46 42 44</code></pre>
 <p>Let’s use a historgram to look at the result:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="discrete-probability.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The paramter breaks is determining how many bins to use</span></span>
 <span id="cb11-2"><a href="discrete-probability.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(trials, <span class="at">breaks=</span><span class="dv">10</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="discrete-probability.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(trials)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##   39.00   46.00   49.00   49.51   53.00   64.00</code></pre>
+##   34.00   46.00   50.00   50.08   54.00   65.00</code></pre>
 <p>So interestingly the minimum value is not very small. What does this tell us about the number of mathematics majors we might see that are food insecure? What would our interpretation be if we found only 10 of the mathematics majors were food insecure?</p>
 <p>Finally you can probably tell me you are not surprised that the mean is close to</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="discrete-probability.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.38</span> <span class="sc">*</span> <span class="dv">130</span></span></code></pre></div>
@@ -508,7 +514,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.7.1</span> The Expected Number of Students Experiencing Food Insecurity</h3>
 <p>Returning to our problem. If we have a group of 130 randomly selected US college students, the likliehood that any one of them is experiencing food insecurity is 0.38; and assuming that they are independently selected the number of ones in the 130 that are experiencing food insecurity fits the Binomial Distribution. Thus we can compute the expected number by summing over r = 0, 1, 2, …, 130 with each r weighted by <span class="math display">\[ \binom{130}{r} 0.38^r \cdot 0.62^{130 - r} \]</span></p>
 <p>Using R we get:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="discrete-probability.html#cb31-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">130</span>)</span>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="discrete-probability.html#cb31-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">130</span>)</span>
 <span id="cb31-2"><a href="discrete-probability.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( r<span class="sc">*</span><span class="fu">dbinom</span>(r, <span class="dv">130</span>, <span class="fl">0.38</span>))</span></code></pre></div>
 <pre><code>## [1] 49.4</code></pre>
 <p>It is probably not shocking that this is the same number we saw above for <span class="math inline">\(130 \cdot 0.38 = 49.4\)</span> and that it is also close to the mean we got in our sampling experiment we ran above.</p>
@@ -525,6 +531,65 @@ Note that the first term in this sum is in fact 0 and so we could index the sum 
 <p><span class="math display">\[ E(Y) = np \sum_{s = 0}^{n-1} \binom{n-1}{s} p^s q^{n-1 -s} \]</span></p>
 <p>and because the sum is now a sum over all of the probabilities of a binomial distribution it gives 1 and so: <span class="math inline">\(E(Y) = np\)</span>.</p>
 <p>Which is <strong>EXACTLY</strong> what your instinct already told you we should get!!!!</p>
+</div>
+</div>
+<div id="examples" class="section level3" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> Examples</h3>
+<p>First we note that if <span class="math inline">\(Y\)</span> is a random variable then algebraic expressions for <span class="math inline">\(Y\)</span> are themselves random variables - though almost certainly with different distributions.</p>
+<p>Find the following Expected Value:</p>
+<ol style="list-style-type: decimal">
+<li><p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are random variables show that <span class="math inline">\(E(A + B) = E(A) + E(B)\)</span></p></li>
+<li><p>If c is a number show that $E( c A) = c E(A) $</p></li>
+<li><p>Show that for the constant random variable 1 (i.e. the value is 1 with probability 1) E(1) = 1.</p></li>
+<li><p>Use 1-4 to show that $E(A - E(A)) = 0 $</p></li>
+</ol>
+</div>
+</div>
+<div id="population-variance" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Population Variance</h2>
+<p>We have just shown that the expected value of <span class="math inline">\(Y\)</span> is <span class="math inline">\(np\)</span>. Now what we would like to understand is the extent to which <span class="math inline">\(Y\)</span> gives us values smaller than or lesser than <span class="math inline">\(np\)</span>. The two related metrics we will frequently use to study <em>spread</em> in this class are the variance and its square root, the standard deviation of the variable. Note that there are other notions of spread that are useful, particularly the use of quartiles and percentiles is another way to quantify the spread of a random variable or data from its center.</p>
+<p>We also are going to (try to consistently) draw a distinction between the population variance and the sample variance. The one is a statement about how the random variable spreads for the whole population; while the other is a measurement of the variance specific to that sample. Later on we will show that the two are connected, but also that they are absolutely not the same things.</p>
+<p>Let <span class="math inline">\(\mu = E(Y)\)</span> by the expected value of the random variable <span class="math inline">\(Y\)</span>, or in other words the <em>population mean</em>. The <em>Population Variance</em> is defined to be the expected value:</p>
+<p><span class="math display">\[ \sigma^2 = V(Y) = E( (Y- \mu)^2 ) \]</span></p>
+<p>We call this <span class="math inline">\(\sigma^2\)</span> because it will have the units of <span class="math inline">\(Y^2\)</span> and its square root, <span class="math inline">\(\sigma\)</span> is the <em>population standard deviation</em> that will have the same units as <span class="math inline">\(Y\)</span>.</p>
+<div id="methods-of-computing-vy" class="section level3" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Methods of Computing <span class="math inline">\(V(Y)\)</span></h3>
+<p>We can do a bit of algebr and show that</p>
+<p><span class="math display">\[ \sigma^2 = V(Y) = E(Y^2 ) - E(Y)^2 \]</span></p>
+<p>Note that this implies that <span class="math inline">\(E(Y^2) \geq E(Y)^2\)</span>.</p>
+</div>
+<div id="variance-of-a-binomial-random-variable" class="section level3" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Variance of a Binomial Random Variable</h3>
+<p>So we can find the variance of our binomial random variable, either for an explicit case:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="discrete-probability.html#cb33-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">130</span>)</span>
+<span id="cb33-2"><a href="discrete-probability.html#cb33-2" aria-hidden="true" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="fu">sum</span>( r<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fu">dbinom</span>(r, <span class="dv">130</span>, <span class="fl">0.38</span>)) <span class="sc">-</span> (<span class="dv">130</span><span class="sc">*</span><span class="fl">0.38</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb33-3"><a href="discrete-probability.html#cb33-3" aria-hidden="true" tabindex="-1"></a>sigma2</span></code></pre></div>
+<pre><code>## [1] 30.628</code></pre>
+<p>Though note that usually the square root is more useful:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="discrete-probability.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(sigma2)</span></code></pre></div>
+<pre><code>## [1] 5.534257</code></pre>
+<p>Implying a variation of 5.5 students from the mean of 49.4. We will get to specifically what this tells us later, for now it is enough to say that the larger this value the more we expected to see the random variable return values further from the mean.</p>
+<div id="exact-value" class="section level4" number="3.8.2.1">
+<h4><span class="header-section-number">3.8.2.1</span> Exact Value</h4>
+<p>We can also do some algebra to find the exact value. Let <span class="math inline">\(Y\)</span> be a binomial random variable for n trials with the probability of success of each trial being p. Define <span class="math inline">\(q = 1-p\)</span>:</p>
+<p><span class="math display">\[ V(Y) = E(Y^2) - (np)^2 \]</span></p>
+<p>So we need to find</p>
+<p><span class="math display">\[ E(Y^2) = \sum_{r=0}^n r^2 \binom{n}{r} p^r q^{n-r} \]</span></p>
+<p>Not very useful as while r is a factor of r!, <span class="math inline">\(r^2\)</span> is not. Note we could work with <span class="math inline">\(E(Y(Y-1)) + np = E(Y^2)\)</span> instead and then this will play well with the factorial (and the sum as it turns out):</p>
+<p><span class="math display">\[ E(Y(Y-1)) = \sum_{r=0}^n r (r-1) \binom{n}{r} p^r q^{n-r} \]</span></p>
+<p>Noting that the first two terms in the sum are zero and expanding out the binomial coefficient in factorials we have:</p>
+<p><span class="math display">\[ E(Y(Y-1)) = \sum_{r=2}^n \frac{ n!}{ (r-2)! (n-r)! } p^r q^{n-r} \]</span></p>
+<p>If we factor out a <span class="math inline">\(n (n-1) p^2\)</span> and rebasing the sum (using exactly the same pattern as above) we get:</p>
+<p><span class="math display">\[ E(Y(Y-1)) = n (n-1) p^2 \sum_{s=0}^{n-2} \binom{n-2}{s} p^s q^{n-2-s} \]</span></p>
+<p>The sum is now a sum over a binomial distribution with <span class="math inline">\(n-2\)</span> trials and so adds up to 1; and thus we have: $E(Y(Y-1)) = n (n-1) p^2 $</p>
+<p>Putting it all together we have:</p>
+<p><span class="math display">\[ V(Y) = n (n-1) p^2 + np - (np)^2 = \mbox{algebra} = n p (1-p) \]</span></p>
+<p>It is interesting to fix <span class="math inline">\(n\)</span> and plot this as a function of p (it is simple enough to do by hand, but we have R sitting right here):</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="discrete-probability.html#cb37-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">130</span></span>
+<span id="cb37-2"><a href="discrete-probability.html#cb37-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1000</span>)<span class="sc">/</span><span class="dv">1000</span></span>
+<span id="cb37-3"><a href="discrete-probability.html#cb37-3" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> n<span class="sc">*</span>p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p)</span>
+<span id="cb37-4"><a href="discrete-probability.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(p, v, <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 
 </div>
 </div>

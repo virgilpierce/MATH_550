@@ -329,7 +329,7 @@ Returning to our problem. If we have a group of 130 randomly selected US college
 Using R we get:
 
 ```{r}
-r = c(0:130)
+r <- c(0:130)
 sum( r*dbinom(r, 130, 0.38))
 ```
 
@@ -357,6 +357,97 @@ $$ E(Y) = np \sum_{s = 0}^{n-1} \binom{n-1}{s} p^s q^{n-1 -s} $$
 and because the sum is now a sum over all of the probabilities of a binomial distribution it gives 1 and so: $E(Y) = np$. 
 
 Which is **EXACTLY** what your instinct already told you we should get!!!!
+
+### Examples
+
+First we note that if $Y$ is a random variable then algebraic expressions for $Y$ are themselves random variables - though almost certainly with different distributions. 
+
+Find the following Expected Value:
+
+1. If $A$ and $B$ are random variables show that $E(A + B) = E(A) + E(B)$
+
+2. If c is a number show that $E( c A) = c E(A) $
+
+3. Show that for the constant random variable 1 (i.e. the value is 1 with probability 1) E(1) = 1.
+
+4. Use 1-4 to show that $E(A - E(A)) = 0 $
+
+
+## Population Variance
+
+We have just shown that the expected value of $Y$ is $np$. Now what we would like to understand is the extent to which $Y$ gives us values smaller than or lesser than $np$. The two related metrics we will frequently use to study *spread* in this class are the variance and its square root, the standard deviation of the variable. Note that there are other notions of spread that are useful, particularly the use of quartiles and percentiles is another way to quantify the spread of a random variable or data from its center.  
+
+We also are going to (try to consistently) draw a distinction between the population variance and the sample variance. The one is a statement about how the random variable spreads for the whole population; while the other is a measurement of the variance specific to that sample. Later on we will show that the two are connected, but also that they are absolutely not the same things.
+
+
+Let $\mu = E(Y)$ by the expected value of the random variable $Y$, or in other words the *population mean*. The *Population Variance* is defined to be the expected value:
+
+$$ \sigma^2 = V(Y) = E( (Y- \mu)^2 ) $$
+
+We call this $\sigma^2$ because it will have the units of $Y^2$ and its square root, $\sigma$ is the *population standard deviation* that will have the same units as $Y$. 
+
+### Methods of Computing $V(Y)$
+
+We can do a bit of algebr and show that 
+
+$$ \sigma^2 = V(Y) = E(Y^2 ) - E(Y)^2 $$ 
+
+Note that this implies that $E(Y^2) \geq E(Y)^2$.
+
+### Variance of a Binomial Random Variable
+
+So we can find the variance of our binomial random variable, either for an explicit case:
+
+```{r}
+r <- c(0:130)
+sigma2 <- sum( r^2*dbinom(r, 130, 0.38)) - (130*0.38)^2
+sigma2
+```
+
+Though note that usually the square root is more useful:
+
+```{r}
+sqrt(sigma2)
+```
+
+Implying a variation of 5.5 students from the mean of 49.4. We will get to specifically what this tells us later, for now it is enough to say that the larger this value the more we expected to see the random variable return values further from the mean.
+
+#### Exact Value
+
+We can also do some algebra to find the exact value. Let $Y$ be a binomial random variable for n trials with the probability of success of each trial being p. Define $q = 1-p$:
+
+$$ V(Y) = E(Y^2) - (np)^2 $$
+
+So we need to find 
+
+$$ E(Y^2) = \sum_{r=0}^n r^2 \binom{n}{r} p^r q^{n-r} $$
+
+Not very useful as while r is a factor of r!, $r^2$ is not. Note we could work with $E(Y(Y-1)) + np = E(Y^2)$ instead and then this will play well with the factorial (and the sum as it turns out):
+
+$$ E(Y(Y-1)) = \sum_{r=0}^n r (r-1) \binom{n}{r} p^r q^{n-r} $$
+
+Noting that the first two terms in the sum are zero and expanding out the binomial coefficient in factorials we have:
+
+$$ E(Y(Y-1)) = \sum_{r=2}^n \frac{ n!}{ (r-2)! (n-r)! } p^r q^{n-r} $$
+
+If we factor out a $n (n-1) p^2$ and rebasing the sum (using exactly the same pattern as above) we get:
+
+$$ E(Y(Y-1)) = n (n-1) p^2 \sum_{s=0}^{n-2} \binom{n-2}{s} p^s q^{n-2-s} $$ 
+
+The sum is now a sum over a binomial distribution with $n-2$ trials and so adds up to 1; and thus we have: $E(Y(Y-1)) = n (n-1) p^2 $ 
+
+Putting it all together we have:  
+
+$$ V(Y) = n (n-1) p^2 + np - (np)^2 = \mbox{algebra} = n p (1-p) $$
+
+It is interesting to fix $n$ and plot this as a function of p (it is simple enough to do by hand, but we have R sitting right here):
+
+```{r}
+n <- 130
+p <- c(0:1000)/1000
+v <- n*p*(1-p)
+plot(p, v, type="l")
+```
 
 
 
