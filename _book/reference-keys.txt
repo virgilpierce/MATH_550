@@ -90,3 +90,4 @@ population-variance
 methods-of-computing-vy
 variance-of-a-binomial-random-variable
 exact-value
+general-expected-values

@@ -200,7 +200,7 @@ We get:
 130 * 0.38 * 0.62^129
 ```
 
-2. $P(Y=2)$ in the case of two students out of the 130 being food insecure:  There are $\binom{130}{2} $ ways to select those two students. Then the likelihood that those two are success is $0.38^2$; and the likliehood the other 128 are failures is $0.62^{128}$. Putting it all together we have:
+2. $P(Y=2)$ in the case of two students out of the 130 being food insecure:  There are $$ \binom{130}{2} $$ ways to select those two students. Then the likelihood that those two are success is $0.38^2$; and the likliehood the other 128 are failures is $0.62^{128}$. Putting it all together we have:
 
 $$ P(Y=2) = \binom{130}{2} 0.38^2 \cdot 0.62^{128} $$
 
@@ -224,7 +224,7 @@ plot(r, v)
 
 ### Binomial Distribution
 
-More generally:  A Binomial Trial is made up of n identical indepedent Bernouli Trials each with probability p of success and 1-p of failure. The random variable $Y = \mbox{The number of success in the n trials} $ has a probability distribution function given by:
+More generally:  A Binomial Trial is made up of n identical indepedent Bernouli Trials each with probability p of success and 1-p of failure. The random variable $$Y = \mbox{The number of successes in the n trials} $$ has a probability distribution function given by:
 
 $$ P(Y = r) = \binom{n}{r} p^r (1-p)^{n-r} $$
 
@@ -358,19 +358,25 @@ and because the sum is now a sum over all of the probabilities of a binomial dis
 
 Which is **EXACTLY** what your instinct already told you we should get!!!!
 
+### General Expected Values
+
+First we note that if $Y$ is a random variable then expressions using $Y$ are themselves random variables - though almost certainly with different distributions. Specifically given a function $f(r)$ such that every possible value of $Y$ is in the domain of $f$ we have:
+
+$$ E(f(Y)) = \sum_{r : p(r) \neq 0} f(r) p(r) $$
+
 ### Examples
 
-First we note that if $Y$ is a random variable then algebraic expressions for $Y$ are themselves random variables - though almost certainly with different distributions. 
+
 
 Find the following Expected Value:
 
 1. If $A$ and $B$ are random variables show that $E(A + B) = E(A) + E(B)$
 
-2. If c is a number show that $E( c A) = c E(A) $
+2. If c is a number show that $E( c A) = c E(A)$
 
 3. Show that for the constant random variable 1 (i.e. the value is 1 with probability 1) E(1) = 1.
 
-4. Use 1-4 to show that $E(A - E(A)) = 0 $
+4. Use 1-4 to show that $E(A - E(A)) = 0$
 
 
 ## Population Variance
@@ -434,7 +440,7 @@ If we factor out a $n (n-1) p^2$ and rebasing the sum (using exactly the same pa
 
 $$ E(Y(Y-1)) = n (n-1) p^2 \sum_{s=0}^{n-2} \binom{n-2}{s} p^s q^{n-2-s} $$ 
 
-The sum is now a sum over a binomial distribution with $n-2$ trials and so adds up to 1; and thus we have: $E(Y(Y-1)) = n (n-1) p^2 $ 
+The sum is now a sum over a binomial distribution with $n-2$ trials and so adds up to 1; and thus we have: $E(Y(Y-1)) = n (n-1) p^2$ 
 
 Putting it all together we have:  
 
