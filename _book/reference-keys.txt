@@ -99,3 +99,4 @@ expected-value-1
 exact-value-1
 variance
 exact-value-2
+poisson-distributions

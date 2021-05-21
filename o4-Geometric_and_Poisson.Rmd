@@ -123,6 +123,7 @@ Putting it all together:
 
 $$ V(Y) = \frac{2}{p^2} - \frac{1}{p} - \frac{1}{p^2} = \frac{1-p}{p^2} $$
 
+### Poisson Distributions
 
 
 
