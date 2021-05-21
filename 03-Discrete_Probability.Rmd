@@ -1,4 +1,4 @@
-# Discrete Probability
+# Discrete Probability - The Binomial Distribution
 
 A motivating problem: Current estimates are that 38% of college and university students report food insecurity (defined as being uncertain they will have enough food for the next month or not knowing when they will next eat). The mathematics major at UNC has 130 students enrolled, how likely is it that 39 or fewer of the students enrolled are food insecure?
 
@@ -53,6 +53,20 @@ An example of two independent events would be flipping two coins: getting a head
 An example of two dependent events would be getting a head on the first coin flip of two, and then the flipping of two heads in a row in two coin flips. Note that in order to have two heads the first flip needs to be a head and thus the second event depends on whether the first event has happened or not. It is the *dependence* causing the probability of one event to change if we know the other event has occured that we are looking for.
 
 We will return to the case of dependent events later.
+
+## Uniform Distribution
+
+Generally we can define a distribution by just giving the sample space for the random variable, and assigning a probability to each possible value. A few distributions model situations that occur often enough, and have sufficient symmetry that we can compute things for them that they have earned a name. Our first example of that, which will also be the most basic, is the *uniform distribution*.  For the list of possible values our random variable could have, we assume each one is equally likely. The example used frequently comes from rolling dice. For a six sided die, if it is fair, the likliehod of rolling each value is $1/6$. (Note that you can get unfair dice from a magic or toy shop). 
+
+Find the following probabilities:
+
+1. The likliehood of rolling on die and have a value of 5 or more.
+
+2. The likliehood of rolling two dice and having a value that sums to seven.
+
+3. The likliehod of rolling two dice and having the value of the second one being greater than the value of the first one.
+
+
 
 ### Permutations and Choices
 

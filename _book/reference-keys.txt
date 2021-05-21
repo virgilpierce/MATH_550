@@ -91,3 +91,6 @@ methods-of-computing-vy
 variance-of-a-binomial-random-variable
 exact-value
 general-expected-values
+discrete-probability---the-binomial-distribution
+uniform-distribution
+geometric-and-poisson-distributions

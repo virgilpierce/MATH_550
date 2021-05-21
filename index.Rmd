@@ -53,17 +53,19 @@ Questions you will explore this summer:
 
 - Chapter 2: Introduction and using R
 
-- Chapter 3: Discrete Probability
+- Chapter 3: Discrete Probability and Binomial Distribution
 
-- Chapter 4: Continuous Probability
+- Chapter 4: Geometric and Poisson Distribution
 
-- Chapter 5: Sampling
+- Chapter 5: Continuous Probability
 
-- Chapter 6: Hypothesis Testing and Confidence Intervals
+- Chapter 6: Sampling
 
-- Chapter 7: Bayes Probability and Updating from New Data
+- Chapter 7: Hypothesis Testing and Confidence Intervals
 
-- Chapter 8: Correlations and models.
+- Chapter 8: Bayes Probability and Updating from New Data
+
+- Chapter 9: Correlations and models.
 
 
 ## Programing
