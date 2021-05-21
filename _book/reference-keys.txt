@@ -94,3 +94,8 @@ general-expected-values
 discrete-probability---the-binomial-distribution
 uniform-distribution
 geometric-and-poisson-distributions
+geometric-distributions
+expected-value-1
+exact-value-1
+variance
+exact-value-2
