@@ -12,11 +12,14 @@
 <img src="class_ideas/zoom_video.png" alt="Poll of Zoom Mirroring Preferences:  133 votes, 54.9% Mirrored; 45.1% Unmirrored" width="500"/> <br/>
 what can we conclude about the proportion of people that have a preference for mirrored videos in their Zoom casts?
 
-**Tuesday; June 15 -** Geometric and Poisson Distributions. Traffic Cameras:  How many pickup trucks versus cars? How many vehicles per minute?
+**Tuesday; June 15 -** Geometric and Poisson Distributions. Traffic Cameras:  How many pickup trucks versus cars? How many vehicles per minute? How many people are getting in line at the supermarket?
 
 1. Find a traffic camera for a section of free way or an intersection. How many cars go through before the first pickup truck you see? What can we conclude about the proportion of pickup trucks?
 
 2. With your team, watch the video for one minute and count how many vehicles you see. Do this a couple of times. How unusual would it be to see twice as many vehicles or more in a minute?  How unusual would it be to see half as many or fewer vehicles in a minute?  How many vehicles would we expect to see in an hour?  How likely would it be to see that many or fewer in that hour?
+
+
+
 
 **Wednesday; June 16 -** Moments and moment generating functions; Continuous distributions.
 
@@ -29,8 +32,6 @@ what can we conclude about the proportion of people that have a preference for m
 3. The radioactive decay problem from the motivating examples.
 
 4. Let's consider a section of street bounded by two intersections with traffic lights. We want to model where a pedestrian will decide to cross the street. 
-
-
 
 
 # R Notes 

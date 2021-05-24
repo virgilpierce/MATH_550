@@ -123,12 +123,142 @@ Putting it all together:
 
 $$ V(Y) = \frac{2}{p^2} - \frac{1}{p} - \frac{1}{p^2} = \frac{1-p}{p^2} $$
 
-### Poisson Distributions
+## Poisson Distributions
+
+Consider a particular intersection. We are interested in understanding the number of accidents that will happen at this intersection in a week. One way to think about this is to consider that if we break our units of time down to a small enough amount of time that only one accident can happen at a time - say we consider individual minutes. Now that only one accident is possible we could consider $p$ the probability that an accident occurs in any given minute at this intersection:
+
+$$ P( \mbox{an accident occurs in a minute}) = p$$
+
+$$ P( \mbox{no accident occurs in a minute}) = 1- p $$
+
+$$ P( \mbox{more than one accident occurs in a minute}) = 0 $$
+
+We then take smaller and smaller units of time.  
+
+Our implicit assumption here is each subunit of time is an identically distributed independent Bernouli trial. This is probably a shaky assumption, but lets proceed and see what happens. 
+
+So for a subunit with $n$ occurences in a week we have:
+
+$$ P(Y = r) \sim \binom{n}{r} p^r (1-p)^{n - r} $$
+
+We now want to take a limit as $n\to \infty$, i.e. as the size of the subunits of time become smaller and smaller. Of course in doing this the probability $p$ will change. Let's assume that it just scales linearly:  i.e. the probability of an accident in a given minute is 60 times the probability of an accident in a given second. This is a reasonable assumption if:  
+
+- Everything for a given subunit size is IID; and 
+- the subunits are small enough that only one accident can happen at a time.
+
+Let $p = n \lambda$ for some parameter $\lambda$ and then we take the limit of $P(Y=r)$ above:
+
+$$ P(Y=r) = \lim_{n\to \infty} \binom{n}{r} \left( \frac{\lambda}{n} \right)^r \left( 1 - \frac{\lambda}{n} \right)^{n-r} $$
+
+We expand out the binomial coefficient:
+
+$$ = \lim_{n\to \infty} \frac{n (n-1) \cdots (n-r+1)}{r!} \left( \frac{\lambda}{n} \right)^r \left( 1 - \frac{\lambda}{n} \right)^{n-r} $$
+
+factor the $\lambda/n$ and $1- \lambda/n$ terms apart and recombine:
 
 
+$$ = \lim_{n\to \infty} \frac{\lambda^r}{r!} \left(1 - \frac{\lambda}{n} \right)^n \cdot \frac{ n (n-1) \cdots (n-r+1)}{n^r} \left(1 - \frac{\lambda}{n}\right)^{-r} $$
+
+expand the numerator of the fraction and factor out the parts not depending on $n$:
+
+$$ = \frac{\lambda^r}{r!} \lim_{n\to \infty} \left(1 - \frac{\lambda}{n}\right)^n \left(1 - \frac{\lambda}{n}\right)^{-r} \left(1 - \frac{1}{n}\right) \left( 1 - \frac{2}{n} \right) \cdots \left( 1- \frac{r-1}{n} \right) $$
+
+Now inside the limit, all but the first factor only depends on $n$ inside of the parenthesis; each of this is going to 1. We also recall that 
+
+$$ \lim_{n\to \infty} \left(1 - \frac{\lambda}{n}\right)^n = e^{-\lambda} $$
+
+and putting it all back together we have:
+
+$$ P(Y=r) = \frac{\lambda^r}{r!} e^{-\lambda} $$
+
+### What have we learned?
+
+So we now have a definition:  A random variable $Y$ is called a Poisson Process if it is coming from a trial that has the following property **$Y$ is the number of events happening in a unit of time, distance, area, volume or any thing which can be subdivide into smaller and smaller pieces which has the propeerty that for small enough subdivisions the events can only happen once and the likliehood that they happen becomes an identical independent Bernoulie trial.** Interestingly, small deviations from this assumption will still yield a good approximation. 
+
+The probability distribution of a Poisson Process satisfies the probability distribution for $r \geq 0$:
+
+$$P(Y=r) = \frac{\lambda^r}{r!} e^{-\lambda} $$ 
+
+with some parameter $\lambda > 0$.
+
+#### Plotting the Distribution
+
+This distribution is coded in R as *dpois*, lets plot the distribution for the first few $r$ with a given $\lambda$:
+
+```{r}
+lambda <- 1.1
+r <- c(0:100)
+v <- dpois(r, lambda)
+plot(r, v)
+```
+
+What is the effect of increasing $\lambda$?  Decreasing $\lambda$?
+
+#### Cummulative Distribution
+
+The cumulative distribution, the probability that $Y \leq r$, can be plotted, it is coded in R as *ppois*:
+
+```{r}
+lambda <- 1.1
+n <- 100 # The upper bound on n for our plot
+r <- c(0:(10*n))/10
+plot(r, ppois(r, lambda), type="l")
+```
+
+Again what is the effect of changing $\lambda$?  Make a prediction before you draw the graph. Again you may have to increase the fineness of our mesh in order for the graph to render correctly. 
 
 
+### Expected Value
 
+So let's suppose we have found that $\lambda = 1.1$ for our intersection (we will return to finding $\lambda$ from data later). How many accidents do we expect to see each week?  I.e. over the long term if we take the mean of the number of accidents what will we find?
+
+Using R we can approximate it:
+
+```{r}
+r <- c(0:100)
+lambda <- 1.1
+sum( r*dpois(r, lambda) )
+```
+
+Which seems well.... **clearly we should be able to show that this will always happen!**
+
+$$ E(Y) = \sum_{r =0}^\infty r P(Y=r) = \sum_{r=0}^\infty r \frac{\lambda^r}{r!} e^{-\lambda} $$
+
+Again I will note here that the distributions for which we have names are the ones for which the mathematical structure tends to give us formulas with which we can actually do something.  We will talk as the course goes on about why this works, and what we can do more generally.
+
+Continuing:
+
+$$ E(Y) = e^{-\lambda} \sum_{r=1}^\infty \frac{\lambda^r}{(r-1)!} $$
+
+$$ = \lambda e^{-\lambda} \sum_{s=0}^\infty \frac{\lambda^s}{s!} = \lambda e^{-\lambda} e^{\lambda} = \lambda$$
+
+So the $\lambda$ parameter for our Poisson Distribution is exactly the expected value of the random variable. 
+
+### Variance of the Poisson Random Variable
+
+We can also compute the variance, using again our shortcut:  $V(Y) = E(Y^2) - \mu^2$ where $\mu = E(Y)$.
+
+```{r}
+r <- c(0:100)
+lambda <- 1.1
+sum( r^2*dpois(r, lambda) ) - lambda^2
+```
+
+**I would forgive you if you are wondering if maybe we just made a mistake!**
+
+As before the trick to use is that $E(Y^2) = E(Y(Y-1)) + E(Y)$
+
+$$ E(Y(Y-1)) = \sum_{r=0}^\infty r (r-1) \frac{\lambda^r}{r!} e^{-\lambda} = e^{-\lambda} \sum_{r=2}^\infty \frac{\lambda}{(r-2)!}  $$
+
+and we find
+
+$$ = \lambda^2 e^{-\lambda} \sum_{s=0}^\infty \frac{\lambda^s}{s!} = \lambda^2 $$
+
+Putting it together we have:
+
+$$ V(Y) = \lambda^2 + \lambda - \lambda^2 = \lambda$$
+
+So in summary a Poisson random variable with parameter $\lambda$ has expected value and variance $\lambda$. 
 
 
 

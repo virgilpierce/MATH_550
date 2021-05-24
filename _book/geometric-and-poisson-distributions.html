@@ -247,7 +247,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="4.1.1" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#expected-value-1"><i class="fa fa-check"></i><b>4.1.1</b> Expected Value</a></li>
 <li class="chapter" data-level="4.1.2" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#variance"><i class="fa fa-check"></i><b>4.1.2</b> Variance</a></li>
-<li class="chapter" data-level="4.1.3" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#poisson-distributions"><i class="fa fa-check"></i><b>4.1.3</b> Poisson Distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#poisson-distributions"><i class="fa fa-check"></i><b>4.2</b> Poisson Distributions</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#what-have-we-learned"><i class="fa fa-check"></i><b>4.2.1</b> What have we learned?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#expected-value-2"><i class="fa fa-check"></i><b>4.2.2</b> Expected Value</a></li>
+<li class="chapter" data-level="4.2.3" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#variance-of-the-poisson-random-variable"><i class="fa fa-check"></i><b>4.2.3</b> Variance of the Poisson Random Variable</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -348,8 +353,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[ V(Y) = \frac{2}{p^2} - \frac{1}{p} - \frac{1}{p^2} = \frac{1-p}{p^2} \]</span></p>
 </div>
 </div>
-<div id="poisson-distributions" class="section level3" number="4.1.3">
-<h3><span class="header-section-number">4.1.3</span> Poisson Distributions</h3>
+</div>
+<div id="poisson-distributions" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Poisson Distributions</h2>
+<p>Consider a particular intersection. We are interested in understanding the number of accidents that will happen at this intersection in a week. One way to think about this is to consider that if we break our units of time down to a small enough amount of time that only one accident can happen at a time - say we consider individual minutes. Now that only one accident is possible we could consider <span class="math inline">\(p\)</span> the probability that an accident occurs in any given minute at this intersection:</p>
+<p><span class="math display">\[ P( \mbox{an accident occurs in a minute}) = p\]</span></p>
+<p><span class="math display">\[ P( \mbox{no accident occurs in a minute}) = 1- p \]</span></p>
+<p><span class="math display">\[ P( \mbox{more than one accident occurs in a minute}) = 0 \]</span></p>
+<p>We then take smaller and smaller units of time.</p>
+<p>Our implicit assumption here is each subunit of time is an identically distributed independent Bernouli trial. This is probably a shaky assumption, but lets proceed and see what happens.</p>
+<p>So for a subunit with <span class="math inline">\(n\)</span> occurences in a week we have:</p>
+<p><span class="math display">\[ P(Y = r) \sim \binom{n}{r} p^r (1-p)^{n - r} \]</span></p>
+<p>We now want to take a limit as <span class="math inline">\(n\to \infty\)</span>, i.e. as the size of the subunits of time become smaller and smaller. Of course in doing this the probability <span class="math inline">\(p\)</span> will change. Let’s assume that it just scales linearly: i.e. the probability of an accident in a given minute is 60 times the probability of an accident in a given second. This is a reasonable assumption if:</p>
+<ul>
+<li>Everything for a given subunit size is IID; and</li>
+<li>the subunits are small enough that only one accident can happen at a time.</li>
+</ul>
+<p>Let <span class="math inline">\(p = n \lambda\)</span> for some parameter <span class="math inline">\(\lambda\)</span> and then we take the limit of <span class="math inline">\(P(Y=r)\)</span> above:</p>
+<p><span class="math display">\[ P(Y=r) = \lim_{n\to \infty} \binom{n}{r} \left( \frac{\lambda}{n} \right)^r \left( 1 - \frac{\lambda}{n} \right)^{n-r} \]</span></p>
+<p>We expand out the binomial coefficient:</p>
+<p><span class="math display">\[ = \lim_{n\to \infty} \frac{n (n-1) \cdots (n-r+1)}{r!} \left( \frac{\lambda}{n} \right)^r \left( 1 - \frac{\lambda}{n} \right)^{n-r} \]</span></p>
+<p>factor the <span class="math inline">\(\lambda/n\)</span> and <span class="math inline">\(1- \lambda/n\)</span> terms apart and recombine:</p>
+<p><span class="math display">\[ = \lim_{n\to \infty} \frac{\lambda^r}{r!} \left(1 - \frac{\lambda}{n} \right)^n \cdot \frac{ n (n-1) \cdots (n-r+1)}{n^r} \left(1 - \frac{\lambda}{n}\right)^{-r} \]</span></p>
+<p>expand the numerator of the fraction and factor out the parts not depending on <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[ = \frac{\lambda^r}{r!} \lim_{n\to \infty} \left(1 - \frac{\lambda}{n}\right)^n \left(1 - \frac{\lambda}{n}\right)^{-r} \left(1 - \frac{1}{n}\right) \left( 1 - \frac{2}{n} \right) \cdots \left( 1- \frac{r-1}{n} \right) \]</span></p>
+<p>Now inside the limit, all but the first factor only depends on <span class="math inline">\(n\)</span> inside of the parenthesis; each of this is going to 1. We also recall that</p>
+<p><span class="math display">\[ \lim_{n\to \infty} \left(1 - \frac{\lambda}{n}\right)^n = e^{-\lambda} \]</span></p>
+<p>and putting it all back together we have:</p>
+<p><span class="math display">\[ P(Y=r) = \frac{\lambda^r}{r!} e^{-\lambda} \]</span></p>
+<div id="what-have-we-learned" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> What have we learned?</h3>
+<p>So we now have a definition: A random variable <span class="math inline">\(Y\)</span> is called a Poisson Process if it is coming from a trial that has the following property <strong><span class="math inline">\(Y\)</span> is the number of events happening in a unit of time, distance, area, volume or any thing which can be subdivide into smaller and smaller pieces which has the propeerty that for small enough subdivisions the events can only happen once and the likliehood that they happen becomes an identical independent Bernoulie trial.</strong> Interestingly, small deviations from this assumption will still yield a good approximation.</p>
+<p>The probability distribution of a Poisson Process satisfies the probability distribution for <span class="math inline">\(r \geq 0\)</span>:</p>
+<p><span class="math display">\[P(Y=r) = \frac{\lambda^r}{r!} e^{-\lambda} \]</span></p>
+<p>with some parameter <span class="math inline">\(\lambda &gt; 0\)</span>.</p>
+<div id="plotting-the-distribution" class="section level4" number="4.2.1.1">
+<h4><span class="header-section-number">4.2.1.1</span> Plotting the Distribution</h4>
+<p>This distribution is coded in R as <em>dpois</em>, lets plot the distribution for the first few <span class="math inline">\(r\)</span> with a given <span class="math inline">\(\lambda\)</span>:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="geometric-and-poisson-distributions.html#cb17-1" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">1.1</span></span>
+<span id="cb17-2"><a href="geometric-and-poisson-distributions.html#cb17-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb17-3"><a href="geometric-and-poisson-distributions.html#cb17-3" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fu">dpois</span>(r, lambda)</span>
+<span id="cb17-4"><a href="geometric-and-poisson-distributions.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r, v)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>What is the effect of increasing <span class="math inline">\(\lambda\)</span>? Decreasing <span class="math inline">\(\lambda\)</span>?</p>
+</div>
+<div id="cummulative-distribution" class="section level4" number="4.2.1.2">
+<h4><span class="header-section-number">4.2.1.2</span> Cummulative Distribution</h4>
+<p>The cumulative distribution, the probability that <span class="math inline">\(Y \leq r\)</span>, can be plotted, it is coded in R as <em>ppois</em>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="geometric-and-poisson-distributions.html#cb18-1" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">1.1</span></span>
+<span id="cb18-2"><a href="geometric-and-poisson-distributions.html#cb18-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># The upper bound on n for our plot</span></span>
+<span id="cb18-3"><a href="geometric-and-poisson-distributions.html#cb18-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span>(<span class="dv">10</span><span class="sc">*</span>n))<span class="sc">/</span><span class="dv">10</span></span>
+<span id="cb18-4"><a href="geometric-and-poisson-distributions.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r, <span class="fu">ppois</span>(r, lambda), <span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Again what is the effect of changing <span class="math inline">\(\lambda\)</span>? Make a prediction before you draw the graph. Again you may have to increase the fineness of our mesh in order for the graph to render correctly.</p>
+</div>
+</div>
+<div id="expected-value-2" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Expected Value</h3>
+<p>So let’s suppose we have found that <span class="math inline">\(\lambda = 1.1\)</span> for our intersection (we will return to finding <span class="math inline">\(\lambda\)</span> from data later). How many accidents do we expect to see each week? I.e. over the long term if we take the mean of the number of accidents what will we find?</p>
+<p>Using R we can approximate it:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="geometric-and-poisson-distributions.html#cb19-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb19-2"><a href="geometric-and-poisson-distributions.html#cb19-2" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">1.1</span></span>
+<span id="cb19-3"><a href="geometric-and-poisson-distributions.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( r<span class="sc">*</span><span class="fu">dpois</span>(r, lambda) )</span></code></pre></div>
+<pre><code>## [1] 1.1</code></pre>
+<p>Which seems well…. <strong>clearly we should be able to show that this will always happen!</strong></p>
+<p><span class="math display">\[ E(Y) = \sum_{r =0}^\infty r P(Y=r) = \sum_{r=0}^\infty r \frac{\lambda^r}{r!} e^{-\lambda} \]</span></p>
+<p>Again I will note here that the distributions for which we have names are the ones for which the mathematical structure tends to give us formulas with which we can actually do something. We will talk as the course goes on about why this works, and what we can do more generally.</p>
+<p>Continuing:</p>
+<p><span class="math display">\[ E(Y) = e^{-\lambda} \sum_{r=1}^\infty \frac{\lambda^r}{(r-1)!} \]</span></p>
+<p><span class="math display">\[ = \lambda e^{-\lambda} \sum_{s=0}^\infty \frac{\lambda^s}{s!} = \lambda e^{-\lambda} e^{\lambda} = \lambda\]</span></p>
+<p>So the <span class="math inline">\(\lambda\)</span> parameter for our Poisson Distribution is exactly the expected value of the random variable.</p>
+</div>
+<div id="variance-of-the-poisson-random-variable" class="section level3" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Variance of the Poisson Random Variable</h3>
+<p>We can also compute the variance, using again our shortcut: <span class="math inline">\(V(Y) = E(Y^2) - \mu^2\)</span> where <span class="math inline">\(\mu = E(Y)\)</span>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="geometric-and-poisson-distributions.html#cb21-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb21-2"><a href="geometric-and-poisson-distributions.html#cb21-2" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="fl">1.1</span></span>
+<span id="cb21-3"><a href="geometric-and-poisson-distributions.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( r<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fu">dpois</span>(r, lambda) ) <span class="sc">-</span> lambda<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 1.1</code></pre>
+<p><strong>I would forgive you if you are wondering if maybe we just made a mistake!</strong></p>
+<p>As before the trick to use is that <span class="math inline">\(E(Y^2) = E(Y(Y-1)) + E(Y)\)</span></p>
+<p><span class="math display">\[ E(Y(Y-1)) = \sum_{r=0}^\infty r (r-1) \frac{\lambda^r}{r!} e^{-\lambda} = e^{-\lambda} \sum_{r=2}^\infty \frac{\lambda}{(r-2)!}  \]</span></p>
+<p>and we find</p>
+<p><span class="math display">\[ = \lambda^2 e^{-\lambda} \sum_{s=0}^\infty \frac{\lambda^s}{s!} = \lambda^2 \]</span></p>
+<p>Putting it together we have:</p>
+<p><span class="math display">\[ V(Y) = \lambda^2 + \lambda - \lambda^2 = \lambda\]</span></p>
+<p>So in summary a Poisson random variable with parameter <span class="math inline">\(\lambda\)</span> has expected value and variance <span class="math inline">\(\lambda\)</span>.</p>
 
 </div>
 </div>

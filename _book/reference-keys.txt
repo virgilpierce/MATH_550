@@ -102,3 +102,8 @@ exact-value-2
 poisson-distributions
 class-schedule-and-activities
 r-notes
+what-have-we-learned
+plotting-the-distribution
+cummulative-distribution
+expected-value-2
+variance-of-the-poisson-random-variable
