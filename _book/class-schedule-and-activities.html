@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="geometric-and-poisson-distributions.html"/>
+<link rel="prev" href="continuous-random-variables.html"/>
 <link rel="next" href="r-notes.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -55,6 +55,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 </head>
@@ -137,44 +201,44 @@
 <li class="chapter" data-level="2.6.18" data-path="what-is-statistics.html"><a href="what-is-statistics.html#what-questions-do-you-have"><i class="fa fa-check"></i><b>2.6.18</b> What Questions Do You Have?</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html"><i class="fa fa-check"></i><b>3</b> Discrete Probability - The Binomial Distribution</a>
+<li class="chapter" data-level="3" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html"><i class="fa fa-check"></i><b>3</b> Discrete Random Variables - The Binomial Distribution</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#definitions"><i class="fa fa-check"></i><b>3.1</b> Definitions</a>
+<li class="chapter" data-level="3.1" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#definitions"><i class="fa fa-check"></i><b>3.1</b> Definitions</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#random-variable"><i class="fa fa-check"></i><b>3.1.1</b> Random Variable</a></li>
+<li class="chapter" data-level="3.1.1" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#random-variable"><i class="fa fa-check"></i><b>3.1.1</b> Random Variable</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#probability"><i class="fa fa-check"></i><b>3.2</b> Probability</a>
+<li class="chapter" data-level="3.2" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#probability"><i class="fa fa-check"></i><b>3.2</b> Probability</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#two-events-happening-at-once"><i class="fa fa-check"></i><b>3.2.1</b> Two Events Happening at Once</a></li>
+<li class="chapter" data-level="3.2.1" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#two-events-happening-at-once"><i class="fa fa-check"></i><b>3.2.1</b> Two Events Happening at Once</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#uniform-distribution"><i class="fa fa-check"></i><b>3.3</b> Uniform Distribution</a>
+<li class="chapter" data-level="3.3" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#uniform-distribution"><i class="fa fa-check"></i><b>3.3</b> Uniform Distribution</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#permutations-and-choices"><i class="fa fa-check"></i><b>3.3.1</b> Permutations and Choices</a></li>
+<li class="chapter" data-level="3.3.1" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#permutations-and-choices"><i class="fa fa-check"></i><b>3.3.1</b> Permutations and Choices</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#bernouli-trials"><i class="fa fa-check"></i><b>3.4</b> Bernouli Trials</a></li>
-<li class="chapter" data-level="3.5" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#binomial-trials"><i class="fa fa-check"></i><b>3.5</b> Binomial Trials</a>
+<li class="chapter" data-level="3.4" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#bernouli-trials"><i class="fa fa-check"></i><b>3.4</b> Bernouli Trials</a></li>
+<li class="chapter" data-level="3.5" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#binomial-trials"><i class="fa fa-check"></i><b>3.5</b> Binomial Trials</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#plan"><i class="fa fa-check"></i><b>3.5.1</b> Plan</a></li>
-<li class="chapter" data-level="3.5.2" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#binomial-distribution"><i class="fa fa-check"></i><b>3.5.2</b> Binomial Distribution</a></li>
-<li class="chapter" data-level="3.5.3" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#binomial-distribution-1"><i class="fa fa-check"></i><b>3.5.3</b> Binomial Distribution</a></li>
-<li class="chapter" data-level="3.5.4" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#checking-a-few-things"><i class="fa fa-check"></i><b>3.5.4</b> Checking a few things</a></li>
+<li class="chapter" data-level="3.5.1" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#plan"><i class="fa fa-check"></i><b>3.5.1</b> Plan</a></li>
+<li class="chapter" data-level="3.5.2" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#binomial-distribution"><i class="fa fa-check"></i><b>3.5.2</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="3.5.3" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#binomial-distribution-1"><i class="fa fa-check"></i><b>3.5.3</b> Binomial Distribution</a></li>
+<li class="chapter" data-level="3.5.4" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#checking-a-few-things"><i class="fa fa-check"></i><b>3.5.4</b> Checking a few things</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#cummulative-distributions"><i class="fa fa-check"></i><b>3.6</b> Cummulative Distributions</a>
+<li class="chapter" data-level="3.6" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#cummulative-distributions"><i class="fa fa-check"></i><b>3.6</b> Cummulative Distributions</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#conclusion-to-the-motivating-question"><i class="fa fa-check"></i><b>3.6.1</b> Conclusion to the Motivating Question</a></li>
-<li class="chapter" data-level="3.6.2" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#general-cummulative-distribution-functions"><i class="fa fa-check"></i><b>3.6.2</b> General Cummulative Distribution Functions</a></li>
+<li class="chapter" data-level="3.6.1" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#conclusion-to-the-motivating-question"><i class="fa fa-check"></i><b>3.6.1</b> Conclusion to the Motivating Question</a></li>
+<li class="chapter" data-level="3.6.2" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#general-cummulative-distribution-functions"><i class="fa fa-check"></i><b>3.6.2</b> General Cummulative Distribution Functions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#motivating-problem---the-birthday-paradox"><i class="fa fa-check"></i><b>3.7</b> Motivating Problem - The Birthday Paradox</a></li>
-<li class="chapter" data-level="3.8" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#expected-value"><i class="fa fa-check"></i><b>3.8</b> Expected Value</a>
+<li class="chapter" data-level="3.7" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#motivating-problem---the-birthday-paradox"><i class="fa fa-check"></i><b>3.7</b> Motivating Problem - The Birthday Paradox</a></li>
+<li class="chapter" data-level="3.8" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#expected-value"><i class="fa fa-check"></i><b>3.8</b> Expected Value</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#the-expected-number-of-students-experiencing-food-insecurity"><i class="fa fa-check"></i><b>3.8.1</b> The Expected Number of Students Experiencing Food Insecurity</a></li>
-<li class="chapter" data-level="3.8.2" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#general-expected-values"><i class="fa fa-check"></i><b>3.8.2</b> General Expected Values</a></li>
-<li class="chapter" data-level="3.8.3" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#examples"><i class="fa fa-check"></i><b>3.8.3</b> Examples</a></li>
+<li class="chapter" data-level="3.8.1" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#the-expected-number-of-students-experiencing-food-insecurity"><i class="fa fa-check"></i><b>3.8.1</b> The Expected Number of Students Experiencing Food Insecurity</a></li>
+<li class="chapter" data-level="3.8.2" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#general-expected-values"><i class="fa fa-check"></i><b>3.8.2</b> General Expected Values</a></li>
+<li class="chapter" data-level="3.8.3" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#examples"><i class="fa fa-check"></i><b>3.8.3</b> Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#population-variance"><i class="fa fa-check"></i><b>3.9</b> Population Variance</a>
+<li class="chapter" data-level="3.9" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#population-variance"><i class="fa fa-check"></i><b>3.9</b> Population Variance</a>
 <ul>
-<li class="chapter" data-level="3.9.1" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#methods-of-computing-vy"><i class="fa fa-check"></i><b>3.9.1</b> Methods of Computing <span class="math inline">\(V(Y)\)</span></a></li>
-<li class="chapter" data-level="3.9.2" data-path="discrete-probability-the-binomial-distribution.html"><a href="discrete-probability-the-binomial-distribution.html#variance-of-a-binomial-random-variable"><i class="fa fa-check"></i><b>3.9.2</b> Variance of a Binomial Random Variable</a></li>
+<li class="chapter" data-level="3.9.1" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#methods-of-computing-vy"><i class="fa fa-check"></i><b>3.9.1</b> Methods of Computing <span class="math inline">\(V(Y)\)</span></a></li>
+<li class="chapter" data-level="3.9.2" data-path="discrete-random-variables-the-binomial-distribution.html"><a href="discrete-random-variables-the-binomial-distribution.html#variance-of-a-binomial-random-variable"><i class="fa fa-check"></i><b>3.9.2</b> Variance of a Binomial Random Variable</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html"><i class="fa fa-check"></i><b>4</b> Geometric and Poisson Distributions</a>
@@ -190,6 +254,17 @@
 <li class="chapter" data-level="4.2.2" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#expected-value-2"><i class="fa fa-check"></i><b>4.2.2</b> Expected Value</a></li>
 <li class="chapter" data-level="4.2.3" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#variance-of-the-poisson-random-variable"><i class="fa fa-check"></i><b>4.2.3</b> Variance of the Poisson Random Variable</a></li>
 </ul></li>
+<li class="chapter" data-level="4.3" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#using-the-cummulative-distribution"><i class="fa fa-check"></i><b>4.3</b> Using the Cummulative Distribution</a></li>
+<li class="chapter" data-level="4.4" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#moments-and-moment-generating-functions"><i class="fa fa-check"></i><b>4.4</b> Moments and Moment Generating Functions</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#moment-generating-for-a-poisson-distribution"><i class="fa fa-check"></i><b>4.4.1</b> Moment Generating for a Poisson Distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#what-have-we-skipped"><i class="fa fa-check"></i><b>4.5</b> What have we skipped?</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="continuous-random-variables.html"><a href="continuous-random-variables.html"><i class="fa fa-check"></i><b>5</b> Continuous Random Variables</a>
+<ul>
+<li class="chapter" data-level="5.0.1" data-path="continuous-random-variables.html"><a href="continuous-random-variables.html#why-is-this-called-the-density-function"><i class="fa fa-check"></i><b>5.0.1</b> Why is this called the density function?</a></li>
+<li class="chapter" data-level="5.1" data-path="continuous-random-variables.html"><a href="continuous-random-variables.html#uniform-distribution-1"><i class="fa fa-check"></i><b>5.1</b> Uniform Distribution</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="class-schedule-and-activities.html"><a href="class-schedule-and-activities.html"><i class="fa fa-check"></i><b>A</b> Class Schedule and Activities</a></li>
@@ -211,7 +286,7 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="class-schedule-and-activities" class="section level1" number="5">
+<div id="class-schedule-and-activities" class="section level1" number="6">
 <h1><span class="header-section-number">A</span> Class Schedule and Activities</h1>
 <p><strong>Monday; June 14 -</strong> Introduction, using R, and the Binomial Distribution: Number of Students in your class? Mirror or non-mirror video for Zoom? Odometer Readings.</p>
 <ol start="0" style="list-style-type: decimal">
@@ -226,11 +301,13 @@ what can we conclude about the proportion of people that have a preference for m
 <li><p>Find a traffic camera for a section of free way or an intersection. How many cars go through before the first pickup truck you see? What can we conclude about the proportion of pickup trucks?</p></li>
 <li><p>With your team, watch the video for one minute and count how many vehicles you see. Do this a couple of times. How unusual would it be to see twice as many vehicles or more in a minute? How unusual would it be to see half as many or fewer vehicles in a minute? How many vehicles would we expect to see in an hour? How likely would it be to see that many or fewer in that hour?</p></li>
 </ol>
-<p><strong>Wednesday; June 16 -</strong> Moments and moment generating functions; Continuous distributions.</p>
-<p><strong>Thursday; June 17 -</strong> Uniform, Normal, Gamma, and Beta Distributions: Odometer Readings? Gas Prices? Radioactive Decay? Where will a pedestrian cross a road?</p>
+<p><strong>Wednesday; June 16 -</strong> Moments and moment generating functions; Continuous distributions. Uniform and Normal Distributions. Odometer Readings? Gas Prices?</p>
 <ol style="list-style-type: decimal">
 <li><p>Bring the odometer readings from all of the cars your family has. How likely is it that we have an odometer reading more than 100,000 miles?</p></li>
 <li><p>Use Gas Buddy or a similar website to find the lowest price of gas within 10 miles of your house (approximately). How likely is it that the cheapest gas near us is less than $2.90?</p></li>
+</ol>
+<p><strong>Thursday; June 17 -</strong> Gamma, and Beta Distributions: Radioactive Decay? Where will a pedestrian cross a road?</p>
+<ol start="3" style="list-style-type: decimal">
 <li><p>The radioactive decay problem from the motivating examples.</p></li>
 <li><p>Let’s consider a section of street bounded by two intersections with traffic lights. We want to model where a pedestrian will decide to cross the street.</p></li>
 </ol>
@@ -240,7 +317,7 @@ what can we conclude about the proportion of people that have a preference for m
           </div>
         </div>
       </div>
-<a href="geometric-and-poisson-distributions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="continuous-random-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="r-notes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

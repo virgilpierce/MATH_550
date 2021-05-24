@@ -262,6 +262,33 @@ $$ V(Y) = \lambda^2 + \lambda - \lambda^2 = \lambda$$
 
 So in summary a Poisson random variable with parameter $\lambda$ has expected value and variance $\lambda$. 
 
+## Using the Cummulative Distribution
+
+Consider our dangerous intersection that we now know has 1.1 accidents per week. Find an upper bound for the number of accidents we will have 95% of the time. Mean we want to find the smallest $r$ such that $P(Y \leq r) \geq 0.95$. 
+
+The *qpois* function is the inverse Cummulative Distribution Function. It takes a probability $0\leq q \leq 1$ and returns the value $r$ such that $P(Y\leq r) = q$.
+
+```{r}
+qpois(0.95, 1.1)
+```
+
+Note that because the probability is discrete the result is not that the CDF is exactly 0.95 here:
+
+
+```{r}
+ppois(3, 1.1)
+```
+
+Meanwhile, the likliehood that we will go a week with 3 or more accidents is $P(Y \geq 3)$:
+
+```{r}
+1 - ppois(2, 1.1)
+```
+
+For a given value of $\lambda$ we can play variations on these games for any number of combinations.
+
+
+
 ## Moments and Moment Generating Functions
 
 One idea which we will need later in class and we should introduce now is that of finding moments. We have seen that *Expected Value* and *Variance* have uses in characterizing a distribution, and for distributions with sufficient symmetry are things we can compute exactly. In an effort to characeterize distributions more broadly one is then led to consider the question of moments. The $m$'th moment of a distribution is defined to be:
@@ -291,7 +318,13 @@ If you go to the wikipedia page for any of our named distributions you will find
 An interesting question we unfortunately do not have time for is what the set of values of $t$ for which $M(t)$ exists tells us about the distribution. 
 
 
+## What have we skipped?
 
+There are couple of things we have carefully ignored. The main one being:
+
+- While the Geometric and Poisson distributions are examples of how we can have a discrete random variable with infinitely many allowed values but with a distribution we can compute with; one might be wondering how can we work with an infinite discrete random varialbe that is for example uniform:  You are confronted with infinitely many doors, one of which has a car behind it and the rest of them goats. Can you choose one door at random with each door being equally likely that you will choose it?  If you do so, how likely is it that you will find the car rather than a goat?
+
+- For that matter, suppose you want to select a random integer to use when a date asks you "What is your favorite Integer?"  What are the chances you would select 1001?
 
 
 

@@ -21,13 +21,13 @@ what can we conclude about the proportion of people that have a preference for m
 
 
 
-**Wednesday; June 16 -** Moments and moment generating functions; Continuous distributions.
-
-**Thursday; June 17 -** Uniform, Normal, Gamma, and Beta Distributions: Odometer Readings? Gas Prices? Radioactive Decay? Where will a pedestrian cross a road?
+**Wednesday; June 16 -** Moments and moment generating functions; Continuous distributions. Uniform and Normal Distributions. Odometer Readings? Gas Prices? 
 
 1. Bring the odometer readings from all of the cars your family has. How likely is it that we have an odometer reading more than 100,000 miles?
 
 2. Use Gas Buddy or a similar website to find the lowest price of gas within 10 miles of your house (approximately). How likely is it that the cheapest gas near us is less than $2.90?
+
+**Thursday; June 17 -** Gamma, and Beta Distributions:  Radioactive Decay? Where will a pedestrian cross a road?
 
 3. The radioactive decay problem from the motivating examples.
 

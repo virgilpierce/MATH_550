@@ -1,4 +1,4 @@
-# Discrete Probability - The Binomial Distribution
+# Discrete Random Variables - The Binomial Distribution
 
 A motivating problem: Current estimates are that 38% of college and university students report food insecurity (defined as being uncertain they will have enough food for the next month or not knowing when they will next eat). The mathematics major at UNC has 130 students enrolled, how likely is it that 39 or fewer of the students enrolled are food insecure?
 
@@ -314,7 +314,7 @@ Its worth spending some more time on cummulative distribution functions, lets lo
 ```{r}
 n <- 130
 p <- 0.38
-r <- c(0:(10*n))/10
+r <- c(-1:(10*n))/10
 plot(r, pbinom(r, n, p), type="l")
 ```
 

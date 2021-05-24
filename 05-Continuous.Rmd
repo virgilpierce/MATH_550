@@ -1,0 +1,136 @@
+# Continuous Random Variables
+
+We spent the last two days thinking about discrete probability distributions. Particularly these include random variables that are counting things (what do the binomial, geometric, and Poisson random variables count?).  
+
+However you can probably give some examples of numerical random variables which are not discrete.
+
+Note the thing that should give us pause, and explains why we have to introduce these random variables in a slightly different way from how we introduced discrete random variables:
+
+- For a discrete random variable, it makes sense to ask $P(Y = r)$ for some $r$. I.e. there will be some $r$ such that this number is non-zero. In fact we took this as our starting point for all of the discrete random distributions we have talked about.
+
+- For a continuous random variable:  $P(Y=x)$ has us a little bit nervous. If $Y$ is truly continuous then near $x$ there are infinitely many (uncountably infinitely many) values that are also possible. They can't all have a non-zero value without us having trouble adding them all up. 
+
+
+
+First we need to make our definition precise: How will we recognize a continuous random variable?  (if you were in my class last summer you might recall our *sandwich* activity). 
+
+One picture that should have you thinking from earlier this week is the graphs we made of the *Cummulative Distribution Function* for our random variables, here is the one for the binomials random variable:
+
+```{r}
+n <- 10
+p <- 0.38
+r <- c(-1:(50*n))/50
+plot(r, pbinom(r, n, p), type="l")
+```
+
+
+Consider instead what this graph will need to look like for a random variable that can take any value rather than just the integer values?  
+
+Recall the properties of our CDF $F(x) = P(Y \leq x)$:
+
+- $\lim_{x\to -\infty} F(x) = 0$
+- $0 \leq F(x) \leq 1$ for all x.
+- $F(x)$ is a non decreasing function of $x$:  given $x_1 < x_2$ then $F(x_1) < F(x_2)$. 
+- $\lim_{x\to \infty} F(x) = 1$
+
+A *Continuous Random Variable* is one for which the cumulative distribution function: $F(x) = P(Y \leq x)$ is a continuous function. 
+
+Note that we can't say a discrete random variable is one where the CDF is not-continuous as it could have continuous and non-continuous parts. There is a whole theory of decomposing a general random variable into discrete and continuous components that is beyond what we want to do for this class. 
+
+The next thing to note is that for our discrete random variables, the jump for the steps in the CDF is the probability distribution for that value.
+
+For a continuous random variable then, the probability that the variable achieves any specific value must be 0 because otherwise $P(Y = x) $ would be the size of a jump discontinuity in the CDF.
+
+
+#### Probability Density Function
+
+So we don't have a distribution in the sense that we do for discrete random variables, however note that for continuous functions the idea which captures how much the function is increasing (the size of the steps) is given by the derivative. This leads to:
+
+The *Probability Density Function* of a continuous random variable with CDF $F(x) = P(Y \leq x)$ is given by:
+$$ f(x) = \frac{d}{dx} F(x) $$
+where the derivative exists. 
+
+Note a few consequences:
+
+- $ f(x) \geq 0 $
+- $ \int_{-\infty}^\infty f(x) dx = 1$
+
+### Why is this called the density function?  
+
+Let's assume that $f(x)$ exists everywhere. Then the Fundamental Theorem of Calculus implies that:
+
+$$ F(x) = P(Y \leq x) = \int_{-\infty}^x f(t) dt $$
+
+Suppose we wanted to know $P(a \leq Y \leq b)$?  On the one hand we compute this from the CDF:
+
+$$ P( a \leq Y \leq b) = F(b) - F(a) $$
+
+However we can rewrite this in terms of the PDF using the algebra of integrals: 
+
+$$ P(a \leq Y \leq b) = \int_a^b f(x) dx $$
+
+I.e. the area under $f(x)$ over a region of $x$-space gives the probability that $x$ lies in that region. Note some consequences:
+
+- This is another way of thinking about why $P(Y = x) = 0 $:  It corresponds to an integral over a single point. 
+
+I think of this as density in the same sense as we would use in Physics. The integral of the density function for an object gives the mass of that object. 
+
+## Uniform Distribution
+
+For our first example consider the cummulative distribution function:
+
+$$ F(x) = \left\{ \begin{matrix} 0 & x < 0 \\ x & 0 \leq x \leq 1 \\ 1 & x > 1 \end{matrix}    \right\} $$
+
+To plot this, we first need to define the function. We will go over this in class, but this is the syntax for definition a function in R and also because it is piecewise the syntax for *if* statements. Note this is the most complicated programing we will do. A couple of notes about using this in R - from the notebook you need to execute this command with the cursor at the very top, working from the middle will only run the middle block of code. The other note is that I want to write the function so that it handles columns the same way the builtin functions we have already met do. That means I need to assume the inpute is a list of values and it needs to return a list of values.
+
+```{r}
+# We need to write functions so they take a column of input values and return a column of output values, 
+# This will make what we do next easier.
+
+F <- function(x) {
+  result <- c()
+  
+  for (k in x) {
+    
+    # The actual function - note the if statements we need because of the piecewise nature
+    if (k < 0) {
+      result <- c(result, 0)
+    }
+    else if (k > 1) {
+      result <- c(result, 1)
+    }
+    else {
+      result <- c(result, k)
+    }
+  }
+  result
+} 
+
+# testing that it works
+F(c(-0.25, 0.25, 3))
+```
+
+With that defined we can now plot the function. 
+
+```{r}
+n <- 100
+x <- c((-2*n):(2*n))/n
+plot(x, F(x), type = "l")
+```
+
+This is our cumulative distribution. Without even computing anything we can tell that the support of our density is on the interval $[0, 1]$. Note that we have corners in the CDF so there are two places where the density is not defined - your instincts from Calculus are correct that not having a density at a discrete set of values is not a big deal. You may recall from MATH 534 that there are some particularly nasty functions, but while they are theoretically interesting as CDFs they do not correspond to random variables we see often.
+
+We can compute the probability density function by differentiating this one.  We get a piecewise defined function:
+
+$$ f(x) = \left\{ \begin{matrix} 0 & x < 0 \\ 1 & 0 \leq x \leq 1 \\ 0 & x > 1 \end{matrix} \right\} $$
+
+This is an example of a uniform continuous distribution. On the support of the variable, the probability that $Y$ is in an interval is proportional to the length of that interval. 
+
+#### General Unifrom Distributions
+
+Find the constant $C$ such that $f(x)$ below is a valid PDF:
+
+$$ f(x) = \left\{ \begin{matrix} 0 & x < a \\ C & a \leq x \leq b \\ 0 & x > b \end{matrix} \right\} $$
+
+
+
