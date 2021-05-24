@@ -254,6 +254,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2.2" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#expected-value-2"><i class="fa fa-check"></i><b>4.2.2</b> Expected Value</a></li>
 <li class="chapter" data-level="4.2.3" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#variance-of-the-poisson-random-variable"><i class="fa fa-check"></i><b>4.2.3</b> Variance of the Poisson Random Variable</a></li>
 </ul></li>
+<li class="chapter" data-level="4.3" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#moments-and-moment-generating-functions"><i class="fa fa-check"></i><b>4.3</b> Moments and Moment Generating Functions</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#moment-generating-for-a-poisson-distribution"><i class="fa fa-check"></i><b>4.3.1</b> Moment Generating for a Poisson Distribution</a></li>
+</ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="class-schedule-and-activities.html"><a href="class-schedule-and-activities.html"><i class="fa fa-check"></i><b>A</b> Class Schedule and Activities</a></li>
@@ -439,6 +443,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Putting it together we have:</p>
 <p><span class="math display">\[ V(Y) = \lambda^2 + \lambda - \lambda^2 = \lambda\]</span></p>
 <p>So in summary a Poisson random variable with parameter <span class="math inline">\(\lambda\)</span> has expected value and variance <span class="math inline">\(\lambda\)</span>.</p>
+</div>
+</div>
+<div id="moments-and-moment-generating-functions" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Moments and Moment Generating Functions</h2>
+<p>One idea which we will need later in class and we should introduce now is that of finding moments. We have seen that <em>Expected Value</em> and <em>Variance</em> have uses in characterizing a distribution, and for distributions with sufficient symmetry are things we can compute exactly. In an effort to characeterize distributions more broadly one is then led to consider the question of moments. The <span class="math inline">\(m\)</span>’th moment of a distribution is defined to be:</p>
+<p><span class="math display">\[ E(Y^m) \]</span></p>
+<p>We then define the <em>Moment Generating Function</em> of a random variable to be:</p>
+<p><span class="math display">\[ M(t) = E(e^{t Y} ) \]</span></p>
+<p>provided that it exists.</p>
+<p>This generates moments in the sense that provided that <span class="math inline">\(t\)</span> is in an open interval where <span class="math inline">\(M(t)\)</span> exists we have:</p>
+<p><span class="math display">\[ E(Y^k) = \frac{d^k}{dt^k} M(t) \bigg|_{t=0} \]</span></p>
+<p>Two random variables with moment generating functions that exist and are equal are identical. Meaning that moment generating functions, if they exist, will uniquely characterize a distribution. This is a fact we will use once in this class in a few weeks.</p>
+<div id="moment-generating-for-a-poisson-distribution" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Moment Generating for a Poisson Distribution</h3>
+<p>Let’s compute the moment generating function of the Poisson Distribution:</p>
+<p><span class="math display">\[ M(t) = \sum_{r=0}^\infty e^{t r - \lambda} \frac{\lambda^r}{r!} = e^{-\lambda} \sum_{r=0}^\infty \frac{\left( \lambda e^{t} \right)^r}{r!} = e^{\lambda (e^t - 1)} \]</span></p>
+<p>If you go to the wikipedia page for any of our named distributions you will find their moment generating functions given.</p>
+<p>An interesting question we unfortunately do not have time for is what the set of values of <span class="math inline">\(t\)</span> for which <span class="math inline">\(M(t)\)</span> exists tells us about the distribution.</p>
 
 </div>
 </div>

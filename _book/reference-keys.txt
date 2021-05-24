@@ -107,3 +107,5 @@ plotting-the-distribution
 cummulative-distribution
 expected-value-2
 variance-of-the-poisson-random-variable
+moments-and-moment-generating-functions
+moment-generating-for-a-poisson-distribution

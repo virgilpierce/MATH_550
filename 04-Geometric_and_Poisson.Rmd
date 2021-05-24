@@ -262,6 +262,36 @@ $$ V(Y) = \lambda^2 + \lambda - \lambda^2 = \lambda$$
 
 So in summary a Poisson random variable with parameter $\lambda$ has expected value and variance $\lambda$. 
 
+## Moments and Moment Generating Functions
+
+One idea which we will need later in class and we should introduce now is that of finding moments. We have seen that *Expected Value* and *Variance* have uses in characterizing a distribution, and for distributions with sufficient symmetry are things we can compute exactly. In an effort to characeterize distributions more broadly one is then led to consider the question of moments. The $m$'th moment of a distribution is defined to be:
+
+$$ E(Y^m) $$
+
+We then define the *Moment Generating Function* of a random variable to be: 
+
+$$ M(t) = E(e^{t Y} ) $$ 
+
+provided that it exists.
+
+This generates moments in the sense that provided that $t$ is in an open interval where $M(t)$ exists we have:
+
+$$ E(Y^k) = \frac{d^k}{dt^k} M(t) \bigg|_{t=0} $$
+
+Two random variables with moment generating functions that exist and are equal are identical. Meaning that moment generating functions, if they exist, will uniquely characterize a distribution. This is a fact we will use once in this class in a few weeks.
+
+### Moment Generating for a Poisson Distribution
+
+Let's compute the moment generating function of the Poisson Distribution:
+
+$$ M(t) = \sum_{r=0}^\infty e^{t r - \lambda} \frac{\lambda^r}{r!} = e^{-\lambda} \sum_{r=0}^\infty \frac{\left( \lambda e^{t} \right)^r}{r!} = e^{\lambda (e^t - 1)} $$
+
+If you go to the wikipedia page for any of our named distributions you will find their moment generating functions given.
+
+An interesting question we unfortunately do not have time for is what the set of values of $t$ for which $M(t)$ exists tells us about the distribution. 
+
+
+
 
 
 
