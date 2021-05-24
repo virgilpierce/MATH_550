@@ -24,7 +24,7 @@
 <meta name="author" content="Virgil U Pierce" />
 
 
-<meta name="date" content="2021-05-21" />
+<meta name="date" content="2021-05-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -250,6 +250,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.3" data-path="geometric-and-poisson-distributions.html"><a href="geometric-and-poisson-distributions.html#poisson-distributions"><i class="fa fa-check"></i><b>4.1.3</b> Poisson Distributions</a></li>
 </ul></li>
 </ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="class-schedule-and-activities.html"><a href="class-schedule-and-activities.html"><i class="fa fa-check"></i><b>A</b> Class Schedule and Activities</a></li>
 </ul>
 
       </nav>
@@ -359,18 +361,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="discrete-probability-the-binomial-distribution.html#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;H&quot;</span>, <span class="st">&quot;T&quot;</span>)</span>
 <span id="cb1-2"><a href="discrete-probability-the-binomial-distribution.html#cb1-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">200</span>, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
 <span id="cb1-3"><a href="discrete-probability-the-binomial-distribution.html#cb1-3" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
-<pre><code>##   [1] &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
-##  [19] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
-##  [37] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
-##  [55] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
-##  [73] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot;
-##  [91] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
-## [109] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot;
-## [127] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
-## [145] &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
-## [163] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
-## [181] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
-## [199] &quot;T&quot; &quot;H&quot;</code></pre>
+<pre><code>##   [1] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot;
+##  [19] &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
+##  [37] &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot;
+##  [55] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot;
+##  [73] &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
+##  [91] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
+## [109] &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot;
+## [127] &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
+## [145] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot;
+## [163] &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot;
+## [181] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot;
+## [199] &quot;H&quot; &quot;H&quot;</code></pre>
 <p>You can also pass the sample command a list of probabilities for each element of x; note that order matters so check it. For a fair coin the default of each outcome being equally likely works. However note that unfair coins are not unheard of - you can purchase them at magic and toy shops.</p>
 <p>A typical human trying to fake coin flips will distribute them too uniformly and will not have as many long sequences of “H” as we expect to see from an actual experiment.</p>
 </div>
@@ -380,16 +382,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="discrete-probability-the-binomial-distribution.html#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb3-2"><a href="discrete-probability-the-binomial-distribution.html#cb3-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">sample</span>(x, <span class="dv">130</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.38</span>, <span class="fl">0.62</span>) )</span>
 <span id="cb3-3"><a href="discrete-probability-the-binomial-distribution.html#cb3-3" aria-hidden="true" tabindex="-1"></a>result</span></code></pre></div>
-<pre><code>##   [1] 0 0 1 1 1 0 0 0 0 1 0 1 0 0 1 0 0 1 1 1 1 0 0 0 0 0 1 1 0 0 1 0 0 0 0 0 0
-##  [38] 0 0 1 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 1 1 1 0 1 0 1 0 0 0 0 0 0 0
-##  [75] 0 1 1 1 0 0 0 0 1 1 0 1 0 0 0 0 0 0 0 0 1 1 0 1 0 0 0 0 0 1 0 1 1 0 0 0 1
-## [112] 0 1 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 1 1</code></pre>
+<pre><code>##   [1] 0 0 0 0 1 1 0 0 0 1 1 0 1 1 0 1 1 1 1 0 1 0 1 0 1 0 0 0 1 0 1 0 1 0 0 0 0
+##  [38] 0 0 1 1 1 0 0 1 1 0 0 0 0 0 1 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 1 0 0 1 0 0 0
+##  [75] 0 0 0 0 0 1 1 0 0 1 1 0 1 1 1 1 1 1 1 1 0 0 0 0 1 0 1 0 0 0 0 1 1 1 0 1 0
+## [112] 0 1 1 0 0 1 0 0 1 1 0 0 0 1 0 0 1 1 1</code></pre>
 <p>You may notice that rather than using strings for the entries in <em>x</em> I used 1 and 0. The reason is that what we care about is the number of students that are food insecure, this is our random variable of interest and now we can compute its value by just summing up the numbers in <em>result</em> the value of which will be the number of 1s.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="discrete-probability-the-binomial-distribution.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(result)</span></code></pre></div>
-<pre><code>## [1] 43</code></pre>
+<pre><code>## [1] 55</code></pre>
 <p>Because the <em>sample</em> command uses (pseudo)-random numbers, if we run this again we will get a different result (also note each time I compile this textbook the values change). Do it a few times yourself and see what we get.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="discrete-probability-the-binomial-distribution.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sample</span>(x, <span class="dv">130</span>, <span class="at">replace=</span><span class="cn">TRUE</span>, <span class="at">prob=</span><span class="fu">c</span>(<span class="fl">0.38</span>, <span class="fl">0.62</span>)))</span></code></pre></div>
-<pre><code>## [1] 52</code></pre>
+<pre><code>## [1] 36</code></pre>
 <p>This is a little bit tedious to run a bunch of times and we also should be keeping track of the results. For example, what is the smallest value you have seen so far? Luckily, one of the things computers are absolutely brilliant at is doing the same thing over and over and keeping track of the results. Let me introduce you to one of the two real programming structures we will use in this class: a <em>for loop</em>. A for loop tells the computer to complete the same set of commands multiple times.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="discrete-probability-the-binomial-distribution.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We are going to keep track of the results in a variable called trials, so we first initalize this variable as an empty column</span></span>
 <span id="cb9-2"><a href="discrete-probability-the-binomial-distribution.html#cb9-2" aria-hidden="true" tabindex="-1"></a>trials <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
@@ -403,17 +405,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-10"><a href="discrete-probability-the-binomial-distribution.html#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb9-11"><a href="discrete-probability-the-binomial-distribution.html#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-12"><a href="discrete-probability-the-binomial-distribution.html#cb9-12" aria-hidden="true" tabindex="-1"></a>trials</span></code></pre></div>
-<pre><code>##   [1] 44 64 37 48 50 53 56 54 59 47 46 48 47 42 58 47 51 60 51 54 52 47 53 50 60
-##  [26] 50 52 47 50 46 48 50 37 47 48 53 56 59 55 47 56 55 50 43 56 55 47 50 58 54
-##  [51] 41 41 44 48 49 53 46 60 55 52 54 55 50 46 44 57 58 49 48 48 56 53 49 49 52
-##  [76] 53 59 40 58 53 49 59 50 52 45 40 51 56 46 32 56 49 46 38 52 56 50 45 61 50</code></pre>
+<pre><code>##   [1] 42 51 51 47 48 43 44 46 51 54 49 50 43 47 50 54 48 36 52 55 54 52 60 53 46
+##  [26] 44 36 46 56 56 46 56 48 44 47 53 43 46 47 43 47 49 49 53 53 53 51 57 44 46
+##  [51] 55 49 42 43 59 46 54 53 48 40 42 43 46 46 50 45 49 48 41 52 49 55 58 52 46
+##  [76] 54 44 49 48 58 58 54 47 53 46 37 41 36 50 59 48 46 42 44 42 51 46 50 47 52</code></pre>
 <p>Let’s use a historgram to look at the result:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="discrete-probability-the-binomial-distribution.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The paramter breaks is determining how many bins to use</span></span>
 <span id="cb11-2"><a href="discrete-probability-the-binomial-distribution.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(trials, <span class="at">breaks=</span><span class="dv">10</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="discrete-probability-the-binomial-distribution.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(trials)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    32.0    47.0    50.0    50.5    55.0    64.0</code></pre>
+##   36.00   45.75   48.00   48.52   53.00   60.00</code></pre>
 <p>So interestingly the minimum value is not very small. What does this tell us about the number of mathematics majors we might see that are food insecure? What would our interpretation be if we found only 10 of the mathematics majors were food insecure?</p>
 <p>Finally you can probably tell me you are not surprised that the mean is close to</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="discrete-probability-the-binomial-distribution.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.38</span> <span class="sc">*</span> <span class="dv">130</span></span></code></pre></div>
