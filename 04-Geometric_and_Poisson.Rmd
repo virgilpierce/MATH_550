@@ -14,9 +14,11 @@ So the question becomes:  If Y is the number of times we had to conduct our Bern
 
 $$ (1-p)^3 p $$
 
-More generally the *geometric distribution* has a probability distribution function given by:
+More generally the *geometric distribution* has a probability distribution function given by, for $r\geq 0$:
 
 $$ P(Y=r+1) = (1-p)^{r} p $$
+
+
 
 This is fundamentally different from our Binomial Distribution. For the binomial distribution with $n$ trials the largest the random variable could be is $n$. In this case, for our geometric distribution $Y$ is potentially unbounded.  For every $r$ the value of $P(Y=r+1)$ is non-zero (though possibly very small). 
 
