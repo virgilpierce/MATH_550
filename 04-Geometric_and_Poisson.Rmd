@@ -92,7 +92,7 @@ $$ E(Y) = \sum_{r=0}^\infty (r+1) q^r p = p \frac{d}{dq} \sum_{r=0}^\infty q^{r+
 
 The sum is now a geometric series and we have a formula for its result:
 
-$$ E(Y) = p \frac{d}{dq} \left[ \frac{q}{1-q} ] = \mbox{algebra/calculus or calcugebra} = \frac{1}{p} $$
+$$ E(Y) = p \frac{d}{dq} \left[ \frac{q}{1-q} \right] = \mbox{algebra/calculus or calcugebra} = \frac{1}{p} $$
 
 ### Variance 
 
