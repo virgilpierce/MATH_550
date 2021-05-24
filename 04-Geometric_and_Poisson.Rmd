@@ -203,7 +203,7 @@ The cumulative distribution, the probability that $Y \leq r$, can be plotted, it
 ```{r}
 lambda <- 1.1
 n <- 100 # The upper bound on n for our plot
-r <- c(0:(10*n))/10
+r <- c(-1:(10*n))/10
 plot(r, ppois(r, lambda), type="l")
 ```
 
