@@ -101,3 +101,4 @@ variance
 exact-value-2
 poisson-distributions
 class-schedule-and-activities
+r-notes
