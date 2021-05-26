@@ -32,7 +32,7 @@ n <- 100
 x <- c((-2*n):(2*n))/n
 plot(x, F(x), type = "l")
 
-result = runif(50, 0, 1)
+result <- runif(50, 0, 1)
 result
 
 hist(result, 20)
@@ -42,5 +42,26 @@ summary(result)
 var(result)
 
 (1-0)^2 / 12
+
+n <- 100
+mu <- 1
+sigma <- 0.5
+x <- c((-4*n):(4*n))/n
+v <- dnorm(x, mu, sigma)
+plot(x, v, type='l')
+
+n <- 100
+mu <- 1
+sigma <- 0.5
+x <- c((-4*n):(4*n))/n
+v <- pnorm(x, mu, sigma)
+plot(x, v, type='l')
+
+result <- rnorm(50, 1, 0.5)
+result
+
+hist(result, 10)
+
+summary(result)
 
 

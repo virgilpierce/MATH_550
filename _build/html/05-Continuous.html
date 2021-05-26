@@ -257,6 +257,18 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normal-distributions">
+   Normal Distributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sampling-from-the-normal-distribution">
+     Sampling from the Normal Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -411,7 +423,7 @@ where the derivative exists.</p>
 <p>Luckily, R comes with a uniform random variable simmulator already prepared for us. It uses similar technology that that hiding behind our discrete <em>sample</em> command we used already. The command is <em>runif</em> r is the prefix and unif is the name of the distribution - hence we could simmulate our Poisson variable for example using <em>rpois</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">runif</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
 <span class="n">result</span>
 </pre></div>
 </div>
@@ -422,7 +434,7 @@ where the derivative exists.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0.904876984423026</li><li>0.861768641974777</li><li>0.822157306363806</li><li>0.932045401539654</li><li>0.724415720906109</li><li>0.917936575831845</li><li>0.946802265243605</li><li>0.216950218658894</li><li>0.22145774262026</li><li>0.510391472605988</li><li>0.4781930858735</li><li>0.25852129724808</li><li>0.907004975480959</li><li>0.502852096688002</li><li>0.863632237073034</li><li>0.915073890704662</li><li>0.0221406838390976</li><li>0.594869652064517</li><li>0.113978443667293</li><li>0.71594726247713</li><li>0.460440202616155</li><li>0.0328046455979347</li><li>0.844166784081608</li><li>0.732332092011347</li><li>0.453430277761072</li><li>0.664848994463682</li><li>0.367761631496251</li><li>0.6526628669817</li><li>0.0355067690834403</li><li>0.356455032480881</li><li>0.806303259218112</li><li>0.168290124973282</li><li>0.868693962693214</li><li>0.0271529525052756</li><li>0.797951547661796</li><li>0.802885355893523</li><li>0.445185768185183</li><li>0.646595357917249</li><li>0.484917545691133</li><li>0.775010148994625</li><li>0.788833192083985</li><li>0.81055967672728</li><li>0.718307616887614</li><li>0.851653354708105</li><li>0.106517806649208</li><li>0.367921761237085</li><li>0.881317829713225</li><li>0.546830043429509</li><li>0.791129315039143</li><li>0.97987792850472</li></ol>
+<ol class=list-inline><li>0.997181913116947</li><li>0.370294116204605</li><li>0.489848587661982</li><li>0.272655510110781</li><li>0.53787856712006</li><li>0.710522607900202</li><li>0.0488738813437521</li><li>0.131005067145452</li><li>0.533232566667721</li><li>0.166675431188196</li><li>0.100231287768111</li><li>0.362475354922935</li><li>0.838633787818253</li><li>0.23270528181456</li><li>0.4945011313539</li><li>0.908440022496507</li><li>0.805971375899389</li><li>0.76647510449402</li><li>0.340482263360173</li><li>0.889849933795631</li><li>0.647189501440153</li><li>0.683444967027754</li><li>0.213081843685359</li><li>0.385034047299996</li><li>0.481226072181016</li><li>0.176940161269158</li><li>0.466419948032126</li><li>0.171917064348236</li><li>0.981042895233259</li><li>0.850583894876763</li><li>0.51728023798205</li><li>0.748348281253129</li><li>0.883717126213014</li><li>0.114761926000938</li><li>0.589267111616209</li><li>0.989153367700055</li><li>0.467458773870021</li><li>0.154943202622235</li><li>0.562267427332699</li><li>0.0671784388832748</li><li>0.257224313681945</li><li>0.907739710994065</li><li>0.47096057375893</li><li>0.753661112859845</li><li>0.377073359442875</li><li>0.64423325820826</li><li>0.654352323152125</li><li>0.0566498858388513</li><li>0.0248836488462985</li><li>0.461491153342649</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -448,7 +460,7 @@ where the derivative exists.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-0.02214 0.38724 0.69040 0.59395 0.83866 0.97988 
+0.02488 0.23883 0.48554 0.49515 0.73889 0.99718 
 </pre></div>
 </div>
 </div>
@@ -482,7 +494,7 @@ where the derivative exists.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.0860710735797513</div></div>
+<div class="output text_html">0.0835666373615481</div></div>
 </div>
 <p>Again this actually just an estimate of the variance of the random variable. You should check what happens as the size of the sample is changed.</p>
 <div class="section" id="id1">
@@ -511,6 +523,102 @@ where the derivative exists.</p>
 <div class="output text_html">0.0833333333333333</div></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="normal-distributions">
+<h2>Normal Distributions<a class="headerlink" href="#normal-distributions" title="Permalink to this headline">¶</a></h2>
+<p>The uniform distribution is a nice simple first example. However our next example we will see forms the basis for a large portion fo the results we will work with. The <em>Normal Distribution</em> will turn out to be a a universal structure that shows up in many instances.</p>
+<p>The Probability Density Function for the normal distirbution is the shape classically known as the Bell Curve. It is given by the function:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-(y - \mu)^2 / (2 \sigma^2) } \]</div>
+<p>Note that the distribution has two free parameters (suggestively written as) <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
+<p>A graph of the PDF, using the builtin expression for the function <em>dnorm</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">mu</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="n">sigma</span> <span class="o">&lt;-</span> <span class="m">0.5</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">((</span><span class="m">-4</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">4</span><span class="o">*</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/05-Continuous_17_0.png" src="_images/05-Continuous_17_0.png" />
+</div>
+</div>
+<p>Adjust the <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> in this code block until you have a hypothesis about what the role is that they play in the shape of the distribution.</p>
+<p>Note that the distribution never actually gives 0, though it does get very close as <span class="math notranslate nohighlight">\(x\to \pm \infty\)</span>. The support of this random variable is all real numbers.</p>
+<p>The cummulative distribution function is defined to be:</p>
+<div class="math notranslate nohighlight">
+\[ F(x) = \int_{-\infty}^x \frac{1}{\sigma \sqrt{2\pi}} e^{- (t-\mu)^2 / (2 \sigma^2) } dt \]</div>
+<p>Note that while this is an unbounded integral, it is one that will have no problems converging. That said, it is also an integrand for which none of the rules you learned in Calculus 2 work. We are left with numerical approximations, and in our case we can just use the builtin function <em>pnorm</em> in R.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">mu</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="n">sigma</span> <span class="o">&lt;-</span> <span class="m">0.5</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">((</span><span class="m">-4</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">4</span><span class="o">*</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">pnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/05-Continuous_19_0.png" src="_images/05-Continuous_19_0.png" />
+</div>
+</div>
+<div class="section" id="sampling-from-the-normal-distribution">
+<h3>Sampling from the Normal Distribution<a class="headerlink" href="#sampling-from-the-normal-distribution" title="Permalink to this headline">¶</a></h3>
+<p>We will spend a large portion of later chapters asking what happens when we sample from a normal distribution, but r provides a builtin function that does it for us, so let’s go ahead and use that. Though it is worth pausing here to discuss how one would implement such a thing as it is instructive:</p>
+<ul class="simple">
+<li><p>Suppose that we have a good pseudo random number generator that will give us a <span class="math notranslate nohighlight">\(Q\)</span> uniformly distributed random variable on the interval <span class="math notranslate nohighlight">\([0, 1]\)</span>.  If we generating a <span class="math notranslate nohighlight">\(Q = t\)</span> and then take <span class="math notranslate nohighlight">\(F^{-1}(t) = x\)</span> (the inverse of the cummulative distribution function, this will then give us an <span class="math notranslate nohighlight">\(x\)</span> that we can use a sample from our random variable with cummulative distribution <span class="math notranslate nohighlight">\(F(x)\)</span>.</p></li>
+<li><p>Note that because <span class="math notranslate nohighlight">\(F(x)\)</span> is non-decreasing it is 1-1 and therefore the inverse function exists. Though we may not have a nice formula for it - for example with the normal distribution we do not have a nice formula for it.</p></li>
+<li><p>Note that where <span class="math notranslate nohighlight">\(F(x)\)</span> is steepest, which corresponds to where <span class="math notranslate nohighlight">\(f(x)\)</span> is largest, the inverse function will be less steep. Therefore for a larger region of <span class="math notranslate nohighlight">\(Q\)</span> values we will get a smaller region of <span class="math notranslate nohighlight">\(Y\)</span> values - and vice versa.</p></li>
+</ul>
+<p>Of course it is all moot as we do not have an exact formula for <span class="math notranslate nohighlight">\(F(x)\)</span> for the normal distribution and therefore we do not have an exact formula for the inverse of the CDF. What we do have though is a builtin sampling function <em>rnorm</em>.</p>
+<p>Again note how consistent R is - the <em>r</em> prefix means sample from the variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">50</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0.5</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>1.35200424713533</li><li>1.64596828353931</li><li>1.20766093749041</li><li>0.818900632996575</li><li>1.35326816268469</li><li>1.57419643392965</li><li>0.588782694134782</li><li>0.966871397579636</li><li>1.17652198664267</li><li>1.93739292207903</li><li>1.31314040322241</li><li>0.604643451646075</li><li>0.709746276804023</li><li>0.676418570295253</li><li>0.186857477762897</li><li>1.4817480480304</li><li>0.529435447367449</li><li>1.24564162615835</li><li>1.39938866122731</li><li>0.135490473933379</li><li>0.645353911830768</li><li>0.655662299022496</li><li>1.68816312482925</li><li>1.90810202404253</li><li>0.0441797375200285</li><li>1.31199401487314</li><li>1.21078566251951</li><li>0.246032187554814</li><li>0.911419469282907</li><li>0.514777668773818</li><li>1.2440891722075</li><li>0.406802265243738</li><li>-0.0829807363876307</li><li>0.826314081444692</li><li>1.37286104440955</li><li>1.44026438339958</li><li>1.12736306682134</li><li>1.46034893446984</li><li>0.851386195956973</li><li>1.0997971046</li><li>0.413423587808026</li><li>0.222106767372803</li><li>1.19654276476037</li><li>1.0836496643956</li><li>0.985446951917388</li><li>0.804345175793451</li><li>1.84190172637046</li><li>0.473391123492654</li><li>0.735461746543015</li><li>0.00421001633392881</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/05-Continuous_22_0.png" src="_images/05-Continuous_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-0.08298  0.59275  0.97616  0.95095  1.34229  1.93739 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Take the time to adjust the size of the sample and see what we get.</p>
 </div>
 </div>
 </div>
