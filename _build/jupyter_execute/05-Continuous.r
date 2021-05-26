@@ -32,4 +32,15 @@ n <- 100
 x <- c((-2*n):(2*n))/n
 plot(x, F(x), type = "l")
 
+result = runif(50, 0, 1)
+result
+
+hist(result, 20)
+
+summary(result)
+
+var(result)
+
+(1-0)^2 / 12
+
 
