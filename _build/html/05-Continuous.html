@@ -303,6 +303,11 @@
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expected-value-and-variance-of-normal-random-variables">
+     Expected Value and Variance of Normal Random Variables
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -470,7 +475,7 @@ where the derivative exists.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0.667778318980709</li><li>0.889914220198989</li><li>0.981643035309389</li><li>0.391937174834311</li><li>0.300972538068891</li><li>0.882146580843255</li><li>0.0870728858280927</li><li>0.441220494918525</li><li>0.921803984092548</li><li>0.279398754937574</li><li>0.546115692704916</li><li>0.553010371280834</li><li>0.444159492384642</li><li>0.34434882667847</li><li>0.150170294335112</li><li>0.621352873044088</li><li>0.400927466340363</li><li>0.837567364098504</li><li>0.331254042685032</li><li>0.818762107286602</li><li>0.00203811284154654</li><li>0.163579700514674</li><li>0.2898626672104</li><li>0.999377926345915</li><li>0.723002124112099</li><li>0.642416715389118</li><li>0.54450198286213</li><li>0.40027702995576</li><li>0.0971390155609697</li><li>0.919633586658165</li><li>0.315214721951634</li><li>0.499596984125674</li><li>0.561971230199561</li><li>0.113335107685998</li><li>0.118468005675822</li><li>0.873164856340736</li><li>0.373947276966646</li><li>0.999089545104653</li><li>0.45769581082277</li><li>0.878049448365346</li><li>0.505226510111243</li><li>0.60952032264322</li><li>0.173567324178293</li><li>0.444229860091582</li><li>0.403246951289475</li><li>0.853384289890528</li><li>0.264426134293899</li><li>0.925710826879367</li><li>0.72109961649403</li><li>0.805251311976463</li></ol>
+<ol class=list-inline><li>0.118129069218412</li><li>0.541379907401279</li><li>0.143773701274768</li><li>0.685275469673797</li><li>0.656722522573546</li><li>0.424841377418488</li><li>0.615905743325129</li><li>0.236363492207602</li><li>0.107482111547142</li><li>0.024610472144559</li><li>0.648047339404002</li><li>0.347742659738287</li><li>0.409357768017799</li><li>0.702880794880912</li><li>0.841189883649349</li><li>0.519474799744785</li><li>0.362886289600283</li><li>0.126090874429792</li><li>0.238135557854548</li><li>0.811202982673422</li><li>0.866702225757763</li><li>0.0536207568366081</li><li>0.63720706035383</li><li>0.497279351577163</li><li>0.693332766182721</li><li>0.989393101306632</li><li>0.250152916181833</li><li>0.389454833231866</li><li>0.555126231396571</li><li>0.0236516227014363</li><li>0.810506154550239</li><li>0.423174774972722</li><li>0.598561848746613</li><li>0.0740559780970216</li><li>0.248825967311859</li><li>0.232234305934981</li><li>0.214464591117576</li><li>0.552998049650341</li><li>0.617469638586044</li><li>0.223209890071303</li><li>0.58377284812741</li><li>0.0690996840130538</li><li>0.836794511182234</li><li>0.76035113981925</li><li>0.828326567541808</li><li>0.611272057751194</li><li>0.984039214206859</li><li>0.952061981661245</li><li>0.753150877542794</li><li>0.953885990893468</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -495,8 +500,8 @@ where the derivative exists.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-0.002038 0.319225 0.502412 0.531392 0.815384 0.999378 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.02365 0.23681 0.54719 0.49691 0.70049 0.98939 
 </pre></div>
 </div>
 </div>
@@ -530,7 +535,7 @@ where the derivative exists.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.0811375137028415</div></div>
+<div class="output text_html">0.0831971832230007</div></div>
 </div>
 <p>Again this actually just an estimate of the variance of the random variable. You should check what happens as the size of the sample is changed.</p>
 <div class="section" id="id1">
@@ -628,7 +633,7 @@ where the derivative exists.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0.708215852435649</li><li>0.819030883356446</li><li>0.959158537334707</li><li>1.2466344640193</li><li>0.952323594206732</li><li>1.02851495857435</li><li>1.15237431377462</li><li>1.01474155376611</li><li>0.702861171753973</li><li>1.21730195392567</li><li>-0.0542064880039312</li><li>1.16544840419351</li><li>1.09122473899765</li><li>0.842457084996945</li><li>1.2685984275337</li><li>0.899432286711772</li><li>1.00837387582597</li><li>0.899994652192197</li><li>1.0897082254868</li><li>0.558324323641317</li><li>2.22048295484001</li><li>1.0500358707625</li><li>0.783988898941797</li><li>1.1241550081927</li><li>0.669378603328938</li><li>1.05535991305281</li><li>0.806594349091717</li><li>1.10124380014101</li><li>1.78299390601441</li><li>0.178804881997948</li><li>0.263081077203433</li><li>0.90230889284341</li><li>0.741898390821838</li><li>0.365213234051181</li><li>1.34757107192365</li><li>0.870468132280703</li><li>0.911309179454063</li><li>1.22545846633511</li><li>1.5591674664777</li><li>0.711854746212935</li><li>1.23064867316112</li><li>0.999696691116852</li><li>0.343744903613192</li><li>0.737840108505115</li><li>1.4972548485612</li><li>1.15563627194504</li><li>0.551792874681491</li><li>1.33367360366425</li><li>1.37187602989826</li><li>0.205757077233461</li></ol>
+<ol class=list-inline><li>0.959330840070257</li><li>1.25393534806946</li><li>0.548181551877478</li><li>1.830832461112</li><li>0.906614067033383</li><li>0.703971539095438</li><li>1.00448009670143</li><li>0.635904880644823</li><li>0.437658680418636</li><li>2.05438325155325</li><li>0.97370577196827</li><li>0.932894742030108</li><li>0.423988346229944</li><li>0.575250013825885</li><li>0.939306178770143</li><li>-0.041577774856951</li><li>1.03942764184122</li><li>1.78356923446507</li><li>0.446545583454903</li><li>1.34476806100773</li><li>0.57609655060803</li><li>1.13639343074033</li><li>1.43867876986605</li><li>1.78005578671272</li><li>1.12283943770413</li><li>0.983611475024069</li><li>0.734917821121236</li><li>0.686205839379071</li><li>0.801105045187792</li><li>1.64928545335069</li><li>0.828012499149907</li><li>1.68802042273768</li><li>1.14529824230003</li><li>1.24411468007157</li><li>1.06054074028663</li><li>0.955461524185924</li><li>0.930250779052048</li><li>0.83636924596498</li><li>1.0134192555218</li><li>1.23192818675657</li><li>0.34077554605925</li><li>1.38297023625597</li><li>0.617478717720396</li><li>0.789219030258691</li><li>0.689687036380494</li><li>0.42798031895055</li><li>0.99549759151892</li><li>1.1305990572401</li><li>0.952461253676749</li><li>0.826073562722112</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -649,7 +654,7 @@ where the derivative exists.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--0.05421  0.73885  0.97943  0.95340  1.16300  2.22048 
+-0.04158  0.69326  0.95396  0.97497  1.14307  2.05438 
 </pre></div>
 </div>
 </div>
@@ -685,6 +690,17 @@ where the derivative exists.</p>
 <p>Find an interval <span class="math notranslate nohighlight">\([a, b]\)</span> such that the normal random variable with mean 0 and variance 1 has probability 0.95 of being found in the interval.</p>
 <p>To answer this one it is worth using the cummulative distribution function defined in R <em>pnorm</em>.</p>
 </div>
+</div>
+<div class="section" id="expected-value-and-variance-of-normal-random-variables">
+<h3>Expected Value and Variance of Normal Random Variables<a class="headerlink" href="#expected-value-and-variance-of-normal-random-variables" title="Permalink to this headline">¶</a></h3>
+<p>As you might expect the parameters <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma^2\)</span> are so named because for the normal random variable they are precisly the mean and variance.</p>
+<div class="math notranslate nohighlight">
+\[E(Y) = \int_{-\infty}^\infty x \frac{1}{\sigma \sqrt{2\pi}} e^{-(x-\mu)^2 / (2\sigma^2) } dx = \mu \]</div>
+<p>Showing this exactly is beyond the scope of the class, really the two best ways to do it use Complex Analysis or the Fourier Transform.</p>
+<p>The variance should be compute directly (i.e. not using our algebra trick:</p>
+<div class="math notranslate nohighlight">
+\[ V(Y) = E( (Y-\mu)^2 ) = \int_{-\infty}^\infty (x-\mu)^2 \frac{1}{\sigma \sqrt{2\pi}} e^{-(x-\mu)^2 / (2\sigma^2) } dx = \sigma^2 \]</div>
+<p>Note that immediately a change of variables can be made that eliminates <span class="math notranslate nohighlight">\(\mu\)</span> - hence the <span class="math notranslate nohighlight">\(V(Y)\)</span> must even before we compute it, only depend on <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p>
 </div>
 </div>
 </div>
