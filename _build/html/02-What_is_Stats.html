@@ -1,0 +1,1071 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What is Statistics? &#8212; MATH 550 - Applied Probability and Statistics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Discrete Random Variables - The Binomial Distribution" href="03-Discrete_Probability.html" />
+    <link rel="prev" title="Introduction and Course Syllabus" href="01-Introduction.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">MATH 550 - Applied Probability and Statistics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Introduction.html">
+   Introduction and Course Syllabus
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   What is Statistics?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Discrete_Probability.html">
+   Discrete Random Variables - The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Geometric_and_Poisson.html">
+   Geometric and Poisson Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Continuous.html">
+   Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="99-Apendices.html">
+   Class Schedule and Activities
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/02-What_is_Stats.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02-What_is_Stats.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-and-r">
+   Introduction and R
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-you-need">
+     What do you need
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#open-rstudio">
+     Open Rstudio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-few-words-about-programming-languages">
+     A few words about programming languages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-first-example">
+     A first example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#summary-statistics">
+       Summary Statistics
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plots">
+   Plots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histograms">
+     Histograms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boxplot">
+     BoxPlot
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#categorical-data-example">
+   Categorical Data Example
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grades">
+     Grades
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-of-categorical-data">
+     Example of Categorical Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#list-of-features">
+     List of features
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequencies">
+     Frequencies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proportions">
+     Proportions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#charts">
+     Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-versus-confirmatory-analysis">
+   Exploratory versus Confirmatory Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlations-and-predictions">
+   Correlations and Predictions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivating-questions">
+   Motivating Questions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#engine-failure">
+     Engine Failure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#engine-failure-2">
+     Engine Failure 2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#many-engines-failure">
+     Many Engines Failure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#duplicate-birthdays">
+     Duplicate Birthdays
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#birthday-tickets">
+     Birthday Tickets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accidents">
+     Accidents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detecting-fraud">
+     Detecting Fraud
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combining-rare-events-with-common-events">
+     Combining Rare Events with Common Events
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monty-hall">
+     Monty Hall
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#monty-hilbert-hall">
+     Monty-Hilbert Hall
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#radioactive-decay">
+     Radioactive Decay
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#budgets">
+     Budgets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cherry-blossoms">
+     Cherry Blossoms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#detecting-fraud-in-thc-labs">
+     Detecting Fraud in THC Labs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Detecting Fraud
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-many-locomotives">
+     How Many Locomotives
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-german-tank-problem">
+       The German Tank Problem
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#median-house-prices">
+     Median House Prices
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#healthcare-costs">
+     Healthcare Costs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-questions-do-you-have">
+     What Questions Do You Have?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="what-is-statistics">
+<h1>What is Statistics?<a class="headerlink" href="#what-is-statistics" title="Permalink to this headline">¶</a></h1>
+<p>Our first unit will cover:</p>
+<ul class="simple">
+<li><p>How and why we will be using R in this course.</p></li>
+<li><p>A discussion of <em>What is Statistics</em>?</p></li>
+<li><p>A discussion of the differences between Exploratory versus Confirmatory analysis</p></li>
+<li><p>An overview of some of the problems we will develop tools to answer in this course</p></li>
+</ul>
+<div class="section" id="introduction-and-r">
+<h2>Introduction and R<a class="headerlink" href="#introduction-and-r" title="Permalink to this headline">¶</a></h2>
+<p>This course is going to use R for the computations. Much of what we do could be computed using Excell or Google Sheets however R has certain advantages over these tools:</p>
+<ul class="simple">
+<li><p>R is a purpose built statistics software. It is designed to do that really well.</p></li>
+<li><p>R arguably is the best tool for producing good looking figures suitable for publications. The figures are easy to manipulate and adjust. Most importantly it is really easy to have your figures be consistently formatted, something that is much harder with spreadsheets.</p></li>
+<li><p>R includes a markdown language for creating nice looking notebooks: It can be used as an all in one publication tool to produce a report or paper with statistical analysis.</p></li>
+<li><p>The markdown language includes LaTex for typsetting mathematics: $<span class="math notranslate nohighlight">\( \int_a^b f(x) dx \)</span>$</p></li>
+<li><p>R is an industry standard tool for doing statistics.</p></li>
+</ul>
+<p>and most importantly</p>
+<ul class="simple">
+<li><p>R is open and free. You can download it, and the tools we will use to interact with it <strong>Rstudio</strong> for free. It is also possible to use R in online environments like Cocalc.</p></li>
+<li><p>If you are teaching a statistics class for your high school or college, I highly recommend using R as part of your class.</p></li>
+</ul>
+<div class="section" id="what-do-you-need">
+<h3>What do you need<a class="headerlink" href="#what-do-you-need" title="Permalink to this headline">¶</a></h3>
+<p>To get started:</p>
+<ol class="simple">
+<li><p><strong>If you are using a Mac or PC</strong> you should download a copy of RStudio from <a class="reference external" href="https://www.rstudio.com/products/rstudio/">https://www.rstudio.com/products/rstudio/</a>  the free version is all you will need. This includes a copy of R itself - Rstudio is a tool for interacting with R to make some of our tasks easier.</p></li>
+<li><p><strong>If you are using a Chromebook, want to use R on a tablet, or just don’t want to install it</strong> I have two options for you:
+a. Cocalc provides an online interface that lets you issue R commands. It also includes a markdown language so you will be able to use it to prepare the documents for class. You can reach it here: <a class="reference external" href="https://cocalc.com/">https://cocalc.com/</a> you will need to create an account.
+b. The university Apporto virtual machine:  <a class="reference external" href="https://unco.apporto.com">https://unco.apporto.com</a> has R studio installed. You can log in to it from any browser.
+c. If you are in Greeley you can use R on the machines in the computer labs on campus. Near my office is Ross 2261 and 2263. Note that parking is enforced in the summer, and that the building may be locked on the weekend.</p></li>
+</ol>
+<p>If at all possible I would recommend 1. as with the software installed locally you will not need to be using your internet connection. However students using 2. in my classes have reported that it works well for them.</p>
+</div>
+<div class="section" id="open-rstudio">
+<h3>Open Rstudio<a class="headerlink" href="#open-rstudio" title="Permalink to this headline">¶</a></h3>
+<p>To actually start using R, go ahead and open R studio. You can use R directly in the console (lower-left quadrant). Or you can open a notebook. Notebooks allow you to include markdown explanations around blocks of R code. I will show you an example in class. I typically use a notebook for my work, but the console is easier particularly if you are in a exploratory phase. The frame in the upper-right contains an overview of the variables that have been assigned values; and then the frame in the lower-right gives you an view of the files in your working directory, and if you issue plot commands in the console they will display here.</p>
+<p>The button on the top-left of the tool bar is for opening new documents, click the triangle next to it and choose “New Notebook” form the menu. RStudio helpfully inserts some information setting up your new notebook. You can adjust it as you wish. You can save the document from the file menu or using the toolbar buttons. RStudio has provided an example of how to put in Markdown language, and how to put in R commands. You execute a section of R commands but putting the cursor inside of it and pressing “Control+Enter” (or on a mac “Command+Enter”, if using Cocalc you will need to press “Shift+Enter”).  Try it now on the <em>plot(cars)</em> command.</p>
+<p>Note that from our textbook you can copy commands to your computers clipboard which you can then paste and run in the console or paste into a notebook to run - you will have to inclose them in the code enviroment to run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-What_is_Stats_1_0.png" src="_images/02-What_is_Stats_1_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="a-few-words-about-programming-languages">
+<h3>A few words about programming languages<a class="headerlink" href="#a-few-words-about-programming-languages" title="Permalink to this headline">¶</a></h3>
+<p>Before we continue with the <em>Probability and Statistics</em> I want to just add that learning programming languages is a powerful tool to help your students advance in their thinking about mathematics, one that I worry we do not spend enough time working with students on. At UNC one of my main goals for my tenure as School Director is to incorporate Python and R into the undergraduate mathematics curriculum wherever we can. A key part of learning a programming language, or more accurately, the only thing that has ever worked for me is having a problem I am interested in that needs solving. Statistics for myself, I hope for you by the end of this course, and for your students could be that problem that motivates learning some programming.</p>
+<p>Independent of all of that R is a great language to start with for the following reasons:</p>
+<ol class="simple">
+<li><p>Because R is so focused on statistics and visualizations of data, it is simpler and more compact than a general language.</p></li>
+<li><p>R is human readable - you can usually read a statement outloud and you will know exactly what it is doing.</p></li>
+<li><p>R is free.</p></li>
+</ol>
+<p>If you are interested in more about how to introduce students to R in a statistics class, or Python in an algebra, trigonometry, or calculus class, please let me know. It is a topic I am very interested in.</p>
+</div>
+<div class="section" id="a-first-example">
+<h3>A first example<a class="headerlink" href="#a-first-example" title="Permalink to this headline">¶</a></h3>
+<p><strong>How many students were in each of your classes this Spring?</strong>
+While I am collecting this data you can reflect on this funny musing. I grew up in rural Vermont and one thing I remember learning as a child was that asking a farmer how many cows they had was very rude, equivalent to asking how much money they had. I’ve always felt a bit strange asking other teachers how many students they have because of this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># for testing use this</span>
+<span class="n">students</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">20</span><span class="p">,</span> <span class="m">25</span><span class="p">,</span> <span class="m">5</span><span class="p">))</span>
+
+<span class="c1"># for class use this</span>
+<span class="c1"># students &lt;- c() </span>
+
+<span class="n">students</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>28</li><li>26</li><li>27</li><li>27</li><li>29</li><li>27</li><li>26</li><li>28</li><li>20</li><li>33</li><li>28</li><li>32</li><li>27</li><li>28</li><li>25</li><li>19</li><li>27</li><li>22</li><li>36</li><li>26</li></ol>
+</div></div>
+</div>
+<p><em>R Notes</em>: c() stands for column and is one of the most basic data structures in R. Most things we will build will either manipulate columns directly or will use structures built out of columns.</p>
+<p>Comments in commands start with <em>hash symbols</em>.</p>
+<p>Another syntax note:  R uses both = and &lt;- for assignment though they have slightly different meanings. They both work as you would expect, however &lt;- has some nice positives in the detailed differences and it is worth getting into the habit of using it.</p>
+<p><em>RStudio Note</em>: You might notice that the variable we have just created has appeared in the upper-right quadrant of RStudio.</p>
+<div class="section" id="summary-statistics">
+<h4>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h4>
+<p>To get started we can use <em>summary</em> to get an overview of what our list of student enrollments look like. Review the meaning of each of these.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  19.00   26.00   27.00   27.05   28.00   36.00 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mean and Median are <em>measures of center</em>, while the quartiles are <em>measures of spread</em>. One measure of spread missing is the variance or its square root standard deviation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">var</span><span class="p">(</span><span class="n">students</span><span class="p">);</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="n">students</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">15.5236842105263</div><div class="output text_html">3.94001068660052</div></div>
+</div>
+<p>The variance is computed by taking the sum of the square differences between the data and the mean and then dividing that by number of items minus one; we will explain why this is what we divide by later in class:
+$<span class="math notranslate nohighlight">\( S = \frac{1}{n-1} \sum_{j=1}^n (y_j - \bar{y} )^2 \)</span><span class="math notranslate nohighlight">\( where \)</span>\bar{y}<span class="math notranslate nohighlight">\( is the mean of the sample made up of the \)</span>{ y_1, y_2, \dots, y_n }$.</p>
+<p>In the code blocks below I will add some comments about what we are doing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a variable for the mean we will consistently use bar for sample mean</span>
+<span class="c1"># again note I use the &lt;- assignment rather than =</span>
+<span class="n">ybar</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+
+<span class="c1"># R can then do the arithmetic and when we combine a list of numbers with a single number and square it, it knows what we mean.</span>
+<span class="p">(</span><span class="n">students</span> <span class="o">-</span> <span class="n">ybar</span><span class="p">)</span><span class="n">^2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0.902499999999999</li><li>1.1025</li><li>0.00250000000000007</li><li>0.00250000000000007</li><li>3.8025</li><li>0.00250000000000007</li><li>1.1025</li><li>0.902499999999999</li><li>49.7025</li><li>35.4025</li><li>0.902499999999999</li><li>24.5025</li><li>0.00250000000000007</li><li>0.902499999999999</li><li>4.2025</li><li>64.8025</li><li>0.00250000000000007</li><li>25.5025</li><li>80.1025</li><li>1.1025</li></ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then as we said, we sum over all of these and then divide by the number of them</span>
+<span class="c1"># minus 1</span>
+
+<span class="nf">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">students</span> <span class="o">-</span> <span class="n">ybar</span><span class="p">)</span><span class="n">^2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="nf">length</span><span class="p">(</span><span class="n">students</span><span class="p">)</span> <span class="o">-</span> <span class="m">1</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">15.5236842105263</div></div>
+</div>
+<p>Note why we compute variance in this way. We are trying to understand how far the data moves from the mean <span class="math notranslate nohighlight">\(\bar{y}\)</span>. However we can’t just sum over the differences as that will just add up to zero:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">students</span> <span class="o">-</span> <span class="n">ybar</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">-1.4210854715202e-14</div></div>
+</div>
+<p>We have choices though, we could sum over the absolute value and indeed that does give us a notion of spread. Here for example is the corresponding average for absolute deviation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span> <span class="nf">abs</span><span class="p">(</span><span class="n">students</span> <span class="o">-</span> <span class="n">ybar</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">students</span><span class="p">)</span> <span class="o">-</span> <span class="m">1</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2.69473684210526</div></div>
+</div>
+<p>However the advantage of summing over the squares is that it brings in tools from Calculus that work with quadratic expressions but not with absolute value expressions. We then intend to take an average. For reasons we will justify later, it turns out the correct average to do is to divide by the size of our sample minus 1:  <span class="math notranslate nohighlight">\(n-1\)</span> is called the degrees of freedom (roughly computing <span class="math notranslate nohighlight">\(\bar{y}\)</span> from the sample has used up one degree of freedom).</p>
+<p>Note the units on these two statistics:  the variance is the average of the sum of the squares (by the number of degrees of freedom) so its units are the square of the units of our sample data (<em>students squared</em> in this case); and then the standard deviation is the square root of the variance and so has units of the original data (<em>students</em> in this case).</p>
+</div>
+</div>
+</div>
+<div class="section" id="plots">
+<h2>Plots<a class="headerlink" href="#plots" title="Permalink to this headline">¶</a></h2>
+<p>That’s all fine and good, but a picture (or two) is worth a thousand words and probably tens of thousands of computations. Let’s introduce ourselves to two types of plots:</p>
+<div class="section" id="histograms">
+<h3>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h3>
+<p>Histograms are made by binning the data and then drawing bars whose height is the number of data points in each bin. They give us a visualization of the distribution of our data:  Taller bars mean more of the data was near those values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-What_is_Stats_16_0.png" src="_images/02-What_is_Stats_16_0.png" />
+</div>
+</div>
+<p>Note you can adjust the number of bins to use. R tries to guess the labels from the names of the data. You can output the image to a file by right clicking on it, by using the export command in the plot tab in the lower-right quadrant of RStudio or by using a command in the console in the lower-left quadrant. Of course if you are using Markdown to compose your text you don’t need to export the figure, you have it right here.</p>
+<p>Note the connection to the numerical summaries we have:  The mean gives the center of mass of the histogram, while the variance (or standard deviation describes how much it spreads out from there).</p>
+</div>
+<div class="section" id="boxplot">
+<h3>BoxPlot<a class="headerlink" href="#boxplot" title="Permalink to this headline">¶</a></h3>
+<p>Boxplots are a visual representation of the quartile and median statistics for our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="n">horizontal</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="c1"># Note the use of = for a parameter instead of &lt;-</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-What_is_Stats_18_0.png" src="_images/02-What_is_Stats_18_0.png" />
+</div>
+</div>
+<p>To interpret boxplots you should think in terms of quartiles:  Half of the data is in the box. Half of the data is to either side of the median.</p>
+</div>
+</div>
+<div class="section" id="categorical-data-example">
+<h2>Categorical Data Example<a class="headerlink" href="#categorical-data-example" title="Permalink to this headline">¶</a></h2>
+<p>The class sizes data is an example of <em>quantitative data</em> where the information is a numerical quantity that is a feature of the subject. Another type of data used frequently is <em>categorical data</em>, data that gives a description of a feature of the subject. We may sometimes represent categorical data with numbers - for example <em>Male</em> and <em>Female</em> in a data set might be represented with a 0 and a 1; however it would still be categorical describing a feature.</p>
+<p>There are different types of categorical data depending on the feature:  the categories may have an ordering or not; if they have an ordering there may even be a notion of distance between them. It is important to think about what the descriptions for our category mean - If the categories do not have a natural order, or if there is no notion of distance between them, it might be misleading to represent them as numbers and then do computations with the numbers.</p>
+<div class="section" id="grades">
+<h3>Grades<a class="headerlink" href="#grades" title="Permalink to this headline">¶</a></h3>
+<p>The example as teachers you should ponder are grades. What does A, B, C, D, F in a Math, English, History, and Physical Educaiton class mean?  Is it valid to replace them with numbers for all of a students classes and compute Grade Point Averages from them? Is it ethical to report that number on a transcript and use it in hiring and admissions decisions?</p>
+</div>
+<div class="section" id="example-of-categorical-data">
+<h3>Example of Categorical Data<a class="headerlink" href="#example-of-categorical-data" title="Permalink to this headline">¶</a></h3>
+<p>Note if you are running this code, you will need to download the “Supermarket Transactions.xlsx” file from Github or here. We will also need to use the tidy package. You may need to install this package using <em>install.packages(“tidyverse”)</em>. Credit to UC Business Analytics R Programming Guide for this section, you can find the source here <a class="reference external" href="https://uc-r.github.io/descriptives_categorical">https://uc-r.github.io/descriptives_categorical</a></p>
+<p>Then you will need to load the libraries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">readxl</span><span class="p">)</span> <span class="c1"># for reading Excel files</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span> <span class="c1"># for making nice plots - part of the tidyverse</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">supermarket</span> <span class="o">&lt;-</span> <span class="nf">read_excel</span><span class="p">(</span><span class="s">&quot;Supermarket Transactions.xlsx&quot;</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+
+<span class="c1"># head() gives us just the first part of a dataframe</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">supermarket</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 6 × 16</caption>
+<thead>
+	<tr><th scope=col>Transaction</th><th scope=col>Purchase Date</th><th scope=col>Customer ID</th><th scope=col>Gender</th><th scope=col>Marital Status</th><th scope=col>Homeowner</th><th scope=col>Children</th><th scope=col>Annual Income</th><th scope=col>City</th><th scope=col>State or Province</th><th scope=col>Country</th><th scope=col>Product Family</th><th scope=col>Product Department</th><th scope=col>Product Category</th><th scope=col>Units Sold</th><th scope=col>Revenue</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dttm&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td>2011-12-18</td><td>7223</td><td>F</td><td>S</td><td>Y</td><td>2</td><td>$30K - $50K  </td><td>Los Angeles  </td><td>CA</td><td>USA</td><td>Food </td><td>Snack Foods</td><td>Snack Foods         </td><td>5</td><td>27.38</td></tr>
+	<tr><td>2</td><td>2011-12-20</td><td>7841</td><td>M</td><td>M</td><td>Y</td><td>5</td><td>$70K - $90K  </td><td>Los Angeles  </td><td>CA</td><td>USA</td><td>Food </td><td>Produce    </td><td>Vegetables          </td><td>5</td><td>14.90</td></tr>
+	<tr><td>3</td><td>2011-12-21</td><td>8374</td><td>F</td><td>M</td><td>N</td><td>2</td><td>$50K - $70K  </td><td>Bremerton    </td><td>WA</td><td>USA</td><td>Food </td><td>Snack Foods</td><td>Snack Foods         </td><td>3</td><td> 5.52</td></tr>
+	<tr><td>4</td><td>2011-12-21</td><td>9619</td><td>M</td><td>M</td><td>Y</td><td>3</td><td>$30K - $50K  </td><td>Portland     </td><td>OR</td><td>USA</td><td>Food </td><td>Snacks     </td><td>Candy               </td><td>4</td><td> 4.44</td></tr>
+	<tr><td>5</td><td>2011-12-22</td><td>1900</td><td>F</td><td>S</td><td>Y</td><td>3</td><td>$130K - $150K</td><td>Beverly Hills</td><td>CA</td><td>USA</td><td>Drink</td><td>Beverages  </td><td>Carbonated Beverages</td><td>4</td><td>14.00</td></tr>
+	<tr><td>6</td><td>2011-12-22</td><td>6696</td><td>F</td><td>M</td><td>Y</td><td>3</td><td>$10K - $30K  </td><td>Beverly Hills</td><td>CA</td><td>USA</td><td>Food </td><td>Deli       </td><td>Side Dishes         </td><td>3</td><td> 4.37</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>A couple of notes are in order here before we continue: Note that this data set is made up of samples (rows) each of which has 16 features (columns) (well really 15 plus an identifying number in the first column). Some of the features are numerical - <em>Units Sold</em> and <em>Revenue</em>, while others are purely categorical giving us just a description of the value. Also note there is a factor that looks numerical but for which it would probably be misleading to treat it as such. Note that some of the categorical variables have a natural order in the categories like <em>Annual Income</em> while others will not such as <em>State or Province</em>.</p>
+<p>You will notice the note that the data set has ~14,049 rows: We can only deal with such datasets using a computer program. Without too much work we could find datasets that are too big for Excell and need to be analyzed using a software like R or Python - one reason we teach our students how to use them in their undergraduate courses.</p>
+</div>
+<div class="section" id="list-of-features">
+<h3>List of features<a class="headerlink" href="#list-of-features" title="Permalink to this headline">¶</a></h3>
+<p>With a large data set it is helpful to list the features we have:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">supermarket</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'Transaction'</li><li>'Purchase Date'</li><li>'Customer ID'</li><li>'Gender'</li><li>'Marital Status'</li><li>'Homeowner'</li><li>'Children'</li><li>'Annual Income'</li><li>'City'</li><li>'State or Province'</li><li>'Country'</li><li>'Product Family'</li><li>'Product Department'</li><li>'Product Category'</li><li>'Units Sold'</li><li>'Revenue'</li></ol>
+</div></div>
+</div>
+<p>We can use <em>sapply</em> to get information about the datatypes R has guessed for each column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sapply</span><span class="p">(</span><span class="n">supermarket</span><span class="p">,</span> <span class="n">class</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><dl>
+	<dt>$Transaction</dt>
+		<dd>'numeric'</dd>
+	<dt>$`Purchase Date`</dt>
+		<dd><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'POSIXct'</li><li>'POSIXt'</li></ol>
+</dd>
+	<dt>$`Customer ID`</dt>
+		<dd>'numeric'</dd>
+	<dt>$Gender</dt>
+		<dd>'character'</dd>
+	<dt>$`Marital Status`</dt>
+		<dd>'character'</dd>
+	<dt>$Homeowner</dt>
+		<dd>'character'</dd>
+	<dt>$Children</dt>
+		<dd>'numeric'</dd>
+	<dt>$`Annual Income`</dt>
+		<dd>'character'</dd>
+	<dt>$City</dt>
+		<dd>'character'</dd>
+	<dt>$`State or Province`</dt>
+		<dd>'character'</dd>
+	<dt>$Country</dt>
+		<dd>'character'</dd>
+	<dt>$`Product Family`</dt>
+		<dd>'character'</dd>
+	<dt>$`Product Department`</dt>
+		<dd>'character'</dd>
+	<dt>$`Product Category`</dt>
+		<dd>'character'</dd>
+	<dt>$`Units Sold`</dt>
+		<dd>'numeric'</dd>
+	<dt>$Revenue</dt>
+		<dd>'numeric'</dd>
+</dl>
+</div></div>
+</div>
+<p>Note I say that these are guesses. Depending on the spreadsheet the data came from these may or may not be correct. In particular it is not uncommon for numerical data to be incorrectly typed as <em>character</em> data. R is efficient at cleaning data, however it is a step further than we want to go in this class, just be aware if you or your students start using data sets from the web you will often come upon this issue.</p>
+</div>
+<div class="section" id="frequencies">
+<h3>Frequencies<a class="headerlink" href="#frequencies" title="Permalink to this headline">¶</a></h3>
+<p>We are going to make a contingency table for some of the features of this data. We can count how many members of the sample are in each category of a feature:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   F    M 
+7170 6889 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Maybe we want to understand the relationship between the gender of a shopper and their marital status, for this we use a cross classification count:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that because the feature Marital Status has a space in it, we have to use quotes to refer to it:</span>
+<span class="nf">table</span><span class="p">(</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">`Marital Status`</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   
+       F    M
+  M 3602 3264
+  S 3568 3625
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can even do multi dimensional tables, though there is a limit to what makes sense. Can you interpret what the 190 in the upper left of this table means?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here to make this easier to read we are going to do the operation in two separate commands; </span>
+<span class="n">table1</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="n">`Marital Status`</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">`State or Province`</span><span class="p">)</span>
+<span class="nf">ftable</span><span class="p">(</span><span class="n">table1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       BC   CA   DF Guerrero Jalisco   OR Veracruz   WA Yucatan Zacatecas
+                                                                         
+M F   190  638  188       77      15  510      142 1166     200       476
+  M   197  692  210       94       5  514      108 1160     129       155
+S F   183  686  175      107      30  607      125 1134     164       357
+  M   239  717  242      105      25  631       89 1107     161       309
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="proportions">
+<h3>Proportions<a class="headerlink" href="#proportions" title="Permalink to this headline">¶</a></h3>
+<p>Of course it is useful to think in terms of proportions of the data rather than the raw counts. We can do this by sending the result of a table command through the prop.table. Try it with one of the tables above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">table2</span> <span class="o">&lt;-</span> <span class="nf">table</span><span class="p">(</span><span class="n">supermarket</span><span class="o">$</span><span class="n">`Marital Status`</span><span class="p">,</span> <span class="n">supermarket</span><span class="o">$</span><span class="n">Gender</span><span class="p">)</span>
+<span class="nf">prop.table</span><span class="p">(</span><span class="n">table2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   
+            F         M
+  M 0.2562060 0.2321644
+  S 0.2537876 0.2578420
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that we break the procedure into two steps - one making the table and then one producing the proportions with the prop.table() function. The syntax item is in a notebook we need the semicolon. In the console you would just do the first line and then the second line as two separate commands.</p>
+</div>
+<div class="section" id="charts">
+<h3>Charts<a class="headerlink" href="#charts" title="Permalink to this headline">¶</a></h3>
+<p>Visualizations are straightforward, a typical one would be a bar chart indicating visually the frequency counts:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note in this one the direction of the quotes matter</span>
+<span class="nf">ggplot</span><span class="p">(</span><span class="n">supermarket</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">geom_bar</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">`State or Province`</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">axis.text.x</span><span class="o">=</span><span class="nf">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="m">45</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-What_is_Stats_35_0.png" src="_images/02-What_is_Stats_35_0.png" />
+</div>
+</div>
+<p>Note that the labels, colors, and positions can all be set via commands. <strong>ggplot</strong> commands always have this structure, one command setting the dataframe to use, one command identifying what to draw, and then commands to change the theme. Using the same theme command for all of your plots in a project means they will all have identical formatting. R is built to make these figures look very nice and there are more options than we will go over - you can explore them with google if you like.</p>
+</div>
+</div>
+<div class="section" id="exploratory-versus-confirmatory-analysis">
+<h2>Exploratory versus Confirmatory Analysis<a class="headerlink" href="#exploratory-versus-confirmatory-analysis" title="Permalink to this headline">¶</a></h2>
+<p>We will spend time in this class doing two types of activity with data. <em>Exploratory Analysis</em> involves looking at a dataset trying to find patterns and relationships through the different features and combinations of those features. The goal in exploration is to develop hypothesis about the population the data is a sample of. <em>Confirmatory Analysis</em> seeks to use data to either confirm or deny a hypothesis - the primary question being asked is <em>Do we have sufficient evidence to support or reject this hypothesis?</em> The major difference is that confirmatory analysis rests upon mathematical models of the situation and then tests the sample against that model. The key factor is how frequently you use a member of the sample. You can use it once to test a hypothesis; but if you return to it again you are now doing an exploration.</p>
+<p>A big change in the field in the last two decades is that large datasets are becoming very common. With a large data set exploratory analysis can be very fruitful and provided you keep a portion of your data sequestered could even be combined with a confirmatory analysis.</p>
+</div>
+<div class="section" id="correlations-and-predictions">
+<h2>Correlations and Predictions<a class="headerlink" href="#correlations-and-predictions" title="Permalink to this headline">¶</a></h2>
+<p>One of our frequent tasks is to use data to make predictions. The process usually involves exploratory analysis of a data set looking for potential relationships between factors in the sample, and then building models to reproduce features of those relationships. Let’s explore this with the mpg data set, a sample of features for 234 cars.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">mpg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 6 × 11</caption>
+<thead>
+	<tr><th scope=col>manufacturer</th><th scope=col>model</th><th scope=col>displ</th><th scope=col>year</th><th scope=col>cyl</th><th scope=col>trans</th><th scope=col>drv</th><th scope=col>cty</th><th scope=col>hwy</th><th scope=col>fl</th><th scope=col>class</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>audi</td><td>a4</td><td>1.8</td><td>1999</td><td>4</td><td>auto(l5)  </td><td>f</td><td>18</td><td>29</td><td>p</td><td>compact</td></tr>
+	<tr><td>audi</td><td>a4</td><td>1.8</td><td>1999</td><td>4</td><td>manual(m5)</td><td>f</td><td>21</td><td>29</td><td>p</td><td>compact</td></tr>
+	<tr><td>audi</td><td>a4</td><td>2.0</td><td>2008</td><td>4</td><td>manual(m6)</td><td>f</td><td>20</td><td>31</td><td>p</td><td>compact</td></tr>
+	<tr><td>audi</td><td>a4</td><td>2.0</td><td>2008</td><td>4</td><td>auto(av)  </td><td>f</td><td>21</td><td>30</td><td>p</td><td>compact</td></tr>
+	<tr><td>audi</td><td>a4</td><td>2.8</td><td>1999</td><td>6</td><td>auto(l5)  </td><td>f</td><td>16</td><td>26</td><td>p</td><td>compact</td></tr>
+	<tr><td>audi</td><td>a4</td><td>2.8</td><td>1999</td><td>6</td><td>manual(m5)</td><td>f</td><td>18</td><td>26</td><td>p</td><td>compact</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><em>displ</em> for <em>displacement</em> is the total liters the car’s engine has in its cylinders, while <em>hwy</em> is the <em>highway miles-per-gallon</em> efficiency of the vehicle. A basic question is what is the relationship between displacement of the engine and the fuel efficiency. Let’s plot for each engine its fuel efficiency versus the engine displacement. Note that the pattern for producing the graph is similar to the one we used above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-What_is_Stats_39_0.png" src="_images/02-What_is_Stats_39_0.png" />
+</div>
+</div>
+<p>Not surprisingly, larger engines are less effecient <em>generally</em>. However the relationship is not exact - why not?</p>
+<p>Our model for this is going to be that the <em>displacement</em> is known exactly and then the fuel efficiency is given by:  $<span class="math notranslate nohighlight">\( y - y_0 = k (x - x_0) + \mbox{Error} \)</span>$
+Where the Error is a random variable encapsulating all of the other features (variables) in the car - its <em>mass</em>, <em>aerodynmaic features</em>, <em>turbo chargers</em>, <em>cargo capacity</em>, <em>transmission</em>, and on and on. It is likely we may never even know all of the variables that have an effect on the fuel efficiency and cause two cars with the same displacement to have different efficiencies and hence the reasonableness of thinking of this as some kind of randomness.</p>
+<p>Another possibility is that the relationship is not in fact linear.</p>
+<p>Finally. There may be a subclass of the data that does not fit with the rest. Note the set of six cars with significant displacements (greater than 5 liters) but with fuel efficiencies well
+above the linear trend. To explore this, we can add more variables to a scatter plot by using <em>color</em>, <em>shape</em>, and <em>size</em> attributes. Lets use color with the <em>class</em> variable in our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">+</span> 
+    <span class="nf">geom_point</span><span class="p">(</span><span class="n">mapping</span> <span class="o">=</span> <span class="nf">aes</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">displ</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">hwy</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">class</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/02-What_is_Stats_41_0.png" src="_images/02-What_is_Stats_41_0.png" />
+</div>
+</div>
+<p>And indeed we can now make a hypothesis about what is happening with five of those six vehicles. If we remove them from the problems set we would expect our linear model to do even better (by which we mean the Error terms should be smaller and more controllable).</p>
+</div>
+<div class="section" id="motivating-questions">
+<h2>Motivating Questions<a class="headerlink" href="#motivating-questions" title="Permalink to this headline">¶</a></h2>
+<p>I want to end this first lesson with some motivating questions we will be spending our time on this semester. These are questions for which we do not yet have tools to answer but trying to answer them is going to lead us in the technology and tools we build.</p>
+<div class="section" id="engine-failure">
+<h3>Engine Failure<a class="headerlink" href="#engine-failure" title="Permalink to this headline">¶</a></h3>
+<p>An aircraft engine has a 0.1% chance of failing in any given flight-hour of operation. How many flight hours do we expect it to run before its first failure?</p>
+</div>
+<div class="section" id="engine-failure-2">
+<h3>Engine Failure 2<a class="headerlink" href="#engine-failure-2" title="Permalink to this headline">¶</a></h3>
+<p>We are testing a new aircraft engine so we run four of them continuously until they fail. They last 220, 300, 320, and 350 hours. How many flight-hours do we expect one of these engines to run?</p>
+</div>
+<div class="section" id="many-engines-failure">
+<h3>Many Engines Failure<a class="headerlink" href="#many-engines-failure" title="Permalink to this headline">¶</a></h3>
+<p>An airline is running 655 single enginer aircraft in an hour with the engine used above. How many engine failures do we expect to happen in that hour?</p>
+</div>
+<div class="section" id="duplicate-birthdays">
+<h3>Duplicate Birthdays<a class="headerlink" href="#duplicate-birthdays" title="Permalink to this headline">¶</a></h3>
+<p>You enter your classroom on the first day of the fall to a group of 25 students. How likely is it that two of them share the same birthday (day / month)?</p>
+</div>
+<div class="section" id="birthday-tickets">
+<h3>Birthday Tickets<a class="headerlink" href="#birthday-tickets" title="Permalink to this headline">¶</a></h3>
+<p>You stand at the door to an auditorium and as students enter they hand you a ticket with their birthday (day/month). How many students do you expect to have entered before you have your first duplicate?</p>
+</div>
+<div class="section" id="accidents">
+<h3>Accidents<a class="headerlink" href="#accidents" title="Permalink to this headline">¶</a></h3>
+<p>An intersection in Greeley, near my house, has on average 1.2 traffic accidents a month. The city, in an attempt to improve on the situation makes a change to the timing of the light. In the month following there are 3 accidents. Do we have evidence that the intersection is now less safe?</p>
+</div>
+<div class="section" id="detecting-fraud">
+<h3>Detecting Fraud<a class="headerlink" href="#detecting-fraud" title="Permalink to this headline">¶</a></h3>
+<p>A common analysis used in forensic accounting, specifically in an attempt to detect if fraud is being attempting is to analyze the frequency with which each digit 0, 1, 2, …, 9 appears in the records. In an honest accounting of a companies finances what digits should be the most common?</p>
+</div>
+<div class="section" id="combining-rare-events-with-common-events">
+<h3>Combining Rare Events with Common Events<a class="headerlink" href="#combining-rare-events-with-common-events" title="Permalink to this headline">¶</a></h3>
+<p>At the scene of a crime the two perpetrators left two samples of blood. One was blood type O, occurring in 60% of the population; while the other was blood type AB occurring in only 3% of the population. A suspect, Oliver has his blood tested and it returns as blood type O. Does this indicate evidence in favor of Oliver committing the crime?</p>
+<p>Consider this related problem:
+Your partner draws two cards from a standard 52 card deck and tells you that one is a red face card, and the other is a number card. How likely is it that the 3 of clubs was the number card drawn?</p>
+</div>
+<div class="section" id="monty-hall">
+<h3>Monty Hall<a class="headerlink" href="#monty-hall" title="Permalink to this headline">¶</a></h3>
+<p>You are on a game show and are presented with three doors, behind one door is a car and behind the other two there are goats. You are asked to choose a door. After you have chosen one the host, Monty Hall (ask your grandparents), opens a second door revealing a goat. He then asks you if you would like to change your selection. What should you do?</p>
+</div>
+<div class="section" id="monty-hilbert-hall">
+<h3>Monty-Hilbert Hall<a class="headerlink" href="#monty-hilbert-hall" title="Permalink to this headline">¶</a></h3>
+<p>You are confronted with a countably infinite number of doors, i.e. they are numbered 1, 2, …, and told that behind one of them is a car and behind the others goats. You are asked to choose a door. After you have chosen one the host, Hilbert, opens all of the other doors but one revealing goats (A LOT of goats). He then asks you if you would like to change your selection. What should you do?</p>
+</div>
+<div class="section" id="radioactive-decay">
+<h3>Radioactive Decay<a class="headerlink" href="#radioactive-decay" title="Permalink to this headline">¶</a></h3>
+<p>The number of atoms of a radioactive isotope in a sample that are likely to decay in a small interval of time is proportional to the number of atoms in the sample. Cesium 137, a by product of some nuclear fission reactors, has a half life of 30 years. It decays, emitting a beta particle, into Barium 137 which has a half-life of just 2.6 minutes and decays emitting a gamma particle - this decay path leading quickly to the release of a gamma particle is what makes Cesium 137 such a dangerous contaminant. What proportion of a sample of Cesium 137 released in an accident do we expect to still be present after 50 years?</p>
+</div>
+<div class="section" id="budgets">
+<h3>Budgets<a class="headerlink" href="#budgets" title="Permalink to this headline">¶</a></h3>
+<p>The School of Mathematical Sciences spends on average $5,800 a year on copies. How much should we budget for copies for next year?</p>
+</div>
+<div class="section" id="cherry-blossoms">
+<h3>Cherry Blossoms<a class="headerlink" href="#cherry-blossoms" title="Permalink to this headline">¶</a></h3>
+<p>The Cherry Trees in Washington DC are a famous gift from the mayor Tokyo in 1914 aimed at improving the cooperation between the US and Japan. Recently they have become possibly evidence of a change in climate around DC. The last few peak blooms (the date at which 70% of the trees in DC are at full bloom) have been on:  March 28, March 20, April 1, April 5, March 25, March 25, April 10, April 10, April 9, March 20, March 29, and March 31. Over the entire historical record peak bloom has on average occured on April 3. From the recent blooms, do we have evidence that the average date of peak bloom has changed?</p>
+</div>
+<div class="section" id="detecting-fraud-in-thc-labs">
+<h3>Detecting Fraud in THC Labs<a class="headerlink" href="#detecting-fraud-in-thc-labs" title="Permalink to this headline">¶</a></h3>
+<p>This problem comes from the article: <a class="reference external" href="https://jcannabisresearch.biomedcentral.com/articles/10.1186/s42238-021-00064-2">https://jcannabisresearch.biomedcentral.com/articles/10.1186/s42238-021-00064-2</a> about cannabis testing labs in Washington state. There have been some high profile cases of labs in CA, NV, and CO as well as Canada being fine or suspended for falsifying data or for retailers or producers shopping for labs.</p>
+<p>Something suspicious is happening at some labs in Washington state that test for THC concentrations in consumer sold marajuana. The distribution of concentrations appear to be normal except that there is a discontinuity in the distribution at 20% with a higher density of results just above 20% than just below 20%. Here is the histogram that was found:</p>
+<img src="Labs.png" alt="Histogram of THC Concentrations in suspended Washington Labs" width="300"/>
+<p>Whereas here is a distribution of test results from the largest lab in the sate:</p>
+<img src="goodLab.png" alt="Histogram of THC Concentrations in unsuspended Washington Labs" width="300"/>
+<p>Suppose that you have a set of results from a lab for concentrations of some samples. How would you go about deciding if they have manipulated the results?</p>
+<p>(If you would rather not think of this as a THC lab question - Volkswagon was caught doing something very similar with the effeciencies measurments of their TDI vehicles a few years ago).</p>
+<div class="section" id="id1">
+<h4>Detecting Fraud<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>I would consider building an entire course around this question alone.</p>
+</div>
+</div>
+<div class="section" id="how-many-locomotives">
+<h3>How Many Locomotives<a class="headerlink" href="#how-many-locomotives" title="Permalink to this headline">¶</a></h3>
+<p>A train company numbers its locomotives sequentially 1, 2, 3, …. N  You happen to be standing at a station and you observe locomotive number 65 go by. How many locomotives does the company own?</p>
+<div class="section" id="the-german-tank-problem">
+<h4>The German Tank Problem<a class="headerlink" href="#the-german-tank-problem" title="Permalink to this headline">¶</a></h4>
+<p>This is a baby example of the German Tank Problem from World War 2:  The allies were collecting maintenance records and recovering damaged tanks which included serial numbers on engines and transmissions. From this data they attempted to estimate how many tanks were being produced in Germany.</p>
+</div>
+</div>
+<div class="section" id="median-house-prices">
+<h3>Median House Prices<a class="headerlink" href="#median-house-prices" title="Permalink to this headline">¶</a></h3>
+<p>Redfin is reporting that the median price of a house in Denver over the last year is $540,000. To what extent is there evidence that something has changed in the Denver real estate market? What are our predictions about future prices?</p>
+</div>
+<div class="section" id="healthcare-costs">
+<h3>Healthcare Costs<a class="headerlink" href="#healthcare-costs" title="Permalink to this headline">¶</a></h3>
+<p>Healthcare costs in the US are made up of three broad categories: Hospitals, Physicians and Clinics, and Prescription Drugs. How are these three costs contributing to the healthcare expenses in the US. What are our predictions about future costs?</p>
+</div>
+<div class="section" id="what-questions-do-you-have">
+<h3>What Questions Do You Have?<a class="headerlink" href="#what-questions-do-you-have" title="Permalink to this headline">¶</a></h3>
+<p>Because this is a course about data, we can look for data related to questions you have. Places I look for data:</p>
+<ul class="simple">
+<li><p><span class="xref myst">Kaggle</span></p></li>
+<li><p><a class="reference external" href="https://data.colorado.gov/">Colorado Data</a></p></li>
+<li><p><a class="reference external" href="https://www.data.gov/">USA Data</a></p></li>
+<li><p><a class="reference external" href="http://data.un.org/">United Nations Data</a></p></li>
+<li><p><a class="reference external" href="https://www.pewtrusts.org/en">Pew Charitable Trust</a></p></li>
+<li><p><a class="reference external" href="https://archive.ics.uci.edu/ml/datasets.php">The University of California at Irvine Data Science Archives</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01-Introduction.html" title="previous page">Introduction and Course Syllabus</a>
+    <a class='right-next' id="next-link" href="03-Discrete_Probability.html" title="next page">Discrete Random Variables - The Binomial Distribution</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

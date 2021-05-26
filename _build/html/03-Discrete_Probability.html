@@ -1,0 +1,985 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discrete Random Variables - The Binomial Distribution &#8212; MATH 550 - Applied Probability and Statistics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Geometric and Poisson Distributions" href="04-Geometric_and_Poisson.html" />
+    <link rel="prev" title="What is Statistics?" href="02-What_is_Stats.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">MATH 550 - Applied Probability and Statistics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Introduction.html">
+   Introduction and Course Syllabus
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-What_is_Stats.html">
+   What is Statistics?
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Discrete Random Variables - The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Geometric_and_Poisson.html">
+   Geometric and Poisson Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Continuous.html">
+   Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="99-Apendices.html">
+   Class Schedule and Activities
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/03-Discrete_Probability.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/03-Discrete_Probability.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions">
+   Definitions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-variable">
+     Random Variable
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability">
+   Probability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#two-events-happening-at-once">
+     Two Events Happening at Once
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uniform-distribution">
+   Uniform Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permutations-and-choices">
+     Permutations and Choices
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-find-all-3-permutations-of-pie-bread-vegetable">
+       Example: Find all 3! permutations of {“pie”, “bread”, “vegetable”}
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-find-all-4-permutations-of-1-2-3-4">
+       Example: Find all 4! permutations of {1, 2, 3, 4}
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generalization-find-all-the-possible-permutations-of-1-1-2-3">
+       Generalization:  Find all the possible permutations of {1, 1, 2, 3}
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#choices">
+       Choices
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#suppose-order-matters-how-many-ways-with-ordering-matter-can-we-choose-3-numbers-from-the-set-1-2-3-4-5">
+       Suppose order matters - how many ways with ordering matter can we choose 3 numbers from the set {1, 2, 3, 4, 5}
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#as-posed-order-does-not-matter-how-many-ways-ignoring-order-can-we-choose-3-cookies-from-a-plate-of-5-cookies">
+       As posed order does not matter: how many ways ignoring order can we choose 3 cookies from a plate of 5 cookies?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-how-many-ways-can-we-choose-3-objects-from-a-set-of-10">
+       Example: How many ways can we choose 3 objects from a set of 10?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bernouli-trials">
+   Bernouli Trials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binomial-trials">
+   Binomial Trials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plan">
+     Plan
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#binomial-distribution">
+     Binomial Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Binomial Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-a-few-things">
+     Checking a few things
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cummulative-distributions">
+   Cummulative Distributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conclusion-to-the-motivating-question">
+     Conclusion to the Motivating Question
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-cummulative-distribution-functions">
+     General Cummulative Distribution Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivating-problem-the-birthday-paradox">
+   Motivating Problem - The Birthday Paradox
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expected-value">
+   Expected Value
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-expected-number-of-students-experiencing-food-insecurity">
+     The Expected Number of Students Experiencing Food Insecurity
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#expected-value-of-a-binomial-distribution">
+       Expected Value of a Binomial Distribution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-expected-values">
+     General Expected Values
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#population-variance">
+   Population Variance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods-of-computing-v-y">
+     Methods of Computing
+     <span class="math notranslate nohighlight">
+      \(V(Y)\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variance-of-a-binomial-random-variable">
+     Variance of a Binomial Random Variable
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exact-value">
+       Exact Value
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="discrete-random-variables-the-binomial-distribution">
+<h1>Discrete Random Variables - The Binomial Distribution<a class="headerlink" href="#discrete-random-variables-the-binomial-distribution" title="Permalink to this headline">¶</a></h1>
+<p>A motivating problem: Current estimates are that 38% of college and university students report food insecurity (defined as being uncertain they will have enough food for the next month or not knowing when they will next eat). The mathematics major at UNC has 130 students enrolled, how likely is it that 39 or fewer of the students enrolled are food insecure?</p>
+<div class="section" id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<p>To get started we will set up some definitions we will use:</p>
+<p>An <em>experiment</em> is the process by which an observation is made. In our motivating problem the experiment would be inquiring of the mathematics majors whether they are food insecure or not.</p>
+<p><em>Experiments on Human Subjects</em> like this one are subject to additional constraints and reviews in order to protect the subjects (subjects need to be protected from harm, their identities need to be protected, and their rights to consent to be included in a study need to be protected). So in this case the actual experiment we do would involve informing the subject of possible harm, taking steps to see that their response is anonymous, and asking them to verify that they are consenting to participate.</p>
+<p>The <em>sample space</em> associated with an experiment is the set of all possible observations. In our motivating example the sample space would be a list of which students are facing food insecurity and which are not.</p>
+<p>An <em>event</em> is a set of possible observations from the sample space.</p>
+<div class="section" id="random-variable">
+<h3>Random Variable<a class="headerlink" href="#random-variable" title="Permalink to this headline">¶</a></h3>
+<p>For example we are interested, rather than in which students are food insecure, <em>how many</em> students are food insecure. This number:  <span class="math notranslate nohighlight">\(Y\)</span> the number of mathematics majors at UNC that are food insecure is called a <em>random variable</em> of interest in our problem. Specifying a value or range of values for <span class="math notranslate nohighlight">\(Y\)</span> corresponds to an <em>event</em> and identifies a subset of the sample space.</p>
+<p>Ther eare actually other random variables associated with the same problem that we might be concerned about, but this one is a sort of basic one.</p>
+</div>
+</div>
+<div class="section" id="probability">
+<h2>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h2>
+<p>The <em>probability</em> of an event is the likliehood of that observation occuring from the sample space. What do we mean by likliehood though?  We will think of the probability of an even occuring as the proportion of the times it will occur through repetition of the experiment. In some case like rolling dice, flipping coins, or measuring the distance a spring has stretched under a weight it is clear what we mean by repeated observation. However things get a little unclear when we are talking about a situation like our motivating problem.</p>
+<p>What we mean is:  If we were to take groups of 130 students randomly selected from all students throughout the US and ask how many of them are food insecure, how often would we get the particular value of <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<p>Some basic Theorems about Probability from these definitions:</p>
+<ul class="simple">
+<li><p><strong>Total Probability</strong>: The total probability, i.e. the probability that something from the sample space happens must be 1,</p></li>
+<li><p><strong>Valid Probaiblities</strong>: no probability can have a value bigger than 1 or less than 0.</p></li>
+<li><p><strong>Complement Probability</strong>: If the probability of event A is <span class="math notranslate nohighlight">\(P(A)\)</span> then the probability of the complement of event A (all of the members of the sample space that are not in A) is <span class="math notranslate nohighlight">\(P( \neg A) = 1 - P(A)\)</span>.</p></li>
+<li><p><strong>Mutually Exclusive Events</strong>:  Two events are said to be <em>mutually exclusive</em> if their intersection (the cases where both events happen) is impossible i.e. <span class="math notranslate nohighlight">\(P(A\cap B) = 0\)</span>. Note this does not necessarily mean that the intersection is empty.</p></li>
+<li><p><strong>Sum of Mutually Exclusive Events</strong>:  The probability of one of two or both mutually exclusive events happening is the sum of the probabilities of the two events:  <span class="math notranslate nohighlight">\(P(A \cup B) = P(A) + P(B)\)</span>.</p></li>
+<li><p><strong>Sum of Events</strong>: More generally we have the probability of one of two or both events happening is almost coming from the sum, however we must take into account the possiblity of them both happening is being counted in both <span class="math notranslate nohighlight">\(P(A)\)</span> and <span class="math notranslate nohighlight">\(P(B)\)</span>: $<span class="math notranslate nohighlight">\(P(A\cup B) = P(A) + P(B) - P(A\cap B) \)</span>$</p></li>
+<li><p><strong>Venn Diagrams</strong>:  These results should look familiar, they mirror statements about the size of sets A and B, and their union and intersection; with the caveat that P(S) = 0 is not exactly the same as S being empty.</p></li>
+</ul>
+<div class="section" id="two-events-happening-at-once">
+<h3>Two Events Happening at Once<a class="headerlink" href="#two-events-happening-at-once" title="Permalink to this headline">¶</a></h3>
+<p>In this case we will state that two events are inedpendent if the probability that they both happen is the product of the probabilities of either one of them happening:</p>
+<div class="math notranslate nohighlight">
+\[ P(A \cap B) = P(A) P(B)\]</div>
+<p>An example of two independent events would be flipping two coins: getting a heads on one coin flip and getting a heads on the second coin flip. The result of the second flip will not depend upon the result of the first flip (or maybe the right question is, when would the second flip depend on the first one?).</p>
+<p>An example of two dependent events would be getting a head on the first coin flip of two, and then the flipping of two heads in a row in two coin flips. Note that in order to have two heads the first flip needs to be a head and thus the second event depends on whether the first event has happened or not. It is the <em>dependence</em> causing the probability of one event to change if we know the other event has occured that we are looking for.</p>
+<p>We will return to the case of dependent events later.</p>
+</div>
+</div>
+<div class="section" id="uniform-distribution">
+<h2>Uniform Distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">¶</a></h2>
+<p>Generally we can define a distribution by just giving the sample space for the random variable, and assigning a probability to each possible value. A few distributions model situations that occur often enough, and have sufficient symmetry that we can compute things for them that they have earned a name. Our first example of that, which will also be the most basic, is the <em>uniform distribution</em>.  For the list of possible values our random variable could have, we assume each one is equally likely. The example used frequently comes from rolling dice. For a six sided die, if it is fair, the likliehod of rolling each value is <span class="math notranslate nohighlight">\(1/6\)</span>. (Note that you can get unfair dice from a magic or toy shop).</p>
+<p>Find the following probabilities:</p>
+<ol class="simple">
+<li><p>The likliehood of rolling on die and have a value of 5 or more.</p></li>
+<li><p>The likliehood of rolling two dice and having a value that sums to seven.</p></li>
+<li><p>The likliehod of rolling two dice and having the value of the second one being greater than the value of the first one.</p></li>
+</ol>
+<div class="section" id="permutations-and-choices">
+<h3>Permutations and Choices<a class="headerlink" href="#permutations-and-choices" title="Permalink to this headline">¶</a></h3>
+<p>To continue with our example we need a couple of constructions from combinatorics:</p>
+<p>A permutation of <span class="math notranslate nohighlight">\(n\)</span> objects is a specific ordering of the objects. For example { “pie”, “bread”, “vegetable”} and {“vegetable”, “pie”, “bread”} are two different permutations of the same 3 objects.</p>
+<p>The total number of permutations of <span class="math notranslate nohighlight">\(n\)</span> objects is given by: $<span class="math notranslate nohighlight">\( n! = n (n-1) (n-2) \cdots 3 \cdot 2 \cdot 1 \)</span>$</p>
+<p>Verify this.</p>
+<div class="section" id="example-find-all-3-permutations-of-pie-bread-vegetable">
+<h4>Example: Find all 3! permutations of {“pie”, “bread”, “vegetable”}<a class="headerlink" href="#example-find-all-3-permutations-of-pie-bread-vegetable" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="example-find-all-4-permutations-of-1-2-3-4">
+<h4>Example: Find all 4! permutations of {1, 2, 3, 4}<a class="headerlink" href="#example-find-all-4-permutations-of-1-2-3-4" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="generalization-find-all-the-possible-permutations-of-1-1-2-3">
+<h4>Generalization:  Find all the possible permutations of {1, 1, 2, 3}<a class="headerlink" href="#generalization-find-all-the-possible-permutations-of-1-1-2-3" title="Permalink to this headline">¶</a></h4>
+<p>I.e. when two of the elements are identical and so can’t be distinguished.</p>
+</div>
+<div class="section" id="choices">
+<h4>Choices<a class="headerlink" href="#choices" title="Permalink to this headline">¶</a></h4>
+<p>However what we often want to do is ask a question like: In how many ways can we choose 3 cookies from a plate of 5 cookies?</p>
+<p>In math-ese this is asking: how many subsets of size 3 are there from a set of size 5?</p>
+</div>
+<div class="section" id="suppose-order-matters-how-many-ways-with-ordering-matter-can-we-choose-3-numbers-from-the-set-1-2-3-4-5">
+<h4>Suppose order matters - how many ways with ordering matter can we choose 3 numbers from the set {1, 2, 3, 4, 5}<a class="headerlink" href="#suppose-order-matters-how-many-ways-with-ordering-matter-can-we-choose-3-numbers-from-the-set-1-2-3-4-5" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="as-posed-order-does-not-matter-how-many-ways-ignoring-order-can-we-choose-3-cookies-from-a-plate-of-5-cookies">
+<h4>As posed order does not matter: how many ways ignoring order can we choose 3 cookies from a plate of 5 cookies?<a class="headerlink" href="#as-posed-order-does-not-matter-how-many-ways-ignoring-order-can-we-choose-3-cookies-from-a-plate-of-5-cookies" title="Permalink to this headline">¶</a></h4>
+<p>The answer we find will be:
+$<span class="math notranslate nohighlight">\( \mbox{n choose r} = \binom{n}{r} = \frac{n!}{r! (n-r)!} \)</span>$</p>
+</div>
+<div class="section" id="example-how-many-ways-can-we-choose-3-objects-from-a-set-of-10">
+<h4>Example: How many ways can we choose 3 objects from a set of 10?<a class="headerlink" href="#example-how-many-ways-can-we-choose-3-objects-from-a-set-of-10" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="bernouli-trials">
+<h2>Bernouli Trials<a class="headerlink" href="#bernouli-trials" title="Permalink to this headline">¶</a></h2>
+<p>In a <em>Bernouli Trial</em> there is a simple experiment with a sample space consisting of two outcomes {Success, Failure}. Or any other size two descriptors you prefer (Heads / Tails if we are flipping a coin; Red/Black if we are playing roullete; Win/Lose if we are hockey team; etc. ). The probability of Success is given by p and the probability of failure is given by 1-p.</p>
+<p>Flipping a fair coin we expected to get a HEADS half of all flips. Note This is a statement about long term behavior. For example it means if we flip the coin one thousand times we would expect to have close to 500 HEADS.</p>
+<p><strong>A common misconception</strong>:  If we flip a coin twice we expect to see two HEADS sometimes.</p>
+<p><strong>A common misconception</strong>: If we flip a coin two hundred times, we expect to see sequences of just heads. Let’s try it!</p>
+<p>The <em>sample</em> command in R produces a sample from a given column. By defining a column to be {“H”, “T”} we can then simulate flipping a coin (much faster than actually flipping the coin) by using sample. Sample takes a parameter <em>replace</em> that identifies whether we are returning members to the set after selecting them. Because we are simulating flipping a coin repeatedly we want to replace the value after each selection.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;H&quot;</span><span class="p">,</span> <span class="s">&quot;T&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">200</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li><li>'T'</li><li>'T'</li><li>'H'</li><li>'H'</li><li>'H'</li></ol>
+</div></div>
+</div>
+<p>You can also pass the sample command a list of probabilities for each element of x; note that order matters so check it.  For a fair coin the default of each outcome being equally likely works. However note that unfair coins are not unheard of - you can purchase them at magic and toy shops.</p>
+<p>A typical human trying to fake coin flips will distribute them too uniformly and will not have as many long sequences of “H” as we expect to see from an actual experiment.</p>
+</div>
+<div class="section" id="binomial-trials">
+<h2>Binomial Trials<a class="headerlink" href="#binomial-trials" title="Permalink to this headline">¶</a></h2>
+<p>We now have all the tools for the question at hand. Let’s start with simulating the question using <em>sample</em>.  Randomly selecting an individual student from the population of US college students and asking whether they are food insecure or not is a Bernouli trial with a probably of 0.38 that the student is Food Insecure; and a probability of <span class="math notranslate nohighlight">\(1-0.38 = 0.62\)</span> that they are not. Specifically the result for each student is independent of the others (the probabilities 0.38 and 0.62 in the trial are not changing). We will use the <em>prob</em> parameter and pass it a column of the two probabilities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">sample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">130</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.38</span><span class="p">,</span> <span class="m">0.62</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0</li><li>1</li><li>0</li><li>0</li><li>1</li><li>1</li><li>1</li><li>0</li><li>0</li><li>1</li><li>1</li><li>0</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>0</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>1</li><li>1</li><li>1</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>1</li><li>1</li><li>1</li><li>1</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>0</li><li>1</li><li>1</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>1</li><li>1</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>0</li><li>0</li><li>0</li><li>1</li><li>0</li><li>1</li><li>0</li><li>0</li><li>0</li><li>0</li><li>0</li><li>1</li><li>1</li><li>0</li><li>0</li><li>0</li><li>1</li><li>1</li><li>0</li><li>1</li><li>1</li><li>0</li><li>1</li><li>1</li><li>0</li><li>0</li><li>1</li><li>1</li><li>0</li><li>1</li><li>1</li><li>0</li><li>1</li><li>0</li></ol>
+</div></div>
+</div>
+<p>You may notice that rather than using strings for the entries in <em>x</em> I used 1 and 0. The reason is that what we care about is the number of students that are food insecure, this is our random variable of interest and now we can compute its value by just summing up the numbers in <em>result</em> the value of which will be the number of 1s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">55</div></div>
+</div>
+<p>Because the <em>sample</em> command uses (pseudo)-random numbers, if we run this again we will get a different result (also note each time I compile this textbook the values change). Do it a few times yourself and see what we get.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="nf">sample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">130</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.38</span><span class="p">,</span> <span class="m">0.62</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">42</div></div>
+</div>
+<p>This is a little bit tedious to run a bunch of times and we also should be keeping track of the results. For example, what is the smallest value you have seen so far? Luckily, one of the things computers are absolutely brilliant at is doing the same thing over and over and keeping track of the results. Let me introduce you to one of the two real programming structures we will use in this class:  a <em>for loop</em>.  A for loop tells the computer to complete the same set of commands multiple times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># We are going to keep track of the results in a variable called trials, so we first initalize this variable as an empty column</span>
+<span class="n">trials</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+
+<span class="c1"># Then our for loop - in this case we just want the loop to repeat the command 100 times</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">k</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="c1"># each loop will compute the number of food insecure students in our random sample of 130 students, </span>
+  <span class="c1"># make that a column, and </span>
+  <span class="c1"># then add that to the end of the trials column</span>
+  <span class="n">trials</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="nf">sum</span><span class="p">(</span><span class="nf">sample</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">130</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span> <span class="n">prob</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0.38</span><span class="p">,</span> <span class="m">0.62</span><span class="p">))))</span>
+<span class="p">}</span>
+
+<span class="n">trials</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>58</li><li>53</li><li>55</li><li>39</li><li>58</li><li>53</li><li>48</li><li>49</li><li>49</li><li>45</li><li>52</li><li>47</li><li>57</li><li>62</li><li>52</li><li>56</li><li>44</li><li>51</li><li>40</li><li>49</li><li>51</li><li>46</li><li>57</li><li>46</li><li>53</li><li>54</li><li>53</li><li>47</li><li>48</li><li>48</li><li>60</li><li>47</li><li>50</li><li>54</li><li>52</li><li>54</li><li>49</li><li>52</li><li>46</li><li>46</li><li>46</li><li>52</li><li>54</li><li>50</li><li>46</li><li>50</li><li>46</li><li>45</li><li>52</li><li>49</li><li>42</li><li>57</li><li>51</li><li>55</li><li>50</li><li>45</li><li>49</li><li>55</li><li>44</li><li>53</li><li>49</li><li>50</li><li>55</li><li>37</li><li>59</li><li>47</li><li>45</li><li>51</li><li>50</li><li>46</li><li>40</li><li>51</li><li>43</li><li>39</li><li>48</li><li>46</li><li>49</li><li>55</li><li>47</li><li>52</li><li>57</li><li>41</li><li>54</li><li>46</li><li>49</li><li>46</li><li>53</li><li>52</li><li>53</li><li>50</li><li>53</li><li>46</li><li>53</li><li>43</li><li>47</li><li>53</li><li>51</li><li>44</li><li>46</li><li>41</li></ol>
+</div></div>
+</div>
+<p>Let’s use a historgram to look at the result:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># The paramter breaks is determining how many bins to use</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">trials</span><span class="p">,</span> <span class="n">breaks</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/03-Discrete_Probability_11_0.png" src="_images/03-Discrete_Probability_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  37.00   46.00   50.00   49.58   53.00   62.00 
+</pre></div>
+</div>
+</div>
+</div>
+<p>So interestingly the minimum value is not very small. What does this tell us about the number of mathematics majors we might see that are food insecure?  What would our interpretation be if we found only 10 of the mathematics majors were food insecure?</p>
+<p>Finally you can probably tell me you are not surprised that the mean is close to</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">0.38</span><span class="o">*</span><span class="m">130</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">49.4</div></div>
+</div>
+<p>we will make your instinct about this precise!</p>
+<div class="section" id="plan">
+<h3>Plan<a class="headerlink" href="#plan" title="Permalink to this headline">¶</a></h3>
+<p>Let me pause here and say that this is our plan for the course. We will take a given problem and experiment with it, using R to simmulate things like flipping coins or rolling dice, or as in this example selecting random college students and asking them whether they are food insecure or not. Then we will ask the theoretical questions where we try and model the situation.</p>
+</div>
+<div class="section" id="binomial-distribution">
+<h3>Binomial Distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s develop a model of what is happening. To do this we will ask the following question: For Y, the random variable given by the number of success in a set of 130 Bernouli trials, what is <span class="math notranslate nohighlight">\(P(Y = r)\)</span> for a given integer r?  We could think of this as a function of <span class="math notranslate nohighlight">\(r\)</span> and as such it is called the <em>Probability Distribution</em> of the random variable <span class="math notranslate nohighlight">\(Y\)</span>. In this case the <span class="math notranslate nohighlight">\(Y\)</span> takes discrete values and so we would call <span class="math notranslate nohighlight">\(P(Y=r)\)</span> a discrete probability distribution.</p>
+<p>Find the following probabilities:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(Y=r)\)</span> for r &lt; 0</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(Y=r)\)</span> for r not an integer</p></li>
+<li><p><span class="math notranslate nohighlight">\(P(Y=r)\)</span> for r &gt; 130</p></li>
+</ul>
+<p>Okay so now lets fix a particular r, and being mathematicians lets start simple with r = 1:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(Y=1)\)</span> is the probability that one of the 130 students is food insecure. There 130 different students who could be the one that is food insecure; and then the probability of having one success is given by 0.38; while the probability of 129 failures is <span class="math notranslate nohighlight">\(0.62^{129}\)</span>. Thus the solution is:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ P(Y=1) = 130 \cdot 0.38 \cdot 0.62^{129} \]</div>
+<ul class="simple">
+<li><p>Specifically the 130 factor is because mutually exclusive events sum their probabilities; and luckily for us each one is equally likely so we just get the multiple of the number of events.</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(0.38 \cdot 0.62^{129} \)</span> factor is because independent events multiply their probabilities.</p></li>
+</ul>
+<p>Note that this depends on the individual trials being independent. For the food insecurity quesiton, is this reasonable?</p>
+<p>We get:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">130</span> <span class="o">*</span> <span class="m">0.38</span> <span class="o">*</span> <span class="m">0.62</span><span class="n">^129</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">8.17061776947479e-26</div></div>
+</div>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(Y=2)\)</span> in the case of two students out of the 130 being food insecure:  There are $<span class="math notranslate nohighlight">\( \binom{130}{2} \)</span><span class="math notranslate nohighlight">\( ways to select those two students. Then the likelihood that those two are success is \)</span>0.38^2<span class="math notranslate nohighlight">\(; and the likliehood the other 128 are failures is \)</span>0.62^{128}$. Putting it all together we have:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ P(Y=2) = \binom{130}{2} 0.38^2 \cdot 0.62^{128} \]</div>
+<p>We get:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">choose</span><span class="p">(</span><span class="m">130</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="o">*</span> <span class="m">0.38</span><span class="n">^2</span> <span class="o">*</span> <span class="m">0.62</span><span class="n">^128</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3.23002970209399e-24</div></div>
+</div>
+<ol class="simple">
+<li><p>More generally we find:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ P(Y=r) = \binom{130}{r} 0.38^r \cdot 0.62^{130 - r} \]</div>
+<p>Plotting the whole range of values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">130</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">choose</span><span class="p">(</span><span class="m">130</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="m">0.38</span><span class="n">^r</span> <span class="o">*</span> <span class="m">0.62</span><span class="nf">^</span><span class="p">(</span><span class="m">130</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/03-Discrete_Probability_20_0.png" src="_images/03-Discrete_Probability_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Binomial Distribution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>More generally:  A Binomial Trial is made up of n identical indepedent Bernouli Trials each with probability p of success and 1-p of failure. The random variable $<span class="math notranslate nohighlight">\(Y = \mbox{The number of successes in the n trials} \)</span>$ has a probability distribution function given by:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y = r) = \binom{n}{r} p^r (1-p)^{n-r} \]</div>
+<p>Vary the p and the n a bit in the plot below and see how the distribution changes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">&lt;-</span> <span class="m">0.01</span>
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="m">30</span>
+<span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="n">n</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">choose</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="n">p^r</span> <span class="o">*</span> <span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span><span class="nf">^</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/03-Discrete_Probability_22_0.png" src="_images/03-Discrete_Probability_22_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="checking-a-few-things">
+<h3>Checking a few things<a class="headerlink" href="#checking-a-few-things" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>So a few things to check before we move on. The total probability should be 1. It’s not clear it will be:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1</div></div>
+</div>
+<p>It is interesting to ask why it works this way. You might recall that you have seen the binomial coefficient before, and in fact it even gets its name from the following problem:</p>
+<div class="math notranslate nohighlight">
+\[ (a + b)^n = \sum_{r=0}^n \binom{n}{r} a^r b^{n-r} \]</div>
+<p>Now suppose <span class="math notranslate nohighlight">\(a=p\)</span> and <span class="math notranslate nohighlight">\(b=1-p\)</span>; what do we learn?</p>
+<ol class="simple">
+<li><p>No probability should have a value less than 0; or greater than 1.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="cummulative-distributions">
+<h2>Cummulative Distributions<a class="headerlink" href="#cummulative-distributions" title="Permalink to this headline">¶</a></h2>
+<p>The motivating problem question was:  How likely is it that out of the 130 mathematics majors 39 or fewer of them are food insecure.  In terms of probability this quesiton is asking:  <span class="math notranslate nohighlight">\(P(Y \leq 39)\)</span></p>
+<p>And note we can compute that by just taking a sum:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y \leq 39) = \sum_{r=0}^{39} P(Y = r) = \sum_{r=0}^{39} \binom{130}{r} 0.38^r \cdot 0.62^{130-r} \]</div>
+<p>We could derive a formula for expressions right this, and if you enjoy algebra it is not a bad exercise. Do you enjoy algebra?  I frankly do not. Using a computer we can just compute it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">39</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span> <span class="nf">choose</span><span class="p">(</span><span class="m">130</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">*</span> <span class="m">0.38</span><span class="n">^r</span> <span class="o">*</span> <span class="m">0.62</span><span class="nf">^</span><span class="p">(</span><span class="m">130</span> <span class="o">-</span> <span class="n">r</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.0352862538948334</div></div>
+</div>
+<p>This is a good place to introduce some hard coded functions for our first named distribution:</p>
+<p>The Probability Distribution Function for the Binomial Distribution is given by the <em>dbinom(r, n, p)</em> command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dbinom</span><span class="p">(</span><span class="m">39</span><span class="p">,</span> <span class="m">130</span><span class="p">,</span> <span class="m">0.38</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.012283861450151</div></div>
+</div>
+<p>The Cummulative Distribution Function for the Binomial Distribution is given by the <em>pbinom(r, n, p)</em> command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pbinom</span><span class="p">(</span><span class="m">39</span><span class="p">,</span> <span class="m">130</span><span class="p">,</span> <span class="m">0.38</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.0352862538948334</div></div>
+</div>
+<p>This us of <em>d</em> and <em>p</em> together with the name of the distribution will continue through all the distributions we work with.</p>
+<div class="section" id="conclusion-to-the-motivating-question">
+<h3>Conclusion to the Motivating Question<a class="headerlink" href="#conclusion-to-the-motivating-question" title="Permalink to this headline">¶</a></h3>
+<p>So at this point we can conclude our motivating question:  What we have learned is that in a randomly selected group of 130 US college students the probability that we would have 39 or fewer of them indicating they are food insecure is less than 5%. We actually have the exact value or can at least get very good approximations of it. However in our class, and particularly in Applied Statistics, we are actually not that concerned with the exact value. We are more interested in bounding the result above and below. In fact in applications in the real world, if your answer depends on the exact value coming from your model it should set off alarm bells.</p>
+<p>In this case again we are seeing that the likliehood of 39 or fewer students with food insecurity out of 130 randomly selected US college students is small. If we had observed 39 we would then be inclined to believe that the other possibility is occurring:  Our assumption is false. Meaning in this case Mathematics Majors at UNC are not a random sample of US college students - there are lots of reasons, once we have evidence of it, we might realize are contributing to them not being random (the primary one being that there is in fact a stark difference between the food insecurity of 2-year students and 4-year students). The other possibility is that one of the other assumptions is false - perhaps the students are not well represented as independent trials.</p>
+</div>
+<div class="section" id="general-cummulative-distribution-functions">
+<h3>General Cummulative Distribution Functions<a class="headerlink" href="#general-cummulative-distribution-functions" title="Permalink to this headline">¶</a></h3>
+<p>Its worth spending some more time on cummulative distribution functions, lets look at them in general case of a Binomial Trial with n trials with a probability of success of each trial of p.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">130</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="m">0.38</span>
+<span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="o">:</span><span class="p">(</span><span class="m">10</span><span class="o">*</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="m">10</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="nf">pbinom</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/03-Discrete_Probability_33_0.png" src="_images/03-Discrete_Probability_33_0.png" />
+</div>
+</div>
+<p>Note:  We only plotted the distribution function at integer values of r because it is zero everywhere else. However the cumulative distribution function gives the probability that <span class="math notranslate nohighlight">\(Y \leq r\)</span> and so it has a step like behavior.</p>
+<p>Note:  I generally LOVE using software to draw plots as I am an awful artist - most of my low grades in math classes like trigonometry and geometry in high school were because of my drawings. However one place where software consistently messes us up is in drawing step functions - this picture would be better without the vertical lines connecting the horizontal segments.</p>
+<p>Vary p and n to see how the plot changes. In particular for small values of n the steps should become more prominent. You might have to increase the 10 in the code snippet to get the mesh to be finer - if you notice the vertical segments are not looking very vertical this is what should be changed.</p>
+</div>
+</div>
+<div class="section" id="motivating-problem-the-birthday-paradox">
+<h2>Motivating Problem - The Birthday Paradox<a class="headerlink" href="#motivating-problem-the-birthday-paradox" title="Permalink to this headline">¶</a></h2>
+<p>In a class of 25 students, how likely is it that two or more of them share the same birthday (day / month)?  This seems like it might be a Binomial Trial; however are the trials identical and independent?</p>
+<p><strong>Question:</strong> write a birthday problem that will be a Binomial Trial. Explain why in that case the trials are identical and independent.</p>
+</div>
+<div class="section" id="expected-value">
+<h2>Expected Value<a class="headerlink" href="#expected-value" title="Permalink to this headline">¶</a></h2>
+<p>The <em>expected value</em> of a quantitative random variable is defined to be the mean of the values of the variable over a large number of repeated trials of the variable. Given a discrete probability distribution for a random variable <span class="math notranslate nohighlight">\(Y\)</span>:  <span class="math notranslate nohighlight">\(p(r) = P(Y=r)\)</span> we can compute the expected value of <span class="math notranslate nohighlight">\(Y\)</span> by taking the weighted average of all possible values of <span class="math notranslate nohighlight">\(r\)</span> weighted by the likliehood of that r:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y) = \sum_{r: p(r) \neq 0} r p(r) \]</div>
+<div class="section" id="the-expected-number-of-students-experiencing-food-insecurity">
+<h3>The Expected Number of Students Experiencing Food Insecurity<a class="headerlink" href="#the-expected-number-of-students-experiencing-food-insecurity" title="Permalink to this headline">¶</a></h3>
+<p>Returning to our problem. If we have a group of 130 randomly selected US college students, the likliehood that any one of them is experiencing food insecurity is 0.38; and assuming that they are independently selected the number of ones in the 130 that are experiencing food insecurity fits the Binomial Distribution. Thus we can compute the expected number by summing over r = 0, 1, 2, …, 130 with each r weighted by  $<span class="math notranslate nohighlight">\( \binom{130}{r} 0.38^r \cdot 0.62^{130 - r} \)</span>$</p>
+<p>Using R we get:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">130</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span> <span class="n">r</span><span class="o">*</span><span class="nf">dbinom</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="m">130</span><span class="p">,</span> <span class="m">0.38</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">49.4</div></div>
+</div>
+<p>It is probably not shocking that this is the same number we saw above for <span class="math notranslate nohighlight">\(130 \cdot 0.38 = 49.4\)</span> and that it is also close to the mean we got in our sampling experiment we ran above.</p>
+<div class="section" id="expected-value-of-a-binomial-distribution">
+<h4>Expected Value of a Binomial Distribution<a class="headerlink" href="#expected-value-of-a-binomial-distribution" title="Permalink to this headline">¶</a></h4>
+<p>We can show that this always happens. Note that in general this is a class that I want to have focus on computations - so while we are going to give the exact proofs of some of our results like this one, we will do them as a class rather than have you work on them as excersises. I do think that this computations could be used to motivate some problems you have students do in an algebra or pre-calculus or calculus class, but they are sort of parallel but not part of the goals for our class.</p>
+<p>Let <span class="math notranslate nohighlight">\(Y\)</span> be a binomial distributed random variable for n trials with probability of success in each trial p. Define <span class="math notranslate nohighlight">\(q = 1-p\)</span>. Then we have</p>
+<div class="math notranslate nohighlight">
+\[ E(Y) = \sum_{r=0}^n r \binom{n}{r} p^r q^{n-r} \]</div>
+<p>Note that the first term in this sum is in fact 0 and so we could index the sum from 1; then expand the binomial coefficient:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y) = \sum_{r=1}^n \frac{n!}{(r-1)! (n-r)!} p^r q^{n-r} \]</div>
+<p>We then notice that the terms in this sum are themselves close to being binomial probabilities for a different number of trials. For example what happens if we factor out <span class="math notranslate nohighlight">\(np\)</span> from each term:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y) = np \sum_{r=1}^n \frac{(n-1)!}{ (r-1)! (n-1 - (r-1))! } p^{r-1} q^{n-1 - (r-1) } \]</div>
+<p>and finally we note that we could re-base the index of the sum back to 0:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y) = np \sum_{s = 0}^{n-1} \binom{n-1}{s} p^s q^{n-1 -s} \]</div>
+<p>and because the sum is now a sum over all of the probabilities of a binomial distribution it gives 1 and so: <span class="math notranslate nohighlight">\(E(Y) = np\)</span>.</p>
+<p>Which is <strong>EXACTLY</strong> what your instinct already told you we should get!!!!</p>
+</div>
+</div>
+<div class="section" id="general-expected-values">
+<h3>General Expected Values<a class="headerlink" href="#general-expected-values" title="Permalink to this headline">¶</a></h3>
+<p>First we note that if <span class="math notranslate nohighlight">\(Y\)</span> is a random variable then expressions using <span class="math notranslate nohighlight">\(Y\)</span> are themselves random variables - though almost certainly with different distributions. Specifically given a function <span class="math notranslate nohighlight">\(f(r)\)</span> such that every possible value of <span class="math notranslate nohighlight">\(Y\)</span> is in the domain of <span class="math notranslate nohighlight">\(f\)</span> we have:</p>
+<div class="math notranslate nohighlight">
+\[ E(f(Y)) = \sum_{r : p(r) \neq 0} f(r) p(r) \]</div>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Find the following Expected Value:</p>
+<ol class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are random variables show that <span class="math notranslate nohighlight">\(E(A + B) = E(A) + E(B)\)</span></p></li>
+<li><p>If c is a number show that <span class="math notranslate nohighlight">\(E( c A) = c E(A)\)</span></p></li>
+<li><p>Show that for the constant random variable 1 (i.e. the value is 1 with probability 1) E(1) = 1.</p></li>
+<li><p>Use 1-4 to show that <span class="math notranslate nohighlight">\(E(A - E(A)) = 0\)</span></p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="population-variance">
+<h2>Population Variance<a class="headerlink" href="#population-variance" title="Permalink to this headline">¶</a></h2>
+<p>We have just shown that the expected value of <span class="math notranslate nohighlight">\(Y\)</span> is <span class="math notranslate nohighlight">\(np\)</span>. Now what we would like to understand is the extent to which <span class="math notranslate nohighlight">\(Y\)</span> gives us values smaller than or lesser than <span class="math notranslate nohighlight">\(np\)</span>. The two related metrics we will frequently use to study <em>spread</em> in this class are the variance and its square root, the standard deviation of the variable. Note that there are other notions of spread that are useful, particularly the use of quartiles and percentiles is another way to quantify the spread of a random variable or data from its center.</p>
+<p>We also are going to (try to consistently) draw a distinction between the population variance and the sample variance. The one is a statement about how the random variable spreads for the whole population; while the other is a measurement of the variance specific to that sample. Later on we will show that the two are connected, but also that they are absolutely not the same things.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mu = E(Y)\)</span> by the expected value of the random variable <span class="math notranslate nohighlight">\(Y\)</span>, or in other words the <em>population mean</em>. The <em>Population Variance</em> is defined to be the expected value:</p>
+<div class="math notranslate nohighlight">
+\[ \sigma^2 = V(Y) = E( (Y- \mu)^2 ) \]</div>
+<p>We call this <span class="math notranslate nohighlight">\(\sigma^2\)</span> because it will have the units of <span class="math notranslate nohighlight">\(Y^2\)</span> and its square root, <span class="math notranslate nohighlight">\(\sigma\)</span> is the <em>population standard deviation</em> that will have the same units as <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+<div class="section" id="methods-of-computing-v-y">
+<h3>Methods of Computing <span class="math notranslate nohighlight">\(V(Y)\)</span><a class="headerlink" href="#methods-of-computing-v-y" title="Permalink to this headline">¶</a></h3>
+<p>We can do a bit of algebr and show that</p>
+<div class="math notranslate nohighlight">
+\[ \sigma^2 = V(Y) = E(Y^2 ) - E(Y)^2 \]</div>
+<p>Note that this implies that <span class="math notranslate nohighlight">\(E(Y^2) \geq E(Y)^2\)</span>.</p>
+</div>
+<div class="section" id="variance-of-a-binomial-random-variable">
+<h3>Variance of a Binomial Random Variable<a class="headerlink" href="#variance-of-a-binomial-random-variable" title="Permalink to this headline">¶</a></h3>
+<p>So we can find the variance of our binomial random variable, either for an explicit case:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">130</span><span class="p">)</span>
+<span class="n">sigma2</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span> <span class="n">r^2</span><span class="o">*</span><span class="nf">dbinom</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="m">130</span><span class="p">,</span> <span class="m">0.38</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="m">130</span><span class="o">*</span><span class="m">0.38</span><span class="p">)</span><span class="n">^2</span>
+<span class="n">sigma2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">30.6280000000006</div></div>
+</div>
+<p>Though note that usually the square root is more useful:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sqrt</span><span class="p">(</span><span class="n">sigma2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">5.5342569510279</div></div>
+</div>
+<p>Implying a variation of 5.5 students from the mean of 49.4. We will get to specifically what this tells us later, for now it is enough to say that the larger this value the more we expected to see the random variable return values further from the mean.</p>
+<div class="section" id="exact-value">
+<h4>Exact Value<a class="headerlink" href="#exact-value" title="Permalink to this headline">¶</a></h4>
+<p>We can also do some algebra to find the exact value. Let <span class="math notranslate nohighlight">\(Y\)</span> be a binomial random variable for n trials with the probability of success of each trial being p. Define <span class="math notranslate nohighlight">\(q = 1-p\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ V(Y) = E(Y^2) - (np)^2 \]</div>
+<p>So we need to find</p>
+<div class="math notranslate nohighlight">
+\[ E(Y^2) = \sum_{r=0}^n r^2 \binom{n}{r} p^r q^{n-r} \]</div>
+<p>Not very useful as while r is a factor of r!, <span class="math notranslate nohighlight">\(r^2\)</span> is not. Note we could work with <span class="math notranslate nohighlight">\(E(Y(Y-1)) + np = E(Y^2)\)</span> instead and then this will play well with the factorial (and the sum as it turns out):</p>
+<div class="math notranslate nohighlight">
+\[ E(Y(Y-1)) = \sum_{r=0}^n r (r-1) \binom{n}{r} p^r q^{n-r} \]</div>
+<p>Noting that the first two terms in the sum are zero and expanding out the binomial coefficient in factorials we have:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y(Y-1)) = \sum_{r=2}^n \frac{ n!}{ (r-2)! (n-r)! } p^r q^{n-r} \]</div>
+<p>If we factor out a <span class="math notranslate nohighlight">\(n (n-1) p^2\)</span> and rebasing the sum (using exactly the same pattern as above) we get:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y(Y-1)) = n (n-1) p^2 \sum_{s=0}^{n-2} \binom{n-2}{s} p^s q^{n-2-s} \]</div>
+<p>The sum is now a sum over a binomial distribution with <span class="math notranslate nohighlight">\(n-2\)</span> trials and so adds up to 1; and thus we have: <span class="math notranslate nohighlight">\(E(Y(Y-1)) = n (n-1) p^2\)</span></p>
+<p>Putting it all together we have:</p>
+<div class="math notranslate nohighlight">
+\[ V(Y) = n (n-1) p^2 + np - (np)^2 = \mbox{algebra} = n p (1-p) \]</div>
+<p>It is interesting to fix <span class="math notranslate nohighlight">\(n\)</span> and plot this as a function of p (it is simple enough to do by hand, but we have R sitting right here):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">130</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">1000</span><span class="p">)</span><span class="o">/</span><span class="m">1000</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="n">n</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/03-Discrete_Probability_42_0.png" src="_images/03-Discrete_Probability_42_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="02-What_is_Stats.html" title="previous page">What is Statistics?</a>
+    <a class='right-next' id="next-link" href="04-Geometric_and_Poisson.html" title="next page">Geometric and Poisson Distributions</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

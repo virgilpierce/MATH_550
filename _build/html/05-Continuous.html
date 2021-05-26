@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Continuous Random Variables &#8212; MATH 550 - Applied Probability and Statistics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Class Schedule and Activities" href="99-Apendices.html" />
+    <link rel="prev" title="Geometric and Poisson Distributions" href="04-Geometric_and_Poisson.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">MATH 550 - Applied Probability and Statistics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Introduction.html">
+   Introduction and Course Syllabus
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-What_is_Stats.html">
+   What is Statistics?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Discrete_Probability.html">
+   Discrete Random Variables - The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Geometric_and_Poisson.html">
+   Geometric and Poisson Distributions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="99-Apendices.html">
+   Class Schedule and Activities
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/05-Continuous.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/05-Continuous.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-density-function">
+   Probability Density Function
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-this-called-the-density-function">
+     Why is this called the density function?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uniform-distribution">
+   Uniform Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-unifrom-distributions">
+     General Unifrom Distributions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simmulating-continuous-random-variables">
+     Simmulating continuous random variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expected-value">
+     Expected Value
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="continuous-random-variables">
+<h1>Continuous Random Variables<a class="headerlink" href="#continuous-random-variables" title="Permalink to this headline">¶</a></h1>
+<p>We spent the last two days thinking about discrete probability distributions. Particularly these include random variables that are counting things (what do the binomial, geometric, and Poisson random variables count?).</p>
+<p>However you can probably give some examples of numerical random variables which are not discrete.</p>
+<p>Note the thing that should give us pause, and explains why we have to introduce these random variables in a slightly different way from how we introduced discrete random variables:</p>
+<ul class="simple">
+<li><p>For a discrete random variable, it makes sense to ask <span class="math notranslate nohighlight">\(P(Y = r)\)</span> for some <span class="math notranslate nohighlight">\(r\)</span>. I.e. there will be some <span class="math notranslate nohighlight">\(r\)</span> such that this number is non-zero. In fact we took this as our starting point for all of the discrete random distributions we have talked about.</p></li>
+<li><p>For a continuous random variable:  <span class="math notranslate nohighlight">\(P(Y=x)\)</span> has us a little bit nervous. If <span class="math notranslate nohighlight">\(Y\)</span> is truly continuous then near <span class="math notranslate nohighlight">\(x\)</span> there are infinitely many (uncountably infinitely many) values that are also possible. They can’t all have a non-zero value without us having trouble adding them all up, and at the same time if only a discrete set of them are non-zero so that we can add them up then what we have is a discrete variable. In other words, we have a bit of a paradox. Luckily Calculus, as it usually does, gives us the language to talk about continuous things as generalizations of discrete things.</p></li>
+</ul>
+<p>First we need to make our definition precise: How will we recognize a continuous random variable?  (if you were in my class last summer you might recall our <em>sandwich</em> activity).</p>
+<p>One picture that should have you thinking from earlier this week is the graphs we made of the <em>Cumulative Distribution Function</em> for our random variables, here is the one for the binomials random variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">10</span>
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="m">0.38</span>
+<span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="o">:</span><span class="p">(</span><span class="m">50</span><span class="o">*</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="m">50</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="nf">pbinom</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/05-Continuous_1_0.png" src="_images/05-Continuous_1_0.png" />
+</div>
+</div>
+<p>onsider instead what this graph will need to look like for a random variable that can take any value rather than just the integer values?</p>
+<p>Recall the properties of our CDF <span class="math notranslate nohighlight">\(F(x) = P(Y \leq x)\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\lim_{x\to -\infty} F(x) = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \leq F(x) \leq 1\)</span> for all x.</p></li>
+<li><p><span class="math notranslate nohighlight">\(F(x)\)</span> is a non decreasing function of <span class="math notranslate nohighlight">\(x\)</span>:  given <span class="math notranslate nohighlight">\(x_1 &lt; x_2\)</span> then <span class="math notranslate nohighlight">\(F(x_1) &lt; F(x_2)\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x\to \infty} F(x) = 1\)</span></p></li>
+</ul>
+<p>A <em>Continuous Random Variable</em> is one for which the cumulative distribution function: <span class="math notranslate nohighlight">\(F(x) = P(Y \leq x)\)</span> is a continuous function.</p>
+<p>Note that we can’t say a discrete random variable is one where the CDF is not-continuous as it could have continuous and non-continuous parts. There is a whole theory of decomposing a general random variable into discrete and continuous components that is beyond what we want to do for this class.</p>
+<p>The next thing to note is that for our discrete random variables, the jump for the steps in the CDF is the probability distribution for that value.</p>
+<p>For a continuous random variable then, the probability that the variable achieves any specific value must be 0 because otherwise <span class="math notranslate nohighlight">\(P(Y = x) \)</span> would be the size of a jump discontinuity in the CDF.</p>
+<div class="section" id="probability-density-function">
+<h2>Probability Density Function<a class="headerlink" href="#probability-density-function" title="Permalink to this headline">¶</a></h2>
+<p>So we don’t have a distribution in the sense that we do for discrete random variables, however note that for continuous functions the idea which captures how much the function is increasing (the size of the steps) is given by the derivative. This leads to:</p>
+<p>The <em>Probability Density Function</em> of a continuous random variable with CDF <span class="math notranslate nohighlight">\(F(x) = P(Y \leq x)\)</span> is given by:
+$<span class="math notranslate nohighlight">\( f(x) = \frac{d}{dx} F(x) \)</span>$
+where the derivative exists.</p>
+<p>Note a few consequences:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( f(x) \geq 0 \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\( \int_{-\infty}^\infty f(x) dx = 1\)</span></p></li>
+</ul>
+<div class="section" id="why-is-this-called-the-density-function">
+<h3>Why is this called the density function?<a class="headerlink" href="#why-is-this-called-the-density-function" title="Permalink to this headline">¶</a></h3>
+<p>Let’s assume that <span class="math notranslate nohighlight">\(f(x)\)</span> exists everywhere. Then the Fundamental Theorem of Calculus implies that:</p>
+<div class="math notranslate nohighlight">
+\[ F(x) = P(Y \leq x) = \int_{-\infty}^x f(t) dt \]</div>
+<p>Suppose we wanted to know <span class="math notranslate nohighlight">\(P(a \leq Y \leq b)\)</span>?  On the one hand we compute this from the CDF:</p>
+<div class="math notranslate nohighlight">
+\[ P( a \leq Y \leq b) = F(b) - F(a) \]</div>
+<p>However we can rewrite this in terms of the PDF using the algebra of integrals:</p>
+<div class="math notranslate nohighlight">
+\[ P(a \leq Y \leq b) = \int_a^b f(x) dx \]</div>
+<p>I.e. the area under <span class="math notranslate nohighlight">\(f(x)\)</span> over a region of <span class="math notranslate nohighlight">\(x\)</span>-space gives the probability that <span class="math notranslate nohighlight">\(Y\)</span> lies in that region. Note some consequences:</p>
+<ul class="simple">
+<li><p>This is another way of thinking about why <span class="math notranslate nohighlight">\(P(Y = x) = 0 \)</span>:  It corresponds to an integral over a single point.</p></li>
+</ul>
+<p>I think of this as density in the same sense as we would use in Physics if the density is a proportion of the whole (i.e. we choose units so the total mass is 1). The integral of the density function for an object gives the mass of that object, center of mass and mean are the same thing, and the variance we are using corresponds to moments - describing how much the mass of an object is spread from its center.</p>
+</div>
+</div>
+<div class="section" id="uniform-distribution">
+<h2>Uniform Distribution<a class="headerlink" href="#uniform-distribution" title="Permalink to this headline">¶</a></h2>
+<p>For our first example consider the cumulative distribution function:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} F(x) = \left\{ \begin{matrix} 0 &amp; x &lt; 0 \\ x &amp; 0 \leq x \leq 1 \\ 1 &amp; x &gt; 1 \end{matrix}    \right\} \end{split}\]</div>
+<p>To plot this, we first need to define the function. We will go over this in class, but this is the syntax for definition a function in R and also because it is piecewise the syntax for <em>if</em> statements. Note this is the most complicated programming we will do and you can just copy this function and modify it. A couple of notes about using this in R - from the notebook you need to execute this command with the cursor at the very top, working from the middle will only run the middle block of code. The other note is that I want to write the function so that it handles columns the same way the builtin functions we have already met do. That means I need to assume the input is a list of values and it needs to return a list of values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need to write functions so they take a column of input values and return a column of output values, </span>
+<span class="c1"># This will make what we do next easier.</span>
+
+<span class="bp">F</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+  
+  <span class="nf">for </span><span class="p">(</span><span class="n">k</span> <span class="n">in</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    
+    <span class="c1"># The actual function - note the if statements we need because of the piecewise nature</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">k</span> <span class="o">&lt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="nf">if </span><span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">else</span> <span class="p">{</span>
+      <span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="n">result</span>
+<span class="p">}</span> 
+
+<span class="c1"># testing that it works</span>
+<span class="nf">F</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-0.25</span><span class="p">,</span> <span class="m">0.25</span><span class="p">,</span> <span class="m">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>0</li><li>0.25</li><li>1</li></ol>
+</div></div>
+</div>
+<p>With that defined we can now plot the function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">((</span><span class="m">-2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">2</span><span class="o">*</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">F</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/05-Continuous_5_0.png" src="_images/05-Continuous_5_0.png" />
+</div>
+</div>
+<p>This is our cumulative distribution. Without even computing anything we can tell that the support of our density is on the interval <span class="math notranslate nohighlight">\([0, 1]\)</span>. Note that we have corners in the CDF so there are two places where the density is not defined - your instincts from Calculus are correct that not having a density at a discrete set of values is not a big deal. You may recall from MATH 534 that there are some particularly nasty functions, but while they are theoretically interesting as CDFs they do not correspond to random variables we see often (if at all).</p>
+<p>We can compute the probability density function by differentiating this one.  We get a piecewise defined function:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} f(x) = \left\{ \begin{matrix} 0 &amp; x &lt; 0 \\ 1 &amp; 0 \leq x \leq 1 \\ 0 &amp; x &gt; 1 \end{matrix} \right\} \end{split}\]</div>
+<p>This is an example of a uniform continuous distribution. On the support of the variable, the probability that <span class="math notranslate nohighlight">\(Y\)</span> is in an interval is proportional to the length of that interval. It is tempting to say that each value of <span class="math notranslate nohighlight">\(Y\)</span> is equally likely, however this while being correct is meaningless - for a continuous random variable the probability of any value occuring is zero - hence they are all the same, regardless of what the density is. For continuous random variables we can only talk in terms of (a) the probability density or (b) the probability of the variable occuring in a set.  This distinction is what separates those who have been carefully learning probability and statistics from those who tried to cut some corners or are getting sloppy.</p>
+<div class="section" id="general-unifrom-distributions">
+<h3>General Unifrom Distributions<a class="headerlink" href="#general-unifrom-distributions" title="Permalink to this headline">¶</a></h3>
+<p>Find the constant <span class="math notranslate nohighlight">\(C\)</span> such that <span class="math notranslate nohighlight">\(f(x)\)</span> below is a valid PDF:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} f(x) = \left\{ \begin{matrix} 0 &amp; x &lt; a \\ C &amp; a \leq x \leq b \\ 0 &amp; x &gt; b \end{matrix} \right\} \end{split}\]</div>
+<p>If you translate this question into Physics:  Find <span class="math notranslate nohighlight">\(C\)</span> such that the total mass of the object with density <span class="math notranslate nohighlight">\(f(x)\)</span> is 1, you will not be surprised by the answer.</p>
+<ol class="simple">
+<li><p>Make a prediction about the Expected Value of the uniform random variable on <span class="math notranslate nohighlight">\([a, b]\)</span>.</p></li>
+</ol>
+</div>
+<div class="section" id="simmulating-continuous-random-variables">
+<h3>Simmulating continuous random variables<a class="headerlink" href="#simmulating-continuous-random-variables" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="expected-value">
+<h3>Expected Value<a class="headerlink" href="#expected-value" title="Permalink to this headline">¶</a></h3>
+<p>Recall that for a discrete random variable we found the expected value</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="04-Geometric_and_Poisson.html" title="previous page">Geometric and Poisson Distributions</a>
+    <a class='right-next' id="next-link" href="99-Apendices.html" title="next page">Class Schedule and Activities</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
