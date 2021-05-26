@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search &#8212; MATH 550 - Applied Probability and Statistics</title>
+    <title>Gamma and Beta Distributions &#8212; MATH 550 - Applied Probability and Statistics</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -33,7 +33,6 @@
     
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -53,15 +52,13 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
-  <script src="searchindex.js" defer></script>
-  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Class Schedule and Activities" href="99-Apendices.html" />
+    <link rel="prev" title="Continuous Random Variables" href="05-Continuous.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -81,7 +78,7 @@
       <h1 class="site-logo" id="site-title">MATH 550 - Applied Probability and Statistics</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="#" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
@@ -93,7 +90,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02-What_is_Stats.html">
    What is Statistics?
@@ -114,8 +111,8 @@
    Continuous Random Variables
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="06-Gamma_and_beta.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Gamma and Beta Distributions
   </a>
  </li>
@@ -157,6 +154,23 @@
             </button>
             
             
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/06-Gamma_and_beta.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
             <!-- Source interaction buttons -->
 
             <!-- Full screen (wrap in <a> to have style consistency -->
@@ -167,6 +181,23 @@
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/06-Gamma_and_beta.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
 
         </div>
 
@@ -181,33 +212,41 @@
         
               <div>
                 
-  <h1 id="search-documentation">Search</h1>
-  <div id="fallback" class="admonition warning">
-  <script>$('#fallback').hide();</script>
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  <p>
-    Searching for multiple words only shows matches that contain
-    all words.
-  </p>
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" />
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  <div id="search-results">
-  
-  </div>
+  <div class="section" id="gamma-and-beta-distributions">
+<h1>Gamma and Beta Distributions<a class="headerlink" href="#gamma-and-beta-distributions" title="Permalink to this headline">¶</a></h1>
+<p>So we have now met the following distributions.</p>
+<p>For Discrete Distributions we learned that they can be specified by giving the probability distribution for each of the valid outputs. We met a few named distributions that cover common situations and also have sufficient structure that exact computations are possible:  Uniform Distribution, Bernouli Ditribution, Binomial Distribution, Geometric Distribution, and the Poisson Distribution. Note that the support of the Binomial Distribution is 0, 1, 2, … n; the support of the Geometric and Poisson distributions are 0, 1, 2, ….</p>
+<p>For Continuous Distributions we can specify them by giving the Cummulative Distribution Function or its derivative the Proability Density Function. We have met two named distributions again either they have enough structure that we can give exact answers or they fit common situations:  The uniform distribution, and the normal distribution.</p>
+<p>The uniform distribution has compact support on an interval <span class="math notranslate nohighlight">\([a, b]\)</span>, while the nomral distribution has support on all real numbers. Note even so, provided <span class="math notranslate nohighlight">\(\sigma^2\)</span> is small enough the likliehood that a normal distribution will return values far from <span class="math notranslate nohighlight">\(\mu\)</span> is limited.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="05-Continuous.html" title="previous page">Continuous Random Variables</a>
+    <a class='right-next' id="next-link" href="99-Apendices.html" title="next page">Class Schedule and Activities</a>
 
         </div>
         

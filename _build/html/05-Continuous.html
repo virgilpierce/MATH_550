@@ -54,7 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Class Schedule and Activities" href="99-Apendices.html" />
+    <link rel="next" title="Gamma and Beta Distributions" href="06-Gamma_and_beta.html" />
     <link rel="prev" title="Geometric and Poisson Distributions" href="04-Geometric_and_Poisson.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -109,6 +109,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Gamma_and_beta.html">
+   Gamma and Beta Distributions
   </a>
  </li>
  <li class="toctree-l1">
@@ -465,7 +470,7 @@ where the derivative exists.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0.94823931180872</li><li>0.300858364906162</li><li>0.113379060756415</li><li>0.586790978442878</li><li>0.0326976650394499</li><li>0.444076974177733</li><li>0.488593361107633</li><li>0.812710868194699</li><li>0.320344180800021</li><li>0.15043674595654</li><li>0.14831400825642</li><li>0.216065682470798</li><li>0.903186093317345</li><li>0.895285997772589</li><li>0.902522892458364</li><li>0.148966404609382</li><li>0.599899515276775</li><li>0.156943848589435</li><li>0.0464840375352651</li><li>0.947156151523814</li><li>0.871423566481099</li><li>0.856214135885239</li><li>0.230179140111431</li><li>0.273910641437396</li><li>0.175868736580014</li><li>0.393569733947515</li><li>0.732739987550303</li><li>0.0691303145140409</li><li>0.127761072479188</li><li>0.148011898621917</li><li>0.796146627981216</li><li>0.0244129137136042</li><li>0.275910664349794</li><li>0.253416555933654</li><li>0.356920757330954</li><li>0.91062398115173</li><li>0.506338343024254</li><li>0.576889363350347</li><li>0.933675888925791</li><li>0.875579277751967</li><li>0.655500730499625</li><li>0.357254738453776</li><li>0.95597208570689</li><li>0.339637870667502</li><li>0.682963946834207</li><li>0.459179398603737</li><li>0.671017033979297</li><li>0.596042811404914</li><li>0.126212345436215</li><li>0.893647462828085</li></ol>
+<ol class=list-inline><li>0.667778318980709</li><li>0.889914220198989</li><li>0.981643035309389</li><li>0.391937174834311</li><li>0.300972538068891</li><li>0.882146580843255</li><li>0.0870728858280927</li><li>0.441220494918525</li><li>0.921803984092548</li><li>0.279398754937574</li><li>0.546115692704916</li><li>0.553010371280834</li><li>0.444159492384642</li><li>0.34434882667847</li><li>0.150170294335112</li><li>0.621352873044088</li><li>0.400927466340363</li><li>0.837567364098504</li><li>0.331254042685032</li><li>0.818762107286602</li><li>0.00203811284154654</li><li>0.163579700514674</li><li>0.2898626672104</li><li>0.999377926345915</li><li>0.723002124112099</li><li>0.642416715389118</li><li>0.54450198286213</li><li>0.40027702995576</li><li>0.0971390155609697</li><li>0.919633586658165</li><li>0.315214721951634</li><li>0.499596984125674</li><li>0.561971230199561</li><li>0.113335107685998</li><li>0.118468005675822</li><li>0.873164856340736</li><li>0.373947276966646</li><li>0.999089545104653</li><li>0.45769581082277</li><li>0.878049448365346</li><li>0.505226510111243</li><li>0.60952032264322</li><li>0.173567324178293</li><li>0.444229860091582</li><li>0.403246951289475</li><li>0.853384289890528</li><li>0.264426134293899</li><li>0.925710826879367</li><li>0.72109961649403</li><li>0.805251311976463</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -490,8 +495,8 @@ where the derivative exists.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-0.02441 0.18592 0.45163 0.48578 0.80857 0.95597 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+0.002038 0.319225 0.502412 0.531392 0.815384 0.999378 
 </pre></div>
 </div>
 </div>
@@ -525,7 +530,7 @@ where the derivative exists.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.0980814756965971</div></div>
+<div class="output text_html">0.0811375137028415</div></div>
 </div>
 <p>Again this actually just an estimate of the variance of the random variable. You should check what happens as the size of the sample is changed.</p>
 <div class="section" id="id1">
@@ -623,7 +628,7 @@ where the derivative exists.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0.670615985028806</li><li>0.296356348940676</li><li>1.64141597922849</li><li>0.821476733651246</li><li>1.83755856192566</li><li>1.64682825536945</li><li>0.747511396557582</li><li>0.869442749643409</li><li>0.70717653508036</li><li>0.621886542559844</li><li>0.897384863217238</li><li>1.74903128812943</li><li>0.811249108218421</li><li>1.25554676967848</li><li>1.4681954729196</li><li>0.943417505553161</li><li>1.61001222989946</li><li>-0.0217108491496993</li><li>1.40446189087596</li><li>0.630621755394681</li><li>0.966715296545592</li><li>0.737622063125075</li><li>0.569126470000438</li><li>0.867186509362722</li><li>0.253095325600072</li><li>0.950438123313233</li><li>1.91073367421348</li><li>1.00598332729808</li><li>0.742891313832073</li><li>1.24395759148212</li><li>1.32518456885827</li><li>0.870852756748221</li><li>0.720167965338783</li><li>1.27657828168937</li><li>2.25566672602767</li><li>1.28644923949093</li><li>0.600002752046567</li><li>1.22687678589445</li><li>0.24892028416923</li><li>1.22243650653294</li><li>1.7237233359924</li><li>0.470488313218513</li><li>0.931947332306313</li><li>0.574572395048047</li><li>0.657191717683628</li><li>1.14126144680785</li><li>0.521171935128898</li><li>0.331462308680486</li><li>0.0584080984764217</li><li>0.844934875319321</li></ol>
+<ol class=list-inline><li>0.708215852435649</li><li>0.819030883356446</li><li>0.959158537334707</li><li>1.2466344640193</li><li>0.952323594206732</li><li>1.02851495857435</li><li>1.15237431377462</li><li>1.01474155376611</li><li>0.702861171753973</li><li>1.21730195392567</li><li>-0.0542064880039312</li><li>1.16544840419351</li><li>1.09122473899765</li><li>0.842457084996945</li><li>1.2685984275337</li><li>0.899432286711772</li><li>1.00837387582597</li><li>0.899994652192197</li><li>1.0897082254868</li><li>0.558324323641317</li><li>2.22048295484001</li><li>1.0500358707625</li><li>0.783988898941797</li><li>1.1241550081927</li><li>0.669378603328938</li><li>1.05535991305281</li><li>0.806594349091717</li><li>1.10124380014101</li><li>1.78299390601441</li><li>0.178804881997948</li><li>0.263081077203433</li><li>0.90230889284341</li><li>0.741898390821838</li><li>0.365213234051181</li><li>1.34757107192365</li><li>0.870468132280703</li><li>0.911309179454063</li><li>1.22545846633511</li><li>1.5591674664777</li><li>0.711854746212935</li><li>1.23064867316112</li><li>0.999696691116852</li><li>0.343744903613192</li><li>0.737840108505115</li><li>1.4972548485612</li><li>1.15563627194504</li><li>0.551792874681491</li><li>1.33367360366425</li><li>1.37187602989826</li><li>0.205757077233461</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -644,7 +649,7 @@ where the derivative exists.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--0.02171  0.63726  0.87015  0.96289  1.27132  2.25567 
+-0.05421  0.73885  0.97943  0.95340  1.16300  2.22048 
 </pre></div>
 </div>
 </div>
@@ -710,7 +715,7 @@ where the derivative exists.</p>
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="04-Geometric_and_Poisson.html" title="previous page">Geometric and Poisson Distributions</a>
-    <a class='right-next' id="next-link" href="99-Apendices.html" title="next page">Class Schedule and Activities</a>
+    <a class='right-next' id="next-link" href="06-Gamma_and_beta.html" title="next page">Gamma and Beta Distributions</a>
 
         </div>
         
