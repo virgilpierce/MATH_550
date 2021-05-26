@@ -267,6 +267,37 @@
      Sampling from the Normal Distribution
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#total-probability">
+       Total Probability
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#probability-of-y-in-an-interval">
+       Probability of
+       <span class="math notranslate nohighlight">
+        \(Y\)
+       </span>
+       in an Interval
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#expected-value-of-a-function">
+       Expected Value of a Function
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#find-an-interval-with-given-probability">
+       Find an Interval with given probability
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -434,7 +465,7 @@ where the derivative exists.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0.997181913116947</li><li>0.370294116204605</li><li>0.489848587661982</li><li>0.272655510110781</li><li>0.53787856712006</li><li>0.710522607900202</li><li>0.0488738813437521</li><li>0.131005067145452</li><li>0.533232566667721</li><li>0.166675431188196</li><li>0.100231287768111</li><li>0.362475354922935</li><li>0.838633787818253</li><li>0.23270528181456</li><li>0.4945011313539</li><li>0.908440022496507</li><li>0.805971375899389</li><li>0.76647510449402</li><li>0.340482263360173</li><li>0.889849933795631</li><li>0.647189501440153</li><li>0.683444967027754</li><li>0.213081843685359</li><li>0.385034047299996</li><li>0.481226072181016</li><li>0.176940161269158</li><li>0.466419948032126</li><li>0.171917064348236</li><li>0.981042895233259</li><li>0.850583894876763</li><li>0.51728023798205</li><li>0.748348281253129</li><li>0.883717126213014</li><li>0.114761926000938</li><li>0.589267111616209</li><li>0.989153367700055</li><li>0.467458773870021</li><li>0.154943202622235</li><li>0.562267427332699</li><li>0.0671784388832748</li><li>0.257224313681945</li><li>0.907739710994065</li><li>0.47096057375893</li><li>0.753661112859845</li><li>0.377073359442875</li><li>0.64423325820826</li><li>0.654352323152125</li><li>0.0566498858388513</li><li>0.0248836488462985</li><li>0.461491153342649</li></ol>
+<ol class=list-inline><li>0.94823931180872</li><li>0.300858364906162</li><li>0.113379060756415</li><li>0.586790978442878</li><li>0.0326976650394499</li><li>0.444076974177733</li><li>0.488593361107633</li><li>0.812710868194699</li><li>0.320344180800021</li><li>0.15043674595654</li><li>0.14831400825642</li><li>0.216065682470798</li><li>0.903186093317345</li><li>0.895285997772589</li><li>0.902522892458364</li><li>0.148966404609382</li><li>0.599899515276775</li><li>0.156943848589435</li><li>0.0464840375352651</li><li>0.947156151523814</li><li>0.871423566481099</li><li>0.856214135885239</li><li>0.230179140111431</li><li>0.273910641437396</li><li>0.175868736580014</li><li>0.393569733947515</li><li>0.732739987550303</li><li>0.0691303145140409</li><li>0.127761072479188</li><li>0.148011898621917</li><li>0.796146627981216</li><li>0.0244129137136042</li><li>0.275910664349794</li><li>0.253416555933654</li><li>0.356920757330954</li><li>0.91062398115173</li><li>0.506338343024254</li><li>0.576889363350347</li><li>0.933675888925791</li><li>0.875579277751967</li><li>0.655500730499625</li><li>0.357254738453776</li><li>0.95597208570689</li><li>0.339637870667502</li><li>0.682963946834207</li><li>0.459179398603737</li><li>0.671017033979297</li><li>0.596042811404914</li><li>0.126212345436215</li><li>0.893647462828085</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -460,7 +491,7 @@ where the derivative exists.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-0.02488 0.23883 0.48554 0.49515 0.73889 0.99718 
+0.02441 0.18592 0.45163 0.48578 0.80857 0.95597 
 </pre></div>
 </div>
 </div>
@@ -494,7 +525,7 @@ where the derivative exists.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.0835666373615481</div></div>
+<div class="output text_html">0.0980814756965971</div></div>
 </div>
 <p>Again this actually just an estimate of the variance of the random variable. You should check what happens as the size of the sample is changed.</p>
 <div class="section" id="id1">
@@ -592,7 +623,7 @@ where the derivative exists.</p>
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>1.35200424713533</li><li>1.64596828353931</li><li>1.20766093749041</li><li>0.818900632996575</li><li>1.35326816268469</li><li>1.57419643392965</li><li>0.588782694134782</li><li>0.966871397579636</li><li>1.17652198664267</li><li>1.93739292207903</li><li>1.31314040322241</li><li>0.604643451646075</li><li>0.709746276804023</li><li>0.676418570295253</li><li>0.186857477762897</li><li>1.4817480480304</li><li>0.529435447367449</li><li>1.24564162615835</li><li>1.39938866122731</li><li>0.135490473933379</li><li>0.645353911830768</li><li>0.655662299022496</li><li>1.68816312482925</li><li>1.90810202404253</li><li>0.0441797375200285</li><li>1.31199401487314</li><li>1.21078566251951</li><li>0.246032187554814</li><li>0.911419469282907</li><li>0.514777668773818</li><li>1.2440891722075</li><li>0.406802265243738</li><li>-0.0829807363876307</li><li>0.826314081444692</li><li>1.37286104440955</li><li>1.44026438339958</li><li>1.12736306682134</li><li>1.46034893446984</li><li>0.851386195956973</li><li>1.0997971046</li><li>0.413423587808026</li><li>0.222106767372803</li><li>1.19654276476037</li><li>1.0836496643956</li><li>0.985446951917388</li><li>0.804345175793451</li><li>1.84190172637046</li><li>0.473391123492654</li><li>0.735461746543015</li><li>0.00421001633392881</li></ol>
+<ol class=list-inline><li>0.670615985028806</li><li>0.296356348940676</li><li>1.64141597922849</li><li>0.821476733651246</li><li>1.83755856192566</li><li>1.64682825536945</li><li>0.747511396557582</li><li>0.869442749643409</li><li>0.70717653508036</li><li>0.621886542559844</li><li>0.897384863217238</li><li>1.74903128812943</li><li>0.811249108218421</li><li>1.25554676967848</li><li>1.4681954729196</li><li>0.943417505553161</li><li>1.61001222989946</li><li>-0.0217108491496993</li><li>1.40446189087596</li><li>0.630621755394681</li><li>0.966715296545592</li><li>0.737622063125075</li><li>0.569126470000438</li><li>0.867186509362722</li><li>0.253095325600072</li><li>0.950438123313233</li><li>1.91073367421348</li><li>1.00598332729808</li><li>0.742891313832073</li><li>1.24395759148212</li><li>1.32518456885827</li><li>0.870852756748221</li><li>0.720167965338783</li><li>1.27657828168937</li><li>2.25566672602767</li><li>1.28644923949093</li><li>0.600002752046567</li><li>1.22687678589445</li><li>0.24892028416923</li><li>1.22243650653294</li><li>1.7237233359924</li><li>0.470488313218513</li><li>0.931947332306313</li><li>0.574572395048047</li><li>0.657191717683628</li><li>1.14126144680785</li><li>0.521171935128898</li><li>0.331462308680486</li><li>0.0584080984764217</li><li>0.844934875319321</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -613,12 +644,42 @@ where the derivative exists.</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--0.08298  0.59275  0.97616  0.95095  1.34229  1.93739 
+-0.02171  0.63726  0.87015  0.96289  1.27132  2.25567 
 </pre></div>
 </div>
 </div>
 </div>
 <p>Take the time to adjust the size of the sample and see what we get.</p>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="total-probability">
+<h4>Total Probability<a class="headerlink" href="#total-probability" title="Permalink to this headline">¶</a></h4>
+<p>We should check that the total probability of this density is 1. That is in fact what the the fraction in the density:  <span class="math notranslate nohighlight">\(\frac{1}{\sigma \sqrt{2\pi}} \)</span> is for. It has always fascinated me that <span class="math notranslate nohighlight">\(\pi\)</span> shows up here!  Unfortunately explaining why is beyond the scope of our class, but is a fascinating application of the Fourier Transformation.</p>
+</div>
+<div class="section" id="probability-of-y-in-an-interval">
+<h4>Probability of <span class="math notranslate nohighlight">\(Y\)</span> in an Interval<a class="headerlink" href="#probability-of-y-in-an-interval" title="Permalink to this headline">¶</a></h4>
+<p>Suppose we have the normal random variable <span class="math notranslate nohighlight">\(Y\)</span> with mean 0 and variance 1. Find the probability that <span class="math notranslate nohighlight">\(Y\)</span> is in the interval <span class="math notranslate nohighlight">\([0, \infty)\)</span>.</p>
+<p>We compute this from the integral of the density over this region:</p>
+<div class="math notranslate nohighlight">
+\[ P( 0 \leq Y ) = \int_0^\infty \frac{1}{\sqrt{2\pi}} e^{-x^2 / 2 } dx \]</div>
+<p>We can ask Wolfram Alpha or use the symmetry to argue we get 0.5.</p>
+</div>
+<div class="section" id="expected-value-of-a-function">
+<h4>Expected Value of a Function<a class="headerlink" href="#expected-value-of-a-function" title="Permalink to this headline">¶</a></h4>
+<p>The expected value of a function of our normal variable with mean 0 and variance 1 is found by integrating that function against the PDF for the distribution. For example to find</p>
+<div class="math notranslate nohighlight">
+\[ E( e^{x} ) \]</div>
+<p>we need to compute:</p>
+<div class="math notranslate nohighlight">
+\[ \int_{-\infty}^\infty e^x \frac{1}{\sqrt{2\pi}} e^{-x^2 / 2 } dx \]</div>
+<p>These are not typically easy integrals to compute but we can approximate the value numerically or use Wolfram Alpha: 1.64872.</p>
+</div>
+<div class="section" id="find-an-interval-with-given-probability">
+<h4>Find an Interval with given probability<a class="headerlink" href="#find-an-interval-with-given-probability" title="Permalink to this headline">¶</a></h4>
+<p>Find an interval <span class="math notranslate nohighlight">\([a, b]\)</span> such that the normal random variable with mean 0 and variance 1 has probability 0.95 of being found in the interval.</p>
+<p>To answer this one it is worth using the cummulative distribution function defined in R <em>pnorm</em>.</p>
+</div>
 </div>
 </div>
 </div>
