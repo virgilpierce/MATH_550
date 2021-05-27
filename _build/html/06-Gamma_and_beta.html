@@ -204,6 +204,39 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exponential-distribution">
+   Exponential Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expected-value-and-variance">
+     Expected Value and Variance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-will-the-next-customer-arrive-95-of-the-time">
+     When will the next customer arrive 95% of the time?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#effect-of-lambda">
+     Effect of
+     <span class="math notranslate nohighlight">
+      \(\lambda\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -218,6 +251,102 @@
 <p>For Discrete Distributions we learned that they can be specified by giving the probability distribution for each of the valid outputs. We met a few named distributions that cover common situations and also have sufficient structure that exact computations are possible:  Uniform Distribution, Bernouli Ditribution, Binomial Distribution, Geometric Distribution, and the Poisson Distribution. Note that the support of the Binomial Distribution is 0, 1, 2, … n; the support of the Geometric and Poisson distributions are 0, 1, 2, ….</p>
 <p>For Continuous Distributions we can specify them by giving the Cummulative Distribution Function or its derivative the Proability Density Function. We have met two named distributions again either they have enough structure that we can give exact answers or they fit common situations:  The uniform distribution, and the normal distribution.</p>
 <p>The uniform distribution has compact support on an interval <span class="math notranslate nohighlight">\([a, b]\)</span>, while the nomral distribution has support on all real numbers. Note even so, provided <span class="math notranslate nohighlight">\(\sigma^2\)</span> is small enough the likliehood that a normal distribution will return values far from <span class="math notranslate nohighlight">\(\mu\)</span> is limited.</p>
+<p>However its not hard to imagine a probability distribution with other types of support.</p>
+<p><em>Motivating Question</em>: Consider our Poisson Process from before. For example at a super market where on average 0.9 customers get in line at one of the checkout counters every minute. This fits our requirements for being a Poisson Process and so we expect the distribution of <span class="math notranslate nohighlight">\(N\)</span> the number of customers that get in line each minute to fit our Poisson distribution:</p>
+<div class="math notranslate nohighlight">
+\[ P(N= r) = \frac{0.9^r}{r!} e^{-0.9} \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">dpois</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="m">0.9</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/06-Gamma_and_beta_1_0.png" src="_images/06-Gamma_and_beta_1_0.png" />
+</div>
+</div>
+<div class="section" id="exponential-distribution">
+<h2>Exponential Distribution<a class="headerlink" href="#exponential-distribution" title="Permalink to this headline">¶</a></h2>
+<p>A rather obvious question then is: after a customer gets in line, how many minutes <span class="math notranslate nohighlight">\(Y\)</span> will it be before the next customer gets in line. What will the support of <span class="math notranslate nohighlight">\(Y\)</span> be? Let’s answer this for a general <span class="math notranslate nohighlight">\(\lambda\)</span> and then set <span class="math notranslate nohighlight">\(\lambda = 0.9\)</span>.</p>
+<p>To find a description for this distribution, lets consider what the cummulative distribution function looks like: Define <span class="math notranslate nohighlight">\(F(t) = P(Y\leq t) = \mbox{what is the probability that the next customer will appear within \)</span>t<span class="math notranslate nohighlight">\( minutes}\)</span></p>
+<div class="math notranslate nohighlight">
+\[ P(Y \leq t ) = 1 - P(Y &gt; t) \]</div>
+<p>We can think of <span class="math notranslate nohighlight">\(P(Y&gt;t)\)</span> as the probability that in the time interval <span class="math notranslate nohighlight">\([0, t]\)</span> the Poisson process has not had a single event happen (no customer has been in line). If t=1 this is just</p>
+<div class="math notranslate nohighlight">
+\[ P(Y &gt; 1) = P(N = 0) = e^{-\lambda} \]</div>
+<p>Then notice that</p>
+<div class="math notranslate nohighlight">
+\[ P(Y &gt; n) = P(N=0)^n = e^{-n \lambda) \]</div>
+<p>and from here its not hard to convince yourself that</p>
+<div class="math notranslate nohighlight">
+\[ P( Y &gt; t) = e^{-t \lambda} \]</div>
+<p>We could even change the units and measure <span class="math notranslate nohighlight">\(t\)</span> in seconds evne though <span class="math notranslate nohighlight">\(\lambda\)</span> is in customers/minute.
+Thus we have the CDF for our wait time until the first customer:</p>
+<div class="math notranslate nohighlight">
+\[ F(t) = P( Y \leq t ) = 1 - e^{-t \lambda} \]</div>
+<p>Differentiating this with respect to <span class="math notranslate nohighlight">\(t\)</span> we get the PDF:</p>
+<div class="math notranslate nohighlight">
+\[ f(t) = \lambda e^{-t \lambda} \]</div>
+<p>This is called the <strong>Exponential Distribution</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">t</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="m">5</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">dexp</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="m">0.9</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/06-Gamma_and_beta_3_0.png" src="_images/06-Gamma_and_beta_3_0.png" />
+</div>
+</div>
+<div class="section" id="expected-value-and-variance">
+<h3>Expected Value and Variance<a class="headerlink" href="#expected-value-and-variance" title="Permalink to this headline">¶</a></h3>
+<p>The exponential distribution is a joy to work with - integrals are easily found using techniques from Calculus 2. For example the expected value:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y) = \int_0^\infty t \lambda e^{-t\lambda) dt = \frac{1}{\lambda} \]</div>
+<p>Likewise:</p>
+<div class="math notranslate nohighlight">
+\[ V(Y) = E(Y^2) - \frac{1}{\lambda^2} \]</div>
+<p>With</p>
+<div class="math notranslate nohighlight">
+\[ E(Y^2) = \int_0^\infty t^2 \lambda e^{-t\lambda) dt = \frac{2}{\lambda^2} \]</div>
+<p>giving us</p>
+<div class="math notranslate nohighlight">
+\[ V(Y) = \frac{1}{\lambda^2} \]</div>
+</div>
+<div class="section" id="when-will-the-next-customer-arrive-95-of-the-time">
+<h3>When will the next customer arrive 95% of the time?<a class="headerlink" href="#when-will-the-next-customer-arrive-95-of-the-time" title="Permalink to this headline">¶</a></h3>
+<p>Find <span class="math notranslate nohighlight">\(a\)</span> such that <span class="math notranslate nohighlight">\(P(Y &lt; a) = 0.95\)</span>.</p>
+<p>The R command <em>qexp</em> gives the inverse exponential CDF. Using this we can find?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qexp</span><span class="p">(</span><span class="m">0.95</span><span class="p">,</span> <span class="m">0.9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3.32859141505999</div></div>
+</div>
+<p>We can check this result by putting it through the CDF function itself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pexp</span><span class="p">(</span><span class="m">3.3286</span><span class="p">,</span> <span class="m">0.9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.950000386320808</div></div>
+</div>
+</div>
+<div class="section" id="effect-of-lambda">
+<h3>Effect of <span class="math notranslate nohighlight">\(\lambda\)</span><a class="headerlink" href="#effect-of-lambda" title="Permalink to this headline">¶</a></h3>
+<p>As we increase <span class="math notranslate nohighlight">\(\lambda\)</span>, increasing the number of customers that arrive per minute, what should happen to the random variable <span class="math notranslate nohighlight">\(Y\)</span>?</p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
