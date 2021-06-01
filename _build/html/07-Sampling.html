@@ -279,6 +279,25 @@
   <a class="reference internal nav-link" href="#random-sampling">
    Random Sampling
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mean-of-the-sample">
+     Mean of the sample
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sample-from-a-normal-distribution">
+       Sample from a Normal Distribution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimum-of-the-sample">
+     Minimum of the sample
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -313,7 +332,7 @@
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>7</li><li>3</li><li>2</li><li>3</li><li>1</li></ol>
+<ol class=list-inline><li>3</li><li>2</li><li>2</li><li>1</li><li>0</li></ol>
 </div></div>
 </div>
 <p>Some questions:</p>
@@ -329,7 +348,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">2.255</div></div>
+<div class="output text_html">2.14</div></div>
 </div>
 <p>Suppose we were to treat the mean of the sample <span class="math notranslate nohighlight">\(\bar{Y}\)</span> as a random variable itself. Fix the size of the sample and see what we get if we run the experiment many times, what shape do you see in the histogram for values of <span class="math notranslate nohighlight">\(\bar{Y}\)</span> and what happens to that shape as the size of the sample is then increased?</p>
 <div class="section" id="sampling">
@@ -452,6 +471,45 @@
 <p>If the <span class="math notranslate nohighlight">\(Y_i\)</span> are continuous with PDF <span class="math notranslate nohighlight">\(f(x)\)</span> then:</p>
 <div class="math notranslate nohighlight">
 \[ f(x_1, x_2, \dots, x_n) = f(x_1) f(x_2) \dots f(x_n)\]</div>
+<p>We can then answer questions like:</p>
+<div class="section" id="mean-of-the-sample">
+<h3>Mean of the sample<a class="headerlink" href="#mean-of-the-sample" title="Permalink to this headline">¶</a></h3>
+<p>The mean of the sample is given by:</p>
+<div class="math notranslate nohighlight">
+\[ \bar{Y} = \frac{1}{n} Y_1 + \frac{1}{n} Y_2 + \dots + \frac{1}{n} Y_n \]</div>
+<p>Suppose we are in the continuous case, and we want to know what the distribution of <span class="math notranslate nohighlight">\(\bar{Y}\)</span> is?</p>
+<p>Well its the same trick we have used over-and-over, we compute the CDF and then differentiate:</p>
+<div class="math notranslate nohighlight">
+\[ F(x) = P( \bar{Y} &lt; x ) = \iint \dots \int_{x_1 + x_2 + \dots + x_n \leq n x} f(x_1) f(x_2) \dots f(x_n) dx_1 dx_2 \dots dx_n \]</div>
+<p>Okay so there is not much to do unless we have an explicit value for the PDF, and even then it is likely to get hairy quickly. However two points (a) it is exaclty a problem that a symbolic computer system is good at, and (b) it should not be surprising that we can compute with this.</p>
+<p>We will do one example:</p>
+<div class="section" id="sample-from-a-normal-distribution">
+<h4>Sample from a Normal Distribution<a class="headerlink" href="#sample-from-a-normal-distribution" title="Permalink to this headline">¶</a></h4>
+<p>Let <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> be random samples from the Standard Normal distribution ( the normal distribution with mean 0 and variance 1).</p>
+<p>The PDF for each is:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2} \]</div>
+<p>If the mean of the sample is then <span class="math notranslate nohighlight">\(\bar{Y} = \frac12 Y_1 + \frac12 Y_2 \)</span> then the CDF for the mean is:</p>
+<div class="math notranslate nohighlight">
+\[ F(x) = \iint_{x_1 + x_2 &lt; 2 x} \frac{1}{2\pi} e^{-x_1^2 - x_2^2} dx_1 dx_2 \]</div>
+<p>We can set up this itereated integral by fixing an <span class="math notranslate nohighlight">\(x_1\)</span> and then integrating over all <span class="math notranslate nohighlight">\(x_2\)</span> values such that the inequality holds, and then integrating over all possible <span class="math notranslate nohighlight">\(x_1\)</span> values:</p>
+<div class="math notranslate nohighlight">
+\[ F(x) = \frac{1}{2\pi} \int_{-\infty}^\infty dx_1 e^{-x_1^2} \int_{-\infty}^{2x - x_1} dx_2 e^{-x_2^2} \]</div>
+<p>Of course we don’t actually care what this is, because what we want to do is differentiate it to get the PDF. Notice that the <span class="math notranslate nohighlight">\(x\)</span> dependence is confined to just one bound on the iterated integral. We get:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{dF}{dx} = \frac{1}{\pi} \int_{-\infty}^\infty dx_1 e^{-x_1^2} e^{-(2x - x_1)^2} = \frac{1}{\pi} \int_{-\infty}^\infty dx_1 e^{-4x^2 + 4x x_1 - 2x_1^2} \]</div>
+<p>If we complete the square in the exponent we get:</p>
+<div class="math notranslate nohighlight">
+\[ - 2( x_1^2 - 2 x x_1) - 4 x^2 = - 2 ( x_1 -x)^2 - 2 x^2 \]</div>
+<p>Then the integral is just the normalizing constant for a normal random variable with variance <span class="math notranslate nohighlight">\(\sigma^2 = 1/2\)</span> and mean <span class="math notranslate nohighlight">\(\mu = x\)</span> and so it gives <span class="math notranslate nohighlight">\(\sqrt{\pi}\)</span>. Therefore we have</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{1}{\sqrt{pi}} e^{- 2 x^2} \]</div>
+<p>Which is the PDF for a normal distribution with mean 0 and a variance of <span class="math notranslate nohighlight">\(1/2\)</span>.</p>
+</div>
+</div>
+<div class="section" id="minimum-of-the-sample">
+<h3>Minimum of the sample<a class="headerlink" href="#minimum-of-the-sample" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
