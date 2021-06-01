@@ -234,6 +234,18 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gamma-distribution">
+   Gamma Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-gamma-distribution">
+     General Gamma Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -278,11 +290,12 @@
 \[ P(Y &gt; 1) = P(N = 0) = e^{-\lambda} \]</div>
 <p>Then notice that</p>
 <div class="math notranslate nohighlight">
-\[ P(Y &gt; n) = P(N=0)^n = e^{-n \lambda) \]</div>
+\[ P(Y &gt; n) = P(N=0)^n = e^{-n \lambda} \]</div>
+<p>i.e. for n time units the Poisson process has not had a single success.</p>
 <p>and from here its not hard to convince yourself that</p>
 <div class="math notranslate nohighlight">
 \[ P( Y &gt; t) = e^{-t \lambda} \]</div>
-<p>We could even change the units and measure <span class="math notranslate nohighlight">\(t\)</span> in seconds evne though <span class="math notranslate nohighlight">\(\lambda\)</span> is in customers/minute.
+<p>We could even change the units and measure <span class="math notranslate nohighlight">\(t\)</span> in seconds even though <span class="math notranslate nohighlight">\(\lambda\)</span> is in customers/minute by just scaling the <span class="math notranslate nohighlight">\(\lambda\)</span> by <span class="math notranslate nohighlight">\(1/60\)</span> minutes/second.
 Thus we have the CDF for our wait time until the first customer:</p>
 <div class="math notranslate nohighlight">
 \[ F(t) = P( Y \leq t ) = 1 - e^{-t \lambda} \]</div>
@@ -345,6 +358,56 @@ Thus we have the CDF for our wait time until the first customer:</p>
 <div class="section" id="effect-of-lambda">
 <h3>Effect of <span class="math notranslate nohighlight">\(\lambda\)</span><a class="headerlink" href="#effect-of-lambda" title="Permalink to this headline">¶</a></h3>
 <p>As we increase <span class="math notranslate nohighlight">\(\lambda\)</span>, increasing the number of customers that arrive per minute, what should happen to the random variable <span class="math notranslate nohighlight">\(Y\)</span>?</p>
+</div>
+</div>
+<div class="section" id="gamma-distribution">
+<h2>Gamma Distribution<a class="headerlink" href="#gamma-distribution" title="Permalink to this headline">¶</a></h2>
+<p>Consider now the weight time for more two customers to get in line. As above the best way to compute this is to work from the CDF:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y_2 \leq t) = \mbox{The likliehood that we need to wait t or fewer minutes before two customers have arrived.} \]</div>
+<p>As above, this is easiest to compute by finding the complement:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y_2 \leq t) = 1 - P(Y_2 &gt; t) \]</div>
+<p>and then we are asking how liklie is it that in t seconds we have not had two or more events from our Poisson process:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y_2 &gt; t) = e^{-\lambda t} + \frac{(\lambda t)^1 e^{-\lambda t}}{1!} \]</div>
+<p>Differentiating our CDF then gives the PDF:</p>
+<div class="math notranslate nohighlight">
+\[ f(t) = \lambda e^{-\lambda t} - \lambda e^{-\lambda t} + \lambda^2 t e^{-\lambda t} = \lambda^2 t e^{-\lambda t} \]</div>
+<p>In general the time until <span class="math notranslate nohighlight">\(k\)</span> customers have arrived will have a PDF given by:</p>
+<div class="math notranslate nohighlight">
+\[ f(t) = \frac{t^{k-1} \lambda^k e^{-\lambda t}}{(k-1)!} \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">lambda</span> <span class="o">&lt;-</span> <span class="m">0.9</span>
+<span class="n">k</span> <span class="o">&lt;-</span> <span class="m">2</span>
+<span class="n">t</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="m">5</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">dgamma</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">lambda</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">k</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/06-Gamma_and_beta_10_0.png" src="_images/06-Gamma_and_beta_10_0.png" />
+</div>
+</div>
+<p>Note we specify the names of the parameters when we call <em>dgamma</em> this is because with two parameters it is easy to get the order backwards. If you set <span class="math notranslate nohighlight">\(k = 1\)</span> you get back the exponential distribution so this formula is just a direct generalization of that distribution.</p>
+<div class="section" id="general-gamma-distribution">
+<h3>General Gamma Distribution<a class="headerlink" href="#general-gamma-distribution" title="Permalink to this headline">¶</a></h3>
+<p>More generally the gamma distribution is defined by the PDF:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{\beta^\alpha x^{\alpha - 1} e^{-\beta x} }{\Gamma(\alpha)} \]</div>
+<p>Where <span class="math notranslate nohighlight">\(\Gamma\)</span> is defined by:</p>
+<div class="math notranslate nohighlight">
+\[ \Gamma(\alpha) = \int_0^\infty x^{\alpha - 1} e^{-x} dx \]</div>
+<p>The Gamma Function is quite famous: <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_function">https://en.wikipedia.org/wiki/Gamma_function</a></p>
+<p>However for our purposes you should think of it as doing two things:</p>
+<ul class="simple">
+<li><p>It is precisely the constant needed so that the total mass of <span class="math notranslate nohighlight">\(f(x)\)</span> is 1.</p></li>
+<li><p>When <span class="math notranslate nohighlight">\(\alpha\)</span> is a positive integer:
+$<span class="math notranslate nohighlight">\( \Gamma(\alpha) = (\alpha - 1)! \)</span>$</p></li>
+</ul>
 </div>
 </div>
 </div>
