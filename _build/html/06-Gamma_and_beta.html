@@ -271,6 +271,11 @@
      Variance
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#back-to-our-example">
+     Back to our example
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -545,6 +550,33 @@ $<span class="math notranslate nohighlight">\( \Gamma(\alpha) = (\alpha - 1)! \)
 <div class="math notranslate nohighlight">
 \[ V(Y) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1) } \]</div>
 <p>You can check this with mathematica or something else.</p>
+</div>
+<div class="section" id="back-to-our-example">
+<h3>Back to our example<a class="headerlink" href="#back-to-our-example" title="Permalink to this headline">¶</a></h3>
+<p>So suppose our website in the first day it was running had <span class="math notranslate nohighlight">\(100\)</span> visitors that were converted into a sale, and <span class="math notranslate nohighlight">\(3000\)</span> visitors that did not make a sale. From this informatin alone we are 90% confident the value of <span class="math notranslate nohighlight">\(Y\)</span> the probability that a visitor to our website will make a purchase is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="m">100+1</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="m">3000</span> <span class="m">+1</span>
+<span class="nf">qbeta</span><span class="p">(</span><span class="m">0.90</span><span class="p">,</span> <span class="n">shape1</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">shape2</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.0367023662836432</div></div>
+</div>
+<p>3.67% or less.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">100</span><span class="o">/</span><span class="m">3000</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.0333333333333333</div></div>
+</div>
+<p>Why is this result not exactly 3.33%?  It is taking into account randomness in the proportion, or if you flip your thinking, given a proportion <span class="math notranslate nohighlight">\(p\)</span> the observed values were the result of a random experiment.</p>
+<p>We will return to this example later when we ask the question what can we do with additional data?</p>
 </div>
 </div>
 </div>

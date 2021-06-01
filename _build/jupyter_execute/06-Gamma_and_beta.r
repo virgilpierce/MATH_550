@@ -40,4 +40,10 @@ plot(t, v, type='l')
 v <- pbeta(t, shape1=alpha, shape2 = beta)
 plot(t, v, type='l')
 
+alpha = 100+1
+beta = 3000 +1
+qbeta(0.90, shape1=alpha, shape2=beta)
+
+100/3000
+
 
