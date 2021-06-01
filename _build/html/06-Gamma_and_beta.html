@@ -244,6 +244,33 @@
      General Gamma Distribution
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expected-value">
+     Expected Value
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variance">
+     Variance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-beta-distribution">
+   The Beta Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Expected Value
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Variance
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -397,17 +424,127 @@ Thus we have the CDF for our wait time until the first customer:</p>
 <h3>General Gamma Distribution<a class="headerlink" href="#general-gamma-distribution" title="Permalink to this headline">¶</a></h3>
 <p>More generally the gamma distribution is defined by the PDF:</p>
 <div class="math notranslate nohighlight">
-\[ f(x) = \frac{\beta^\alpha x^{\alpha - 1} e^{-\beta x} }{\Gamma(\alpha)} \]</div>
+\[ f(x) = \frac{x^{\alpha - 1} e^{-x/\beta} }{\beta^{\alpha} \Gamma(\alpha)} \]</div>
 <p>Where <span class="math notranslate nohighlight">\(\Gamma\)</span> is defined by:</p>
 <div class="math notranslate nohighlight">
 \[ \Gamma(\alpha) = \int_0^\infty x^{\alpha - 1} e^{-x} dx \]</div>
 <p>The Gamma Function is quite famous: <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_function">https://en.wikipedia.org/wiki/Gamma_function</a></p>
 <p>However for our purposes you should think of it as doing two things:</p>
 <ul class="simple">
-<li><p>It is precisely the constant needed so that the total mass of <span class="math notranslate nohighlight">\(f(x)\)</span> is 1.</p></li>
+<li><p>Together with <span class="math notranslate nohighlight">\(\beta^\alpha\)</span> it gives precisely the constant needed so that the total mass of <span class="math notranslate nohighlight">\(f(x)\)</span> is 1.</p></li>
 <li><p>When <span class="math notranslate nohighlight">\(\alpha\)</span> is a positive integer:
 $<span class="math notranslate nohighlight">\( \Gamma(\alpha) = (\alpha - 1)! \)</span>$</p></li>
 </ul>
+<p>Play with the parameters a bit in the graphs of the PDF and CDF to see what the effect on the shape is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that 1/\beta is the rate from above; in this case then $\beta$ is called the scale</span>
+
+<span class="n">n</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">beta</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">/</span><span class="m">0.9</span>
+<span class="n">alpha</span> <span class="o">&lt;-</span> <span class="m">2</span>
+<span class="n">t</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="m">5</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">dgamma</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">beta</span><span class="p">,</span> <span class="n">shape</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/06-Gamma_and_beta_12_0.png" src="_images/06-Gamma_and_beta_12_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">pgamma</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">beta</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/06-Gamma_and_beta_13_0.png" src="_images/06-Gamma_and_beta_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="expected-value">
+<h3>Expected Value<a class="headerlink" href="#expected-value" title="Permalink to this headline">¶</a></h3>
+<p>We can compute the expected value of a random variable satisfying the Gamma Distribution with parameters <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y) = \int_0^\infty x f(x) dx = \int_0^\infty x^\alpha e^{-x/\beta} \frac{dx}{\beta^\alpha \Gamma(\alpha) } \]</div>
+<p>This is an interesting one as the variable part of the integrand has the form of another Gamma distribution this time with parameters <span class="math notranslate nohighlight">\(\alpha+1 \)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> therefore, accepted that the normalizing constant is correct we get:</p>
+<div class="math notranslate nohighlight">
+\[ E(Y) = \frac{\beta^{\alpha+1} \Gamma(\alpha+1)}{ \beta^\alpha \Gamma(\alpha)} = \alpha \beta \]</div>
+<p>Where we have used the identity:</p>
+<div class="math notranslate nohighlight">
+\[ \Gamma(\alpha +1) = \alpha \Gamma(\alpha) \]</div>
+<p>that can be shown with integration by parts.</p>
+</div>
+<div class="section" id="variance">
+<h3>Variance<a class="headerlink" href="#variance" title="Permalink to this headline">¶</a></h3>
+<p>We find the variance similarly by</p>
+<div class="math notranslate nohighlight">
+\[ E(Y^2) = \frac{\beta^{\alpha+2} \Gamma(\alpha+2) }{ \beta^\alpha \Gamma(\alpha) } = \alpha(\alpha+1) \beta^2 \]</div>
+<p>Some algebra then gives:</p>
+<div class="math notranslate nohighlight">
+\[ V(Y) = \alpha \beta^2 \]</div>
+</div>
+</div>
+<div class="section" id="the-beta-distribution">
+<h2>The Beta Distribution<a class="headerlink" href="#the-beta-distribution" title="Permalink to this headline">¶</a></h2>
+<p>Our final named distribution is the <span class="math notranslate nohighlight">\(\beta\)</span> distribution. To motivate this distribution we return to our binomial distribution:  Suppose that we are running a webiste and find <span class="math notranslate nohighlight">\(k\)</span> visitors who make a purchase and <span class="math notranslate nohighlight">\(\ell\)</span> visitors who do not. We have an unkown probability <span class="math notranslate nohighlight">\(p\)</span> that a visitor to the website makes a purchase. If you use the logic of our binomial distribution the likliehood of this outcome is then:</p>
+<div class="math notranslate nohighlight">
+\[ p^k (1-p)^\ell \]</div>
+<p>For the binomial distribution we would consider <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(\ell\)</span> to be the random variables (well more properly <span class="math notranslate nohighlight">\(k\)</span> to be the random variable and <span class="math notranslate nohighlight">\(k+\ell\)</span> to be a parameter.</p>
+<p>Suppose though that we flip our thinking on this problem and consider <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(\ell\)</span> to be the parameters and <span class="math notranslate nohighlight">\(p\)</span> to be the random variable. After all we do not know what <span class="math notranslate nohighlight">\(p\)</span> is and one way to deal with things we do not know is to think of them as random with some probability distribution. Formally, let’s change variables to signify our change in thinking: <span class="math notranslate nohighlight">\(Y\)</span> is the probability that our website converts a visitor into a sale. Note that the support of <span class="math notranslate nohighlight">\(Y\)</span> must be <span class="math notranslate nohighlight">\([0, 1]\)</span> because it is a probability (or proportion). It’s PDF is then:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \frac{ x^{\alpha-1} (1-x)^{\beta-1} }{B(\alpha, \beta)} \]</div>
+<p>for <span class="math notranslate nohighlight">\(x\in [0,1]\)</span>, where</p>
+<div class="math notranslate nohighlight">
+\[ B(\alpha, \beta) = \frac{\Gamma(\alpha) \Gamma(\beta)}{\Gamma(\alpha + \beta)} \]</div>
+<p>Where <span class="math notranslate nohighlight">\(B\)</span> is just chosen so that the total mass of <span class="math notranslate nohighlight">\(f(x)\)</span> is 1. <span class="math notranslate nohighlight">\(\alpha-1\)</span> and <span class="math notranslate nohighlight">\(\beta-1\)</span> are playing the role of the number of success and the number of failures we have. Though more generally we would now think of them as parameters for the distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">500</span>
+<span class="n">beta</span> <span class="o">&lt;-</span> <span class="m">4</span>
+<span class="n">alpha</span> <span class="o">&lt;-</span> <span class="m">2</span>
+<span class="n">t</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="n">n</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">dbeta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">shape1</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">shape2</span> <span class="o">=</span> <span class="n">beta</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/06-Gamma_and_beta_16_0.png" src="_images/06-Gamma_and_beta_16_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">pbeta</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">shape1</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">shape2</span> <span class="o">=</span> <span class="n">beta</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/06-Gamma_and_beta_17_0.png" src="_images/06-Gamma_and_beta_17_0.png" />
+</div>
+</div>
+<p>Observe that the affect of <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> are to adjust the likliehood that <span class="math notranslate nohighlight">\(Y\)</span> is near 0 or 1 respectively.</p>
+<p>The PDF for this distribution is just a polynomial (granted with a complicated normalizing factor) and so it is particularly nice to work with because the integrals can be computed exactly.</p>
+<div class="section" id="id1">
+<h3>Expected Value<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[ E(Y) = \int_0^1 x f(x) dx = \int_0^1 x^\alpha (1-x)^{\beta -1} \frac{dx}{B} = \frac{\alpha}{\alpha + \beta} \]</div>
+</div>
+<div class="section" id="id2">
+<h3>Variance<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[ V(Y) = E(Y^2) - \frac{\alpha^2}{(\alpha + \beta)^2 } \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[ E(Y^2) = \int_0^1 x^{\alpha + 1} (1-x)^{\beta -1} \frac{dx}{B} \]</div>
+<p>Okay. So I’ll be honest. I would send this one through a symbolic algorithm unless I was doing it with numerical values of <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span>.  In general we get:</p>
+<div class="math notranslate nohighlight">
+\[ V(Y) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1) } \]</div>
+<p>You can check this with mathematica or something else.</p>
 </div>
 </div>
 </div>
