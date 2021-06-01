@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; MATH 550 - Applied Probability and Statistics</title>
+    <title>Sampling from Distributions &#8212; MATH 550 - Applied Probability and Statistics</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,6 +54,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Class Schedule and Activities" href="99-Apendices.html" />
+    <link rel="prev" title="Gamma and Beta Distributions" href="06-Gamma_and_beta.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -88,7 +90,7 @@
   </a>
  </li>
 </ul>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="02-What_is_Stats.html">
    What is Statistics?
@@ -112,6 +114,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="06-Gamma_and_beta.html">
    Gamma and Beta Distributions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Sampling from Distributions
   </a>
  </li>
  <li class="toctree-l1">
@@ -206,7 +213,73 @@
                 <i class="fas fa-list"></i> Contents
             </div>
             <nav id="bd-toc-nav">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling">
+   Sampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multivariate-distributions">
+   Multivariate Distributions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#marginal-probability">
+     Marginal Probability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditional-probability">
+     Conditional Probability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#idependent-random-variables">
+     Idependent Random Variables
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example">
+       Example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-2">
+       Example 2
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation-and-covariance">
+   Correlation and Covariance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algebra">
+     Algebra
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-combinations-of-independent-random-variables">
+     Linear Combinations of Independent Random Variables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#random-sampling">
+   Random Sampling
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -218,7 +291,170 @@
         
               <div>
                 
-  
+  <div class="section" id="sampling-from-distributions">
+<h1>Sampling from Distributions<a class="headerlink" href="#sampling-from-distributions" title="Permalink to this headline">¶</a></h1>
+<p>Let us start by recapping where we are:  We have met both generic and some particular <em>named</em> distributions that model situations, and in the case of <em>named</em> distributions that have sufficient structure or symmetry that we can compute with them.</p>
+<p>A couple of problems then confront us:  In reality we rarely know the distribution or we may know the <em>type</em> of distribution but not the exact parameters for a random variable, and our only way to gather information about the distribution is to sample from it.</p>
+<p>An analogy:  We are trying to identify a movie. Maybe we know it is a spy thriller. But otherwise all we have are some still images from it. How many images would we need to identify the movie?</p>
+<p>We will take class to sample from our <em>named</em> distributions and see what happens. I’ll give one example here to illustrate the method:  Consider a shopping center where on average 2 customers arrive at the chashiers every minute. The number of customers <span class="math notranslate nohighlight">\(Y\)</span> that will arrive at the chasiers in a minute is then a random variable given by the Poisson distribution:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y=x) = \frac{2^r}{r!} e^{-2} \]</div>
+<p>Suppose we measure the number of customers arriving each minute for 5 minutes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="nf">rpois</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<span class="n">sample</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>7</li><li>3</li><li>2</li><li>3</li><li>1</li></ol>
+</div></div>
+</div>
+<p>Some questions:</p>
+<ul class="simple">
+<li><p>What is the mean number of customers in our sample?</p></li>
+<li><p>What do we get as we increase the size of the sample?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="nf">rpois</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2.255</div></div>
+</div>
+<p>Suppose we were to treat the mean of the sample <span class="math notranslate nohighlight">\(\bar{Y}\)</span> as a random variable itself. Fix the size of the sample and see what we get if we run the experiment many times, what shape do you see in the histogram for values of <span class="math notranslate nohighlight">\(\bar{Y}\)</span> and what happens to that shape as the size of the sample is then increased?</p>
+<div class="section" id="sampling">
+<h2>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h2>
+<p>Run the experiment above with a variety of our named distributions including the normal distribution. What is happening?  Can you develop a hypothesis?</p>
+</div>
+<div class="section" id="multivariate-distributions">
+<h2>Multivariate Distributions<a class="headerlink" href="#multivariate-distributions" title="Permalink to this headline">¶</a></h2>
+<p>In an effort to make our hypothesis we have develop precise, we need to build up some langauge for modeling this situation.</p>
+<p>A <em>multivariate distribution</em> is defined to be a distribution on multiple random variables describing the likliehood that values of them will come together. Explicitly given a set of discrete random variables <span class="math notranslate nohighlight">\(Y_1, Y_2, \dots, Y_n\)</span> we can define their joint probability distribution by:  <span class="math notranslate nohighlight">\(P(Y_1 = x_1, Y_2 = x_2, \dots, Y_n = x_n) \)</span> to be the probability that each of the <span class="math notranslate nohighlight">\(Y\)</span>s has the given value.</p>
+<p>In the continuous case, we need to proceed as we did before:  We define the joint cummulative distribution by:</p>
+<div class="math notranslate nohighlight">
+\[ F(x_1, x_2, \dots, x_n) = P( Y_1 \leq x_1, Y_2 \leq x_2, \dots, Y_n \leq x_n) \]</div>
+<p>and then the joint probability density function is given by:</p>
+<div class="math notranslate nohighlight">
+\[ f(x_1, x_2, \dots, x_n) = \frac{\partial^n F}{\partial x_1 \partial x_2 \dots \partial x_n\]</div>
+<p>Again do not fall for the trap of thinking about the density as the distribution:  the values of <span class="math notranslate nohighlight">\(f\)</span> do not give the likliehood of a particular outcome.</p>
+<div class="section" id="marginal-probability">
+<h3>Marginal Probability<a class="headerlink" href="#marginal-probability" title="Permalink to this headline">¶</a></h3>
+<p>Given two discrete random variables <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span>: we define the marginal probability of <span class="math notranslate nohighlight">\(Y_1\)</span> to be the total likliehood that <span class="math notranslate nohighlight">\(Y_1\)</span> occurs.</p>
+<div class="math notranslate nohighlight">
+\[ P(Y_1 = x_1) = \sum_{x_2} P(Y_1 = x_1, Y_2 = x_2) \]</div>
+<p>In the continuous case the marginal PDF for <span class="math notranslate nohighlight">\(Y_1\)</span> is found by:</p>
+<div class="math notranslate nohighlight">
+\[ f_1(x_1) = \int f(x_1, x_2) dx_2 \]</div>
+</div>
+<div class="section" id="conditional-probability">
+<h3>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h3>
+<p>Consider two discrete random variables: We define the conditional probability <span class="math notranslate nohighlight">\(P(Y_1=x_1 | Y_2 = x_2)\)</span>, the probability that <span class="math notranslate nohighlight">\(Y_1 = x_1\)</span> given that we have observed that <span class="math notranslate nohighlight">\(Y_2 = x_2\)</span>. This can be compute by recognizing that the likliehood of <span class="math notranslate nohighlight">\(Y_1\)</span> occuring given a value for <span class="math notranslate nohighlight">\(Y_2\)</span> is the likliehood that both values occured randomly divided by the marginal probablity of <span class="math notranslate nohighlight">\(Y_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y_1 = x_1 | Y_2 = x_2) = \frac{P(Y_1 =x_1, Y_2 = x_2)}{P(Y_2 = x_2)}\]</div>
+<p>In other words the conditional probability given <span class="math notranslate nohighlight">\(Y_2=x_2\)</span> is the proportion of the time that <span class="math notranslate nohighlight">\(Y_1=x_1\)</span> occured out of all cases where <span class="math notranslate nohighlight">\(Y_2 = x_2\)</span> occured.</p>
+<p>In the continuous case, the conditional PDF is found by:</p>
+<div class="math notranslate nohighlight">
+\[ f(x_1 | x_2) = \frac{f(x_1, x_2)}{ f_2(x_2) } \]</div>
+</div>
+<div class="section" id="idependent-random-variables">
+<h3>Idependent Random Variables<a class="headerlink" href="#idependent-random-variables" title="Permalink to this headline">¶</a></h3>
+<p>Consider the case of two discrete random varialbes with distribution <span class="math notranslate nohighlight">\(P(Y_1 = x_1, Y_2 = x_2)\)</span>. The two variables are independent if the likliehood of them both occuring is just the product of each one indvididually occuring (the marginal probabilities of each):</p>
+<div class="math notranslate nohighlight">
+\[ P(Y_1 = x_1, Y_2 = x_2) = P(Y_1 = x_1) P(Y_2 = x_2) \]</div>
+<p>equivalently what we are saying is that the variables are independent if conditioning by one of them just gives the marginal likliehood:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y_1 = x_1 | Y_2 = x_2) = P(Y_1 = x_1) \]</div>
+<p>In the continuous case, indepdent random variables have a joint PDF that is just a product of marginal PDFs:</p>
+<div class="math notranslate nohighlight">
+\[ f(x_1, x_2) = f_1(x_1) f_2(x_2) \]</div>
+<p>or in terms of the conditional PDF we will have:</p>
+<div class="math notranslate nohighlight">
+\[ f(x_1 | x_2) = f_1(x_1) \]</div>
+<p>Again the idea is that if the variables are independent, knowing the value we got for one of them should not change our probability density of the other one.</p>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Find the constant <span class="math notranslate nohighlight">\(c\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} f(x_1, x_2) = \left\{ \begin{matrix} C x_1 x_2 &amp; 0 \leq x_1, x_2 \leq 1 \\ 0 &amp; \mbox{otherwise} \end{matrix} \right. \end{split}\]</div>
+<p>is a valid PDF. Are <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> indepdent?</p>
+</div>
+<div class="section" id="example-2">
+<h4>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h4>
+<p>Find the constant <span class="math notranslate nohighlight">\(c\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} f(x_1, x_2) = \left\{ \begin{matrix} C x_1 x_2 &amp; 0 \leq x_1 &lt; x_2 \leq 1 \\ 0 &amp; \mbox{otherwise} \end{matrix} \right. \end{split}\]</div>
+<p>is a valid PDF. Are <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> indepdent?</p>
+<p>Reminder:  You can use wolfram alpha to compute the integral, but you may need to think about how to set it up correctly. You could determine independence/dependence without actually doing the integral if you appeal to the meaning of the definitions above.</p>
+</div>
+</div>
+</div>
+<div class="section" id="correlation-and-covariance">
+<h2>Correlation and Covariance<a class="headerlink" href="#correlation-and-covariance" title="Permalink to this headline">¶</a></h2>
+<p>Given a pair of jointly distributed continuous random variables <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> one measure of their dependence is to ask how far they jointly move from the means. Let</p>
+<div class="math notranslate nohighlight">
+\[ \mu_1 = E(Y_1) \qquad \mbox{and} \qquad \mu_2 = E(Y_2) \]</div>
+<p>we have the variances</p>
+<div class="math notranslate nohighlight">
+\[ \sigma_1^2 = E( (Y_1 - \mu_1)^2) \qquad \mbox{and} \qquad \sigma_2^2 = E( (Y_2 - \mu_2)^2 ) \]</div>
+<p>which again measure the extent to which <span class="math notranslate nohighlight">\(Y_1\)</span> (resp. <span class="math notranslate nohighlight">\(Y_2\)</span>) is likely to be far from its mean.</p>
+<p>However, it is also interesting to ask how far <span class="math notranslate nohighlight">\(Y_1\)</span> will stray from its mean while <span class="math notranslate nohighlight">\(Y_2\)</span> is simmultaneously measured from its mean. We defin the covariance of <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> to be</p>
+<div class="math notranslate nohighlight">
+\[ \mbox{Cov}(Y_1, Y_2) = E( (Y_1 - \mu_1) (Y_2 - \mu_2) ) \]</div>
+<p>Note that if <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> are independent then</p>
+<div class="math notranslate nohighlight">
+\[ \mbox{Cov}(Y_1, Y_2) = E( (Y_1 -\mu_1) ) E( (Y_2 - \mu_2) ) = 0 \cdot 0 = 0 \]</div>
+<p>The units of <span class="math notranslate nohighlight">\(\mbox{Cov}(Y_1, Y_2)\)</span> are the products of the two units. Which means that this is not an absolute measure of the correlations between two varaibles; for example if one of the variables has a large variance it will mean a larger covariance even if the correlation is weak. We can get something that is unitless by dividing this by the square root of the product of variances. The <em>coefficient of correlation</em> is iven by</p>
+<div class="math notranslate nohighlight">
+\[ \rho = \frac{\mbox{Cov}(Y_1, Y_2)}{\sqrt{ V(Y_1) V(Y_2) }}  \]</div>
+<div class="section" id="algebra">
+<h3>Algebra<a class="headerlink" href="#algebra" title="Permalink to this headline">¶</a></h3>
+<p>Some algebra of the expected values gives:</p>
+<div class="math notranslate nohighlight">
+\[ \mbox{Cov}(Y_1, Y_2) = E( Y_1 Y_2) - E(Y_1) E(Y_2) \]</div>
+<p>and so one way to think about covariance is that it is measuring how far the expected value of the product varies from what it would be if the variables were not correlated.</p>
+</div>
+<div class="section" id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Be careful no correlation does not imply indepdence. Consider the joint density:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} f(x_1, x_2) = \left\{ \begin{matrix} C &amp; -1 &lt; x_1 &lt; 0; \qquad 0 &lt; x_2 &lt; 1 + x_1 \\ C &amp; 0 &lt; x_1 &lt; 1; \qquad 0 &lt; x_2 &lt; 1-x_1 \\ 0 &amp; \mbox{otherwise} \end{matrix} \right. \end{split}\]</div>
+<p>Show that <span class="math notranslate nohighlight">\(\mbox{Cov}(Y_1, Y_2) = 0\)</span> but that <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> are dependent.</p>
+</div>
+<div class="section" id="linear-combinations-of-independent-random-variables">
+<h3>Linear Combinations of Independent Random Variables<a class="headerlink" href="#linear-combinations-of-independent-random-variables" title="Permalink to this headline">¶</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(Y_1, \dots, Y_n\)</span> are independent random variables with <span class="math notranslate nohighlight">\(E(Y_i) = \mu_i\)</span> and <span class="math notranslate nohighlight">\(V(Y_i) = \sigma_i\)</span>. Let <span class="math notranslate nohighlight">\(U = \sum a_i Y_i \)</span> and <span class="math notranslate nohighlight">\(V = \sum b_i Y_i\)</span> for some coefficients <span class="math notranslate nohighlight">\(a_i\)</span> and <span class="math notranslate nohighlight">\(b_i\)</span>. What can you say about</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\( E(U)\)</span> and <span class="math notranslate nohighlight">\(E(V)\)</span>?</p></li>
+<li><p><span class="math notranslate nohighlight">\( V(U)\)</span> and <span class="math notranslate nohighlight">\(V(V)\)</span>?</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mbox{Cov}(U, V)\)</span>?</p></li>
+<li><p>when will <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> have no correlation?</p></li>
+<li><p>when will <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> be independent?</p></li>
+<li><p>when will <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> have no correlation but be dependent?</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="random-sampling">
+<h2>Random Sampling<a class="headerlink" href="#random-sampling" title="Permalink to this headline">¶</a></h2>
+<p>This then brings us back to our sampling question. We can think of a random sample from a distribution, <span class="math notranslate nohighlight">\(Y_1, Y_2, \dots, Y_n\)</span> as a multivariate distribution of independent identically distributed random variables.</p>
+<p>If the <span class="math notranslate nohighlight">\(Y_i\)</span> are discrete with distribution <span class="math notranslate nohighlight">\(P(Y = x) = p(x)\)</span> then:</p>
+<div class="math notranslate nohighlight">
+\[ P(Y_1 = x_1, Y_2 = x_2, \dots, Y_n = x_n) = p(x_1) p(x_2) \dots p(x_n) \]</div>
+<p>If the <span class="math notranslate nohighlight">\(Y_i\)</span> are continuous with PDF <span class="math notranslate nohighlight">\(f(x)\)</span> then:</p>
+<div class="math notranslate nohighlight">
+\[ f(x_1, x_2, \dots, x_n) = f(x_1) f(x_2) \dots f(x_n)\]</div>
+</div>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -244,6 +480,8 @@
         
         <div class='prev-next-bottom'>
             
+    <a class='left-prev' id="prev-link" href="06-Gamma_and_beta.html" title="previous page">Gamma and Beta Distributions</a>
+    <a class='right-next' id="next-link" href="99-Apendices.html" title="next page">Class Schedule and Activities</a>
 
         </div>
         
