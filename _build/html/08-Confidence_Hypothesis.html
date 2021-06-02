@@ -278,13 +278,13 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#t-distributions">
-       T-Distributions
+      <a class="reference internal nav-link" href="#chi-squared-distributions">
+       Chi-squared Distributions
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#chi-squared-distributions">
-       Chi-squared Distributions
+      <a class="reference internal nav-link" href="#t-distributions">
+       t-Distributions
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -392,14 +392,114 @@ $<span class="math notranslate nohighlight">\( MSE(\hat{\theta}) = E( (\hat{\the
 <div class="math notranslate nohighlight">
 \[ \sqrt{ \frac{p_1 (1-p_1)}{n_1} + \frac{ p_2 (1-p_2) }{n_2 } } \]</div>
 </div>
-<div class="section" id="t-distributions">
-<h4>T-Distributions<a class="headerlink" href="#t-distributions" title="Permalink to this headline">¶</a></h4>
-</div>
 <div class="section" id="chi-squared-distributions">
 <h4>Chi-squared Distributions<a class="headerlink" href="#chi-squared-distributions" title="Permalink to this headline">¶</a></h4>
+<p>Before we go on let’s deal with a problem we have put off for a bit. Frequently we will not have a known value for <span class="math notranslate nohighlight">\(\sigma^2\)</span> that appears in the results above. We can use <span class="math notranslate nohighlight">\(S^2\)</span> the sample variance instead, however because it depends on the sample, it is itself a random variable (we showed above that it is unbiased estimator for the population variance.  Without proof we offer here that the expression:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{(n-1) S^2}{\sigma^2} \]</div>
+<p>satisfies what is known as the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with <span class="math notranslate nohighlight">\((n-1)\)</span> degrees of freedom. This is a special case of a gamma distribution (note the support is <span class="math notranslate nohighlight">\((0, \infty)\)</span>.  A graph of the PDF and CDF are below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="m">5</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="p">(</span><span class="m">30</span><span class="o">*</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">dchisq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/08-Confidence_Hypothesis_2_0.png" src="_images/08-Confidence_Hypothesis_2_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">pchisq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/08-Confidence_Hypothesis_3_0.png" src="_images/08-Confidence_Hypothesis_3_0.png" />
+</div>
+</div>
+<p>The degrees of freedom parameter is the size of our sample minus 1. Experiment a bit with it to see how the distribution changes as this parameter changes.</p>
+</div>
+<div class="section" id="t-distributions">
+<h4>t-Distributions<a class="headerlink" href="#t-distributions" title="Permalink to this headline">¶</a></h4>
+<p>We will only occasionally use the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution, mainly when we want to construct confidence intervals for our estimates of <span class="math notranslate nohighlight">\(\sigma^2\)</span>. However the result we do need is that if <span class="math notranslate nohighlight">\(Z\)</span> is a standard normal random variable and <span class="math notranslate nohighlight">\(W\)</span> is a <span class="math notranslate nohighlight">\(\chi^2\)</span> distributed variable with <span class="math notranslate nohighlight">\(\nu\)</span> degrees of freedom, then if the <span class="math notranslate nohighlight">\(Z\)</span> and <span class="math notranslate nohighlight">\(W\)</span> are independent we will have</p>
+<div class="math notranslate nohighlight">
+\[ T = \frac{Z}{\sqrt{W/\nu}} \]</div>
+<p>is said to have a t-distribution with <span class="math notranslate nohighlight">\(\nu\)</span> degrees of freedom.</p>
+<p>What this means for us, because <span class="math notranslate nohighlight">\(\bar{Y}\)</span> and <span class="math notranslate nohighlight">\(S^2\)</span> are independent is:</p>
+<div class="math notranslate nohighlight">
+\[ T = \sqrt{n} \frac{\bar{Y} - \mu}{S} \]</div>
+<p>satisfies a t-distribution. Graphs of the PDF and CDF for a t-dsitribution are below. Note that as the degrees of freedom increases the t-distribution approaches the normal distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">((</span><span class="m">-3</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">3</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="n">m</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="m">5</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">dt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">&lt;-</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&#39;blue&#39;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/08-Confidence_Hypothesis_6_0.png" src="_images/08-Confidence_Hypothesis_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">((</span><span class="m">-3</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="m">3</span><span class="o">*</span><span class="n">m</span><span class="p">))</span><span class="o">/</span><span class="n">m</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="m">5</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">pt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">&lt;-</span> <span class="nf">pnorm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&#39;blue&#39;</span><span class="p">)</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/08-Confidence_Hypothesis_7_0.png" src="_images/08-Confidence_Hypothesis_7_0.png" />
+</div>
+</div>
 </div>
 <div class="section" id="f-distributions">
 <h4>F Distributions<a class="headerlink" href="#f-distributions" title="Permalink to this headline">¶</a></h4>
+<p>There is one final distribution connected to the issue of sample variance that we should discuss:  If <span class="math notranslate nohighlight">\(W_1\)</span> and <span class="math notranslate nohighlight">\(W_2\)</span> are two <span class="math notranslate nohighlight">\(\chi^2\)</span> distributed variables with <span class="math notranslate nohighlight">\(\nu_1\)</span> and <span class="math notranslate nohighlight">\(\nu_2\)</span> degrees of freedom respectively then their ratio:</p>
+<div class="math notranslate nohighlight">
+\[ F = \frac{W_1 / \nu_1}{ W_2 / \nu_2} \]</div>
+<p>satisfies a distribution called the <span class="math notranslate nohighlight">\(F\)</span>-distribution with <span class="math notranslate nohighlight">\(\nu_1\)</span> numerator degrees of freedom and <span class="math notranslate nohighlight">\(\nu_2\)</span> denominator degrees of freedom. The PDF and CDF are given:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">&lt;-</span> <span class="m">100</span>
+<span class="n">df1</span> <span class="o">&lt;-</span> <span class="m">5</span>
+<span class="n">df2</span> <span class="o">&lt;-</span> <span class="m">6</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="p">(</span><span class="m">30</span><span class="o">*</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">n</span>
+<span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/08-Confidence_Hypothesis_9_0.png" src="_images/08-Confidence_Hypothesis_9_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">&lt;-</span> <span class="nf">pf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&#39;l&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/08-Confidence_Hypothesis_10_0.png" src="_images/08-Confidence_Hypothesis_10_0.png" />
+</div>
+</div>
 </div>
 </div>
 </div>
