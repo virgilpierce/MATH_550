@@ -2,6 +2,10 @@
 
 Welcome to MATH 550 - Applied Probability and Statistics.
 
+This is the "book" or maybe more appropriately the *course notes* for our MATH 550 in Summer 2021. Note that in particular the topic we are covering has a few big results with relatively simple proofs using results from Calculus 1 and 2 and as such I think it is useful for you to see these. However the actual class time will mostly be working with examples. We are also going to be using R and so this website will be a place for you to get code snippets and commands that we are using to do various tasks during the course.
+
+In June 2021 I updated the instructions for using R after finding that R studio was a little bit tedious. I am not recommending Cocalc or RStudio for doing the computations. I will show you exactly what I am doing to use R and to write this book during class but it is not a method I encourage.
+
 ## Class and Instructor Details
 
 MATH 550-901 (3 credits)
@@ -59,22 +63,20 @@ Statistics is best experienced through doing the work rather than concentrating 
 
 If you are new to programming, R is a great place to learn because most of the tasks we do will involve just a few lines of commands. No prior knowledge of programming is assumed.
 
-The course materials are being written in R and are available in Github for you at this link: https://github.com/virgilpierce/MATH_550
-
-From there you can download individual files from the class or the entire course as a Zip file. Updates will be pushed to that site as they are prepared.
-
-To access R and the editing software I recommend for using R and RStudio, you have options:
+To access R and the editing software you have options:
 
 1. You can download Rstudio including R for your Windows or Mac computer by going here: https://www.rstudio.com/products/rstudio/download/ <br>
 Be sure to choose the free option - you will not need the paid versions.
 
-2. If you do not want to or cannot install Rstudio on your computer (for example if you are using a Tablet or Chromebook) you can use cocalc to run R commands: https://cocalc.com
+2. You can use cocalc to run R commands: https://cocalc.com  This is a particularly good option if you do not want to install Rstudio on your computer.
 
 3. You can log in to the Apporto Virtual Server https://unco.apporto.com/ with your UNC credentials and run Rstudio there.
 
+Note when an R command is used in this book there is a *copy* button next to it that will let you copy the code and paste it into your own R to run it.
+
 ## Course Pre-requisites
 
-Students are expected to have experience with Calculus 1 and 2, however we will use Wolfram Alpha for any and all calculus computations so it is more the concepts of Derivative - as slope or rate of change; Integral - as area or volume; and the Fundamental Theorem of Calculus that connects these two ideas.
+Students are expected to have experience with Calculus 1 and 2, however we will use Wolfram Alpha for any and all calculus computations so it is more the concepts of Derivative - as slope or rate of change; Integral - as area or volume; and the Fundamental Theorem of Calculus that connects these two ideas. There will be one or two places where we need to set up a multi-variate integral, but we will do it as a class.
 
 ## Course Goals
 
