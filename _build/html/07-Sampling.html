@@ -272,6 +272,13 @@
     <a class="reference internal nav-link" href="#linear-combinations-of-independent-random-variables">
      Linear Combinations of Independent Random Variables
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Example
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -286,6 +293,11 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Example
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#sample-from-a-normal-distribution">
        Sample from a Normal Distribution
       </a>
@@ -293,11 +305,45 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#minimum-of-the-sample">
-     Minimum of the sample
+    <a class="reference internal nav-link" href="#general-result">
+     General Result
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#central-limit-theorem">
+   Central Limit Theorem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#moment-convergence-theorem">
+     Moment Convergence Theorem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Central Limit Theorem
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#proof">
+       Proof
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#when-does-clt-not-apply">
+       When does CLT not apply?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#minimum-of-the-sample">
+   Minimum of the sample
+  </a>
  </li>
 </ul>
 
@@ -315,13 +361,13 @@
 <p>Let us start by recapping where we are:  We have met both generic and some particular <em>named</em> distributions that model situations, and in the case of <em>named</em> distributions that have sufficient structure or symmetry that we can compute with them.</p>
 <p>A couple of problems then confront us:  In reality we rarely know the distribution or we may know the <em>type</em> of distribution but not the exact parameters for a random variable, and our only way to gather information about the distribution is to sample from it.</p>
 <p>An analogy:  We are trying to identify a movie. Maybe we know it is a spy thriller. But otherwise all we have are some still images from it. How many images would we need to identify the movie?</p>
-<p>We will take class to sample from our <em>named</em> distributions and see what happens. I’ll give one example here to illustrate the method:  Consider a shopping center where on average 2 customers arrive at the chashiers every minute. The number of customers <span class="math notranslate nohighlight">\(Y\)</span> that will arrive at the chasiers in a minute is then a random variable given by the Poisson distribution:</p>
+<p>We will take class to sample from our <em>named</em> distributions and see what happens. I’ll give one example here to illustrate the method:  Consider a shopping center where on average 2 customers arrive at the chashiers every minute. The number of customers <span class="math notranslate nohighlight">\(Y\)</span> that will arrive at the cashiers in a minute is then a random variable given by the Poisson distribution:</p>
 <div class="math notranslate nohighlight">
 \[ P(Y=x) = \frac{2^r}{r!} e^{-2} \]</div>
 <p>Suppose we measure the number of customers arriving each minute for 5 minutes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="nf">rpois</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">&lt;-</span> <span class="nf">rpois</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
 <span class="n">sample</span>
 </pre></div>
 </div>
@@ -332,7 +378,7 @@
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>3</li><li>2</li><li>2</li><li>1</li><li>0</li></ol>
+<ol class=list-inline><li>0</li><li>0</li><li>5</li><li>3</li><li>2</li></ol>
 </div></div>
 </div>
 <p>Some questions:</p>
@@ -342,15 +388,41 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="nf">rpois</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">&lt;-</span> <span class="nf">rpois</span><span class="p">(</span><span class="m">200</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
 <span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">2.14</div></div>
+<div class="output text_html">1.955</div></div>
+</div>
+<p>The histogram of our sample from the Poisson Distribution, looks more like the Poisson Distribution itself as the sample size increases.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/07-Sampling_5_0.png" src="_images/07-Sampling_5_0.png" />
+</div>
 </div>
 <p>Suppose we were to treat the mean of the sample <span class="math notranslate nohighlight">\(\bar{Y}\)</span> as a random variable itself. Fix the size of the sample and see what we get if we run the experiment many times, what shape do you see in the histogram for values of <span class="math notranslate nohighlight">\(\bar{Y}\)</span> and what happens to that shape as the size of the sample is then increased?</p>
+<p>Before you run the experiment, generate a hypothesis. What will we get as we run the experiment more?  What will we get as we increase the size of the sample? Then as you run the experiment revise your hypothesis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">k</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">50</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">result</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="nf">mean</span><span class="p">(</span><span class="nf">rpois</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span> <span class="p">)</span>
+<span class="p">}</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/07-Sampling_7_0.png" src="_images/07-Sampling_7_0.png" />
+</div>
+</div>
 <div class="section" id="sampling">
 <h2>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h2>
 <p>Run the experiment above with a variety of our named distributions including the normal distribution. What is happening?  Can you develop a hypothesis?</p>
@@ -364,7 +436,7 @@
 \[ F(x_1, x_2, \dots, x_n) = P( Y_1 \leq x_1, Y_2 \leq x_2, \dots, Y_n \leq x_n) \]</div>
 <p>and then the joint probability density function is given by:</p>
 <div class="math notranslate nohighlight">
-\[ f(x_1, x_2, \dots, x_n) = \frac{\partial^n F}{\partial x_1 \partial x_2 \dots \partial x_n\]</div>
+\[ f(x_1, x_2, \dots, x_n) = \frac{\partial^n F}{\partial x_1 \partial x_2 \dots \partial x_n}\]</div>
 <p>Again do not fall for the trap of thinking about the density as the distribution:  the values of <span class="math notranslate nohighlight">\(f\)</span> do not give the likliehood of a particular outcome.</p>
 <div class="section" id="marginal-probability">
 <h3>Marginal Probability<a class="headerlink" href="#marginal-probability" title="Permalink to this headline">¶</a></h3>
@@ -377,7 +449,7 @@
 </div>
 <div class="section" id="conditional-probability">
 <h3>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">¶</a></h3>
-<p>Consider two discrete random variables: We define the conditional probability <span class="math notranslate nohighlight">\(P(Y_1=x_1 | Y_2 = x_2)\)</span>, the probability that <span class="math notranslate nohighlight">\(Y_1 = x_1\)</span> given that we have observed that <span class="math notranslate nohighlight">\(Y_2 = x_2\)</span>. This can be compute by recognizing that the likliehood of <span class="math notranslate nohighlight">\(Y_1\)</span> occuring given a value for <span class="math notranslate nohighlight">\(Y_2\)</span> is the likliehood that both values occured randomly divided by the marginal probablity of <span class="math notranslate nohighlight">\(Y_1\)</span>:</p>
+<p>Consider two discrete random variables: We define the conditional probability <span class="math notranslate nohighlight">\(P(Y_1=x_1 | Y_2 = x_2)\)</span>, the probability that <span class="math notranslate nohighlight">\(Y_1 = x_1\)</span> given that we have observed that <span class="math notranslate nohighlight">\(Y_2 = x_2\)</span>. This can be compute by recognizing that the likliehood of <span class="math notranslate nohighlight">\(Y_1\)</span> occuring given a value for <span class="math notranslate nohighlight">\(Y_2\)</span> is the likliehood that both values occured randomly divided by the marginal probablity of <span class="math notranslate nohighlight">\(Y_2\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ P(Y_1 = x_1 | Y_2 = x_2) = \frac{P(Y_1 =x_1, Y_2 = x_2)}{P(Y_2 = x_2)}\]</div>
 <p>In other words the conditional probability given <span class="math notranslate nohighlight">\(Y_2=x_2\)</span> is the proportion of the time that <span class="math notranslate nohighlight">\(Y_1=x_1\)</span> occured out of all cases where <span class="math notranslate nohighlight">\(Y_2 = x_2\)</span> occured.</p>
@@ -432,7 +504,7 @@
 <p>Note that if <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> are independent then</p>
 <div class="math notranslate nohighlight">
 \[ \mbox{Cov}(Y_1, Y_2) = E( (Y_1 -\mu_1) ) E( (Y_2 - \mu_2) ) = 0 \cdot 0 = 0 \]</div>
-<p>The units of <span class="math notranslate nohighlight">\(\mbox{Cov}(Y_1, Y_2)\)</span> are the products of the two units. Which means that this is not an absolute measure of the correlations between two varaibles; for example if one of the variables has a large variance it will mean a larger covariance even if the correlation is weak. We can get something that is unitless by dividing this by the square root of the product of variances. The <em>coefficient of correlation</em> is iven by</p>
+<p>The units of <span class="math notranslate nohighlight">\(\mbox{Cov}(Y_1, Y_2)\)</span> are the products of the two units. Which means that this is not an absolute measure of the correlations between two varaibles; for example if one of the variables has a large variance it will mean a larger covariance even if the correlation is weak. We can get something that is unitless by dividing this by the square root of the product of variances. The <em>coefficient of correlation</em> is given by</p>
 <div class="math notranslate nohighlight">
 \[ \rho = \frac{\mbox{Cov}(Y_1, Y_2)}{\sqrt{ V(Y_1) V(Y_2) }}  \]</div>
 <div class="section" id="algebra">
@@ -444,10 +516,10 @@
 </div>
 <div class="section" id="id1">
 <h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-<p>Be careful no correlation does not imply indepdence. Consider the joint density:</p>
+<p>Be careful no correlation does not imply independence. Consider the joint density:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} f(x_1, x_2) = \left\{ \begin{matrix} C &amp; -1 &lt; x_1 &lt; 0; \qquad 0 &lt; x_2 &lt; 1 + x_1 \\ C &amp; 0 &lt; x_1 &lt; 1; \qquad 0 &lt; x_2 &lt; 1-x_1 \\ 0 &amp; \mbox{otherwise} \end{matrix} \right. \end{split}\]</div>
-<p>Show that <span class="math notranslate nohighlight">\(\mbox{Cov}(Y_1, Y_2) = 0\)</span> but that <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> are dependent.</p>
+<p>Show that for two random variables <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> with this join distribution <span class="math notranslate nohighlight">\(\mbox{Cov}(Y_1, Y_2) = 0\)</span> but that <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> are dependent.</p>
 </div>
 <div class="section" id="linear-combinations-of-independent-random-variables">
 <h3>Linear Combinations of Independent Random Variables<a class="headerlink" href="#linear-combinations-of-independent-random-variables" title="Permalink to this headline">¶</a></h3>
@@ -460,6 +532,13 @@
 <li><p>when will <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> be independent?</p></li>
 <li><p>when will <span class="math notranslate nohighlight">\(U\)</span> and <span class="math notranslate nohighlight">\(V\)</span> have no correlation but be dependent?</p></li>
 </ul>
+<div class="section" id="id2">
+<h4>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Supppose <span class="math notranslate nohighlight">\(Y\)</span> is a normal random variable with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Show that</p>
+<div class="math notranslate nohighlight">
+\[ Z = \frac{Y - \mu}{\sigma} \]</div>
+<p>is a normal random variable with mean 0 and variance 1.</p>
+</div>
 </div>
 </div>
 <div class="section" id="random-sampling">
@@ -483,33 +562,117 @@
 \[ F(x) = P( \bar{Y} &lt; x ) = \iint \dots \int_{x_1 + x_2 + \dots + x_n \leq n x} f(x_1) f(x_2) \dots f(x_n) dx_1 dx_2 \dots dx_n \]</div>
 <p>Okay so there is not much to do unless we have an explicit value for the PDF, and even then it is likely to get hairy quickly. However two points (a) it is exaclty a problem that a symbolic computer system is good at, and (b) it should not be surprising that we can compute with this.</p>
 <p>We will do one example:</p>
+<div class="section" id="id3">
+<h4>Example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>Using the linear combination result from above what can you say about <span class="math notranslate nohighlight">\(E(\bar{Y})\)</span> and <span class="math notranslate nohighlight">\(V(\bar{Y})\)</span>?</p>
+<p>We will call <span class="math notranslate nohighlight">\(\bar{Y}\)</span> a point estimator for <span class="math notranslate nohighlight">\(\mu = E(Y)\)</span>.</p>
+</div>
 <div class="section" id="sample-from-a-normal-distribution">
 <h4>Sample from a Normal Distribution<a class="headerlink" href="#sample-from-a-normal-distribution" title="Permalink to this headline">¶</a></h4>
 <p>Let <span class="math notranslate nohighlight">\(Y_1\)</span> and <span class="math notranslate nohighlight">\(Y_2\)</span> be random samples from the Standard Normal distribution ( the normal distribution with mean 0 and variance 1).</p>
 <p>The PDF for each is:</p>
 <div class="math notranslate nohighlight">
-\[ f(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2} \]</div>
+\[ f(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2} \]</div>
 <p>If the mean of the sample is then <span class="math notranslate nohighlight">\(\bar{Y} = \frac12 Y_1 + \frac12 Y_2 \)</span> then the CDF for the mean is:</p>
 <div class="math notranslate nohighlight">
-\[ F(x) = \iint_{x_1 + x_2 &lt; 2 x} \frac{1}{2\pi} e^{-x_1^2 - x_2^2} dx_1 dx_2 \]</div>
+\[ F(x) = \iint_{x_1 + x_2 &lt; 2 x} \frac{1}{2\pi} e^{-x_1^2/2 - x_2^2/2} dx_1 dx_2 \]</div>
 <p>We can set up this itereated integral by fixing an <span class="math notranslate nohighlight">\(x_1\)</span> and then integrating over all <span class="math notranslate nohighlight">\(x_2\)</span> values such that the inequality holds, and then integrating over all possible <span class="math notranslate nohighlight">\(x_1\)</span> values:</p>
 <div class="math notranslate nohighlight">
-\[ F(x) = \frac{1}{2\pi} \int_{-\infty}^\infty dx_1 e^{-x_1^2} \int_{-\infty}^{2x - x_1} dx_2 e^{-x_2^2} \]</div>
+\[ F(x) = \frac{1}{2\pi} \int_{-\infty}^\infty dx_1 e^{-x_1^2/2} \int_{-\infty}^{2x - x_1} dx_2 e^{-x_2^2/2} \]</div>
 <p>Of course we don’t actually care what this is, because what we want to do is differentiate it to get the PDF. Notice that the <span class="math notranslate nohighlight">\(x\)</span> dependence is confined to just one bound on the iterated integral. We get:</p>
 <div class="math notranslate nohighlight">
-\[ f(x) = \frac{dF}{dx} = \frac{1}{\pi} \int_{-\infty}^\infty dx_1 e^{-x_1^2} e^{-(2x - x_1)^2} = \frac{1}{\pi} \int_{-\infty}^\infty dx_1 e^{-4x^2 + 4x x_1 - 2x_1^2} \]</div>
+\[ f(x) = \frac{dF}{dx} = \frac{1}{\pi} \int_{-\infty}^\infty dx_1 e^{-x_1^2/2} e^{-(2x - x_1)^2/2} = \frac{1}{\pi} \int_{-\infty}^\infty dx_1 e^{-2x^2 + 2x x_1 - x_1^2} \]</div>
 <p>If we complete the square in the exponent we get:</p>
 <div class="math notranslate nohighlight">
-\[ - 2( x_1^2 - 2 x x_1) - 4 x^2 = - 2 ( x_1 -x)^2 - 2 x^2 \]</div>
+\[ - ( x_1^2 - 2 x x_1) - 2 x^2 = - ( x_1 -x)^2 - x^2 \]</div>
 <p>Then the integral is just the normalizing constant for a normal random variable with variance <span class="math notranslate nohighlight">\(\sigma^2 = 1/2\)</span> and mean <span class="math notranslate nohighlight">\(\mu = x\)</span> and so it gives <span class="math notranslate nohighlight">\(\sqrt{\pi}\)</span>. Therefore we have</p>
 <div class="math notranslate nohighlight">
-\[ f(x) = \frac{1}{\sqrt{pi}} e^{- 2 x^2} \]</div>
+\[ f(x) = \frac{1}{\sqrt{pi}} e^{- x^2} \]</div>
 <p>Which is the PDF for a normal distribution with mean 0 and a variance of <span class="math notranslate nohighlight">\(1/2\)</span>.</p>
 </div>
 </div>
-<div class="section" id="minimum-of-the-sample">
-<h3>Minimum of the sample<a class="headerlink" href="#minimum-of-the-sample" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="general-result">
+<h3>General Result<a class="headerlink" href="#general-result" title="Permalink to this headline">¶</a></h3>
+<p>It’s not surprising then that the above result generalizes to a sample of size <span class="math notranslate nohighlight">\(n\)</span>:  Let <span class="math notranslate nohighlight">\(Y_1, Y_2, \dots, Y_n\)</span> be a sample from a normal distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>. Then the sample mean</p>
+<div class="math notranslate nohighlight">
+\[ \bar{Y} = \frac1n Y_1 + \frac1n Y_2 + \dots + \frac1n Y_n \]</div>
+<p>is a random variable given by a normal distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span> and <strong>variance</strong> <span class="math notranslate nohighlight">\(\sigma^2 / n\)</span>.</p>
+<p>In particular as we increase the size of the sample, the variance decreases as <span class="math notranslate nohighlight">\(1/n\)</span>.</p>
+<p>The proof is just setting up the multi integral like we did above and then differentiating it, it is interesting, but not terribly enlightening so we will skip it.</p>
 </div>
+</div>
+<div class="section" id="central-limit-theorem">
+<h2>Central Limit Theorem<a class="headerlink" href="#central-limit-theorem" title="Permalink to this headline">¶</a></h2>
+<p>So let’s return to our hypothesis. It was looking like, at least in the cases we were experimenting with that things became more normal as the size of the sample increased. It is one of the highlights of this subject that this is in fact a theorem.</p>
+<div class="section" id="moment-convergence-theorem">
+<h3>Moment Convergence Theorem<a class="headerlink" href="#moment-convergence-theorem" title="Permalink to this headline">¶</a></h3>
+<p>First we need a workhorse theorem about the relationship between moment generating functions converging and the random variables they describe:</p>
+<p>Let <span class="math notranslate nohighlight">\(Y, Y_1, Y_2, \dots, \)</span> be random variables with moment generating functions</p>
+<div class="math notranslate nohighlight">
+\[ m_j(t) = E( e^{ t Y_j}) \]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[ m(t) = E( e^{t Y} ) \]</div>
+<p>Then if the moment generating functions converge to <span class="math notranslate nohighlight">\(m\)</span>:  $<span class="math notranslate nohighlight">\( \lim_{n\to \infty} m_n(t) = m(t) \)</span><span class="math notranslate nohighlight">\( then the distribution for \)</span>Y_n<span class="math notranslate nohighlight">\( converges to the distribution of \)</span>Y$.</p>
+</div>
+<div class="section" id="id4">
+<h3>Central Limit Theorem<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The central limit theorem is then that if <span class="math notranslate nohighlight">\(Y_1, Y_2, \dots, Y_n\)</span> are independent identiically distributed random variables with <span class="math notranslate nohighlight">\(E(Y_i) = \mu\)</span> and <span class="math notranslate nohighlight">\(V(Y_i) = \sigma^2 &lt; \infty\)</span> let</p>
+<div class="math notranslate nohighlight">
+\[ U_n = \frac{\bar{Y} - \mu}{\sigma/\sqrt{n}} \]</div>
+<p>Then the distribution of <span class="math notranslate nohighlight">\(U_n\)</span> converges to the standard normal distribution as <span class="math notranslate nohighlight">\(n\to \infty\)</span>.</p>
+<p>Explicitly:</p>
+<div class="math notranslate nohighlight">
+\[ \lim_{n\to \infty} P(U_n \leq u) = \int_{-\infty}^u \frac{1}{\sqrt{2\pi}} e^{-t^2/2} dt \]</div>
+<p>Note how few assumptions we have on the distribution the <span class="math notranslate nohighlight">\(Y_i\)</span> are pulled from. They could even be discrete, hence the reason we have to phrase the last formula in terms of the CDF.</p>
+<div class="section" id="proof">
+<h4>Proof<a class="headerlink" href="#proof" title="Permalink to this headline">¶</a></h4>
+<p>This is such a powerful result (it really feels to me like more than we deserve) and as such I want to give a proof of it here:</p>
+<p>Define</p>
+<div class="math notranslate nohighlight">
+\[ Z_i = \frac{Y_i - \mu}{\sigma} \]</div>
+<p>and then note that we have:</p>
+<div class="math notranslate nohighlight">
+\[ U_n = \frac{1}{\sqrt{n}} \sum_{i=1}^n Z_i \]</div>
+<p>The <span class="math notranslate nohighlight">\(Z_i\)</span> are idependent identically distributed random variables with mean 0 and variance 1 (note that they are not necessarily normal unless the <span class="math notranslate nohighlight">\(Y\)</span> are normal). Since they are indepdent their moment generating functions multiply and are equal:</p>
+<div class="math notranslate nohighlight">
+\[ m_{\sum Z_i}(t) = m_{Z_1}(t) m_{Z_2}(t) \cdots m_{Z_n}(t) = m_Z(t)^n \]</div>
+<p>Therefore</p>
+<div class="math notranslate nohighlight">
+\[ m_{U_n}(t) = m_Z(\frac{t}{\sqrt{n}})^n \]</div>
+<p>We use Taylors Theorem from Calculus 2:</p>
+<div class="math notranslate nohighlight">
+\[ m_Z(t) = m_Z(0) + m'_Z(0) t + m''_Z(\xi) \frac{t^2}{2} \]</div>
+<p>for some <span class="math notranslate nohighlight">\(0 &lt; \xi &lt; t \)</span>.</p>
+<p>We have <span class="math notranslate nohighlight">\(m_Z(0) = E( e^{0 Z} ) = E( 1) = 1 \)</span> and <span class="math notranslate nohighlight">\(m'_Z(0) = E( Z) = 0 \)</span> and so</p>
+<div class="math notranslate nohighlight">
+\[ m_Z(t) =1 + m''_Z(\xi) \frac{t^2}{2} \]</div>
+<p>Therefore:</p>
+<div class="math notranslate nohighlight">
+\[ m_{U_n}(t) = \left[ 1 + m''_Z(\xi_n) \frac{t^2}{2n} \right]^n \]</div>
+<p>where now <span class="math notranslate nohighlight">\(0 &lt; \xi_n &lt; t / \sqrt{n}\)</span>.  Note that as <span class="math notranslate nohighlight">\(n\to \infty\)</span> the <span class="math notranslate nohighlight">\(\xi_n\)</span> gets pinched to 0 and therefor</p>
+<div class="math notranslate nohighlight">
+\[ m''_Z(\xi_n) t^2 /2 \to m''_Z(0) t^2 / 2 = E(Z^2) t^2/2 = t^2/2 \]</div>
+<p>because the variance is 1 and the mean is 0:  <span class="math notranslate nohighlight">\( V(Z) = E(Z^2) - E(Z)^2 \)</span></p>
+<p>Recall that if <span class="math notranslate nohighlight">\(\lim_{n\to \infty} b_n = b \)</span> then</p>
+<div class="math notranslate nohighlight">
+\[ \lim_{n\to \infty} ( 1 + \frac{b_n}{n} )^n = e^b \]</div>
+<p>and we have that the moment generating functions converge to the moment generating function of the standard normal regardless of what the underlying distribution for the sample is!</p>
+<div class="math notranslate nohighlight">
+\[ \lim_{n\to \infty} m_{U_n}(t) = \lim_{n\to \infty} \left[ 1 + \frac{m''_Z(\xi_n) t^2/2}{n} \right]^n = e^{t^2/2} \]</div>
+</div>
+<div class="section" id="when-does-clt-not-apply">
+<h4>When does CLT not apply?<a class="headerlink" href="#when-does-clt-not-apply" title="Permalink to this headline">¶</a></h4>
+<p>With a theorem as powerful as CLT it is important to think about the cases when it does not apply. There are three related clues:  We need to have an mean and a variance so <span class="math notranslate nohighlight">\(E(Y)\)</span> and <span class="math notranslate nohighlight">\(E(Y^2)\)</span> need to exist. And not that the proof relied on there being a moment generating function so we need to know that the function</p>
+<div class="math notranslate nohighlight">
+\[ m_Y(t) = E( e^{tY}) \]</div>
+<p>exists and has a second derivative for some open interval containing <span class="math notranslate nohighlight">\(t=0\)</span>. This condition will also give us the existence of the mean and variance.</p>
+<p>So what random variables do not have moment generating functions?</p>
+</div>
+</div>
+</div>
+<div class="section" id="minimum-of-the-sample">
+<h2>Minimum of the sample<a class="headerlink" href="#minimum-of-the-sample" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
