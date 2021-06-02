@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confidence Intervals and Hypothesis Testing &#8212; MATH 550 - Applied Probability and Statistics</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Class Schedule and Activities" href="99-Apendices.html" />
+    <link rel="prev" title="Sampling from Distributions" href="07-Sampling.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">MATH 550 - Applied Probability and Statistics</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Introduction.html">
+   Introduction and Course Syllabus
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-What_is_Stats.html">
+   What is Statistics?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Discrete_Probability.html">
+   Discrete Random Variables - The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Geometric_and_Poisson.html">
+   Geometric and Poisson Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Continuous.html">
+   Continuous Random Variables
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Gamma_and_beta.html">
+   Gamma and Beta Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Sampling.html">
+   Sampling from Distributions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Confidence Intervals and Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="99-Apendices.html">
+   Class Schedule and Activities
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/08-Confidence_Hypothesis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/08-Confidence_Hypothesis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#point-estimators">
+   Point Estimators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     Example
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#biased-estimators">
+     Biased Estimators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-bar-y">
+       Example
+       <span class="math notranslate nohighlight">
+        \(\bar{Y}\)
+       </span>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-s">
+       Example
+       <span class="math notranslate nohighlight">
+        \(S\)
+       </span>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-point-estimators">
+     Common Point Estimators
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#single-normal-distribution">
+       Single Normal Distribution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#single-bernouli-trial">
+       Single Bernouli Trial
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#two-normal-distributions">
+       Two Normal Distributions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#two-bernouli-trials">
+       Two Bernouli Trials
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#t-distributions">
+       T-Distributions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#chi-squared-distributions">
+       Chi-squared Distributions
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-distributions">
+       F Distributions
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-intervals-for-the-mean">
+   Confidence Intervals for the Mean
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hypothesis-tests-for-the-mean">
+   Hypothesis Tests for the Mean
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-confidence-intervals-and-hypothesis-tests">
+   General Confidence Intervals and Hypothesis Tests
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="confidence-intervals-and-hypothesis-testing">
+<h1>Confidence Intervals and Hypothesis Testing<a class="headerlink" href="#confidence-intervals-and-hypothesis-testing" title="Permalink to this headline">¶</a></h1>
+<p>In the next two lessons we are going to expand upon the idea of Confidence Intervals that we saw as an example of how the CLT is used. Along the way we are going to explore more generally how point estimators are used, and deal with one of the sticky parts we saw in our last class - what can we do if we do not know the variance of the distribution we are sampling from?</p>
+<p>Finally we will then flip the construction around and show that we can use it to set up a process for making conclusions about the statistics of our distribution computed from the sample we have found.</p>
+<div class="section" id="point-estimators">
+<h2>Point Estimators<a class="headerlink" href="#point-estimators" title="Permalink to this headline">¶</a></h2>
+<p>An estimator is a rule for computing an a parameter for the underlying population from a sample that has been collected. In our class we explored the estimator <span class="math notranslate nohighlight">\(\bar{Y}\)</span> for the population mean <span class="math notranslate nohighlight">\(\mu\)</span> in great detail. <span class="math notranslate nohighlight">\(\bar{Y}\)</span> is an example of a <em>point estimator</em> and then the confidence itnerval we computed is an example of another type of estimator. Any parameter describing the distribution is suitable to find estimators for and we will give some common ones below.</p>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>As an example though. Let <span class="math notranslate nohighlight">\(Y\)</span> be the uniform random variable on the interval <span class="math notranslate nohighlight">\([0, a]\)</span>. That is <span class="math notranslate nohighlight">\(Y\)</span> has PDF:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} f(x) = \left\{ \begin{matrix} x/a &amp; x \in [0, a] \\ 0 &amp; \mbox{otherwise} \end{matrix} \right. \end{split}\]</div>
+<p>The problem being that we do not know what <span class="math notranslate nohighlight">\(a\)</span> is. Suppose that we can sample from our distribution, so we collect a sample and find <span class="math notranslate nohighlight">\(1, 1.5, 2, 2, 2.3, 3.2\)</span>.</p>
+<p>What do we think <span class="math notranslate nohighlight">\(a\)</span> is?  Can we find an estimate for it?</p>
+</div>
+<div class="section" id="biased-estimators">
+<h3>Biased Estimators<a class="headerlink" href="#biased-estimators" title="Permalink to this headline">¶</a></h3>
+<p>Suppose that <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is a point estimator for <span class="math notranslate nohighlight">\(\theta\)</span>. We say that <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> is biased if <span class="math notranslate nohighlight">\(E(\hat{\theta}) \neq \theta\)</span>.</p>
+<p>The Mean Square Error of an estimator is given by:
+$<span class="math notranslate nohighlight">\( MSE(\hat{\theta}) = E( (\hat{\theta} - \theta)^2 ) \)</span>$</p>
+<p>and there are two components to it. There is the underlying error caused by the random variation in the sampling procedure <span class="math notranslate nohighlight">\(V(\hat{\theta})\)</span> and then there is error caused by the bias:</p>
+<div class="math notranslate nohighlight">
+\[ MSE(\hat{\theta}) = V(\hat{\theta}) + ( B(\hat{\theta}) )^2 \]</div>
+<div class="section" id="example-bar-y">
+<h4>Example <span class="math notranslate nohighlight">\(\bar{Y}\)</span><a class="headerlink" href="#example-bar-y" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\bar{Y}\)</span> is an unbiased estimator for <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+</div>
+<div class="section" id="example-s">
+<h4>Example <span class="math notranslate nohighlight">\(S\)</span><a class="headerlink" href="#example-s" title="Permalink to this headline">¶</a></h4>
+<p>We are now in a position to explain why our sample variance is different from what we might expect:</p>
+<p>Let <span class="math notranslate nohighlight">\(Y_1, Y_2, \dots, Y_n\)</span> be a random sample with mean <span class="math notranslate nohighlight">\(\mu\)</span> and variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ S'^2 = \frac{1}{n} \sum (Y_i - \bar{Y})^2 \]</div>
+<p>is <strong>NOT</strong> the sample variance, however it is an estimator for the population variance. It is however biased:</p>
+<div class="math notranslate nohighlight">
+\[ E(S'^2) = \frac{1}{n} E( \sum (Y_i - \bar{Y})^2) = \frac1n E(\sum Y_i^2) - E(\bar{Y}^2) = \sum  \frac{1}{n} E(Y_i^2) - E(\bar{Y}^2) \]</div>
+<p>We have that</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned} E(Y_i^2) = V(Y_i) + E(Y_i)^2 = \sigma^2 + \mu^2 $$ and that \\$$ E(\bar{Y}^2) = V(\bar{Y}) + E( \bar{Y})^2 = \sigma^2 / n + \mu^2 \end{aligned}\end{align} \]</div>
+<p>Putting it all together we have:</p>
+<div class="math notranslate nohighlight">
+\[ E(S'^2) = \frac1n \sum_{i=1}^n (\sigma^2 + \mu^2) - \frac{\sigma^2}{n} - \mu^2 = \sigma^2 - \frac{1}{n} \sigma^2  \]</div>
+<p>We can turn this into an unbiased estimator of <span class="math notranslate nohighlight">\(\sigma^2\)</span> by multiplying it by the factor <span class="math notranslate nohighlight">\(\frac{n}{n-1}\)</span> giving our definition of sample variance:</p>
+<div class="math notranslate nohighlight">
+\[ S^2 = \frac{1}{n-1} \sum (Y_i - \bar{Y})^2 \]</div>
+</div>
+</div>
+<div class="section" id="common-point-estimators">
+<h3>Common Point Estimators<a class="headerlink" href="#common-point-estimators" title="Permalink to this headline">¶</a></h3>
+<p>Common unbiased point estimators we will use, together with their standard errors are:</p>
+<div class="section" id="single-normal-distribution">
+<h4>Single Normal Distribution<a class="headerlink" href="#single-normal-distribution" title="Permalink to this headline">¶</a></h4>
+<p>To estimate <span class="math notranslate nohighlight">\(\mu\)</span> we will use <span class="math notranslate nohighlight">\(\bar{Y}\)</span>. The standard error is <span class="math notranslate nohighlight">\(\sigma/\sqrt{n}\)</span> where <span class="math notranslate nohighlight">\(\sigma^2\)</span> is the variance of the distribution.</p>
+</div>
+<div class="section" id="single-bernouli-trial">
+<h4>Single Bernouli Trial<a class="headerlink" href="#single-bernouli-trial" title="Permalink to this headline">¶</a></h4>
+<p>To estimate <span class="math notranslate nohighlight">\(p\)</span> the probability of success in an individual trial we use <span class="math notranslate nohighlight">\(\hat{p} = \frac{Y}{n} \)</span> the proportion of success in our sample of size n. The standard erorr is <span class="math notranslate nohighlight">\(\sqrt{p (1-p){n} } \)</span>.</p>
+</div>
+<div class="section" id="two-normal-distributions">
+<h4>Two Normal Distributions<a class="headerlink" href="#two-normal-distributions" title="Permalink to this headline">¶</a></h4>
+<p>To estimate <span class="math notranslate nohighlight">\(\mu_1 - \mu_2\)</span> the difference in the means of two populations, we use <span class="math notranslate nohighlight">\(\bar{Y}_1 - \bar{Y}_2\)</span> the differences in the means of samples from the two population of size <span class="math notranslate nohighlight">\(n_1\)</span> and <span class="math notranslate nohighlight">\(n_2\)</span>. The standard error is then:</p>
+<div class="math notranslate nohighlight">
+\[ \sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} } \]</div>
+</div>
+<div class="section" id="two-bernouli-trials">
+<h4>Two Bernouli Trials<a class="headerlink" href="#two-bernouli-trials" title="Permalink to this headline">¶</a></h4>
+<p>To estimate <span class="math notranslate nohighlight">\(p_1 - p_2\)</span> the differences in the probability of success in individual trials we use <span class="math notranslate nohighlight">\(\hat{p_1} - \hat{p_2}\)</span> the differences of the proportions of success in two samples of size <span class="math notranslate nohighlight">\(n_1\)</span> and <span class="math notranslate nohighlight">\(n_2\)</span>. The standard error is then:</p>
+<div class="math notranslate nohighlight">
+\[ \sqrt{ \frac{p_1 (1-p_1)}{n_1} + \frac{ p_2 (1-p_2) }{n_2 } } \]</div>
+</div>
+<div class="section" id="t-distributions">
+<h4>T-Distributions<a class="headerlink" href="#t-distributions" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="chi-squared-distributions">
+<h4>Chi-squared Distributions<a class="headerlink" href="#chi-squared-distributions" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="f-distributions">
+<h4>F Distributions<a class="headerlink" href="#f-distributions" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="confidence-intervals-for-the-mean">
+<h2>Confidence Intervals for the Mean<a class="headerlink" href="#confidence-intervals-for-the-mean" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="hypothesis-tests-for-the-mean">
+<h2>Hypothesis Tests for the Mean<a class="headerlink" href="#hypothesis-tests-for-the-mean" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="general-confidence-intervals-and-hypothesis-tests">
+<h2>General Confidence Intervals and Hypothesis Tests<a class="headerlink" href="#general-confidence-intervals-and-hypothesis-tests" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="07-Sampling.html" title="previous page">Sampling from Distributions</a>
+    <a class='right-next' id="next-link" href="99-Apendices.html" title="next page">Class Schedule and Activities</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

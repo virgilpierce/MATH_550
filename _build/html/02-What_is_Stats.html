@@ -122,6 +122,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="08-Confidence_Hypothesis.html">
+   Confidence Intervals and Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="99-Apendices.html">
    Class Schedule and Activities
   </a>
@@ -519,7 +524,7 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>30</li><li>30</li><li>24</li><li>34</li><li>24</li><li>24</li><li>17</li><li>31</li><li>13</li><li>26</li><li>27</li><li>26</li><li>21</li><li>29</li><li>25</li><li>33</li><li>26</li><li>27</li><li>19</li><li>31</li></ol>
+<ol class=list-inline><li>26</li><li>28</li><li>30</li><li>35</li><li>21</li><li>36</li><li>35</li><li>26</li><li>29</li><li>24</li><li>24</li><li>34</li><li>26</li><li>32</li><li>22</li><li>17</li><li>33</li><li>23</li><li>26</li><li>29</li></ol>
 </div></div>
 </div>
 <p><em>R Notes</em>: c() stands for column and is one of the most basic data structures in R. Most things we will build will either manipulate columns directly or will use structures built out of columns.</p>
@@ -537,7 +542,7 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  13.00   24.00   26.00   25.85   30.00   34.00 
+  17.00   24.00   27.00   27.80   32.25   36.00 
 </pre></div>
 </div>
 </div>
@@ -550,7 +555,7 @@ While I am collecting this data you can reflect on this funny musing. I grew up 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">28.5552631578947</div><div class="output text_html">5.34371248832633</div></div>
+<div class="output text_html">27.5368421052632</div><div class="output text_html">5.24755582202449</div></div>
 </div>
 <p>The variance is computed by taking the sum of the square differences between the data and the mean and then dividing that by number of items minus one; we will explain why this is what we divide by later in class:
 $<span class="math notranslate nohighlight">\( S = \frac{1}{n-1} \sum_{j=1}^n (y_j - \bar{y} )^2 \)</span><span class="math notranslate nohighlight">\( where \)</span>\bar{y}<span class="math notranslate nohighlight">\( is the mean of the sample made up of the \)</span>{ y_1, y_2, \dots, y_n }$.</p>
@@ -572,7 +577,7 @@ $<span class="math notranslate nohighlight">\( S = \frac{1}{n-1} \sum_{j=1}^n (y
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>17.2225</li><li>17.2225</li><li>3.42250000000001</li><li>66.4225</li><li>3.42250000000001</li><li>3.42250000000001</li><li>78.3225</li><li>26.5225</li><li>165.1225</li><li>0.0224999999999996</li><li>1.3225</li><li>0.0224999999999996</li><li>23.5225</li><li>9.92249999999999</li><li>0.722500000000002</li><li>51.1225</li><li>0.0224999999999996</li><li>1.3225</li><li>46.9225</li><li>26.5225</li></ol>
+<ol class=list-inline><li>3.24</li><li>0.0399999999999997</li><li>4.84</li><li>51.84</li><li>46.24</li><li>67.24</li><li>51.84</li><li>3.24</li><li>1.44</li><li>14.44</li><li>14.44</li><li>38.44</li><li>3.24</li><li>17.64</li><li>33.64</li><li>116.64</li><li>27.04</li><li>23.04</li><li>3.24</li><li>1.44</li></ol>
 </div></div>
 </div>
 <div class="cell docutils container">
@@ -585,7 +590,7 @@ $<span class="math notranslate nohighlight">\( S = \frac{1}{n-1} \sum_{j=1}^n (y
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">28.5552631578947</div></div>
+<div class="output text_html">27.5368421052632</div></div>
 </div>
 <p>Note why we compute variance in this way. We are trying to understand how far the data moves from the mean <span class="math notranslate nohighlight">\(\bar{y}\)</span>. However we can’t just sum over the differences as that will just add up to zero:</p>
 <div class="cell docutils container">
@@ -595,7 +600,7 @@ $<span class="math notranslate nohighlight">\( S = \frac{1}{n-1} \sum_{j=1}^n (y
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">-2.8421709430404e-14</div></div>
+<div class="output text_html">-1.4210854715202e-14</div></div>
 </div>
 <p>We have choices though, we could sum over the absolute value and indeed that does give us a notion of spread. Here for example is the corresponding average for absolute deviation:</p>
 <div class="cell docutils container">
@@ -605,7 +610,7 @@ $<span class="math notranslate nohighlight">\( S = \frac{1}{n-1} \sum_{j=1}^n (y
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">4.18947368421053</div></div>
+<div class="output text_html">4.52631578947368</div></div>
 </div>
 <p>However the advantage of summing over the squares is that it brings in tools from Calculus that work with quadratic expressions but not with absolute value expressions. We then intend to take an average. For reasons we will justify later, it turns out the correct average to do is to divide by the size of our sample minus 1:  <span class="math notranslate nohighlight">\(n-1\)</span> is called the degrees of freedom (roughly computing <span class="math notranslate nohighlight">\(\bar{y}\)</span> from the sample has used up one degree of freedom).</p>
 <p>Note the units on these two statistics:  the variance is the average of the sum of the squares (by the number of degrees of freedom) so its units are the square of the units of our sample data (<em>students squared</em> in this case); and then the standard deviation is the square root of the variance and so has units of the original data (<em>students</em> in this case).</p>
