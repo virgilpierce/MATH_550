@@ -341,9 +341,21 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#minimum-of-the-sample">
-   Minimum of the sample
+  <a class="reference internal nav-link" href="#using-clt">
+   Using CLT
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-do-we-mean-by-95-confident">
+     What do we mean by 95% confident
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-questions">
+     Some questions
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -378,7 +390,7 @@
 .list-inline>li {display: inline-block}
 .list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
 </style>
-<ol class=list-inline><li>0</li><li>0</li><li>5</li><li>3</li><li>2</li></ol>
+<ol class=list-inline><li>2</li><li>3</li><li>2</li><li>2</li><li>3</li></ol>
 </div></div>
 </div>
 <p>Some questions:</p>
@@ -394,7 +406,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">1.955</div></div>
+<div class="output text_html">1.92</div></div>
 </div>
 <p>The histogram of our sample from the Poisson Distribution, looks more like the Poisson Distribution itself as the sample size increases.</p>
 <div class="cell docutils container">
@@ -671,8 +683,106 @@
 </div>
 </div>
 </div>
-<div class="section" id="minimum-of-the-sample">
-<h2>Minimum of the sample<a class="headerlink" href="#minimum-of-the-sample" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-clt">
+<h2>Using CLT<a class="headerlink" href="#using-clt" title="Permalink to this headline">¶</a></h2>
+<p>So let’s now take a look at how we can use the Central Limit Theorem:</p>
+<p>Suppose we are looking for how much the price of gas is changing in our city. Earlier in this course we sampled a few of the gas stations near us:  we have found through many observations that the variance of gas prices is around <span class="math notranslate nohighlight">\(0.32^2\)</span> dollars squared per gallons squared. We sample 10 stations nearby and find that the mean price <em>of the sample</em> is 2.98 dollars per gallon.</p>
+<p>We do not know what the distribution of gas prices is, though we suspect it could be normal, but CLT tells us it does not matter if we are interested in the mean price of gas provided that the sample size is getting large - we do have a question of whether 10 is large enough.</p>
+<p>Assuming that <span class="math notranslate nohighlight">\(\bar{Y}\)</span> is approximately normal, let’s find an interval in which we are 95% confident the population mean <span class="math notranslate nohighlight">\(\mu\)</span> is contained.</p>
+<p>The variable</p>
+<div class="math notranslate nohighlight">
+\[ Z = \frac{\bar{Y} - \mu}{ \sigma/\sqrt{n}} = \frac{2.98 - \mu}{0.32 / \sqrt{10}} \]</div>
+<p>is then approximately a standard normal random variable. We can find an interval centered at 0 in which we are 95% of the time we do this experiment we will find the value of <span class="math notranslate nohighlight">\(Z\)</span>.</p>
+<p>If we want the interval <span class="math notranslate nohighlight">\((-a, a)\)</span> to have 0.95 of the porbability:</p>
+<div class="math notranslate nohighlight">
+\[ \int_{-a}^a \frac{1}{\sqrt{2\pi}} e^{-x^2/2} dx = 0.95 \]</div>
+<p>then we want the tails of this integral to have 0.05 together or 0.025 each:</p>
+<div class="math notranslate nohighlight">
+\[ \int_{-\infty}^{-a} \frac{1}{\sqrt{2\pi}} e^{-x^2/2} dx = \int_{a}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-x^2/2} dx = 0.025 \]</div>
+<p>In other words <span class="math notranslate nohighlight">\(-a\)</span> is the value for which the CDF gives 0.025. We can use the R command <em>qnorm</em> to take the inverse of the CDF and find <span class="math notranslate nohighlight">\(-a\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.025</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">-1.95996398454005</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># It&#39;s a compute so lets use it to keep track of a</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="o">-</span> <span class="nf">qnorm</span><span class="p">(</span><span class="m">0.025</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.95996398454005</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># I always check that I used the inverse correctly and check the tails</span>
+<span class="m">1</span> <span class="o">-</span> <span class="nf">pnorm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.025</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.025</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># we can also check the interior</span>
+
+<span class="nf">pnorm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="o">-</span> <span class="nf">pnorm</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.95</div></div>
+</div>
+<p>So we have:</p>
+<div class="math notranslate nohighlight">
+\[0.95 = P( -a &lt; Z &lt; a)= P( -a &lt; \frac{2.98 - \mu}{0.32 / \sqrt{10}} &lt; a) \]</div>
+<p>and we can then solve this for an inequality bounding <span class="math notranslate nohighlight">\(\mu\)</span> in an interval:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">2.98</span> <span class="o">-</span> <span class="n">a</span><span class="o">*</span><span class="m">0.32</span> <span class="o">/</span> <span class="nf">sqrt</span><span class="p">(</span><span class="m">10</span><span class="p">);</span> <span class="m">2.98</span> <span class="o">+</span> <span class="n">a</span><span class="o">*</span><span class="m">0.32</span> <span class="o">/</span> <span class="nf">sqrt</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2.78166558966254</div><div class="output text_html">3.17833441033746</div></div>
+</div>
+<div class="section" id="what-do-we-mean-by-95-confident">
+<h3>What do we mean by 95% confident<a class="headerlink" href="#what-do-we-mean-by-95-confident" title="Permalink to this headline">¶</a></h3>
+<p>Our statement is that we are 95% confident that <span class="math notranslate nohighlight">\(\mu\)</span> lies between these two numbers (a quick check is to verify that our sample mean is between these values). What we mean by this is that if we were to repeat the experiment:  sample 10 gas stations for their price with nothing else changing, we would 95% of the time (if we did it enough) find an interval that contains <span class="math notranslate nohighlight">\(\mu\)</span>. It is a sort of a statement about how likely it is that we have made the wrong conclusion.</p>
+<p>Of course there are some assumptions we’ve made:</p>
+<ul class="simple">
+<li><p>We assumed that the sample was a random sample of independent identically distributed random variables. Was it?</p></li>
+<li><p>We assumed that with a sample of size 10 the normal approximation to <span class="math notranslate nohighlight">\(\bar{Y}\)</span> would be accurate. Is it?</p></li>
+<li><p>We assumed that variance we had computed over time was the variance of our distribution. Is it?</p></li>
+</ul>
+<p>This last point is a bit sticky. Frequently we will not know our variance and will have to approximate it from the sample itself. We will come back to this.</p>
+</div>
+<div class="section" id="some-questions">
+<h3>Some questions<a class="headerlink" href="#some-questions" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>What happens if you decrease or increase our confidence level?</p></li>
+<li><p>What happens if we decrease or increase our sample size?</p></li>
+<li><p>How large of a sample would we need to know that we have the mean price to within 0.05 dollars with 95</p></li>
+</ol>
+</div>
 </div>
 </div>
 
