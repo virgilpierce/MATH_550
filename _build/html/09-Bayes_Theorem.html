@@ -268,6 +268,11 @@
    Credible Intervals
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#detecting-fraud">
+   Detecting Fraud
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -630,6 +635,17 @@ $<span class="math notranslate nohighlight">\( P(FC) = \frac{12}{52} \frac{51 - 
 <div class="output text_html">0.84884061004525</div><div class="output text_html">0.905168735428658</div></div>
 </div>
 <p>As we make more observations we expect the updated posteriors to converge and therefore the credible intervals will continue to get closer. The evidence so far is indicating that candidate A has less than 50% support from voters.</p>
+</div>
+<div class="section" id="detecting-fraud">
+<h2>Detecting Fraud<a class="headerlink" href="#detecting-fraud" title="Permalink to this headline">¶</a></h2>
+<p>Bayes theorem is frequently used in efforts to detect fraud or determine with an email is legitimate or might be an attach on a company. One example of such an effort is in looking at the results of laboratory tests for THC concentration in commercial marijuana. It appears that some labs have an incentive of some kind to rate samples at above 20%. See the two histograms - one is the resutl of tests from a lab that has been suspended and the other is the result from a trusted laboratory.</p>
+<p>This problem comes from the article: <a class="reference external" href="https://jcannabisresearch.biomedcentral.com/articles/10.1186/s42238-021-00064-2">https://jcannabisresearch.biomedcentral.com/articles/10.1186/s42238-021-00064-2</a> about cannabis testing labs in Washington state. There have been some high profile cases of labs in CA, NV, and CO as well as Canada being fine or suspended for falsifying data or for retailers or producers shopping for labs.</p>
+<p>Something suspicious is happening at some labs in Washington state that test for THC concentrations in consumer sold marajuana. The distribution of concentrations appear to be normal except that there is a discontinuity in the distribution at 20% with a higher density of results just above 20% than just below 20%. Here is the histogram that was found:</p>
+<img src="Labs.png" alt="Histogram of THC Concentrations in suspended Washington Labs" width="300"/>
+<p>Whereas here is a distribution of test results from the largest lab in the sate:</p>
+<img src="goodLab.png" alt="Histogram of THC Concentrations in unsuspended Washington Labs" width="300"/>
+<p>Suppose that you have a set of results from a lab for concentrations of some samples. How would you go about deciding if they have manipulated the results?</p>
+<p>This is an interesting question and it is one I would consider having a group of students spend an entire semester on. Also the idea of using statistics to detect people lying is a worthwhile approach to the course.</p>
 </div>
 </div>
 

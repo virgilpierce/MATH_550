@@ -59,5 +59,3 @@ plot(Hn, posterior2_update)
 
 sum( posterior1_update[1:49]);
 sum( posterior2_update[1:49])
-
-
